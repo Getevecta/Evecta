@@ -114,45 +114,10 @@ runs on Celery workers.
 - **Redis**
 
 ### 1. Backend
-
-```bash
-cd backend
-python -m venv env
-
-# Windows
-.\env\Scripts\Activate
-# macOS / Linux
-source env/bin/activate
-
-pip install -r requirements.txt
-cp .env.example .env        # then fill in the values — see Configuration
-alembic upgrade head        # create the database schema
-python seed_overture_categories.py   # load the place-category taxonomy
-
-uvicorn app.main:app --reload
-```
-
 The API runs at `http://localhost:8000`, with interactive docs at `http://localhost:8000/docs`.
 
-> **Windows note:** to enable durable chat history (the LangGraph Postgres checkpointer), start
-> the API with `python run.py` instead of `uvicorn`. See the comments in `backend/run.py`.
 
-### 2. Background workers
-
-In two more terminals (with the virtual environment activated, from `backend/`):
-
-```bash
-celery -A app.core.celery_app.celery_app worker -P threads -c 4 --loglevel=info
-celery -A app.core.celery_app.celery_app beat -l info
-```
-
-### 3. Frontend
-
-```bash
-cd Frontend
-npm install
-npm run dev
-```
+### 2. Frontend
 
 The app runs at `http://localhost:5173`. Create `Frontend/.env` and point it at the API:
 
@@ -162,31 +127,7 @@ VITE_API_BASE_URL=http://localhost:8000
 
 For a production build, run `npm run build`; output goes to `Frontend/build/`.
 
-## Configuration
-
-All backend settings are read from `backend/.env` and use the `APP_` prefix.
-`backend/.env.example` lists every variable; the main groups are:
-
-| Group | Variables |
-|---|---|
-| Core | `APP_ENVIRONMENT`, `APP_FRONTEND_URL`, `APP_SECRET_KEY`, `APP_MAILBOX_SECRET_KEY` |
-| Database | `APP_POSTGRES_HOST`, `APP_POSTGRES_PORT`, `APP_POSTGRES_DB`, `APP_POSTGRES_USER`, `APP_POSTGRES_PASSWORD` |
-| Redis | `APP_REDIS_URL`, `APP_REDIS_RESULT_URL` |
-| AI | `APP_GEMINI_API_KEY`, `APP_GEMINI_MODEL` |
-| Google | `APP_GOOGLE_CLIENT_ID`, `APP_GOOGLE_CLIENT_SECRET`, `APP_GOOGLE_MAPS_API_KEY` |
-| Email | `APP_SMTP_*`, `APP_BREVO_API_KEY`, `APP_EMAIL_TRACKING_BASE_URL` |
-| Billing | `APP_STRIPE_SECRET_KEY`, `APP_STRIPE_PUBLISHABLE_KEY`, `APP_STRIPE_WEBHOOK_SIGNING_SECRET` |
-
 `app/core/config.py` is the authoritative list, including defaults.
-
-> ⚠️ Never commit `.env` files. They are listed in `.gitignore`.
-
-## Running tests
-
-```bash
-cd backend
-pytest tests/unit
-```
 
 ## Documentation
 
