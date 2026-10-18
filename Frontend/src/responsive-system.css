@@ -1,0 +1,631 @@
+/* ============================================
+   RESPONSIVE DESIGN SYSTEM
+   ============================================
+   
+   Breakpoint Strategy:
+   - S (Small): 0-767px (mobile-first)
+   - M (Medium): 768px-1023px (tablets)
+   - L (Large): 1024px+ (desktop)
+   
+   Design Philosophy:
+   - Controlled breakpoints (not fluid)
+   - Semantic typography tokens
+   - Consistent spacing scale
+   - No overlapping, no overflow, no fixed heights
+   ============================================ */
+
+/* ============================================
+   BREAKPOINT VARIABLES
+   ============================================ */
+:root {
+  /* Breakpoint values */
+  --breakpoint-s-max: 767px;
+  --breakpoint-m-min: 768px;
+  --breakpoint-m-max: 1023px;
+  --breakpoint-l-min: 1024px;
+  
+  /* Container max widths */
+  --container-s-max: 100%;
+  --container-m-max: 720px;
+  --container-l-max: 1200px;
+  
+  /* Spacing scale (base unit: 4px) */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
+}
+
+/* ============================================
+   TYPOGRAPHY TOKENS - SMALL SCREENS (S)
+   ============================================ */
+:root {
+  /* Heading Main - Hero/Page Title */
+  --typography-heading-main-size-s: 20px;
+  --typography-heading-main-line-s: 28px;
+  --typography-heading-main-weight: 700;
+  
+  /* Heading Section - Section Titles */
+  --typography-heading-section-size-s: 14px;
+  --typography-heading-section-line-s: 20px;
+  --typography-heading-section-weight: 600;
+  
+  /* Heading Card - Card Titles */
+  --typography-heading-card-size-s: 14px;
+  --typography-heading-card-line-s: 20px;
+  --typography-heading-card-weight: 600;
+  
+  /* Body Text - Main content */
+  --typography-body-text-size-s: 10px;
+  --typography-body-text-line-s: 16px;
+  --typography-body-text-weight: 400;
+  
+  /* Body Large - Emphasized content */
+  --typography-body-large-size-s: 12px;
+  --typography-body-large-line-s: 18px;
+  --typography-body-large-weight: 400;
+  
+  /* Helper Text - Captions, meta */
+  --typography-helper-text-size-s: 9px;
+  --typography-helper-text-line-s: 14px;
+  --typography-helper-text-weight: 500;
+  
+  /* Button Text */
+  --typography-button-size-s: 10px;
+  --typography-button-line-s: 16px;
+  --typography-button-weight: 600;
+  
+  /* Navigation Text */
+  --typography-nav-size-s: 10px;
+  --typography-nav-line-s: 16px;
+  --typography-nav-weight: 500;
+}
+
+/* ============================================
+   TYPOGRAPHY TOKENS - MEDIUM SCREENS (M)
+   ============================================ */
+@media (min-width: 768px) {
+  :root {
+    --typography-heading-main-size-m: 24px;
+    --typography-heading-main-line-m: 32px;
+    
+    --typography-heading-section-size-m: 16px;
+    --typography-heading-section-line-m: 24px;
+    
+    --typography-heading-card-size-m: 15px;
+    --typography-heading-card-line-m: 22px;
+    
+    --typography-body-text-size-m: 11px;
+    --typography-body-text-line-m: 18px;
+    
+    --typography-body-large-size-m: 13px;
+    --typography-body-large-line-m: 20px;
+    
+    --typography-helper-text-size-m: 10px;
+    --typography-helper-text-line-m: 16px;
+    
+    --typography-button-size-m: 11px;
+    --typography-button-line-m: 18px;
+    
+    --typography-nav-size-m: 11px;
+    --typography-nav-line-m: 18px;
+  }
+}
+
+/* ============================================
+   TYPOGRAPHY TOKENS - LARGE SCREENS (L)
+   ============================================ */
+@media (min-width: 1024px) {
+  :root {
+    --typography-heading-main-size-l: 28px;
+    --typography-heading-main-line-l: 36px;
+    
+    --typography-heading-section-size-l: 18px;
+    --typography-heading-section-line-l: 26px;
+    
+    --typography-heading-card-size-l: 16px;
+    --typography-heading-card-line-l: 24px;
+    
+    --typography-body-text-size-l: 12px;
+    --typography-body-text-line-l: 20px;
+    
+    --typography-body-large-size-l: 16px;
+    --typography-body-large-line-l: 24px;
+    
+    --typography-helper-text-size-l: 11px;
+    --typography-helper-text-line-l: 18px;
+    
+    --typography-button-size-l: 12px;
+    --typography-button-line-l: 20px;
+    
+    --typography-nav-size-l: 12px;
+    --typography-nav-line-l: 20px;
+  }
+}
+
+/* ============================================
+   SEMANTIC TYPOGRAPHY CLASSES
+   ============================================ */
+
+/* Heading Main - Use for hero titles, page titles */
+.heading-main {
+  font-size: var(--typography-heading-main-size-s);
+  line-height: var(--typography-heading-main-line-s);
+  font-weight: var(--typography-heading-main-weight);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .heading-main {
+    font-size: var(--typography-heading-main-size-m);
+    line-height: var(--typography-heading-main-line-m);
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading-main {
+    font-size: var(--typography-heading-main-size-l);
+    line-height: var(--typography-heading-main-line-l);
+  }
+}
+
+/* Heading Section - Use for section titles */
+.heading-section {
+  font-size: var(--typography-heading-section-size-s);
+  line-height: var(--typography-heading-section-line-s);
+  font-weight: var(--typography-heading-section-weight);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .heading-section {
+    font-size: var(--typography-heading-section-size-m);
+    line-height: var(--typography-heading-section-line-m);
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading-section {
+    font-size: var(--typography-heading-section-size-l);
+    line-height: var(--typography-heading-section-line-l);
+  }
+}
+
+/* Heading Card - Use for card titles, feature titles */
+.heading-card {
+  font-size: var(--typography-heading-card-size-s);
+  line-height: var(--typography-heading-card-line-s);
+  font-weight: var(--typography-heading-card-weight);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .heading-card {
+    font-size: var(--typography-heading-card-size-m);
+    line-height: var(--typography-heading-card-line-m);
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading-card {
+    font-size: var(--typography-heading-card-size-l);
+    line-height: var(--typography-heading-card-line-l);
+  }
+}
+
+/* Body Text - Use for paragraphs, main content */
+.body-text {
+  font-size: var(--typography-body-text-size-s);
+  line-height: var(--typography-body-text-line-s);
+  font-weight: var(--typography-body-text-weight);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .body-text {
+    font-size: var(--typography-body-text-size-m);
+    line-height: var(--typography-body-text-line-m);
+  }
+}
+
+@media (min-width: 1024px) {
+  .body-text {
+    font-size: var(--typography-body-text-size-l);
+    line-height: var(--typography-body-text-line-l);
+  }
+}
+
+/* Body Large - Use for emphasized paragraphs */
+.body-large {
+  font-size: var(--typography-body-large-size-s);
+  line-height: var(--typography-body-large-line-s);
+  font-weight: var(--typography-body-large-weight);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .body-large {
+    font-size: var(--typography-body-large-size-m);
+    line-height: var(--typography-body-large-line-m);
+  }
+}
+
+@media (min-width: 1024px) {
+  .body-large {
+    font-size: var(--typography-body-large-size-l);
+    line-height: var(--typography-body-large-line-l);
+  }
+}
+
+/* Helper Text - Use for captions, meta info, small labels */
+.helper-text {
+  font-size: var(--typography-helper-text-size-s);
+  line-height: var(--typography-helper-text-line-s);
+  font-weight: var(--typography-helper-text-weight);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .helper-text {
+    font-size: var(--typography-helper-text-size-m);
+    line-height: var(--typography-helper-text-line-m);
+  }
+}
+
+@media (min-width: 1024px) {
+  .helper-text {
+    font-size: var(--typography-helper-text-size-l);
+    line-height: var(--typography-helper-text-line-l);
+  }
+}
+
+/* ============================================
+   RESPONSIVE UTILITY CLASSES
+   ============================================ */
+
+/* Container widths */
+.container-responsive {
+  width: 100%;
+  max-width: var(--container-s-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .container-responsive {
+    max-width: var(--container-m-max);
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    max-width: var(--container-l-max);
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
+  }
+}
+
+/* Spacing utilities */
+.spacing-xs { margin: var(--spacing-xs); }
+.spacing-sm { margin: var(--spacing-sm); }
+.spacing-md { margin: var(--spacing-md); }
+.spacing-lg { margin: var(--spacing-lg); }
+.spacing-xl { margin: var(--spacing-xl); }
+.spacing-2xl { margin: var(--spacing-2xl); }
+.spacing-3xl { margin: var(--spacing-3xl); }
+.spacing-4xl { margin: var(--spacing-4xl); }
+
+/* Padding utilities */
+.padding-xs { padding: var(--spacing-xs); }
+.padding-sm { padding: var(--spacing-sm); }
+.padding-md { padding: var(--spacing-md); }
+.padding-lg { padding: var(--spacing-lg); }
+.padding-xl { padding: var(--spacing-xl); }
+.padding-2xl { padding: var(--spacing-2xl); }
+.padding-3xl { padding: var(--spacing-3xl); }
+.padding-4xl { padding: var(--spacing-4xl); }
+
+/* Gap utilities */
+.gap-xs { gap: var(--spacing-xs); }
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+.gap-xl { gap: var(--spacing-xl); }
+.gap-2xl { gap: var(--spacing-2xl); }
+.gap-3xl { gap: var(--spacing-3xl); }
+.gap-4xl { gap: var(--spacing-4xl); }
+
+/* ============================================
+   RESPONSIVE GRID SYSTEM
+   ============================================ */
+.grid-responsive {
+  display: grid;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+/* Small: 1 column */
+.grid-responsive {
+  grid-template-columns: 1fr;
+}
+
+/* Medium: 2 columns */
+@media (min-width: 768px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Large: 3 columns (or custom) */
+@media (min-width: 1024px) {
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+  }
+}
+
+/* Grid variants */
+.grid-responsive-2 {
+  display: grid;
+  gap: var(--spacing-md);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-responsive-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
+
+.grid-responsive-4 {
+  display: grid;
+  gap: var(--spacing-md);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-responsive-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive-4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xl);
+  }
+}
+
+/* ============================================
+   RESPONSIVE FLEX UTILITIES
+   ============================================ */
+.flex-responsive {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .flex-responsive {
+    flex-direction: row;
+    gap: var(--spacing-lg);
+  }
+}
+
+/* ============================================
+   RESPONSIVE VISIBILITY
+   ============================================ */
+/* Show only on small screens */
+.show-s {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .show-s {
+    display: none;
+  }
+}
+
+/* Show only on medium screens */
+.show-m {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .show-m {
+    display: block;
+  }
+}
+
+/* Show only on large screens */
+.show-l {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .show-l {
+    display: block;
+  }
+}
+
+/* Hide on small screens */
+.hide-s {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hide-s {
+    display: block;
+  }
+}
+
+/* Hide on medium screens */
+.hide-m {
+  display: block;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hide-m {
+    display: none;
+  }
+}
+
+/* Hide on large screens */
+.hide-l {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .hide-l {
+    display: none;
+  }
+}
+
+/* ============================================
+   RESPONSIVE BUTTONS
+   ============================================ */
+.btn-responsive {
+  font-size: var(--typography-button-size-s);
+  line-height: var(--typography-button-line-s);
+  font-weight: var(--typography-button-weight);
+  /* padding: var(--spacing-sm) var(--spacing-md); */
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .btn-responsive {
+    font-size: var(--typography-button-size-m);
+    line-height: var(--typography-button-line-m);
+    padding: var(--spacing-md) var(--spacing-lg);
+    width: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn-responsive {
+    font-size: var(--typography-button-size-l);
+    line-height: var(--typography-button-line-l);
+    padding: var(--spacing-md) var(--spacing-xl);
+  }
+}
+
+/* ============================================
+   RESPONSIVE NAVIGATION
+   ============================================ */
+.nav-text {
+  font-size: var(--typography-nav-size-s);
+  line-height: var(--typography-nav-line-s);
+  font-weight: var(--typography-nav-weight);
+}
+
+@media (min-width: 768px) {
+  .nav-text {
+    font-size: var(--typography-nav-size-m);
+    line-height: var(--typography-nav-line-m);
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-text {
+    font-size: var(--typography-nav-size-l);
+    line-height: var(--typography-nav-line-l);
+  }
+}
+
+/* ============================================
+   RESPONSIVE CARD SYSTEM
+   ============================================ */
+.card-responsive {
+  background: var(--color-background-card);
+  border-radius: 8px;
+  padding: var(--spacing-md);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .card-responsive {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-responsive {
+    padding: var(--spacing-xl);
+  }
+}
+
+/* ============================================
+   OVERFLOW PREVENTION
+   ============================================ */
+.no-overflow {
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.no-overflow-x {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.no-overflow-y {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+/* Prevent text overflow */
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-wrap {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* ============================================
+   NO FIXED HEIGHTS
+   ============================================ */
+/* Use min-height instead of height for flexible layouts */
+.flexible-height {
+  min-height: auto;
+}
+
+/* ============================================
+   RESPONSIVE IMAGES
+   ============================================ */
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.img-responsive-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.img-responsive-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+

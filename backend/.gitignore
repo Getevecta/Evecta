@@ -1,0 +1,56 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+/uploads
+
+
+# Virtual environment
+venv/
+env/
+.env/
+.venv/
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+*.iml
+
+# Logs
+*.log
+logs/
+
+# SQLite
+*.db
+*.sqlite3
+
+# Secrets
+.env
+
+# Development tools (exclude from production)
+dev-tools/
+
+# Celery Beat schedule files
+celerybeat-schedule*

@@ -1,0 +1,2082 @@
+/* Campaign Detail Component Styles */
+
+.campaign-detail-back-button {
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-detail-back-button:hover,
+.campaign-detail-back-button:focus,
+.campaign-detail-back-button:active {
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-detail-menu-button {
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-detail-menu-button:hover,
+.campaign-detail-menu-button:focus,
+.campaign-detail-menu-button:active {
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-detail-dropdown-button {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-detail-dropdown-button:hover,
+.campaign-detail-dropdown-button:focus,
+.campaign-detail-dropdown-button:active {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Dropdown Menu Items - Lighter shade of purple on hover */
+.campaign-detail-dropdown-item {
+  background-color: white !important;
+  color: #111827 !important;
+}
+
+.campaign-detail-dropdown-item:hover,
+.campaign-detail-dropdown-item:focus,
+.campaign-detail-dropdown-item[data-highlighted] {
+  background-color: #FAF5FF !important;
+  color: #111827 !important;
+}
+
+.campaign-detail-dropdown-item.text-red-600:hover,
+.campaign-detail-dropdown-item.text-red-600:focus,
+.campaign-detail-dropdown-item.text-red-600[data-highlighted] {
+  background-color: #FAF5FF !important;
+  color: #DC2626 !important;
+}
+
+/* Campaign Detail Component - Inline Styles Extracted */
+
+/* Loading State */
+.campaign-detail-loading-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.campaign-detail-loading-text {
+  font-size: 14px;
+  color: #6B7280;
+  font-family: Urbanist;
+}
+
+/* Main Container */
+.campaign-detail-main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  overflow: hidden;
+}
+
+/*
+ * One scroll for the whole page (header → chart → leads).
+ * A nested flex split with overflow: hidden hid content below the graph; keep a single scroll column here.
+ */
+.campaign-detail-scroll-container {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.campaign-detail-upper-section {
+  flex: 0 0 auto;
+  min-height: 0;
+  overflow: visible;
+}
+
+/* Header - no horizontal line below (removed so no line above Campaign Progress) */
+.campaign-detail-header {
+  padding: 12px 16px;
+  border-bottom: none;
+  flex-shrink: 0;
+}
+
+/* Single frame: arrow, campaign name (same line), calendar, three-dot horizontal + description & info */
+.campaign-detail-header-single-frame {
+  padding: 14px 16px;
+  border: 1px solid rgba(145, 100, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: stretch;
+}
+
+/* Top row: ArrowLeft, text column (name + description + created on same vertical line), calendar, three-dot */
+.campaign-detail-header-top-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.campaign-detail-header-top-row .campaign-detail-back-arrow-button {
+  flex-shrink: 0;
+}
+
+/* Column so campaign name, description, created on start at same vertical line - no gap */
+.campaign-detail-header-text-column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;
+}
+
+.campaign-detail-header-text-column .campaign-detail-title-inline {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.campaign-detail-header-text-column .campaign-detail-description-in-frame {
+  margin: 0;
+  width: 100%;
+}
+
+.campaign-detail-header-text-column .campaign-detail-info-row-in-frame {
+  margin: 0;
+}
+
+.campaign-detail-header-date-picker {
+  flex-shrink: 0;
+}
+
+.campaign-detail-description-in-frame {
+  margin: 0;
+}
+
+.campaign-detail-info-row-in-frame {
+  margin: 0;
+}
+
+/* Back arrow (ArrowLeft from Lucide) */
+.campaign-detail-back-arrow-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none !important;
+  border: none !important;
+  padding: 2px;
+  cursor: pointer;
+  flex-shrink: 0;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #111827;
+}
+
+.campaign-detail-back-arrow-button:hover,
+.campaign-detail-back-arrow-button:focus,
+.campaign-detail-back-arrow-button:active {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #374151;
+}
+
+.campaign-detail-back-arrow-icon {
+  flex-shrink: 0;
+}
+
+/* Preview (eye) button in header - opens preview content modal directly */
+.campaign-detail-header-dot-menu-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.campaign-detail-header-preview-eye-button:hover .campaign-detail-header-dot-icon {
+  color: #6366f1;
+}
+
+.campaign-detail-header-dot-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  color: #374151;
+  flex-shrink: 0;
+}
+
+.campaign-detail-header-dot-button:hover {
+  background: #F9FAFB;
+  border-color: #D1D5DB;
+}
+
+.campaign-detail-header-dot-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.campaign-detail-header-dot-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  min-width: 180px;
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  padding: 4px 0;
+}
+
+.campaign-detail-header-dot-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: #111827;
+  font-family: Urbanist;
+  text-align: left;
+}
+
+.campaign-detail-header-dot-item:hover {
+  background: #F9FAFB;
+}
+
+.campaign-detail-header-dot-preview-img {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+}
+
+.campaign-detail-header-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  align-items: start;
+}
+
+.campaign-detail-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+  grid-column: 2;
+}
+
+.campaign-detail-title-row .campaign-detail-back-button {
+  margin-right: 0;
+  flex-shrink: 0;
+}
+
+.campaign-detail-title {
+  font-size: 16px !important;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  font-family: Urbanist;
+  line-height: 1.2;
+}
+
+/* Override global heading-xl styles with more specific selectors */
+.campaign-detail-main-container .campaign-detail-title.heading-xl,
+.campaign-detail-main-container h1.campaign-detail-title.heading-xl,
+.campaign-detail-scroll-container .campaign-detail-title.heading-xl,
+.campaign-detail-scroll-container h1.campaign-detail-title.heading-xl,
+.campaign-detail-header .campaign-detail-title.heading-xl,
+.campaign-detail-header h1.campaign-detail-title.heading-xl,
+.campaign-detail-header-content .campaign-detail-title.heading-xl,
+.campaign-detail-header-content h1.campaign-detail-title.heading-xl,
+.campaign-detail-header-info-border .campaign-detail-title.heading-xl,
+.campaign-detail-header-info-border h1.campaign-detail-title.heading-xl,
+.campaign-detail-title-inline.heading-xl,
+.campaign-detail-header-single-frame h1.campaign-detail-title.heading-xl,
+.campaign-detail-header-main .campaign-detail-title.heading-xl,
+.campaign-detail-header-main h1.campaign-detail-title.heading-xl,
+.campaign-detail-title-row .campaign-detail-title.heading-xl,
+.campaign-detail-title-row h1.campaign-detail-title.heading-xl {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+}
+
+.campaign-detail-status-badge-img {
+  height: 20px;
+  width: auto;
+  display: block;
+}
+
+.campaign-detail-description {
+  font-size: 11px;
+  color: #A198CE;
+  margin: 0;
+  font-family: Urbanist;
+  line-height: 1.3;
+}
+
+.campaign-detail-info-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.campaign-detail-info-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px !important;
+  color: #A198CE;
+  font-family: Urbanist;
+}
+
+.campaign-detail-info-item span {
+  font-size: 10px !important;
+  color: #A198CE;
+  font-family: Urbanist;
+}
+
+.campaign-detail-info-item .campaign-detail-info-value {
+  color: #111827;
+}
+
+.campaign-detail-info-icon {
+  width: 12px;
+  height: 12px;
+  color: #A198CE;
+}
+
+/* Ongoing / sent campaign detail — spec typography & surfaces */
+.campaign-detail-main-container.campaign-detail-ongoing .campaign-detail-header-single-frame {
+  background: transparent;
+}
+
+.campaign-detail-main-container.campaign-detail-ongoing .campaign-detail-title-inline.heading-xl,
+.campaign-detail-main-container.campaign-detail-ongoing h1.campaign-detail-title-inline.heading-xl,
+.campaign-detail-main-container.campaign-detail-ongoing .campaign-detail-header-single-frame h1.campaign-detail-title.heading-xl {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.25 !important;
+  color: #030011 !important;
+}
+
+.campaign-detail-main-container.campaign-detail-ongoing .campaign-detail-description-in-frame {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+}
+
+.campaign-detail-main-container.campaign-detail-ongoing .campaign-detail-info-item {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 19.5px !important;
+  color: #a198ce !important;
+}
+
+.campaign-detail-main-container.campaign-detail-ongoing .campaign-detail-info-item > span {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 19.5px !important;
+  color: #a198ce !important;
+}
+
+.campaign-detail-main-container.campaign-detail-ongoing .campaign-detail-info-item .campaign-detail-info-value {
+  color: #030011 !important;
+  font-weight: 500 !important;
+}
+
+.campaign-detail-main-container.campaign-detail-ongoing .campaign-detail-info-icon {
+  color: #a198ce !important;
+}
+
+.campaign-detail-main-container.campaign-detail-ongoing .campaign-detail-date-picker-button {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  color: #030011 !important;
+  background-color: #ffffff !important;
+  min-height: 36px !important;
+  height: 36px !important;
+  border-radius: 8px !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.campaign-detail-main-container.campaign-detail-ongoing .campaign-detail-date-picker-icon {
+  color: #a198ce !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.campaign-detail-main-container.campaign-detail-ongoing .campaign-detail-progress-section {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(208, 213, 221, 0.3);
+}
+
+.campaign-detail-main-container.campaign-detail-ongoing .campaign-detail-progress-title.heading-l,
+.campaign-detail-main-container.campaign-detail-ongoing h2.campaign-detail-progress-title.heading-l,
+.campaign-detail-main-container.campaign-detail-ongoing .campaign-detail-progress-section .campaign-detail-progress-title.heading-l {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.25 !important;
+  color: #030011 !important;
+  margin: 0 !important;
+}
+
+.campaign-detail-main-container.campaign-detail-ongoing .campaign-detail-progress-description {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+}
+
+/* Campaign Progress Over Time Section — 24px horizontal inset; stats row gap 20px */
+.campaign-detail-progress-section {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 24px 24px;
+  border-bottom: 1px solid #E5E7EB;
+  background-color: white;
+}
+
+.campaign-detail-progress-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.campaign-detail-progress-header-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.campaign-detail-progress-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  line-height: 1;
+}
+
+.campaign-detail-progress-title-icon {
+  width: 16px;
+  height: 16px;
+  color: #6B21A8;
+}
+
+.campaign-detail-progress-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  font-family: Urbanist;
+  line-height: 1;
+}
+
+.campaign-detail-progress-title.heading-l,
+h2.campaign-detail-progress-title.heading-l,
+.campaign-detail-progress-section .campaign-detail-progress-title.heading-l,
+.campaign-detail-progress-section h2.campaign-detail-progress-title.heading-l,
+.campaign-detail-main-container .campaign-detail-progress-title.heading-l,
+.campaign-detail-main-container h2.campaign-detail-progress-title.heading-l {
+  font-size: 14px !important;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  line-height: 1 !important;
+}
+
+.campaign-detail-progress-description {
+  font-size: 12px;
+  color: #A198CE;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-left: 0;
+  padding-top: 0;
+  font-family: Urbanist;
+  line-height: 1.2;
+}
+
+/* Horizontal line after Campaign Progress description */
+.campaign-detail-progress-description-line {
+  margin-top: 12px;
+  margin-bottom: 0;
+  height: 0;
+  border: none;
+  border-top: 1px solid #E5E7EB;
+}
+
+.campaign-detail-progress-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.campaign-detail-preview-content-button {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.campaign-detail-preview-content-button:hover {
+  opacity: 0.85;
+}
+
+.campaign-detail-preview-content-button-img {
+  width: 151px;
+  height: 36px;
+  display: block;
+}
+
+/* Date Range Picker */
+.campaign-detail-date-picker-wrapper {
+  position: relative;
+}
+
+.campaign-detail-date-picker-button {
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #111827;
+  background-color: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: Urbanist;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 180px;
+  min-height: 36px;
+  height: 36px;
+  box-sizing: border-box;
+}
+
+.campaign-detail-date-picker-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #374151;
+}
+
+.campaign-detail-calendar-popup {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  z-index: 1000;
+  min-width: 280px;
+  font-family: Urbanist;
+}
+
+.campaign-detail-calendar-field {
+  margin-bottom: 12px;
+}
+
+.campaign-detail-calendar-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.campaign-detail-calendar-input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: Urbanist;
+  outline: none;
+}
+
+.campaign-detail-calendar-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.campaign-detail-calendar-cancel-button {
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #6B7280;
+  background-color: transparent;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: Urbanist;
+}
+
+.campaign-detail-calendar-apply-button {
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  color: white !important;
+  background-color: #8B5CF6;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: Urbanist;
+}
+
+.campaign-detail-calendar-apply-button:hover {
+  color: white !important;
+  background-color: #7C3AED;
+}
+
+.campaign-detail-calendar-apply-button:focus {
+  color: white !important;
+  background-color: #7C3AED;
+  outline: none;
+}
+
+.campaign-detail-calendar-apply-button:active {
+  color: white !important;
+  background-color: #6D28D9;
+}
+
+/* Stats Cards (Campaign Progress) — same row layout as .campaign-detail-outreach-metrics */
+.campaign-detail-stats-cards {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  justify-content: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+/* White metric cards — Campaign Progress + Outreach Progress */
+.campaign-detail-metric-card {
+  flex: 1 1 0;
+  min-width: 180px;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid #E8E4F4;
+  border-radius: 12px;
+  padding: 16px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: Urbanist, sans-serif;
+  overflow: visible;
+}
+
+.campaign-detail-metric-card--outreach {
+  min-width: 160px;
+}
+
+.campaign-detail-metric-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.campaign-detail-metric-card-icon-wrap {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.campaign-detail-metric-card-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  line-height: 1.2;
+}
+
+.campaign-detail-metric-card-value,
+.campaign-detail-main-container .campaign-detail-metric-card-value,
+.campaign-detail-stats-cards .campaign-detail-metric-card-value,
+.campaign-detail-outreach-metrics .campaign-detail-metric-card-value {
+  font-size: 96px !important;
+  font-weight: 700 !important;
+  color: #111827;
+  line-height: 0.95 !important;
+  margin: 4px 0 0 !important;
+  padding: 0;
+  letter-spacing: -0.03em;
+  word-break: break-word;
+  display: block;
+}
+
+.campaign-detail-metric-card-value--accent {
+  color: #EF4444;
+}
+
+.campaign-detail-metric-card-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+  margin-top: 2px;
+}
+
+.campaign-detail-metric-card-subtext {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.campaign-detail-metric-card-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.2;
+  background: #FEE2E2;
+  color: #EF4444;
+}
+
+.campaign-detail-metric-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.campaign-detail-metric-progress-track {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: #F3F4F6;
+  overflow: hidden;
+}
+
+.campaign-detail-metric-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.campaign-detail-metric-progress-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6B7280;
+  min-width: 28px;
+  text-align: right;
+}
+
+.campaign-detail-metric-card--purple .campaign-detail-metric-card-icon-wrap {
+  background: #F0EBFF;
+  color: #9164FF;
+}
+
+.campaign-detail-metric-card--purple .campaign-detail-metric-card-subtext {
+  color: #9164FF;
+}
+
+.campaign-detail-metric-card--purple .campaign-detail-metric-progress-fill {
+  background: #9164FF;
+}
+
+.campaign-detail-metric-card--green .campaign-detail-metric-card-icon-wrap {
+  background: #ECFDF5;
+  color: #10B981;
+}
+
+.campaign-detail-metric-card--green .campaign-detail-metric-card-subtext {
+  color: #10B981;
+}
+
+.campaign-detail-metric-card--green .campaign-detail-metric-progress-fill {
+  background: #10B981;
+}
+
+.campaign-detail-metric-card--orange .campaign-detail-metric-card-icon-wrap {
+  background: #FFF7ED;
+  color: #F97316;
+}
+
+.campaign-detail-metric-card--orange .campaign-detail-metric-card-subtext {
+  color: #F97316;
+}
+
+.campaign-detail-metric-card--orange .campaign-detail-metric-progress-fill {
+  background: #F97316;
+}
+
+.campaign-detail-metric-card--red .campaign-detail-metric-card-icon-wrap {
+  background: #FEF2F2;
+  color: #EF4444;
+}
+
+.campaign-detail-metric-card--red .campaign-detail-metric-card-subtext {
+  color: #EF4444;
+}
+
+.campaign-detail-metric-card--red .campaign-detail-metric-progress-fill {
+  background: #EF4444;
+}
+
+.campaign-detail-metric-card--yellow .campaign-detail-metric-card-icon-wrap {
+  background: #FEFCE8;
+  color: #EAB308;
+}
+
+.campaign-detail-metric-card--yellow .campaign-detail-metric-card-subtext {
+  color: #CA8A04;
+}
+
+.campaign-detail-metric-card--yellow .campaign-detail-metric-progress-fill {
+  background: #EAB308;
+}
+
+/* Campaign Outreach Progress Section - same left vertical line as progress (no extra left padding) */
+.campaign-detail-outreach-progress-section {
+  padding: 24px 16px 24px 0;
+  border-bottom: none;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.campaign-detail-outreach-progress-background {
+  display: none;
+}
+
+.campaign-detail-outreach-progress-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.campaign-detail-outreach-progress-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.campaign-detail-outreach-progress-header-content {
+  flex: 1;
+}
+
+.campaign-detail-outreach-progress-title-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.campaign-detail-outreach-progress-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  width: 18px;
+  height: 18px;
+}
+
+.campaign-detail-outreach-progress-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0;
+  line-height: 1;
+}
+
+.campaign-detail-outreach-progress-title {
+  font-size: 14px;
+  font-weight: 400;
+  color: #111827;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  font-family: Urbanist;
+  line-height: 1;
+}
+
+.campaign-detail-outreach-progress-title.heading-l,
+.campaign-detail-outreach-progress-section .campaign-detail-outreach-progress-title.heading-l,
+.campaign-detail-outreach-progress-section h2.campaign-detail-outreach-progress-title.heading-l,
+.campaign-detail-main-container .campaign-detail-outreach-progress-title.heading-l,
+.campaign-detail-main-container h2.campaign-detail-outreach-progress-title.heading-l {
+  font-size: 14px !important;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  line-height: 1 !important;
+}
+
+.campaign-detail-outreach-progress-description {
+  font-size: 12px;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0;
+  line-height: 1.2;
+  color: #A198CE;
+  font-family: Urbanist;
+  line-height: 1;
+}
+
+/* Horizontal line after Campaign Outreach Progress description */
+.campaign-detail-outreach-progress-description-line {
+  margin-top: 12px;
+  margin-bottom: 0;
+  height: 0;
+  border: none;
+  border-top: 1px solid #E5E7EB;
+}
+
+/* Outreach Metrics Cards */
+.campaign-detail-outreach-metrics {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  justify-content: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Chart Container */
+.campaign-detail-chart-container {
+  position: relative;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.campaign-detail-chart-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  color: #9CA3AF;
+  font-family: Urbanist;
+  z-index: 10;
+}
+
+/* Chart Tooltip */
+.campaign-detail-chart-tooltip {
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  min-width: 140px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-family: Urbanist;
+}
+
+.campaign-detail-chart-tooltip-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.campaign-detail-chart-tooltip-content {
+  font-size: 10px;
+  color: #6B7280;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.campaign-detail-chart-tooltip-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.campaign-detail-chart-tooltip-value {
+  font-weight: 600;
+}
+
+.campaign-detail-chart-tooltip-value.opened {
+  color: #10B981;
+}
+
+.campaign-detail-chart-tooltip-value.bounced {
+  color: #EF4444;
+}
+
+.campaign-detail-chart-tooltip-value.not-opened {
+  color: #9CA3AF;
+}
+
+.campaign-detail-chart-tooltip-value.sent {
+  color: #A78BFA;
+}
+
+/* Chart Legend */
+.campaign-detail-chart-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.campaign-detail-chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #374151;
+  font-family: Urbanist;
+}
+
+.campaign-detail-chart-legend-arrow {
+  color: inherit;
+}
+
+/* Campaign Leads — part of the same scroll as the chart (no clipped overflow below the graph). */
+.campaign-detail-leads-section {
+  padding: 24px 16px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  min-height: 0;
+  overflow: visible;
+}
+
+/* Stack table + pagination; do not consume remaining viewport height (that blocked page scroll). */
+.campaign-detail-leads-table-pagination.dashboard-content-with-pagination {
+  flex: 0 0 auto;
+  min-height: 0;
+  overflow: visible;
+}
+
+.campaign-detail-leads-section-standalone .lead-database-table-wrapper {
+  flex: 0 0 auto;
+  min-height: 0;
+  height: auto;
+}
+
+.campaign-detail-leads-section-standalone .dashboard-data-table {
+  max-height: none;
+}
+
+/* Ensure Status and Location columns display separately (not overridden/merged) */
+.campaign-detail-leads-section-standalone .dashboard-data-table .lead-database-table-head-status,
+.campaign-detail-leads-section-standalone .dashboard-data-table .lead-database-table-cell-status {
+  width: 100px !important;
+  min-width: 80px !important;
+  max-width: 120px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.campaign-detail-leads-section-standalone .dashboard-data-table .lead-database-table-head-location,
+.campaign-detail-leads-section-standalone .dashboard-data-table .lead-database-table-cell-location {
+  width: 120px !important;
+  min-width: 80px !important;
+  max-width: 150px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+
+/* Header row: title + subtitle left, search right (Inbox-style search via Inbox.css) */
+.campaign-detail-leads-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.campaign-detail-leads-header-row .campaign-detail-leads-search-inbox.inbox-search-filter-container {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.campaign-detail-leads-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.campaign-detail-leads-header {
+  margin-bottom: 16px;
+}
+
+.campaign-detail-leads-title {
+  font-size: 14px !important;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0 0;
+  font-family: Urbanist;
+}
+
+.campaign-detail-leads-title.heading-l,
+h2.campaign-detail-leads-title.heading-l,
+.campaign-detail-leads-section .campaign-detail-leads-title.heading-l,
+.campaign-detail-leads-section h2.campaign-detail-leads-title.heading-l,
+.campaign-detail-main-container .campaign-detail-leads-title.heading-l,
+.campaign-detail-main-container h2.campaign-detail-leads-title.heading-l {
+  font-size: 14px !important;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.campaign-detail-leads-subtitle {
+  font-size: 12px;
+  color: #A198CE;
+  margin: 0;
+  padding-top: 0;
+  font-family: Urbanist;
+}
+
+/* Search Bar */
+.campaign-detail-search-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+}
+
+.campaign-detail-search-input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 0 16px;
+  height: 36px;
+  gap: 10px;
+  flex: 1;
+  max-width: 500px;
+  min-width: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.campaign-detail-search-icon {
+  width: 16px;
+  height: 16px;
+  color: #6B7280;
+  flex-shrink: 0;
+}
+
+.campaign-detail-search-input {
+  border: none !important;
+  background-color: transparent;
+  outline: none !important;
+  font-size: 12px;
+  font-weight: 500;
+  color: #111827;
+  font-family: Urbanist;
+  padding: 0;
+  height: 100%;
+  box-shadow: none !important;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  --tw-ring-offset-width: 0 !important;
+  --tw-ring-color: transparent !important;
+}
+
+.campaign-detail-search-input:focus,
+.campaign-detail-search-input:focus-visible,
+.campaign-detail-search-input:active {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  --tw-ring-shadow: 0 0 0 0 transparent !important;
+  --tw-ring-width: 0px !important;
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-color: transparent !important;
+}
+
+/* Target input element directly */
+.campaign-detail-search-input-wrapper input[data-slot="input"],
+.campaign-detail-search-input-wrapper input[type="text"],
+.campaign-detail-search-input-wrapper input {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  --tw-ring-offset-width: 0 !important;
+}
+
+.campaign-detail-search-input-wrapper input[data-slot="input"]:focus,
+.campaign-detail-search-input-wrapper input[data-slot="input"]:focus-visible,
+.campaign-detail-search-input-wrapper input[type="text"]:focus,
+.campaign-detail-search-input-wrapper input[type="text"]:focus-visible {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  --tw-ring-shadow: 0 0 0 0 transparent !important;
+  --tw-ring-width: 0px !important;
+  --tw-ring-offset-width: 0px !important;
+}
+
+/* Pagination */
+.campaign-detail-pagination {
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #6B7280;
+  font-family: Urbanist;
+  flex-shrink: 0;
+  margin-bottom: 16px;
+  flex-wrap: nowrap;
+  gap: 12px;
+}
+
+.campaign-detail-pagination-info {
+  white-space: nowrap;
+}
+
+.campaign-detail-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+.campaign-detail-pagination-arrows {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.campaign-detail-pagination-arrow-button {
+  background: transparent !important;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 26px;
+  vertical-align: middle;
+}
+
+.campaign-detail-pagination-arrow-button:hover,
+.campaign-detail-pagination-arrow-button:focus,
+.campaign-detail-pagination-arrow-button:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-detail-pagination-arrow-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.campaign-detail-pagination-arrow-img {
+  width: 28px;
+  height: 26px;
+  display: block;
+  vertical-align: middle;
+}
+
+.campaign-detail-pagination-page-info {
+  font-size: 12px;
+  font-weight: 500;
+  color: #374151;
+  font-family: Urbanist;
+  white-space: nowrap;
+}
+
+.campaign-detail-pagination-items-per-page {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: nowrap;
+}
+
+.campaign-detail-pagination-items-per-page-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: #1F2937;
+  font-family: Urbanist;
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.campaign-detail-pagination-select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.campaign-detail-pagination-select {
+  padding: 4px 8px;
+  border: 0.5px solid rgba(107, 33, 168, 0.3);
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  font-family: Urbanist;
+  background-color: #FAFAFA;
+  cursor: pointer;
+  appearance: none;
+  height: 26px;
+  min-height: 26px;
+  max-height: 26px;
+  margin: 0;
+  vertical-align: middle;
+  line-height: 1;
+  outline: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  padding-right: 20px;
+}
+
+.campaign-detail-pagination-select-icon {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  color: rgba(107, 33, 168, 0.3);
+  pointer-events: none;
+}
+
+/* Leads Table */
+.campaign-detail-leads-table-wrapper {
+  flex: 1 1 0%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  background-color: white;
+  margin-top: 12px;
+}
+
+.campaign-detail-leads-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.campaign-detail-leads-empty-icon {
+  width: 60px;
+  height: 60px;
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+
+.campaign-detail-leads-empty-title {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 120%;
+  color: #030011;
+  margin: 0 0 8px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.campaign-detail-leads-empty-description {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #a198ce;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.campaign-detail-leads-table {
+  width: 100%;
+  table-layout: fixed;
+  min-width: 100%;
+}
+
+.campaign-detail-leads-table-header {
+  background-color: var(--dashboard-table-header-bg);
+}
+
+.campaign-detail-leads-table-row {
+  border-bottom: 0.5px solid #E5E7EB;
+}
+
+.campaign-detail-leads-table-head {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  text-align: left;
+}
+
+.campaign-detail-leads-table-head.checkbox {
+  width: 28px;
+  min-width: 28px;
+  max-width: 28px;
+  text-align: center;
+}
+
+.campaign-detail-leads-table-head.company-name {
+  width: 25%;
+}
+
+.campaign-detail-leads-table-head.email {
+  width: 18%;
+  padding-right: 12px;
+}
+
+.campaign-detail-leads-table-head.location {
+  width: 25%;
+  padding-left: 12px;
+  padding-right: 4px;
+}
+
+.campaign-detail-leads-table-head.website {
+  width: 12%;
+}
+
+.campaign-detail-leads-table-head.score {
+  width: 10%;
+  padding-right: 16px;
+  text-align: left;
+}
+
+.campaign-detail-leads-table-head-score-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  position: relative;
+}
+
+.campaign-detail-leads-table-head-score-icon {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  position: relative;
+  z-index: 9999;
+}
+
+.campaign-detail-leads-table-cell {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 12px;
+  color: #111827;
+  font-family: Urbanist;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.campaign-detail-leads-table-cell.checkbox {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.campaign-detail-leads-table-cell-checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.campaign-detail-leads-table-cell-checkbox-box {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.campaign-detail-leads-table-cell-checkbox-check {
+  width: 12px;
+  height: 12px;
+  color: #6B21A8;
+  stroke-width: 3;
+}
+
+.campaign-detail-leads-table-cell.company-name {
+  width: 25%;
+  font-weight: 500;
+}
+
+.campaign-detail-leads-table-cell.email {
+  width: 18%;
+  padding-right: 12px;
+  color: #6B7280;
+}
+
+.campaign-detail-leads-table-cell.location {
+  width: 25%;
+  padding-left: 12px;
+  padding-right: 4px;
+  color: #6B7280;
+}
+
+.campaign-detail-leads-table-cell.website {
+  width: 12%;
+}
+
+.campaign-detail-table-website-link {
+  color: #6B21A8;
+  text-decoration: none;
+}
+
+.campaign-detail-table-website-link:hover {
+  text-decoration: underline;
+  color: #7C3AED;
+}
+
+.campaign-detail-leads-table-cell.score {
+  width: 10%;
+  padding-right: 16px;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* Daily Outreach Rate block - same left vertical line as sections above */
+.campaign-detail-daily-outreach-block {
+  margin-top: 16px;
+  padding: 14px 16px;
+  background-color: rgba(161, 152, 206, 0.1);
+  border: 1px solid rgba(145, 100, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.campaign-detail-daily-outreach-block::before,
+.campaign-detail-daily-outreach-block::after,
+.campaign-detail-daily-outreach-title::before,
+.campaign-detail-daily-outreach-title::after {
+  display: none !important;
+}
+
+.campaign-detail-daily-outreach-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 16px;
+}
+
+.campaign-detail-daily-outreach-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.campaign-detail-daily-outreach-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  font-family: Urbanist;
+  line-height: 1.25;
+}
+
+.campaign-detail-daily-outreach-description {
+  font-size: 12px;
+  color: #A198CE;
+  margin: 0;
+  margin-top: 0;
+  padding-top: 0;
+  font-family: Urbanist;
+  line-height: 1.3;
+}
+
+.campaign-detail-daily-outreach-rate {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0;
+}
+
+.campaign-detail-daily-outreach-rate-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  font-family: Urbanist;
+  line-height: 1.2;
+}
+
+.campaign-detail-daily-outreach-rate-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #374151;
+  font-family: Urbanist;
+  line-height: 1.2;
+}
+
+/* Email Provider Info */
+.campaign-detail-email-provider-info {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: rgba(139, 92, 246, 0.15);
+  border: 1px solid #8B5CF6;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.campaign-detail-email-provider-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.campaign-detail-email-provider-icon-box {
+  width: 31.5px;
+  height: 31.5px;
+  border-radius: 8px;
+  background-color: #8B5CF6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.campaign-detail-email-provider-text-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0;
+  line-height: 1;
+  height: 31.5px;
+  justify-content: space-between;
+}
+
+.campaign-detail-email-provider-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  line-height: 1;
+  height: 50%;
+}
+
+.campaign-detail-email-provider-line-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #111827;
+  font-family: Urbanist;
+  line-height: 1;
+}
+
+.campaign-detail-email-provider-line-value {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8B5CF6;
+  font-family: Urbanist;
+  line-height: 1;
+}
+
+.campaign-detail-email-provider-line-text-secondary {
+  font-size: 12px;
+  font-weight: 400;
+  color: #111827;
+  font-family: Urbanist;
+  line-height: 1;
+}
+
+/* Chart Area - full horizontal width for proper chart display */
+.campaign-detail-chart-area {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  background-color: transparent;
+  padding: 16px 16px 0 0;
+  margin-top: 16px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Chart Legend */
+.campaign-detail-chart-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.campaign-detail-chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: #6B7280;
+  font-family: Urbanist;
+}
+
+.campaign-detail-chart-legend-arrow {
+  color: inherit;
+}
+
+/* Table Checkbox */
+.campaign-detail-table-checkbox-box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #D1D5DB;
+  background-color: white !important;
+  border-radius: 4px;
+  transition: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.campaign-detail-table-checkbox-box.checked {
+  border: 2px solid #6B21A8;
+  background-color: white !important;
+}
+
+/* Force identical appearance on hover - no change */
+.campaign-detail-table-checkbox-box:hover,
+.campaign-detail-table-checkbox-button:hover .campaign-detail-table-checkbox-box {
+  border: 2px solid #D1D5DB;
+  background-color: white !important;
+}
+
+.campaign-detail-table-checkbox-box.checked:hover,
+.campaign-detail-table-checkbox-button:hover .campaign-detail-table-checkbox-box.checked {
+  border: 2px solid #6B21A8 !important;
+  background-color: white !important;
+}
+
+/* Keep checkmark visible on hover - unchecked: purple; checked: white (dashboard gives purple bg on hover) */
+.campaign-detail-table-checkbox-button:hover .campaign-detail-table-checkbox-check,
+.campaign-detail-table-checkbox-button:hover svg {
+  color: #6B21A8 !important;
+  stroke: #6B21A8 !important;
+  opacity: 1 !important;
+}
+
+/* Header/row checkbox when checked + hover: tick stays white (override above + dashboard.css) */
+.campaign-detail-table-checkbox-box.checked:hover .campaign-detail-table-checkbox-check,
+.campaign-detail-table-checkbox-button:hover .campaign-detail-table-checkbox-box.checked .campaign-detail-table-checkbox-check,
+.campaign-detail-table-checkbox-box.checked:hover svg,
+.campaign-detail-table-checkbox-button:hover .campaign-detail-table-checkbox-box.checked svg,
+.dashboard-main-container .campaign-detail-table-checkbox-button:hover .campaign-detail-table-checkbox-box.checked .campaign-detail-table-checkbox-check,
+.dashboard-main-container .campaign-detail-table-checkbox-button:hover .campaign-detail-table-checkbox-box.checked svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+  opacity: 1 !important;
+}
+
+.campaign-detail-table-checkbox-check {
+  width: 12px;
+  height: 12px;
+  color: #6B21A8;
+  stroke-width: 3;
+}
+
+/* Table Tag */
+.campaign-detail-table-tag {
+  display: inline-block;
+  padding: 1px 5px;
+  background-color: #F3F4F6;
+  border-radius: 3px;
+  font-size: 9px;
+  color: #374151;
+  font-family: Urbanist;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* Empty State */
+.campaign-detail-empty-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 40px 20px 20px 20px;
+  text-align: center;
+  color: #6B7280;
+  font-family: Urbanist;
+}
+
+.campaign-detail-empty-state-icon-container {
+  width: 48px;
+  height: 48px;
+  opacity: 0.5;
+  margin-bottom: 12px;
+}
+
+.campaign-detail-empty-state-icon {
+  width: 48px;
+  height: 48px;
+  color: #9CA3AF;
+}
+
+.campaign-detail-empty-state-title {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 120%;
+  color: #030011;
+  margin: 0 0 8px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.campaign-detail-empty-state-description {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #a198ce;
+  margin: 0;
+  max-width: 560px;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Table Checkbox Button - no white halo on hover */
+.campaign-detail-table-checkbox-button {
+  background: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  outline: none !important;
+  box-shadow: none !important;
+  position: relative;
+}
+
+.campaign-detail-table-checkbox-button:hover,
+.campaign-detail-table-checkbox-button:focus,
+.campaign-detail-table-checkbox-button:focus-visible,
+.campaign-detail-table-checkbox-button:active {
+  background: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.campaign-detail-empty-state-icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.campaign-detail-empty-state-icon-large {
+  width: 28px;
+  height: 28px;
+  color: #9ca3af;
+}
+
+/* Chart Dot Styles */
+.campaign-detail-chart-dot-opened {
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.8));
+}
+
+.campaign-detail-chart-dot-sent {
+  filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.8));
+}
+
+/*
+ * Recharts 3: X baseline is <line class="recharts-cartesian-axis-line"> (not nested under a group).
+ * Tick labels use .recharts-cartesian-axis-tick-value; default fill is #808080 if not forced.
+ */
+/* Recharts 3 axis layer classes: recharts-xAxis, recharts-yAxis (camelCase) */
+/* X-axis spine only (not Y): red #FF0004 — multiple selectors for Recharts 3 DOM variants */
+.campaign-detail-chart-area svg g.recharts-cartesian-axis.recharts-xAxis line.recharts-cartesian-axis-line,
+.campaign-detail-chart-area svg g.recharts-cartesian-axis.xAxis line.recharts-cartesian-axis-line,
+.campaign-detail-chart-area .recharts-xAxis.recharts-cartesian-axis line.recharts-cartesian-axis-line,
+.campaign-detail-chart-area .recharts-xAxis.recharts-cartesian-axis > line.recharts-cartesian-axis-line,
+.dashboard-main-container .campaign-detail-chart-area svg g.recharts-cartesian-axis.recharts-xAxis line.recharts-cartesian-axis-line,
+.dashboard-main-container .campaign-detail-chart-area .recharts-xAxis.recharts-cartesian-axis > line.recharts-cartesian-axis-line {
+  stroke: #ff0004 !important;
+  fill: none !important;
+}
+
+.campaign-detail-chart-area .recharts-yAxis.recharts-cartesian-axis line.recharts-cartesian-axis-line,
+.dashboard-main-container .campaign-detail-chart-area .recharts-yAxis.recharts-cartesian-axis line.recharts-cartesian-axis-line {
+  stroke: #a198ce !important;
+}
+
+.campaign-detail-chart-area .recharts-xAxis .recharts-cartesian-axis-tick line,
+.campaign-detail-chart-area .recharts-yAxis .recharts-cartesian-axis-tick line,
+.dashboard-main-container .campaign-detail-chart-area .recharts-xAxis .recharts-cartesian-axis-tick line,
+.dashboard-main-container .campaign-detail-chart-area .recharts-yAxis .recharts-cartesian-axis-tick line {
+  stroke: #a198ce !important;
+}
+
+.campaign-detail-chart-area .recharts-xAxis .recharts-cartesian-axis-tick-value,
+.campaign-detail-chart-area .recharts-yAxis .recharts-cartesian-axis-tick-value,
+.dashboard-main-container .campaign-detail-chart-area .recharts-xAxis .recharts-cartesian-axis-tick-value,
+.dashboard-main-container .campaign-detail-chart-area .recharts-yAxis .recharts-cartesian-axis-tick-value {
+  fill: #a198ce !important;
+}
+
+.campaign-detail-chart-area .recharts-cartesian-axis-tick-value {
+  font-family: Urbanist, sans-serif;
+}
+
+/* Y-axis tick labels - add vertical spacing so they don't look cramped */
+.campaign-detail-chart-area .recharts-yAxis .recharts-cartesian-axis-tick {
+  line-height: 1.6;
+}
+
+.campaign-detail-chart-area .recharts-yAxis .recharts-cartesian-axis-tick-value {
+  line-height: 1.6;
+  dominant-baseline: middle;
+}
+
+/* Below-chart legend: colored squares, lavender labels (reference layout) */
+.campaign-detail-chart-legend-below {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 16px;
+  margin-top: 12px;
+  padding: 8px 24px 16px;
+  width: calc(100% + 48px);
+  max-width: none;
+  margin-left: -24px;
+  margin-right: -24px;
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
+
+.campaign-detail-chart-legend-below-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.campaign-detail-chart-legend-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.campaign-detail-chart-legend-below-label {
+  font-family: Urbanist, sans-serif;
+  font-size: 12px;
+  color: #a198ce;
+}
+

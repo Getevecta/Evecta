@@ -1,0 +1,245 @@
+.sidebar-credits {
+  margin-top: auto;
+  padding: 14px 0 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.sidebar-credits--collapsed {
+  padding: 10px 0 12px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #e2e8f0;
+}
+
+.sidebar-credits-inner {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 12px 12px;
+  box-sizing: border-box;
+}
+
+.sidebar-credits-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+  min-width: 0;
+}
+
+/* Credits Usage title — beat aside * clamps (12px bold) */
+.dashboard-main-container aside .sidebar-credits .sidebar-credits-title,
+.dashboard-main-container aside.bg-white .sidebar-credits .sidebar-credits-title,
+.dashboard-main-container aside[class*="flex"] .sidebar-credits .sidebar-credits-title,
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits .sidebar-credits-title,
+aside.bg-white .sidebar-credits-title,
+aside[class*="flex"] .sidebar-credits-title,
+.sidebar-credits-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  line-height: 18px !important;
+  letter-spacing: -0.01em !important;
+  color: #0f172a !important;
+}
+
+.sidebar-credits-pools {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-credits-pool {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.sidebar-credits-pool-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 6px;
+  min-width: 0;
+}
+
+.dashboard-main-container aside .sidebar-credits-pool-label,
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-pool-label,
+.sidebar-credits-pool-label {
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  line-height: 14px !important;
+  color: #0f172a;
+  flex: 0 1 auto;
+  min-width: 0;
+  /* Show full label — do not ellipsize “Lead Search” etc. */
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+.dashboard-main-container aside .sidebar-credits-meta,
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-meta,
+.sidebar-credits-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  font-size: 8px !important;
+  font-weight: 400 !important;
+  line-height: 14px !important;
+  color: #64748b;
+}
+
+.dashboard-main-container aside .sidebar-credits-count,
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-count,
+.sidebar-credits-count {
+  font-size: 9px !important;
+  font-weight: 500 !important;
+  line-height: 14px !important;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.sidebar-credits-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 15px;
+  min-width: 14px;
+  min-height: 15px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.sidebar-credits-coin {
+  width: 14px;
+  height: 15px;
+  min-width: 14px;
+  min-height: 15px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.sidebar-credits-track {
+  height: 8px;
+  border-radius: 999px;
+  background: #ede9fe;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.sidebar-credits-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: #8b5cf6;
+  min-width: 0;
+  transition: width 0.25s ease-out;
+}
+
+.sidebar-credits-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+/*
+ * Compact footprint for sidebar — colors/hover come from shared
+ * .evecta-primary-btn (dashboard.css).
+ */
+.dashboard-main-container aside .sidebar-credits-buy.evecta-primary-btn,
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-buy.evecta-primary-btn,
+.sidebar-credits-buy.evecta-primary-btn,
+button.sidebar-credits-buy.evecta-primary-btn {
+  min-width: 0 !important;
+  width: fit-content !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  max-height: 28px !important;
+  padding: 0 8px !important;
+  font-size: 8.47px !important;
+  font-weight: 500 !important;
+  line-height: 18.5px !important;
+  letter-spacing: 0 !important;
+  border-radius: 8px !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+}
+
+/* Keep shared hover: primary → #8058f0 (from dashboard.css) */
+.dashboard-main-container aside .sidebar-credits-buy.evecta-primary-btn:hover:not(:disabled),
+.dashboard-main-container aside .sidebar-credits-buy.evecta-primary-btn:focus-visible:not(:disabled),
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-buy.evecta-primary-btn:hover:not(:disabled),
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-buy.evecta-primary-btn:focus-visible:not(:disabled),
+button.sidebar-credits-buy.evecta-primary-btn:hover:not(:disabled),
+button.sidebar-credits-buy.evecta-primary-btn:focus-visible:not(:disabled) {
+  background-color: #8058f0 !important;
+  background: #8058f0 !important;
+  color: #ffffff !important;
+  border-color: rgba(208, 213, 221, 0.3) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.dashboard-main-container aside .sidebar-credits-buy.evecta-primary-btn:active:not(:disabled),
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-buy.evecta-primary-btn:active:not(:disabled),
+button.sidebar-credits-buy.evecta-primary-btn:active:not(:disabled) {
+  background-color: #9164ff !important;
+  background: #9164ff !important;
+  color: #ffffff !important;
+  border-color: rgba(208, 213, 221, 0.3) !important;
+}
+
+.sidebar-credits-collapsed-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #ffffff;
+  cursor: pointer;
+  padding: 0;
+  border: 1px solid #e2e8f0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+.sidebar-credits-collapsed-btn:hover,
+.sidebar-credits-collapsed-btn:focus-visible {
+  background: #faf5ff !important;
+  border-color: #e9d5ff !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.sidebar-credits-collapsed-btn:active {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+.sidebar-credits-collapsed-btn .sidebar-credits-icon-wrap,
+.sidebar-credits-collapsed-btn .sidebar-credits-coin {
+  width: 14px;
+  height: 15px;
+  min-width: 14px;
+  min-height: 15px;
+}
+
+.sidebar-credits-loading .sidebar-credits-meta {
+  opacity: 0.7;
+}

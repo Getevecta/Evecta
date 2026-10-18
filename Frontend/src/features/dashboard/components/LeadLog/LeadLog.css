@@ -1,0 +1,2526 @@
+/* Lead Log Component Styles */
+
+/* Detail view search bar - matches Create Campaign button shape & size */
+.lead-log-detail-search-wrapper {
+  flex: 0 1 auto;
+  min-width: 160px;
+  max-width: 280px;
+}
+
+.lead-log-detail-search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+  height: 36px;
+  min-height: 36px;
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  box-sizing: border-box;
+  box-shadow: none;
+}
+
+.lead-log-detail-search-icon {
+  height: 14px;
+  width: 14px;
+  color: #030011;
+  stroke: #030011;
+  flex-shrink: 0;
+}
+
+.lead-log-detail-search-input {
+  flex: 1;
+  border: none !important;
+  background-color: transparent !important;
+  outline: none !important;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19.5px;
+  color: #030011;
+  font-family: 'Urbanist', sans-serif;
+  letter-spacing: 0;
+  padding: 0 !important;
+  height: 100% !important;
+  box-shadow: none !important;
+  min-width: 0;
+}
+
+.lead-log-detail-search-input::placeholder,
+.lead-log-detail-search-input::-webkit-input-placeholder {
+  color: #030011 !important;
+  opacity: 1;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19.5px;
+  -webkit-text-fill-color: #030011;
+}
+
+.lead-log-detail-search-input::-moz-placeholder {
+  color: #030011 !important;
+  opacity: 1;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19.5px;
+}
+
+/* Detail search responsive - matches button at breakpoints */
+@media (max-width: 767px) {
+  .lead-log-detail-search-container {
+    height: 32px;
+    min-height: 32px;
+    padding: 0 10px;
+    border-radius: 4px;
+    gap: 6px;
+  }
+  .lead-log-detail-search-icon {
+    height: 14px;
+    width: 14px;
+  }
+  .lead-log-detail-search-input {
+    font-size: 12px !important;
+  }
+}
+
+/* Embedded Styles from LeadLog.tsx <style> tag */
+
+/* Industry Filter Select - Fixed width with text truncation */
+.lead-log-industry-filter [data-slot="select-trigger"] {
+  width: 200px !important;
+  min-width: 200px !important;
+  max-width: 200px !important;
+  overflow: hidden !important;
+}
+
+.lead-log-industry-filter [data-slot="select-value"] {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  word-break: break-all !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+/* Industry Filter - Responsive sizing */
+.lead-log-industry-filter-wrapper {
+  position: relative;
+  width: clamp(160px, 15vw, 200px);
+}
+
+.lead-log-industry-filter-container {
+  height: clamp(30px, 2.5vw, 34px);
+  min-height: clamp(30px, 2.5vw, 34px);
+  max-height: clamp(30px, 2.5vw, 34px);
+  width: clamp(160px, 15vw, 200px);
+  min-width: clamp(160px, 15vw, 200px);
+  max-width: clamp(160px, 15vw, 200px);
+  padding: clamp(8px, 0.8vw, 10px) clamp(4px, 0.5vw, 6px);
+  font-size: clamp(10px, 0.9vw, 12px);
+  border-radius: clamp(5px, 0.6vw, 6.75px);
+  gap: clamp(4px, 0.5vw, 6px);
+}
+
+.lead-log-industry-filter-input {
+  font-size: clamp(10px, 0.9vw, 12px) !important;
+}
+
+.lead-log-industry-filter-input::placeholder {
+  color: #374151 !important;
+  font-weight: 500 !important;
+}
+
+.lead-log-industry-filter-icon {
+  height: clamp(12px, 1.2vw, 14px) !important;
+  width: clamp(12px, 1.2vw, 14px) !important;
+}
+
+.lead-log-industry-filter-dropdown {
+  width: clamp(160px, 15vw, 200px) !important;
+  max-height: clamp(120px, 12vw, 152px) !important;
+  font-size: clamp(10px, 0.9vw, 12px) !important;
+}
+
+.lead-log-industry-filter-dropdown-item {
+  padding: clamp(4px, 0.5vw, 6px) !important;
+  font-size: clamp(10px, 0.9vw, 12px) !important;
+}
+
+/* S: Small screens */
+@media (max-width: 767px) {
+  .lead-log-industry-filter-container {
+    height: 30px;
+    width: 160px;
+    min-width: 160px;
+    max-width: 160px;
+    padding: 8px 4px;
+    font-size: 10px;
+    border-radius: 5px;
+    gap: 4px;
+  }
+  
+  .lead-log-industry-filter-input {
+    font-size: 10px !important;
+  }
+  
+  .lead-log-industry-filter-icon {
+    height: 12px !important;
+    width: 12px !important;
+  }
+  
+  .lead-log-industry-filter-dropdown {
+    width: 160px !important;
+    max-height: 120px !important;
+    font-size: 10px !important;
+  }
+  
+  .lead-log-industry-filter-dropdown-item {
+    padding: 4px !important;
+    font-size: 10px !important;
+  }
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .lead-log-industry-filter-container {
+    height: 32px;
+    width: 180px;
+    min-width: 180px;
+    max-width: 180px;
+    padding: 9px 5px;
+    font-size: 11px;
+    border-radius: 6px;
+    gap: 5px;
+  }
+  
+  .lead-log-industry-filter-input {
+    font-size: 11px !important;
+  }
+  
+  .lead-log-industry-filter-icon {
+    height: 13px !important;
+    width: 13px !important;
+  }
+  
+  .lead-log-industry-filter-dropdown {
+    width: 180px !important;
+    max-height: 136px !important;
+    font-size: 11px !important;
+  }
+  
+  .lead-log-industry-filter-dropdown-item {
+    padding: 5px !important;
+    font-size: 11px !important;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .lead-log-industry-filter-container {
+    height: 34px;
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    padding: 10px 6px;
+    font-size: 12px;
+    border-radius: 6.75px;
+    gap: 6px;
+  }
+  
+  .lead-log-industry-filter-input {
+    font-size: 12px !important;
+  }
+  
+  .lead-log-industry-filter-icon {
+    height: 14px !important;
+    width: 14px !important;
+  }
+  
+  .lead-log-industry-filter-dropdown {
+    width: 200px !important;
+    max-height: 152px !important;
+    font-size: 12px !important;
+  }
+  
+  .lead-log-industry-filter-dropdown-item {
+    padding: 6px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* Limit industry dropdown to show only 4 items with scrolling */
+.lead-log-industry-select-content {
+  max-height: 152px !important;
+  overflow-y: auto !important;
+  width: 200px !important;
+  min-width: 200px !important;
+  max-width: 200px !important;
+}
+
+.lead-log-industry-select-content [data-radix-select-viewport] {
+  width: 200px !important;
+  min-width: 200px !important;
+  max-width: 200px !important;
+}
+
+/* Note: Many inline styles remain in the component for dynamic/conditional styling */
+/* These include: conditional padding, dynamic colors, responsive layouts */
+
+/* Main Container */
+.lead-log-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: white;
+  position: relative;
+}
+
+/* Main Content Area */
+.lead-log-main-content {
+  flex: 1 1 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Detail View Container */
+.lead-log-detail-container {
+  padding-left: 12px;
+}
+
+/* Header */
+.lead-log-header {
+  position: relative;
+  border-bottom: 0.8px solid #6B7280;
+  background-color: white;
+  padding: 10px 16px 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.lead-log-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 0;
+}
+
+.lead-log-menu-button {
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-top: -2px;
+  margin-left: 0;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.lead-log-menu-icon {
+  height: 18px;
+  width: 18px;
+  color: #374151;
+  display: block;
+}
+
+.lead-log-pro-badge {
+  height: auto;
+  width: auto;
+  display: block;
+}
+
+/* Main Content - List View */
+.lead-log-content {
+  padding: 8px 12px;
+  flex: 1 1 0%;
+  overflow: hidden;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Detail View */
+.lead-log-detail-content {
+  padding: 8px 12px;
+  flex: 1 1 0%;
+  overflow: hidden;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Session Title and Info */
+.lead-log-detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.lead-log-detail-title {
+  /* S: Small screens */
+  font-size: var(--typography-heading-section-size-s);
+  line-height: var(--typography-heading-section-line-s);
+  font-weight: var(--typography-heading-section-weight);
+  color: #111827;
+  margin: 0 0 4px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .lead-log-detail-title {
+    font-size: var(--typography-heading-section-size-m);
+    line-height: var(--typography-heading-section-line-m);
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .lead-log-detail-title {
+    font-size: var(--typography-heading-section-size-l);
+    line-height: var(--typography-heading-section-line-l);
+  }
+}
+
+.lead-log-detail-info {
+  font-size: 12px;
+  color: #6B7280;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.lead-log-detail-actions {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  flex-shrink: 0;
+}
+
+/* Remove all margins from buttons in detail actions */
+.lead-log-detail-actions button {
+  margin: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.lead-log-action-button {
+  font-size: 12px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.lead-log-action-button img {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+/* Search Bar */
+.lead-log-search-container {
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.lead-log-search-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 856px;
+}
+
+.lead-log-search-input-container {
+  display: flex;
+  align-items: center;
+  background-color: #F9FAFB;
+  border: 0.8px solid #6B7280;
+  border-radius: 6.75px;
+  padding: 0 16px;
+  height: 31.5px;
+  gap: 10px;
+}
+
+.lead-log-search-icon {
+  height: 16px;
+  width: 16px;
+  color: #6B7280;
+  flex-shrink: 0;
+}
+
+.lead-log-search-input {
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: #111827;
+  font-family: 'Urbanist', sans-serif;
+  line-height: normal;
+  letter-spacing: 0;
+  padding: 0;
+  height: 100%;
+  box-shadow: none;
+}
+
+.lead-log-search-input::placeholder {
+  color: #6B7280;
+  opacity: 1;
+}
+
+/* Pagination */
+.lead-log-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #6B7280;
+  min-height: 26px;
+  font-family: 'Urbanist', sans-serif;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.lead-log-pagination-text {
+  font-size: 10px;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lead-log-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+}
+
+.lead-log-pagination-button-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1;
+}
+
+.lead-log-pagination-button {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+  line-height: 1;
+  opacity: 1;
+  outline: none;
+}
+
+.lead-log-pagination-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.lead-log-pagination-button img {
+  height: 26px;
+  width: 28px;
+  display: block;
+  object-fit: contain;
+}
+
+.lead-log-pagination-page-text {
+  color: #1F2937;
+  font-size: 10px;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lead-log-pagination-show-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1;
+}
+
+.lead-log-pagination-show-text {
+  color: #1F2937;
+  font-size: 10px;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.lead-log-pagination-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.lead-log-selected-leads-badge {
+  font-size: 10px;
+  font-weight: 600;
+  font-family: Urbanist, sans-serif;
+  color: #6B21A8;
+  background-color: #F3E8FF;
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.lead-log-selected-leads-badge-icon {
+  width: 12px;
+  height: 12px;
+  color: #6B21A8;
+  flex-shrink: 0;
+}
+
+/* Table */
+.lead-log-table-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  border: 0.8px solid #6B7280;
+  border-radius: 8px;
+  background-color: white;
+  margin-top: 8px;
+  position: relative;
+}
+
+/* Ensure tooltips are not clipped */
+.lead-log-table-container th {
+  overflow: visible !important;
+}
+
+.lead-log-table-container td {
+  overflow: visible !important;
+}
+
+.lead-log-table {
+  overflow: visible !important;
+}
+
+.lead-log-table thead {
+  overflow: visible !important;
+}
+
+.lead-log-table tbody {
+  overflow: visible !important;
+}
+
+.lead-log-table {
+  width: 100%;
+  table-layout: fixed;
+  font-size: 12px;
+  position: relative;
+}
+
+.lead-log-table-header {
+  background-color: var(--dashboard-table-header-bg);
+}
+
+/* Sticky header for Lead Log table */
+.lead-log-table-wrapper {
+  position: relative;
+}
+
+.lead-log-table-wrapper .lead-database-table,
+.lead-log-table-wrapper [data-slot="table"] {
+  position: relative;
+}
+
+.lead-log-table-wrapper .lead-database-table thead,
+.lead-log-table-wrapper [data-slot="table"] thead,
+.lead-log-table-container .lead-database-table thead,
+.lead-log-table-container thead,
+.lead-log-table-container table thead {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+  background-color: var(--dashboard-table-header-bg) !important;
+}
+
+.lead-log-table-wrapper .lead-database-table thead tr,
+.lead-log-table-wrapper [data-slot="table"] thead tr,
+.lead-log-table-wrapper .lead-database-table thead tr:hover,
+.lead-log-table-wrapper [data-slot="table"] thead tr:hover,
+.lead-log-table-wrapper .lead-database-table thead tr.hover\:bg-muted\/50:hover,
+.lead-log-table-wrapper [data-slot="table"] thead tr.hover\:bg-muted\/50:hover {
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+  transition: none !important;
+}
+
+.lead-log-table-wrapper .lead-database-table thead tr,
+.lead-log-table-wrapper .lead-database-table thead tr th,
+.lead-log-table-wrapper [data-slot="table"] thead tr th,
+.lead-log-table-container .lead-database-table thead tr th,
+.lead-log-table-container thead tr th,
+.lead-log-table-container table thead tr th {
+  position: sticky !important;
+  top: 0 !important;
+  background-color: var(--dashboard-table-header-bg) !important;
+  z-index: 10 !important;
+}
+
+.lead-log-table-row {
+  border-bottom: 0.8px solid #6B7280;
+}
+
+.lead-log-table-head {
+  padding: 4px 3px;
+  text-align: center;
+}
+
+/* Checkbox column width - use DashboardTableShared.css (.dashboard-data-table) */
+
+.lead-log-table-head.star {
+  width: 24px;
+  min-width: 24px;
+  max-width: 24px;
+}
+
+.lead-log-table-head.company {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  text-align: left;
+}
+
+/* Session List */
+.lead-log-session-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.lead-log-session-item {
+  padding: 12px;
+  border: 0.8px solid #6B7280;
+  border-radius: 6.75px;
+  background-color: #F9FAFB;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lead-log-session-item:hover {
+  border-color: #6B7280;
+  background-color: #F9FAFB;
+}
+
+.lead-log-session-title {
+  /* S: Small screens */
+  font-size: var(--typography-heading-card-size-s);
+  line-height: var(--typography-heading-card-line-s);
+  font-weight: var(--typography-heading-card-weight);
+  color: #111827;
+  margin: 0 0 4px 0;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .lead-log-session-title {
+    font-size: var(--typography-heading-card-size-m);
+    line-height: var(--typography-heading-card-line-m);
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .lead-log-session-title {
+    font-size: var(--typography-heading-card-size-l);
+    line-height: var(--typography-heading-card-line-l);
+  }
+}
+
+.lead-log-session-meta {
+  font-size: 12px;
+  color: #6B7280;
+  margin: 0;
+}
+
+/* Responsive Styles for LeadLog Component */
+/* Small screens (≤767px) - Mobile */
+@media (max-width: 767px) {
+  .lead-log-root-container,
+  .lead-log-list-container-styles {
+    --lead-log-content-padding-x: 16px;
+  }
+  
+  .lead-log-container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .lead-log-main-content {
+    padding: 8px;
+  }
+  
+  .lead-log-header {
+    padding: 8px 12px;
+  }
+  
+  .lead-log-header h1 {
+    font-size: 13px !important;
+  }
+  
+  /* Search bar and filter on same line on mobile */
+  .lead-log-search-filter-container {
+    flex-direction: row !important;
+    gap: 8px !important;
+    align-items: flex-end !important;
+  }
+  
+  .lead-log-search-wrapper {
+    max-width: none !important;
+    width: auto !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  .lead-log-search-bar-search-wrap {
+    max-width: none !important;
+    width: auto !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  .lead-log-search-filter-container .lead-log-industry-filter-wrapper,
+  .lead-log-search-filter-container .lead-log-industry-filter-bar-trigger {
+    width: clamp(140px, 30vw, 160px) !important;
+    min-width: clamp(140px, 30vw, 160px) !important;
+    max-width: clamp(140px, 30vw, 160px) !important;
+  }
+
+  .lead-log-search-filter-container .lead-log-industry-filter-dropdown {
+    width: clamp(140px, 30vw, 160px) !important;
+  }
+  
+  .lead-log-industry-filter-wrapper {
+    width: clamp(140px, 30vw, 160px) !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .lead-log-industry-filter-container {
+    width: clamp(140px, 30vw, 160px) !important;
+    min-width: clamp(140px, 30vw, 160px) !important;
+    max-width: clamp(140px, 30vw, 160px) !important;
+  }
+  
+  .lead-log-industry-filter-dropdown {
+    width: clamp(140px, 30vw, 160px) !important;
+  }
+  
+  /* Prevent text from overflowing into other columns on mobile */
+  /* Exclude sticky columns - overflow:hidden breaks position:sticky */
+  .lead-log-table-wrapper th:not(.lead-log-table-head-checkbox):not(.lead-log-table-head-company),
+  .lead-log-table-wrapper td:not(.lead-log-table-cell-checkbox):not(.lead-log-table-cell-company) {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Pagination controls stay on same line on mobile */
+  .lead-log-pagination {
+    flex-direction: row !important;
+    gap: 8px !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  .lead-log-pagination-controls {
+    flex-wrap: nowrap !important;
+    gap: 4px !important;
+  }
+  
+  /* Session cards adjust spacing */
+  .lead-log-session-item {
+    padding: 10px !important;
+  }
+  
+  .lead-log-session-title {
+    font-size: 13px !important;
+  }
+  
+  .lead-log-session-meta {
+    font-size: 11px !important;
+  }
+  
+  /* Content padding */
+  .lead-log-content {
+    padding: 8px !important;
+  }
+  
+  .lead-log-detail-content {
+    padding: 8px !important;
+  }
+  
+  /* Header responsive */
+  .lead-log-list-header {
+    padding: 0px 12px 8px 12px !important;
+    padding-top: 0 !important;
+    margin-top: -8px !important;
+    justify-content: center !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+  
+  .lead-log-list-header h1 {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #111827 !important;
+    font-family: 'Urbanist', sans-serif !important;
+  }
+  
+  /* Main content area responsive */
+  .lead-log-list-content {
+    padding: 8px 12px !important;
+  }
+  
+  /* Pagination text responsive - keep on same line */
+  .lead-log-pagination-wrapper {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  .lead-log-pagination-text {
+    font-size: 9px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .lead-log-pagination-page-text {
+    font-size: 9px !important;
+    white-space: nowrap !important;
+  }
+  
+  .lead-log-pagination-show-text {
+    font-size: 9px !important;
+    white-space: nowrap !important;
+  }
+  
+  .lead-log-pagination-controls {
+    width: auto !important;
+    justify-content: flex-end !important;
+    flex-shrink: 0 !important;
+    gap: 4px !important;
+  }
+
+  /* Hide "Show: 10" dropdown on mobile */
+  /* Target the div that contains both the "Show:" span and the select dropdown */
+  .lead-log-pagination-wrapper > div:last-child > div:has(select),
+  .lead-log-pagination-wrapper > div > div:has(select) {
+    display: none !important;
+  }
+  
+  /* Fallback for browsers without :has() support - hide select and its parent */
+  .lead-log-pagination-wrapper select {
+    display: none !important;
+  }
+  
+  .lead-log-pagination-wrapper > div:last-child > div:last-child {
+    display: none !important;
+  }
+  
+  /* Search input responsive */
+  .lead-log-search-input-container {
+    height: clamp(30px, 2.5vw, 34px) !important;
+    min-height: clamp(30px, 2.5vw, 34px) !important;
+    max-height: clamp(30px, 2.5vw, 34px) !important;
+    padding: clamp(8px, 0.7vw, 10px) clamp(4px, 0.4vw, 6px) !important;
+    font-size: clamp(11px, 0.9vw, 12px) !important;
+  }
+  
+  .lead-log-search-input {
+    font-size: clamp(11px, 0.9vw, 12px) !important;
+  }
+  
+  .lead-log-search-icon {
+    height: clamp(14px, 1.2vw, 16px) !important;
+    width: clamp(14px, 1.2vw, 16px) !important;
+  }
+}
+
+/* Medium screens - Additional responsive adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .lead-log-search-filter-container {
+    flex-wrap: wrap !important;
+  }
+}
+
+/* Medium screens (768px-1023px) - Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .lead-log-main-content {
+    padding: 12px;
+  }
+  
+  .lead-log-header {
+    padding: 10px 14px;
+  }
+  
+  .lead-log-header h1 {
+    font-size: 13px !important;
+  }
+  
+  .lead-log-search-filter-container {
+    gap: 10px !important;
+  }
+  
+  .lead-log-search-wrapper {
+    max-width: 100% !important;
+  }
+  
+  .lead-log-content {
+    padding: 10px !important;
+  }
+  
+  .lead-log-detail-content {
+    padding: 10px !important;
+  }
+}
+
+/* Large screens (≥1024px) - Desktop */
+@media (min-width: 1024px) {
+  .lead-log-main-content {
+    padding: 16px;
+  }
+  
+  .lead-log-header {
+    padding: 12px 16px;
+  }
+  
+  .lead-log-content {
+    padding: 12px 16px;
+  }
+  
+  .lead-log-detail-content {
+    padding: 12px 16px;
+  }
+}
+
+/* Lead Database Table Design - Matching Lead Generation Component */
+.lead-database-table {
+  width: 100%;
+  table-layout: fixed;
+  font-size: 12px;
+  position: relative;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0;
+  border: none;
+  background-color: white;
+}
+
+.lead-database-table th,
+.lead-database-table td {
+  box-sizing: border-box;
+  padding: 2px 4px !important;
+  border-right: 0.5px solid #E5E7EB;
+  border-bottom: 0.5px solid #E5E7EB;
+  border-top: none;
+  border-left: none;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  line-height: 2.5 !important;
+  font-size: 12px !important;
+  background-color: white;
+  text-align: left !important;
+}
+
+.lead-database-table thead tr[class*="border-b"],
+.lead-database-table thead tr.border-b {
+  border-bottom: none !important;
+}
+
+.lead-database-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--dashboard-table-header-bg);
+}
+
+.lead-database-table thead tr th {
+  border-bottom: 0.5px solid #E5E7EB !important;
+  background-color: var(--dashboard-table-header-bg);
+  position: sticky;
+  top: 0;
+}
+
+.lead-database-table th:last-child,
+.lead-database-table td:last-child {
+  border-right: none;
+}
+
+.lead-database-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.lead-database-table tbody tr {
+  height: auto !important;
+  min-height: 0 !important;
+  border-bottom: none !important;
+}
+
+.lead-database-table tbody tr[class*="border-b"],
+.lead-database-table tbody tr.border-b {
+  border-bottom: none !important;
+}
+
+/* Inline Styles Extracted - Main Container */
+.lead-log-root-container {
+  --lead-log-content-padding-x: 24px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  position: relative;
+}
+
+.lead-log-detail-container-styles {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: var(--lead-log-content-padding-x, 24px);
+  padding-right: var(--lead-log-content-padding-x, 24px);
+  flex: 1 1 0%;
+  overflow: hidden;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.lead-log-header-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.lead-log-title-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.lead-log-title-row {
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
+  /* typography lives on .lead-log-title-text / .lead-log-subtitle — not here */
+}
+
+.lead-log-title-back-icon {
+  height: 20px;
+  width: 20px;
+  color: #111827;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.lead-log-title-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+/* Detail header copy — scoped + !important so Tailwind @layer / dashboard base cannot win */
+.lead-log-detail-container .lead-log-title-text {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  color: #030011 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.lead-log-detail-container .lead-log-subtitle {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  color: #030011 !important;
+}
+
+.lead-log-detail-container .lead-log-subtitle-prefix {
+  color: #a198ce !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+}
+
+.lead-log-detail-container .lead-log-subtitle-date {
+  color: #030011 !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+}
+
+.lead-log-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  flex-shrink: 0;
+}
+
+/* Save Selected Leads - styled exactly like Watch Demo button */
+.lead-log-save-selected-watch-demo-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border-radius: 16px !important;
+  background-color: white !important;
+  color: #111827 !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  padding: 12px 24px !important;
+  border: 1px solid #E5E7EB !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s, color 0.2s !important;
+  font-family: Urbanist, sans-serif !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.lead-log-save-selected-watch-demo-btn:hover {
+  background-color: white !important;
+  color: #111827 !important;
+  border-color: #E5E7EB !important;
+}
+
+.lead-log-save-selected-watch-demo-btn:focus,
+.lead-log-save-selected-watch-demo-btn:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 2px #9164FF !important;
+}
+
+/* Header style — same as global .dashboard-header-btn-style */
+.lead-log-save-selected-watch-demo-btn.dashboard-header-btn-style:hover,
+.lead-log-save-selected-watch-demo-btn.dashboard-header-btn-style:focus,
+.lead-log-save-selected-watch-demo-btn.dashboard-header-btn-style:focus-visible {
+  background-color: white !important;
+  color: #030011 !important;
+  border-color: rgba(208, 213, 221, 0.3) !important;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.lead-log-save-selected-watch-demo-btn.dashboard-header-btn-style {
+  padding: 0 12px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  color: #030011 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 19.5px !important;
+  box-shadow: none !important;
+}
+
+.lead-log-button-create-campaign {
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  font-family: Urbanist;
+  transition: none;
+}
+
+.lead-log-button-create-campaign.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Create Campaign — defers to global .evecta-primary-btn */
+.lead-log-create-campaign-btn {
+  max-width: 100%;
+}
+
+.lead-log-create-campaign-btn:hover,
+.lead-log-create-campaign-btn:focus,
+.lead-log-create-campaign-btn:active,
+.lead-log-create-campaign-btn:focus-visible {
+  opacity: 1;
+}
+
+.lead-log-create-campaign-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.lead-log-button-image {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+.lead-log-search-container {
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.lead-log-search-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 856px;
+}
+
+.lead-log-search-input-container {
+  display: flex;
+  align-items: center;
+  background-color: #F9FAFB;
+  border: 0.8px solid #6B7280;
+  border-radius: 6.75px;
+  padding: 0 16px;
+  height: 31.5px;
+}
+
+.lead-log-search-icon {
+  height: 20px;
+  width: 20px;
+  color: #6B7280;
+  flex-shrink: 0;
+}
+
+.lead-log-search-input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: #111827;
+  font-family: Urbanist, sans-serif;
+  line-height: normal;
+  letter-spacing: 0px;
+  padding: 0;
+  height: 100%;
+  box-shadow: none;
+}
+
+.lead-log-pagination-container-styles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #6B7280;
+  min-height: 26px;
+  font-family: Urbanist, sans-serif;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.lead-log-pagination-info {
+  font-size: 10px;
+  font-weight: 500;
+  font-family: Urbanist, sans-serif;
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lead-log-pagination-controls {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.lead-log-pagination-arrows-wrapper {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.lead-log-pagination-arrow-button {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+.lead-log-pagination-arrow-image {
+  height: 26px;
+  width: 28px;
+  display: block;
+  object-fit: contain;
+}
+
+.lead-log-pagination-page-info {
+  color: #1F2937;
+  font-size: 10px;
+  font-weight: 500;
+  font-family: Urbanist, sans-serif;
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lead-log-pagination-items-wrapper {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.lead-log-pagination-items-label {
+  color: #1F2937;
+  font-size: 10px;
+  font-weight: 500;
+  font-family: Urbanist, sans-serif;
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.lead-log-pagination-select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.lead-log-pagination-select {
+  padding: 4px 8px;
+  border: 0.5px solid rgba(107, 33, 168, 0.3);
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  font-family: Urbanist, sans-serif;
+  background-color: #FAFAFA;
+  cursor: pointer;
+  appearance: none;
+  color: #1F2937;
+  height: 26px;
+  min-height: 26px;
+  max-height: 26px;
+  line-height: 1;
+  vertical-align: middle;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.lead-log-pagination-select:focus {
+  border: 0.5px solid rgba(107, 33, 168, 0.3);
+}
+
+.lead-log-pagination-select-icon {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 4px;
+  color: rgba(107, 33, 168, 0.3);
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* Table Styles */
+.lead-log-table-wrapper-styles {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  background-color: white;
+  max-height: 70vh;
+}
+
+.lead-log-table-styles {
+  width: 100%;
+  table-layout: fixed;
+  font-size: 12px;
+}
+
+.lead-log-table-header-styles {
+  background-color: var(--dashboard-table-header-bg);
+}
+
+.lead-log-table-row-styles {
+  border-bottom: 0.5px solid #E5E7EB;
+}
+
+.lead-log-table-head-checkbox {
+  /* width/padding from DashboardTableShared.css */
+}
+
+.lead-log-table-checkbox-button {
+  background: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  outline: none !important;
+  box-shadow: none !important;
+  position: relative;
+}
+
+.lead-log-table-checkbox-button:hover,
+.lead-log-table-checkbox-button:focus,
+.lead-log-table-checkbox-button:focus-visible,
+.lead-log-table-checkbox-button:active,
+.lead-log-table-checkbox-button:focus,
+.lead-log-table-checkbox-button:focus-visible {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.lead-log-table-checkbox-box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #D1D5DB;
+  background-color: white !important;
+  border-radius: 4px;
+  transition: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lead-log-table-checkbox-box.checked {
+  border: 2px solid #6B21A8;
+  background-color: white !important;
+}
+
+/* Force identical appearance on hover - no change */
+.lead-log-table-checkbox-box:hover,
+.lead-log-table-checkbox-button:hover .lead-log-table-checkbox-box {
+  border: 2px solid #D1D5DB;
+  background-color: white !important;
+}
+
+.lead-log-table-checkbox-box.checked:hover,
+.lead-log-table-checkbox-button:hover .lead-log-table-checkbox-box.checked {
+  border: 2px solid #6B21A8 !important;
+  background-color: white !important;
+}
+
+/* Keep checkmark visible on hover - unchecked: purple; checked: white (dashboard gives purple bg on hover) */
+.lead-log-table-checkbox-button:hover .lead-log-table-checkbox-check,
+.lead-log-table-checkbox-button:hover svg {
+  color: #6B21A8 !important;
+  stroke: #6B21A8 !important;
+  opacity: 1 !important;
+}
+
+/* Header/row checkbox when checked + hover: tick stays white (override above + dashboard.css) */
+.lead-log-table-checkbox-box.checked:hover .lead-log-table-checkbox-check,
+.lead-log-table-checkbox-button:hover .lead-log-table-checkbox-box.checked .lead-log-table-checkbox-check,
+.lead-log-table-checkbox-box.checked:hover svg,
+.lead-log-table-checkbox-button:hover .lead-log-table-checkbox-box.checked svg,
+.dashboard-main-container .lead-log-table-checkbox-button:hover .lead-log-table-checkbox-box.checked .lead-log-table-checkbox-check,
+.dashboard-main-container .lead-log-table-checkbox-button:hover .lead-log-table-checkbox-box.checked svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+  opacity: 1 !important;
+}
+
+.lead-log-table-checkbox-check {
+  width: 12px;
+  height: 12px;
+  color: #6B21A8;
+  stroke-width: 3;
+}
+
+.lead-log-table-head-base {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  text-align: left;
+}
+
+.lead-log-table-head-company {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+}
+
+.lead-log-table-head-email {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+}
+
+.lead-log-table-head-location {
+  width: 120px;
+  min-width: 80px;
+  max-width: 150px;
+}
+
+.lead-log-table-head-website {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+}
+
+.lead-log-table-head-score {
+  width: 50px;
+  min-width: 40px;
+  max-width: 60px;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+.lead-log-table-head-score-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.lead-log-table-head-score-icon-wrapper {
+  position: relative;
+  display: inline-block;
+  z-index: 1001;
+}
+
+.lead-log-table-head-score-icon {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1002;
+}
+
+/* Score tooltip – same gradient as AI Lead Gen */
+.lead-log-score-tooltip {
+  padding: 8px 12px !important;
+  background: linear-gradient(135deg, #D458FF 0%, #6B21A8 100%) !important;
+  color: white !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+  white-space: normal !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  width: 220px !important;
+  text-align: left !important;
+}
+
+/* Score tooltip arrow – match gradient end color */
+.lead-log-score-tooltip-arrow {
+  background: none !important;
+  background-color: transparent !important;
+  border-top-color: #6B21A8 !important;
+  border-bottom-color: #6B21A8 !important;
+}
+
+.lead-log-table-cell-checkbox {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.lead-log-table-cell-checkbox:hover,
+.lead-log-table-cell-checkbox:has(button:hover) {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.lead-log-table-cell-checkbox button:hover {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.lead-log-table-cell-checkbox button:active {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.lead-log-table-cell-checkbox button:focus {
+  background-color: transparent !important;
+  background: transparent !important;
+  outline: none !important;
+}
+
+.lead-log-table-cell-checkbox button:focus-visible {
+  background-color: transparent !important;
+  background: transparent !important;
+  outline: none !important;
+}
+
+.lead-log-table-cell-base {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size: 12px;
+  color: #374151;
+  text-align: left;
+}
+
+.lead-log-table-cell-company {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+}
+
+.lead-log-table-cell-email {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+}
+
+.lead-log-table-cell-location {
+  width: 120px;
+  min-width: 80px;
+  max-width: 150px;
+}
+
+.lead-log-table-cell-website {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+}
+
+.lead-log-table-cell-website-link {
+  color: #6B21A8;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+.lead-log-table-cell-website-link:hover {
+  text-decoration: underline;
+  color: #7C3AED;
+}
+
+.lead-log-table-cell-website-link:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.lead-log-table-cell-website-link:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.lead-log-table-cell-website-link:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.lead-log-table-cell-tag {
+  display: inline-block;
+  padding: 2px 6px;
+  background-color: #F3F4F6;
+  border-radius: 4px;
+  font-size: 10px;
+  color: #374151;
+  line-height: 1.2;
+  white-space: nowrap;
+  font-family: Urbanist;
+}
+
+.lead-log-table-cell-score {
+  width: 50px;
+  min-width: 40px;
+  max-width: 60px;
+  font-weight: 500;
+  color: #111827;
+  text-align: left;
+}
+
+/* Detail Panel Styles */
+.lead-log-detail-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 30%;
+  min-width: 250px;
+  max-width: 350px;
+  background-color: white;
+  border-left: 1px solid #E5E7EB;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  overflow-y: auto;
+}
+
+.lead-log-detail-panel-header {
+  padding: 16px;
+  border-bottom: 1px solid #E5E7EB;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.lead-log-detail-panel-header-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.lead-log-detail-panel-close-button {
+  position: absolute;
+  top: -12px;
+  right: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6B7280;
+  border-radius: 0;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.lead-log-detail-panel-close-button:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.lead-log-detail-panel-close-button:active {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.lead-log-detail-panel-close-button:focus {
+  background: transparent !important;
+  background-color: transparent !important;
+  outline: none !important;
+}
+
+.lead-log-detail-panel-close-button:focus-visible {
+  background: transparent !important;
+  background-color: transparent !important;
+  outline: none !important;
+}
+
+.lead-log-detail-panel-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 28px;
+  padding-top: 24px;
+}
+
+.lead-log-detail-panel-title,
+h2.lead-log-detail-panel-title,
+h2.lead-log-detail-panel-title.heading-l,
+.lead-log-detail-panel h2.lead-log-detail-panel-title.heading-l {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #1F2937;
+  margin: 0;
+  font-family: Urbanist;
+  white-space: normal;
+  word-break: break-word;
+  flex: 1;
+  min-width: 0;
+  line-height: 17.5px !important;
+  letter-spacing: 0px !important;
+  max-width: calc(100% - 100px);
+}
+
+.lead-log-detail-panel-score-badge {
+  padding: 2px 8px;
+  background-color: #8B5CF6;
+  color: white;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: Urbanist;
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 17.5px;
+  letter-spacing: 0px;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.lead-log-detail-panel-category {
+  font-size: 12px;
+  color: #6B7280;
+  margin: 0;
+  font-family: Urbanist;
+  font-weight: 500;
+  line-height: 17.5px;
+  letter-spacing: 0px;
+}
+
+.lead-log-detail-panel-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.lead-log-detail-panel-section {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #D1D5DB;
+}
+
+.lead-log-detail-panel-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #07020D;
+  margin: 0 0 8px 0;
+  font-family: Urbanist;
+  line-height: 21px;
+  letter-spacing: 0px;
+}
+
+.lead-log-detail-panel-contact-row {
+  display: flex;
+  align-items: center;
+}
+
+.lead-log-detail-panel-contact-icon {
+  height: 12px;
+  width: 12px;
+  color: #6B7280;
+  flex-shrink: 0;
+}
+
+.lead-log-detail-panel-contact-text {
+  font-size: 12px;
+  color: #6B7280;
+  font-family: Urbanist;
+  font-weight: 500;
+  line-height: 17.5px;
+  letter-spacing: 0px;
+}
+
+.lead-log-detail-panel-info-section {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #D1D5DB;
+}
+
+.lead-log-detail-panel-info-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.lead-log-detail-panel-info-item {
+  display: flex;
+  align-items: center;
+}
+
+.lead-log-detail-panel-info-label {
+  font-size: 14px;
+  color: #6B7280;
+  font-family: Urbanist;
+  font-weight: 500;
+  line-height: 17.5px;
+  letter-spacing: 0px;
+}
+
+.lead-log-detail-panel-info-value {
+  font-size: 14px;
+  color: #07020D;
+  font-family: Urbanist;
+  font-weight: 600;
+  line-height: 17.5px;
+  letter-spacing: 0px;
+}
+
+.lead-log-detail-panel-info-icon {
+  height: 14px;
+  width: 14px;
+  color: #6B7280;
+  flex-shrink: 0;
+}
+
+.lead-log-outreach-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: Urbanist;
+}
+
+.lead-log-outreach-status-badge.replied {
+  background-color: #D1FAE5;
+  color: #065F46;
+}
+
+.lead-log-outreach-status-badge.contacted {
+  background-color: #DBEAFE;
+  color: #1E40AF;
+}
+
+.lead-log-outreach-status-badge.no_response {
+  background-color: #FEE2E2;
+  color: #991B1B;
+}
+
+.lead-log-outreach-status-icon {
+  height: 12px;
+  width: 12px;
+  stroke-width: 3;
+}
+
+.lead-log-outreach-status-text {
+  font-size: 14px;
+  color: #07020D;
+  font-family: Urbanist;
+  font-weight: 600;
+}
+
+/* List View Styles */
+.lead-log-list-container-styles {
+  --lead-log-content-padding-x: 24px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.lead-log-list-header-styles {
+  display: flex;
+  flex-direction: column;
+}
+
+.lead-log-list-title-row {
+  display: flex;
+  align-items: center;
+}
+
+.lead-log-list-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  font-family: Urbanist;
+}
+
+.lead-log-list-title-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.lead-log-list-icon {
+  flex-shrink: 0;
+}
+
+.lead-log-list-header-styles {
+  flex-shrink: 0;
+  min-height: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 8px;
+}
+
+.lead-log-list-content-styles {
+  padding-top: 0px;
+  padding-left: var(--lead-log-content-padding-x, 24px);
+  padding-right: var(--lead-log-content-padding-x, 24px);
+  padding-bottom: 0;
+  flex: 1 1 0%;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.lead-log-pagination-arrow-button.disabled {
+  cursor: not-allowed;
+}
+
+/* Lead Log Pagination - Minimalist Design */
+.lead-log-pagination-fixed {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  margin-top: auto;
+  border-top: 1px solid #E5E7EB;
+  font-size: 12px;
+  font-family: Urbanist, sans-serif;
+  background-color: white;
+  min-height: 36px;
+}
+
+.lead-log-pagination-showing {
+  color: #A198CE;
+  font-weight: 500;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.lead-log-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lead-log-pagination-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: white;
+  border: 1px solid #DEE2E6;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #212529;
+  padding: 0;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.lead-log-pagination-btn:hover:not(:disabled) {
+  background-color: #F8F9FA;
+  border-color: #CED4DA;
+}
+
+.lead-log-pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lead-log-pagination-btn:focus {
+  outline: none;
+}
+
+.lead-log-pagination-page {
+  color: #212529;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.lead-log-pagination-show-label {
+  color: #212529;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.lead-log-pagination-select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lead-log-pagination-select {
+  appearance: none;
+  padding: 6px 28px 6px 10px;
+  border: 1px solid #DEE2E6;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: Urbanist, sans-serif;
+  background-color: white;
+  color: #212529;
+  cursor: pointer;
+  min-width: 56px;
+  height: 28px;
+}
+
+.lead-log-pagination-select:hover {
+  border-color: #CED4DA;
+}
+
+.lead-log-pagination-select:focus {
+  outline: none;
+  border-color: #ADB5BD;
+}
+
+.lead-log-pagination-select-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #212529;
+  pointer-events: none;
+}
+
+/* List view — search + industry bar (matches Inbox .inbox-search-filters + inner fields) */
+.lead-log-search-filter-outer {
+  margin-bottom: 16px;
+  flex-shrink: 0;
+  padding-top: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.lead-log-search-filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 10px 14px;
+  border: 1px solid #ced4da;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.lead-log-search-bar-search-wrap {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+  width: min(300px, 100%);
+  max-width: min(300px, 100%);
+  min-width: 0;
+}
+
+.lead-log-search-filter-spacer {
+  flex: 1;
+  min-width: 0;
+}
+
+.lead-log-search-filter-container .lead-log-industry-filter {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.lead-log-search-filter-container .lead-log-search-input-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 140px;
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  padding: 0 16px;
+  height: 36px;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.lead-log-search-filter-container .lead-log-search-input-container input,
+.lead-log-search-filter-container .lead-log-search-input-container [data-slot="input"] {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.lead-log-search-filter-container .lead-log-search-input-container input:focus,
+.lead-log-search-filter-container .lead-log-search-input-container input:focus-visible,
+.lead-log-search-filter-container .lead-log-search-input-container [data-slot="input"]:focus,
+.lead-log-search-filter-container .lead-log-search-input-container [data-slot="input"]:focus-visible {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.lead-log-search-filter-container .lead-log-search-icon {
+  height: 14px;
+  width: 14px;
+  color: #030011;
+  stroke: #030011;
+  flex-shrink: 0;
+}
+
+.lead-log-search-filter-container .lead-log-search-input {
+  flex: 1;
+  border: none !important;
+  background-color: transparent !important;
+  outline: none !important;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19.5px;
+  color: #030011;
+  font-family: 'Urbanist', sans-serif;
+  letter-spacing: 0;
+  padding: 0 !important;
+  height: 100% !important;
+  box-shadow: none !important;
+  min-width: 0;
+  border-radius: 0 !important;
+}
+
+.lead-log-search-filter-container .lead-log-search-input::placeholder,
+.lead-log-search-filter-container .lead-log-search-input::-webkit-input-placeholder {
+  color: #030011 !important;
+  opacity: 1;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19.5px;
+  -webkit-text-fill-color: #030011;
+}
+
+.lead-log-search-filter-container .lead-log-search-input::-moz-placeholder {
+  color: #030011 !important;
+  opacity: 1;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19.5px;
+}
+
+.lead-log-search-filter-container .lead-log-industry-filter-wrapper {
+  width: 170px !important;
+  min-width: 170px !important;
+  max-width: 170px !important;
+}
+
+.lead-log-search-filter-container .lead-log-industry-filter-bar-trigger {
+  width: 170px !important;
+  min-width: 170px !important;
+  max-width: 170px !important;
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  height: 36px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  cursor: text;
+  overflow: hidden;
+  line-height: 1;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  box-shadow: none;
+}
+
+.lead-log-search-filter-container .lead-log-industry-filter-icon,
+.lead-log-search-filter-container .lead-log-industry-filter-chevron {
+  color: #030011 !important;
+  stroke: #030011 !important;
+  flex-shrink: 0;
+}
+
+.lead-log-search-filter-container .lead-log-industry-filter-bar-trigger .lead-log-industry-filter-input {
+  flex: 1;
+  min-width: 0;
+  border: none !important;
+  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 12px;
+  line-height: 19.5px;
+  color: #030011;
+  padding: 0 !important;
+  height: 100% !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: text;
+  border-radius: 0 !important;
+}
+
+.lead-log-search-filter-container .lead-log-industry-filter-bar-trigger .lead-log-industry-filter-input:focus,
+.lead-log-search-filter-container .lead-log-industry-filter-bar-trigger .lead-log-industry-filter-input:focus-visible {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.lead-log-search-filter-container .lead-log-industry-filter-bar-trigger .lead-log-industry-filter-input::placeholder,
+.lead-log-search-filter-container .lead-log-industry-filter-bar-trigger .lead-log-industry-filter-input::-webkit-input-placeholder {
+  color: #030011 !important;
+  opacity: 1;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19.5px;
+  -webkit-text-fill-color: #030011;
+}
+
+.lead-log-search-filter-container .lead-log-industry-filter-bar-trigger .lead-log-industry-filter-input::-moz-placeholder {
+  color: #030011 !important;
+  opacity: 1;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19.5px;
+}
+
+.lead-log-search-filter-container .lead-log-industry-filter-dropdown {
+  width: 170px !important;
+}
+
+/* Session list grid + cards: markup uses Inbox classes (.inbox-thread-grid, .inbox-campaign-card, …) */
+.lead-log-list-container .inbox-campaign-card:focus-visible {
+  outline: 2px solid #9164ff;
+  outline-offset: 2px;
+}
+
+/* Force Inbox card typography inside Lead Log (Tailwind @layer base h3/p can otherwise win on load order) */
+.lead-log-list-container .inbox-campaign-card-title {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  color: #030011 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+}
+
+.lead-log-list-container .inbox-campaign-card-meta {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.lead-log-list-container .inbox-campaign-card-sent-label {
+  color: #a198ce !important;
+  font-weight: 400 !important;
+}
+
+.lead-log-list-container .inbox-campaign-card-sent-value {
+  color: #030011 !important;
+  font-weight: 400 !important;
+}
+
+.lead-log-list-container .inbox-campaign-card-leads-badge {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 21px !important;
+  font-family: 'Urbanist', sans-serif !important;
+  color: #9164ff !important;
+  background-color: rgba(145, 100, 255, 0.1) !important;
+}
+
+.lead-log-scrollable-cards > .inbox-thread-grid {
+  /* Do not stretch rows to fill the viewport — single session cards should hug content (min-height: 100% caused tall empty borders). */
+  align-content: start;
+}
+
+.lead-log-scrollable-cards .inbox-campaign-card {
+  align-self: start;
+}
+
+.lead-log-scrollable-empty {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: min(520px, calc(100vh - 240px));
+  box-sizing: border-box;
+}
+

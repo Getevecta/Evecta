@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="/Icon.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/Icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/Icon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/Icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/Icon.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/Icon.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/Icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/Icon.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/Icon.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/Icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/Icon.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/Icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/Icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Prevent caching of this HTML so app always loads correct JS/CSS after deployments (avoids blank page) -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="theme-color" content="#030011" />
+    <meta name="msapplication-TileColor" content="#030011" />
+    <meta name="msapplication-TileImage" content="/Icon.png" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <meta
+      name="description"
+      content="Evecta - AI-Powered Lead Management Platform"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Evecta - AI Lead Management</title>
+    
+    <!-- PostHog Analytics - Only track on production (evecta.io) -->
+    <script>
+      // Only initialize tracking on production domain
+      if (window.location.hostname === 'evecta.io') {
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_OJe0hSgLWaujWjwGG7CxrlsOjFPlgQHWENpnUpw8GIb', {
+          api_host: 'https://us.i.posthog.com',
+          defaults: '2025-11-30'
+        });
+      }
+    </script>
+    
+    <!-- Google tag (gtag.js) - Only track on production (evecta.io) -->
+    <script>
+      // Only initialize tracking on production domain
+      if (window.location.hostname === 'evecta.io') {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-3NQW5YY961';
+        document.head.appendChild(script);
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3NQW5YY961');
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>

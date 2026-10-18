@@ -1,0 +1,932 @@
+/* Design System Color Palette */
+:root {
+  /* Primary Colors – #9164FF */
+  --color-primary: #9164FF;
+  --color-primary-50: #F3E8FF;
+  --color-primary-100: #E9D5FF;
+  --color-primary-200: #D8B4FE;
+  --color-primary-300: #B59BFF;
+  --color-primary-400: #9164FF;
+  --color-primary-500: #9164FF;
+  --color-primary-600: #7B4FED;
+  --color-primary-700: #6B45D9;
+  --color-primary-800: #4B2E99;
+  --color-primary-900: #2D0A47;
+
+  /* Secondary Colors */
+  --color-secondary: #00FFD1;
+  --color-secondary-50: #F0FDFA;
+  --color-secondary-100: #CCFBF1;
+  --color-secondary-200: #99F6E4;
+  --color-secondary-300: #5EEAD4;
+  --color-secondary-400: #2DD4BF;
+  --color-secondary-500: #00FFD1;
+  --color-secondary-600: #00C2B3;
+  --color-secondary-700: #0F766E;
+  --color-secondary-800: #115E59;
+  --color-secondary-900: #134E4A;
+
+  /* Accent Colors */
+  --color-accent: #FF6B35;
+  --color-accent-50: #FFF7ED;
+  --color-accent-100: #FFEDD5;
+  --color-accent-200: #FED7AA;
+  --color-accent-300: #FDBA74;
+  --color-accent-400: #FB923C;
+  --color-accent-500: #FF6B35;
+  --color-accent-600: #E85C2E;
+  --color-accent-700: #CC4F29;
+  --color-accent-800: #9A3412;
+  --color-accent-900: #7C2D12;
+
+  /* Neutral Colors */
+  --color-neutral: #1F2937;
+  --color-neutral-50: #F9FAFB;
+  --color-neutral-100: #F3F4F6;
+  --color-neutral-200: #E5E7EB;
+  --color-neutral-300: #D1D5DB;
+  --color-neutral-400: #9CA3AF;
+  --color-neutral-500: #6B7280;
+  --color-neutral-600: #4B5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1F2937;
+  --color-neutral-900: #111827;
+
+  /* Background Colors */
+  --color-background-app: #F9FAFB;
+  --color-background-card: #FFFFFF;
+  --color-background-highlight: rgba(0, 255, 209, 0.05);
+  --color-background-alert: rgba(255, 107, 53, 0.05);
+
+  /* Button Colors – primary #9164FF */
+  --color-button-primary: #9164FF;
+  --color-button-primary-hover: #7B4FED;
+  --color-button-primary-active: #6B45D9;
+  --color-button-primary-disabled: #B59BFF;
+  --color-button-primary-text: #FFFFFF;
+  --color-button-primary-text-disabled: #E0D7F8;
+
+  --color-button-secondary: #00FFD1;
+  --color-button-secondary-hover: #33FFE8;
+  --color-button-secondary-active: #00C2B3;
+  --color-button-secondary-disabled: #A0F7F2;
+  --color-button-secondary-text: #1F2937;
+  --color-button-secondary-text-disabled: #4B5563;
+
+  --color-button-destructive: #FF6B35;
+  --color-button-destructive-hover: #E85C2E;
+  --color-button-destructive-active: #CC4F29;
+  --color-button-destructive-disabled: #FFB49A;
+  --color-button-destructive-text: #FFFFFF;
+  --color-button-destructive-text-disabled: #FFF3F0;
+
+  /* Table Colors — header tint #D0D5DD @ 30% */
+  --color-table-header: rgba(208, 213, 221, 0.3);
+  --dashboard-table-header-bg: rgba(208, 213, 221, 0.3);
+  --color-table-row: #1F2937;
+  --color-table-hover: rgba(107, 33, 168, 0.05);
+  --color-table-selected: rgba(107, 33, 168, 0.15);
+  --color-table-border: #E5E7EB;
+
+  /* Typography Colors */
+  --color-text-primary: #1F2937;
+  --color-text-secondary: #6B7280;
+  --color-text-disabled: rgba(31, 41, 55, 0.4);
+  --color-text-inverse: #FFFFFF;
+
+  /* Status Colors */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+
+  /* ============================================
+     MASTER TYPOGRAPHY HIERARCHY
+     ============================================
+     Official typography system for the entire platform.
+     All designs and development must follow this hierarchy.
+     No new font sizes, weights, or styles outside this system.
+     ============================================ */
+
+  /* Heading / XL - Main page titles and top-level screen headings */
+  --typography-heading-xl-size: 26px;
+  --typography-heading-xl-line: 34px;
+  --typography-heading-xl-weight: 600; /* Semi-Bold */
+  --typography-heading-xl-spacing: -0.02em;
+
+  /* Heading / L - Major section titles within a page */
+  --typography-heading-l-size: 22px;
+  --typography-heading-l-line: 30px;
+  --typography-heading-l-weight: 600; /* Semi-Bold */
+  --typography-heading-l-spacing: -0.01em;
+
+  /* Heading / M - Component-level titles */
+  --typography-heading-m-size: 18px;
+  --typography-heading-m-line: 26px;
+  --typography-heading-m-weight: 600; /* Semi-Bold */
+  --typography-heading-m-spacing: -0.01em;
+
+  /* Heading / S - Small headings, sidebar section titles */
+  --typography-heading-s-size: 14px;
+  --typography-heading-s-line: 20px;
+  --typography-heading-s-weight: 600; /* Semi-Bold */
+  --typography-heading-s-spacing: -0.01em;
+
+  /* Text / L - Long-form reading content */
+  --typography-text-l-size: 14px;
+  --typography-text-l-line: 22px;
+  --typography-text-l-weight: 600; /* Semi-Bold */
+  --typography-text-l-spacing: 0;
+
+  /* Text / M - Default body text for most UI elements */
+  --typography-text-m-size: 12px;
+  --typography-text-m-line: 18px;
+  --typography-text-m-weight: 400; /* Regular */
+  --typography-text-m-spacing: 0;
+
+  /* Text / S - Secondary or supporting information */
+  --typography-text-s-size: 10px;
+  --typography-text-s-line: 14px;
+  --typography-text-s-weight: 400; /* Regular */
+  --typography-text-s-spacing: 0;
+
+  /* Label / XS - UI labels and metadata */
+  --typography-label-xs-size: 11px;
+  --typography-label-xs-line: 16px;
+  --typography-label-xs-weight: 500; /* Medium */
+  --typography-label-xs-spacing: 0.03em;
+
+  /* ============================================
+     MASTER SPACING SYSTEM
+     ============================================
+     Global spacing tokens for consistent layout across all pages.
+     All spacing values are defined here and used via CSS variables.
+     ============================================ */
+
+  /* Base Spacing Tokens (8-point system) */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+
+  /* Typography Spacing Tokens (from typography rules) */
+  --spacing-6: 6px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+
+  /* Navigation Spacing */
+  --spacing-nav-padding: 6px;
+  --spacing-nav-logo-to-links: 24px;
+  --spacing-nav-link-to-link: 24px;
+  --spacing-nav-links-to-cta: 32px;
+  --spacing-nav-icon-to-text: 8px;
+
+  /* Hero Section Spacing */
+  --spacing-hero-section-top: 32px;
+  --spacing-hero-badge-to-heading: 8px;
+  --spacing-hero-heading-to-highlight: 4px;
+  --spacing-hero-heading-to-subtitle: 8px;
+  --spacing-hero-subtitle-to-cta: 16px;
+  --spacing-hero-cta-to-reassurance: 12px;
+  --spacing-hero-reassurance-item-to-item: 16px;
+  --spacing-hero-reassurance-to-stats: 24px;
+  --spacing-hero-text-to-dashboard: 32px;
+
+  /* Dashboard Preview Spacing */
+  --spacing-dashboard-card-padding: 24px;
+  --spacing-dashboard-title-to-helper: 6px;
+  --spacing-dashboard-helper-to-chart: 16px;
+  --spacing-dashboard-stat-to-stat: 16px;
+
+  /* Before/After Section Spacing */
+  --spacing-beforeafter-section-top: 32px;
+  --spacing-beforeafter-badge-to-heading: 8px;
+  --spacing-beforeafter-heading-to-cards: 16px;
+  --spacing-beforeafter-card-to-card: 24px;
+  --spacing-beforeafter-card-padding: 24px;
+  --spacing-beforeafter-title-to-bullets: 8px;
+  --spacing-beforeafter-bullet-to-bullet: 10px;
+
+  /* Steps Section Spacing */
+  --spacing-steps-section-top: 32px;
+  --spacing-steps-badge-to-heading: 8px;
+  --spacing-steps-heading-to-row: 16px;
+  --spacing-steps-card-to-card: 24px;
+  --spacing-steps-icon-to-title: 4px;
+  --spacing-steps-title-to-description: 6px;
+  --spacing-steps-card-padding: 24px;
+
+  /* Features Section Spacing */
+  --spacing-features-section-top: 32px;
+  --spacing-features-badge-to-heading: 8px;
+  --spacing-features-heading-to-grid: 16px;
+  --spacing-features-card-to-card: 24px;
+  --spacing-features-card-padding: 24px;
+  --spacing-features-icon-to-title: 12px;
+  --spacing-features-title-to-description: 12px;
+  --spacing-features-description-to-bullets: 24px;
+
+  /* Blog Section Spacing */
+  --spacing-blog-section-top: 32px;
+  --spacing-blog-label-to-heading: 8px;
+  --spacing-blog-heading-to-cards: 32px;
+  --spacing-blog-card-to-card: 24px;
+  --spacing-blog-card-padding: 24px;
+  --spacing-blog-title-to-snippet: 8px;
+  --spacing-blog-snippet-to-meta: 6px;
+
+  /* CTA Banner Spacing */
+  --spacing-cta-section-padding: 40px;
+  --spacing-cta-heading-to-description: 8px;
+  --spacing-cta-description-to-button: 16px;
+
+  /* Footer Spacing */
+  --spacing-footer-top: 32px;
+  --spacing-footer-column-to-column: 32px;
+  --spacing-footer-title-to-links: 12px;
+  --spacing-footer-link-to-link: 12px;
+  --spacing-footer-content-to-copyright: 24px;
+
+  /* Marketing pages: fixed header (80px bar + 1px line) + gap to first hero line */
+  --marketing-header-offset: 81px;
+  --page-hero-gap-mobile: 50px;
+  --page-hero-gap-laptop: 80px;
+  --page-content-padding-top-mobile: calc(var(--marketing-header-offset) + var(--page-hero-gap-mobile));
+  --page-content-padding-top-laptop: calc(var(--marketing-header-offset) + var(--page-hero-gap-laptop));
+
+  /* About Us Page Spacing */
+  --spacing-about-back-top: 16px;
+  --spacing-about-back-icon-to-text: 8px;
+  --spacing-about-hero-section-top: 32px;
+  --spacing-about-hero-badge-to-heading: 8px;
+  --spacing-about-hero-heading-to-subtitle: 4px;
+  --spacing-about-hero-subtitle-to-next: 32px;
+  --spacing-about-story-section-top: 32px;
+  --spacing-about-story-badge-to-heading: 8px;
+  --spacing-about-story-heading-to-paragraph: 10px;
+  --spacing-about-paragraph-to-paragraph: 12px;
+  --spacing-about-paragraph-bottom: 16px;
+  --spacing-about-story-column-gap: 32px;
+  --spacing-about-stat-card-padding: 24px;
+  --spacing-about-stat-icon-to-number: 8px;
+  --spacing-about-stat-number-to-label: 6px;
+  --spacing-about-values-section-top: 32px;
+  --spacing-about-values-badge-to-heading: 8px;
+  --spacing-about-values-heading-to-subtitle: 8px;
+  --spacing-about-values-subtitle-to-cards: 16px;
+  --spacing-about-value-card-to-card: 24px;
+  --spacing-about-value-card-padding: 24px;
+  --spacing-about-value-icon-to-title: 4px;
+  --spacing-about-value-title-to-description: 6px;
+  --spacing-about-services-section-top: 32px;
+  --spacing-about-services-badge-to-heading: 8px;
+  --spacing-about-services-heading-to-subtitle: 8px;
+  --spacing-about-services-subtitle-to-first: 16px;
+  --spacing-about-service-block-to-block: 32px;
+  --spacing-about-service-image-to-text: 32px;
+  --spacing-about-service-tag-to-title: 8px;
+  --spacing-about-service-title-to-description: 8px;
+  --spacing-about-service-description-to-hashtags: 12px;
+  --spacing-about-hashtag-to-hashtag: 8px;
+  --spacing-about-cta-section-top: 32px;
+  --spacing-about-cta-badge-to-heading: 8px;
+  --spacing-about-cta-heading-to-subtitle: 8px;
+  --spacing-about-cta-subtitle-to-button: 16px;
+  --spacing-about-cta-section-padding: 40px;
+}
+
+/* Utility Classes for Design System Colors */
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-accent { color: var(--color-accent); }
+.text-neutral { color: var(--color-neutral); }
+
+.bg-primary { background-color: var(--color-primary); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-accent { background-color: var(--color-accent); }
+.bg-neutral { background-color: var(--color-neutral); }
+
+.border-primary { border-color: var(--color-primary); }
+.border-secondary { border-color: var(--color-secondary); }
+.border-accent { border-color: var(--color-accent); }
+.border-neutral { border-color: var(--color-neutral); }
+
+/* Button Utility Classes */
+.btn-primary {
+  background-color: var(--color-button-primary);
+  color: var(--color-button-primary-text);
+  border: 1px solid var(--color-button-primary);
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-button-primary-hover);
+  border-color: var(--color-button-primary-hover);
+}
+
+.btn-primary:active {
+  background-color: var(--color-button-primary);
+  border-color: var(--color-button-primary);
+}
+
+.btn-primary:disabled {
+  background-color: var(--color-button-primary-disabled);
+  color: var(--color-button-primary-text-disabled);
+  border-color: var(--color-button-primary-disabled);
+}
+
+.btn-secondary {
+  background-color: var(--color-button-secondary);
+  color: var(--color-button-secondary-text);
+  border: 1px solid var(--color-button-secondary);
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-button-secondary-hover);
+  border-color: var(--color-button-secondary-hover);
+}
+
+.btn-secondary:active {
+  background-color: var(--color-button-secondary);
+  border-color: var(--color-button-secondary);
+}
+
+.btn-secondary:disabled {
+  background-color: var(--color-button-secondary-disabled);
+  color: var(--color-button-secondary-text-disabled);
+  border-color: var(--color-button-secondary-disabled);
+}
+
+.btn-destructive {
+  background-color: var(--color-button-destructive);
+  color: var(--color-button-destructive-text);
+  border: 1px solid var(--color-button-destructive);
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-destructive:hover:not(:disabled) {
+  background-color: var(--color-button-destructive-hover);
+  border-color: var(--color-button-destructive-hover);
+}
+
+.btn-destructive:active {
+  background-color: var(--color-button-destructive);
+  border-color: var(--color-button-destructive);
+}
+
+.btn-destructive:disabled {
+  background-color: var(--color-button-destructive-disabled);
+  color: var(--color-button-destructive-text-disabled);
+  border-color: var(--color-button-destructive-disabled);
+}
+
+/* Table Utility Classes */
+.table-header {
+  background-color: var(--dashboard-table-header-bg);
+  color: var(--color-text-primary);
+}
+
+.table-row {
+  color: var(--color-table-row);
+}
+
+.table-row:hover {
+  background-color: var(--color-table-hover);
+}
+
+.table-row.selected {
+  background-color: var(--color-table-selected);
+}
+
+.table-border {
+  border-color: var(--color-table-border);
+}
+
+/* ============================================
+   MASTER TYPOGRAPHY HIERARCHY CLASSES
+   ============================================
+   Global utility classes for typography tokens.
+   Use these classes throughout the entire platform.
+   ============================================ */
+
+/* Heading / XL - Use for main page titles and top-level screen headings */
+/* Examples: Top Heading, Overview, Main page heading */
+.heading-xl,
+.typography-heading-xl,
+h1.heading-xl {
+  font-size: var(--typography-heading-xl-size) !important;
+  line-height: var(--typography-heading-xl-line) !important;
+  font-weight: var(--typography-heading-xl-weight) !important;
+  letter-spacing: var(--typography-heading-xl-spacing) !important;
+  margin: 0;
+}
+
+/* Heading / L - Use for major section titles within a page */
+/* Examples: Major section headers, Recent Activity, Information, Details */
+.heading-l,
+.typography-heading-l,
+h2.heading-l {
+  font-size: var(--typography-heading-l-size) !important;
+  line-height: var(--typography-heading-l-line) !important;
+  font-weight: var(--typography-heading-l-weight) !important;
+  letter-spacing: var(--typography-heading-l-spacing) !important;
+  margin: 0;
+}
+
+/* Heading / M - Use for component-level titles */
+/* Examples: Title heading, Notification title, Button, Card titles, List headers, Modal titles, Sub-sections */
+.heading-m,
+.typography-heading-m,
+h3.heading-m,
+h4.heading-m,
+h5.heading-m,
+h6.heading-m {
+  font-size: var(--typography-heading-m-size) !important;
+  line-height: var(--typography-heading-m-line) !important;
+  font-weight: var(--typography-heading-m-weight) !important;
+  letter-spacing: var(--typography-heading-m-spacing) !important;
+  margin: 0;
+}
+
+/* Heading / S - Use for small headings, sidebar section titles */
+.heading-s,
+.typography-heading-s,
+h3.heading-s,
+h4.heading-s,
+h5.heading-s,
+h6.heading-s {
+  font-size: var(--typography-heading-s-size) !important;
+  line-height: var(--typography-heading-s-line) !important;
+  font-weight: var(--typography-heading-s-weight) !important;
+  letter-spacing: var(--typography-heading-s-spacing) !important;
+  margin: 0;
+}
+
+/* Text / L - Use for long-form reading content */
+/* Examples: Descriptions, Help text blocks, Onboarding explanations, Long-form content, Primary paragraph text */
+.text-l,
+.typography-text-l {
+  font-size: var(--typography-text-l-size) !important;
+  line-height: var(--typography-text-l-line) !important;
+  font-weight: var(--typography-text-l-weight) !important;
+  letter-spacing: var(--typography-text-l-spacing) !important;
+  margin: 0;
+}
+
+/* Text / M - Use as default body text for most UI elements */
+/* Examples: Table rows, Sidebar Heading, Forms helper text, General UI content, Standard body text, Table content, Form field descriptions, Card descriptions */
+.text-m,
+.typography-text-m,
+p.text-m,
+body.text-m {
+  font-size: var(--typography-text-m-size) !important;
+  line-height: var(--typography-text-m-line) !important;
+  font-weight: var(--typography-text-m-weight) !important;
+  letter-spacing: var(--typography-text-m-spacing) !important;
+}
+
+/* Text / S - Use for secondary or supporting information */
+/* Examples: Timestamps, Secondary notes, Inline hints, paragraphs */
+.text-s,
+.typography-text-s {
+  font-size: var(--typography-text-s-size) !important;
+  line-height: var(--typography-text-s-line) !important;
+  font-weight: var(--typography-text-s-weight) !important;
+  letter-spacing: var(--typography-text-s-spacing) !important;
+  margin: 0;
+}
+
+/* Label / XS - Use for UI labels and metadata, not for reading content */
+/* Examples: Form labels, Tags, badges, and status labels, Table column headers, descriptions, light information */
+.label-xs,
+.typography-label-xs,
+label.label-xs {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+  margin: 0;
+}
+
+/* ============================================
+   GLOBAL TYPOGRAPHY OVERRIDES
+   ============================================
+   Apply typography hierarchy globally to ensure consistency.
+   These rules ensure the typography system is used platform-wide.
+   ============================================ */
+
+/* ============================================
+   DASHBOARD TYPOGRAPHY OVERRIDES - HIGHEST PRIORITY
+   ============================================
+   These rules override ALL existing font-size declarations
+   to ensure the Master Typography Hierarchy is used in DASHBOARD PAGES ONLY.
+   Scoped to .dashboard-main-container to prevent affecting public pages.
+   ============================================ */
+
+/* Default body text uses Text / M - Override all existing body styles */
+.dashboard-main-container,
+.dashboard-main-container body,
+/* :not billing-page-* — those nodes use BillingPage.css (e.g. Pricing 30px); universal * was forcing 12px on h1/p */
+.dashboard-main-container *:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.text-s):not(.label-xs):not(.evecta-logo-text):not(.evecta-logo-tagline):not(.billing-page-title):not(.billing-page-subtitle):not(.billing-page-credits-note):not(.spending-additional-title):not(.spending-order-title):not(.spending-additional-lead):not(.spending-region-title):not(.spending-region-title--sub):not(.spending-region-lead):not(.billing-card-name):not(.billing-card-name-star):not(.billing-card-desc):not(.billing-card-price):not(.billing-card-price-suffix):not(.billing-card-save):not(.billing-card-toggle):not(.billing-card-toggle-label):not(.billing-card-features-title):not(.billing-card-feature-item):not(.billing-card-feature-text):not(.billing-card-check):not(.lead-generation-main-prompt-eyebrow):not(.lead-generation-main-prompt-title):not(.lead-generation-main-input):not(.lead-generation-main-textarea):not(.dashboard-empty-state-title):not(.dashboard-empty-state-description):not(.dashboard-empty-state-icon):not(.dashboard-empty-state-icon-gradient):not(.email-accounts-empty-state-title):not(.email-accounts-empty-state-description):not(.email-accounts-connect-card-blurb):not(.email-accounts-empty-managed-pool-title):not(.email-accounts-empty-managed-pool-description):not(.email-accounts-feature-subtitle-conditional):not(.email-accounts-feature-title-conditional):not(.email-accounts-setup-back-button):not(.email-accounts-instructions-title):not(.email-accounts-imap-help-title):not(.email-accounts-imap-help-text):not(.email-accounts-imap-modal-header-title):not(.email-accounts-imap-modal-subtitle):not(.inbox-empty-state-description):not(.inbox-campaign-card-title):not(.inbox-campaign-card-meta):not(.inbox-campaign-card-sent-label):not(.inbox-campaign-card-sent-value):not(.inbox-campaign-card-leads-badge):not(.inbox-thread-detail-title):not(.inbox-thread-detail-desc):not(.inbox-thread-detail-meta-item):not(.inbox-session-card-snippet):not(.inbox-session-card-to):not(.inbox-session-card-subject):not(.inbox-session-card-date):not(.inbox-thread-detail-footer-count):not(.inbox-thread-detail-page-label):not(.inbox-thread-detail-back):not(.inbox-thread-detail-badge):not(.inbox-session-card):not(.inbox-session-checkbox):not(.inbox-session-card-body):not(.inbox-session-card-right):not(.inbox-session-star-btn):not(.inbox-session-avatar):not(.user-profile-avatar-inline-initials):not(.user-profile-avatar-inline-initials--one):not(.user-profile-avatar-inline-initials--two):not(.template-card-title):not(.template-card-tags-label):not(.template-card-tag):not(.template-card-usage-text):not(.template-card-description):not(.template-create-title):not(.template-create-subtitle):not(.template-create-label):not(.email-setup-option-page-title):not(.connect-email-loader-title):not(.connect-email-loader-subtitle):not(.connect-email-loader-how-title):not(.connect-email-loader-how-text):not(.loading-title):not(.loading-subtitle):not(.loading-info-title):not(.loading-info-text):not(.google-consent-title):not(.imap-consent-title):not(.google-consent-subtitle):not(.imap-consent-subtitle):not(.consent-section-title):not(.consent-how-heading):not(.consent-access-heading):not(.consent-section-text):not(.consent-permission-title):not(.consent-permission-description):not(.email-accounts-tab-button):not(.email-accounts-tab-button-text):not(.email-accounts-managed-total-emails-label):not(.email-accounts-managed-total-emails-value):not(.email-accounts-managed-total-emails-meta):not(.email-accounts-managed-overview-title):not(.email-accounts-managed-overview-subtitle):not(.email-accounts-managed-overview-badge):not(.campaign-card-banner-title):not(.campaign-card-banner-description):not(.campaign-card-stat-value):not(.campaign-card-stat-label):not(.campaign-card-status-pill):not(.campaign-card-status-dot):not(.campaign-card-status-text):not(.campaign-card-email-field):not(.campaign-card-email-stack):not(.campaign-card-email-mode):not(.campaign-card-email-address):not(.campaign-card-email-value):not(.email-creation-method-label):not(.email-form-label):not(.spam-check-info-text):not(.email-form-textarea):not(.email-form-input):not(.email-form-select):not(.content-editable-input):not(.content-editable-textarea):not(.template-content-editable-input):not(.template-content-editable-textarea):not(.campaign-email-creation-tab):not(.email-tone-card):not(.email-tone-card-label):not(.email-tone-card-desc):not(.email-tone-tier-name):not(.email-tone-tier-badge):not(.cle-gen-td-name):not(.cle-gen-score-pill):not(.cle-gen-td-location):not(.cle-gen-banner-title):not(.cle-gen-prompt-label):not(.cle-gen-regenerate-all):not(.sidebar-credits-title) {
+  font-size: var(--typography-text-m-size) !important;
+  line-height: var(--typography-text-m-line) !important;
+  font-weight: var(--typography-text-m-weight) !important;
+  letter-spacing: var(--typography-text-m-spacing) !important;
+}
+
+/* Default paragraph text uses Text / M */
+.dashboard-main-container p:not(.text-l):not(.text-s):not(.label-xs):not(.heading-xl):not(.heading-l):not(.heading-m):not(.billing-page-subtitle):not(.billing-page-credits-note):not(.spending-region-lead):not(.spending-additional-lead):not(.billing-card-desc):not(.lead-generation-main-prompt-eyebrow):not(.dashboard-empty-state-title):not(.dashboard-empty-state-description):not(.email-accounts-connect-card-blurb):not(.email-accounts-empty-managed-pool-description):not(.email-accounts-feature-subtitle-conditional):not(.email-accounts-imap-help-text):not(.email-accounts-imap-modal-subtitle):not(.inbox-empty-state-description):not(.inbox-campaign-card-meta):not(.template-card-description):not(.template-create-subtitle):not(.connect-email-loader-subtitle):not(.connect-email-loader-how-text):not(.loading-subtitle):not(.loading-info-text):not(.google-consent-subtitle):not(.imap-consent-subtitle):not(.consent-section-text):not(.consent-permission-description):not(.email-accounts-managed-total-emails-label):not(.email-accounts-managed-total-emails-value):not(.email-accounts-managed-total-emails-meta):not(.email-accounts-managed-overview-subtitle):not(.campaign-card-banner-description):not(.email-creation-method-label):not(.cle-gen-banner-title),
+.dashboard-main-container p *:not(.text-l):not(.text-s):not(.label-xs):not(.heading-xl):not(.heading-l):not(.heading-m):not(.dashboard-empty-state-title):not(.dashboard-empty-state-description):not(.inbox-empty-state-description):not(.inbox-campaign-card-sent-label):not(.inbox-campaign-card-sent-value):not(.campaign-card-banner-description):not(.campaign-card-status-text) {
+  font-size: var(--typography-text-m-size) !important;
+  line-height: var(--typography-text-m-line) !important;
+  font-weight: var(--typography-text-m-weight) !important;
+  letter-spacing: var(--typography-text-m-spacing) !important;
+}
+
+/* Default headings - Override all existing heading styles */
+/* :not(.billing-page-title) — billing pricing hero uses 30px / medium / 120% in BillingPage.css */
+.dashboard-main-container h1:not(.heading-l):not(.heading-m):not(.billing-page-title):not(.inbox-thread-detail-title):not(.email-setup-option-page-title):not(.loading-title):not(.google-consent-title):not(.imap-consent-title),
+.dashboard-main-container h1:not(.heading-l):not(.heading-m):not(.billing-page-title):not(.inbox-thread-detail-title):not(.email-setup-option-page-title):not(.loading-title):not(.google-consent-title):not(.imap-consent-title) * {
+  font-size: var(--typography-heading-xl-size) !important;
+  line-height: var(--typography-heading-xl-line) !important;
+  font-weight: var(--typography-heading-xl-weight) !important;
+  letter-spacing: var(--typography-heading-xl-spacing) !important;
+}
+
+/* :not(.billing-card-name) — billing plan titles (e.g. Starter) use BillingPage.css */
+.dashboard-main-container h2:not(.heading-xl):not(.heading-m):not(.billing-card-name):not(.lead-generation-main-prompt-title):not(.email-accounts-empty-state-title):not(.email-accounts-empty-managed-pool-title):not(.connect-email-loader-title):not(.email-accounts-imap-modal-header-title):not(.spending-region-title),
+.dashboard-main-container h2:not(.heading-xl):not(.heading-m):not(.billing-card-name):not(.lead-generation-main-prompt-title):not(.email-accounts-empty-state-title):not(.email-accounts-empty-managed-pool-title):not(.connect-email-loader-title):not(.email-accounts-imap-modal-header-title):not(.spending-region-title) * {
+  font-size: var(--typography-heading-l-size) !important;
+  line-height: var(--typography-heading-l-line) !important;
+  font-weight: var(--typography-heading-l-weight) !important;
+  letter-spacing: var(--typography-heading-l-spacing) !important;
+}
+
+.dashboard-main-container h3:not(.heading-xl):not(.heading-l):not(.billing-page-title):not(.billing-card-features-title):not(.inbox-campaign-card-title):not(.template-card-title):not(.connect-email-loader-how-title):not(.loading-info-title):not(.consent-section-title):not(.consent-how-heading):not(.consent-access-heading):not(.email-accounts-managed-overview-title):not(.campaign-card-banner-title):not(.email-accounts-instructions-title):not(.email-accounts-feature-title-conditional):not(.spending-region-title):not(.spending-region-title--sub):not(.spending-additional-title),
+.dashboard-main-container h3:not(.heading-xl):not(.heading-l):not(.billing-page-title):not(.billing-card-features-title):not(.inbox-campaign-card-title):not(.template-card-title):not(.connect-email-loader-how-title):not(.loading-info-title):not(.consent-section-title):not(.consent-how-heading):not(.consent-access-heading):not(.email-accounts-managed-overview-title):not(.campaign-card-banner-title):not(.email-accounts-instructions-title):not(.email-accounts-feature-title-conditional):not(.spending-region-title):not(.spending-region-title--sub):not(.spending-additional-title) *,
+.dashboard-main-container h4:not(.heading-xl):not(.heading-l):not(.consent-permission-title):not(.email-accounts-imap-help-title):not(.spending-order-title),
+.dashboard-main-container h4:not(.heading-xl):not(.heading-l):not(.consent-permission-title):not(.email-accounts-imap-help-title):not(.spending-order-title) *,
+.dashboard-main-container h5:not(.heading-xl):not(.heading-l),
+.dashboard-main-container h5:not(.heading-xl):not(.heading-l) *,
+.dashboard-main-container h6:not(.heading-xl):not(.heading-l),
+.dashboard-main-container h6:not(.heading-xl):not(.heading-l) * {
+  font-size: var(--typography-heading-m-size) !important;
+  line-height: var(--typography-heading-m-line) !important;
+  font-weight: var(--typography-heading-m-weight) !important;
+  letter-spacing: var(--typography-heading-m-spacing) !important;
+}
+
+/* Default labels use Label / XS */
+.dashboard-main-container label:not(.text-l):not(.text-m):not(.text-s):not(.heading-xl):not(.heading-l):not(.heading-m):not(.billing-card-toggle):not(.template-create-label):not(.email-form-label),
+.dashboard-main-container label:not(.text-l):not(.text-m):not(.text-s):not(.heading-xl):not(.heading-l):not(.heading-m):not(.billing-card-toggle):not(.template-create-label):not(.email-form-label) * {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+}
+
+/* ============================================
+   OVERRIDE INLINE STYLES AND HARDCODED FONT-SIZES (DASHBOARD ONLY)
+   ============================================
+   Force typography system on elements with inline styles
+   Scoped to dashboard pages only.
+   ============================================ */
+
+/* Override inline font-size styles (exclude AI Lead Gen welcome headline — uses 16px / 34px) */
+.dashboard-main-container [style*="fontSize"]:not(.lead-generation-main-prompt-eyebrow):not(.lead-generation-main-prompt-title):not(.sidebar-credits-title),
+.dashboard-main-container [style*="font-size"]:not(.lead-generation-main-prompt-eyebrow):not(.lead-generation-main-prompt-title):not(.sidebar-credits-title),
+.dashboard-main-container [style*="fontSize:"]:not(.lead-generation-main-prompt-eyebrow):not(.lead-generation-main-prompt-title):not(.sidebar-credits-title) {
+  font-size: var(--typography-text-m-size) !important;
+  line-height: var(--typography-text-m-line) !important;
+}
+
+/* Override common hardcoded font-size values in CSS */
+.dashboard-main-container *[style*="fontSize: '8px'"],
+.dashboard-main-container *[style*="fontSize: '9px'"],
+.dashboard-main-container *[style*="fontSize: '10px'"],
+.dashboard-main-container *[style*="fontSize: '11px'"],
+.dashboard-main-container *[style*="fontSize: 8px"],
+.dashboard-main-container *[style*="fontSize: 9px"],
+.dashboard-main-container *[style*="fontSize: 10px"],
+.dashboard-main-container *[style*="fontSize: 11px"] {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+}
+
+.dashboard-main-container *[style*="fontSize: '12px'"],
+.dashboard-main-container *[style*="fontSize: 12px"] {
+  font-size: var(--typography-text-s-size) !important;
+  line-height: var(--typography-text-s-line) !important;
+}
+
+.dashboard-main-container *[style*="fontSize: '13px'"],
+.dashboard-main-container *[style*="fontSize: '14px'"],
+.dashboard-main-container *[style*="fontSize: 13px"],
+.dashboard-main-container *[style*="fontSize: 14px"] {
+  font-size: var(--typography-text-m-size) !important;
+  line-height: var(--typography-text-m-line) !important;
+}
+
+.dashboard-main-container *[style*="fontSize: '15px'"],
+.dashboard-main-container *[style*="fontSize: '16px'"],
+.dashboard-main-container *[style*="fontSize: 15px"],
+.dashboard-main-container *[style*="fontSize: 16px"] {
+  font-size: var(--typography-text-l-size) !important;
+  line-height: var(--typography-text-l-line) !important;
+}
+
+.dashboard-main-container *[style*="fontSize: '18px'"],
+.dashboard-main-container *[style*="fontSize: 18px"] {
+  font-size: var(--typography-heading-m-size) !important;
+  line-height: var(--typography-heading-m-line) !important;
+}
+
+.dashboard-main-container *[style*="fontSize: '20px'"],
+.dashboard-main-container *[style*="fontSize: '22px'"],
+.dashboard-main-container *[style*="fontSize: 20px"],
+.dashboard-main-container *[style*="fontSize: 22px"] {
+  font-size: var(--typography-heading-l-size) !important;
+  line-height: var(--typography-heading-l-line) !important;
+}
+
+.dashboard-main-container *[style*="fontSize: '24px'"],
+.dashboard-main-container *[style*="fontSize: '26px'"],
+.dashboard-main-container *[style*="fontSize: 24px"],
+.dashboard-main-container *[style*="fontSize: 26px"] {
+  font-size: var(--typography-heading-xl-size) !important;
+  line-height: var(--typography-heading-xl-line) !important;
+}
+
+/* ============================================
+   OVERRIDE CSS FILE HARDCODED FONT-SIZES (DASHBOARD ONLY)
+   ============================================
+   Override common font-size declarations in component CSS files
+   Scoped to dashboard pages only.
+   
+   CRITICAL: These rules use higher specificity to override component CSS files
+   that have hardcoded font-size values with !important.
+   ============================================ */
+
+/* Override ALL class selectors within dashboard to use typography system */
+/* This ensures component CSS classes don't override the design system */
+.dashboard-main-container [class]:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.text-s):not(.label-xs):not(.evecta-logo-text):not(.evecta-logo-tagline):not(.billing-page-title):not(.billing-page-subtitle):not(.billing-page-credits-note):not(.spending-additional-title):not(.spending-order-title):not(.spending-additional-lead):not(.spending-region-title):not(.spending-region-title--sub):not(.spending-region-lead):not(.billing-card-name):not(.billing-card-name-star):not(.billing-card-desc):not(.billing-card-price):not(.billing-card-price-suffix):not(.billing-card-save):not(.billing-card-toggle):not(.billing-card-toggle-label):not(.billing-card-features-title):not(.billing-card-feature-item):not(.billing-card-feature-text):not(.billing-card-check):not(.lead-generation-main-prompt-eyebrow):not(.lead-generation-main-prompt-title):not(.lead-generation-main-input):not(.lead-generation-main-textarea):not(.dashboard-empty-state):not(.dashboard-empty-state--compact):not(.dashboard-empty-state-title):not(.dashboard-empty-state-description):not(.dashboard-empty-state-icon):not(.dashboard-empty-state-icon-gradient):not(.template-empty-state):not(.template-empty-state-icon):not(.email-accounts-empty-state-title):not(.email-accounts-empty-state-description):not(.email-accounts-connect-card-blurb):not(.email-accounts-empty-managed-pool-title):not(.email-accounts-empty-managed-pool-description):not(.email-accounts-feature-subtitle-conditional):not(.email-accounts-feature-title-conditional):not(.email-accounts-setup-back-button):not(.email-accounts-instructions-title):not(.email-accounts-imap-help-title):not(.email-accounts-imap-help-text):not(.email-accounts-imap-modal-header-title):not(.email-accounts-imap-modal-subtitle):not(.inbox-empty-state-description):not(.inbox-campaign-card-title):not(.inbox-campaign-card-meta):not(.inbox-campaign-card-sent-label):not(.inbox-campaign-card-sent-value):not(.inbox-campaign-card-leads-badge):not(.inbox-thread-detail-title):not(.inbox-thread-detail-desc):not(.inbox-thread-detail-meta-item):not(.inbox-session-card-snippet):not(.inbox-session-card-to):not(.inbox-session-card-subject):not(.inbox-session-card-date):not(.inbox-thread-detail-footer-count):not(.inbox-thread-detail-page-label):not(.inbox-thread-detail-back):not(.inbox-thread-detail-badge):not(.inbox-session-card):not(.inbox-session-checkbox):not(.inbox-session-card-body):not(.inbox-session-card-right):not(.inbox-session-star-btn):not(.inbox-session-avatar):not(.user-profile-avatar-inline-initials):not(.user-profile-avatar-inline-initials--one):not(.user-profile-avatar-inline-initials--two):not(.template-card-title):not(.template-card-tags-label):not(.template-card-tag):not(.template-card-usage-text):not(.template-card-description):not(.template-create-title):not(.template-create-subtitle):not(.template-create-label):not(.email-setup-option-page-title):not(.connect-email-loader-title):not(.connect-email-loader-subtitle):not(.connect-email-loader-how-title):not(.connect-email-loader-how-text):not(.loading-title):not(.loading-subtitle):not(.loading-info-title):not(.loading-info-text):not(.google-consent-title):not(.imap-consent-title):not(.google-consent-subtitle):not(.imap-consent-subtitle):not(.consent-section-title):not(.consent-how-heading):not(.consent-access-heading):not(.consent-section-text):not(.consent-permission-title):not(.consent-permission-description):not(.email-accounts-tab-button):not(.email-accounts-tab-button-text):not(.email-accounts-managed-total-emails-label):not(.email-accounts-managed-total-emails-value):not(.email-accounts-managed-total-emails-meta):not(.email-accounts-managed-overview-title):not(.email-accounts-managed-overview-subtitle):not(.email-accounts-managed-overview-badge):not(.campaign-card-banner-title):not(.campaign-card-banner-description):not(.campaign-card-stat-value):not(.campaign-card-stat-label):not(.campaign-card-status-pill):not(.campaign-card-status-dot):not(.campaign-card-status-text):not(.campaign-card-email-field):not(.campaign-card-email-stack):not(.campaign-card-email-mode):not(.campaign-card-email-address):not(.campaign-card-email-value):not(.email-creation-method-label):not(.email-form-label):not(.spam-check-info-text):not(.email-form-textarea):not(.email-form-input):not(.email-form-select):not(.content-editable-input):not(.content-editable-textarea):not(.template-content-editable-input):not(.template-content-editable-textarea):not(.campaign-email-creation-tab):not(.email-tone-card):not(.email-tone-card-label):not(.email-tone-card-desc):not(.email-tone-tier-name):not(.email-tone-tier-badge):not(.cle-gen-td-name):not(.cle-gen-score-pill):not(.cle-gen-td-location):not(.cle-gen-banner-title):not(.cle-gen-prompt-label):not(.cle-gen-regenerate-all):not(.sidebar-credits-title) {
+  font-size: var(--typography-text-m-size) !important;
+  line-height: var(--typography-text-m-line) !important;
+  font-weight: var(--typography-text-m-weight) !important;
+  letter-spacing: var(--typography-text-m-spacing) !important;
+}
+
+/* Override sidebar font-sizes to use typography system */
+.dashboard-main-container .sidebar *:not(.heading-xl):not(.heading-l):not(.heading-m):not(.heading-s):not(.text-l):not(.text-s):not(.label-xs) {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+}
+
+.dashboard-main-container .sidebar h1:not(.heading-l):not(.heading-m):not(.heading-s),
+.dashboard-main-container .sidebar h2:not(.heading-xl):not(.heading-m):not(.heading-s),
+.dashboard-main-container .sidebar h3:not(.heading-xl):not(.heading-l):not(.heading-m) {
+  font-size: var(--typography-heading-s-size) !important;
+  line-height: var(--typography-heading-s-line) !important;
+  font-weight: var(--typography-heading-s-weight) !important;
+  letter-spacing: var(--typography-heading-s-spacing) !important;
+}
+
+/* Override table font-sizes */
+.dashboard-main-container table,
+.dashboard-main-container table *:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.label-xs):not(.dashboard-empty-state):not(.dashboard-empty-state--compact):not(.dashboard-empty-state-title):not(.dashboard-empty-state-description):not(.dashboard-empty-state-icon):not(.dashboard-empty-state-icon-gradient):not(.template-empty-state):not(.template-empty-state-icon):not(.inbox-empty-state-description) {
+  font-size: var(--typography-text-m-size) !important;
+  line-height: var(--typography-text-m-line) !important;
+}
+
+.dashboard-main-container th:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.label-xs) {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+}
+
+.dashboard-main-container td:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.text-s):not(.label-xs) {
+  font-size: var(--typography-text-m-size) !important;
+  line-height: var(--typography-text-m-line) !important;
+}
+
+/* Override button font-sizes */
+.dashboard-main-container button:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.text-s):not(.label-xs):not(.email-accounts-tab-button):not(.email-accounts-empty-existing-button):not(.email-accounts-empty-managed-pool-button):not(.email-accounts-setup-back-button):not(.connection-option):not(.password-toggle-button):not(.imap-modal-password-toggle),
+.dashboard-main-container .btn:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.text-s):not(.label-xs),
+.dashboard-main-container .button:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.text-s):not(.label-xs) {
+  font-size: var(--typography-text-m-size) !important;
+  line-height: var(--typography-text-m-line) !important;
+  font-weight: var(--typography-text-m-weight) !important;
+}
+
+/* ============================================
+   SPACING UTILITY CLASSES
+   ============================================
+   Utility classes for applying spacing tokens consistently.
+   Use these classes instead of hardcoded spacing values.
+   ============================================ */
+
+/* Generic Spacing Utilities (reusable across all pages) */
+.space-4 { margin: var(--spacing-4); }
+.space-6 { margin: var(--spacing-6); }
+.space-8 { margin: var(--spacing-8); }
+.space-10 { margin: var(--spacing-10); }
+.space-12 { margin: var(--spacing-12); }
+.space-16 { margin: var(--spacing-16); }
+.space-24 { margin: var(--spacing-24); }
+.space-32 { margin: var(--spacing-32); }
+.space-40 { margin: var(--spacing-40); }
+
+.gap-4 { gap: var(--spacing-4); }
+.gap-6 { gap: var(--spacing-6); }
+.gap-8 { gap: var(--spacing-8); }
+.gap-10 { gap: var(--spacing-10); }
+.gap-12 { gap: var(--spacing-12); }
+.gap-16 { gap: var(--spacing-16); }
+.gap-24 { gap: var(--spacing-24); }
+.gap-32 { gap: var(--spacing-32); }
+.gap-40 { gap: var(--spacing-40); }
+
+.p-4 { padding: var(--spacing-4); }
+.p-6 { padding: var(--spacing-6); }
+.p-8 { padding: var(--spacing-8); }
+.p-10 { padding: var(--spacing-10); }
+.p-12 { padding: var(--spacing-12); }
+.p-16 { padding: var(--spacing-16); }
+.p-24 { padding: var(--spacing-24); }
+.p-32 { padding: var(--spacing-32); }
+.p-40 { padding: var(--spacing-40); }
+
+.mt-4 { margin-top: var(--spacing-4); }
+.mt-6 { margin-top: var(--spacing-6); }
+.mt-8 { margin-top: var(--spacing-8); }
+.mt-10 { margin-top: var(--spacing-10); }
+.mt-12 { margin-top: var(--spacing-12); }
+.mt-16 { margin-top: var(--spacing-16); }
+.mt-24 { margin-top: var(--spacing-24); }
+.mt-32 { margin-top: var(--spacing-32); }
+.mt-40 { margin-top: var(--spacing-40); }
+
+.mb-4 { margin-bottom: var(--spacing-4); }
+.mb-6 { margin-bottom: var(--spacing-6); }
+.mb-8 { margin-bottom: var(--spacing-8); }
+.mb-10 { margin-bottom: var(--spacing-10); }
+.mb-12 { margin-bottom: var(--spacing-12); }
+.mb-16 { margin-bottom: var(--spacing-16); }
+.mb-24 { margin-bottom: var(--spacing-24); }
+.mb-32 { margin-bottom: var(--spacing-32); }
+.mb-40 { margin-bottom: var(--spacing-40); }
+
+.pt-4 { padding-top: var(--spacing-4); }
+.pt-6 { padding-top: var(--spacing-6); }
+.pt-8 { padding-top: var(--spacing-8); }
+.pt-10 { padding-top: var(--spacing-10); }
+.pt-12 { padding-top: var(--spacing-12); }
+.pt-16 { padding-top: var(--spacing-16); }
+.pt-24 { padding-top: var(--spacing-24); }
+.pt-32 { padding-top: var(--spacing-32); }
+.pt-40 { padding-top: var(--spacing-40); }
+
+.pb-4 { padding-bottom: var(--spacing-4); }
+.pb-6 { padding-bottom: var(--spacing-6); }
+.pb-8 { padding-bottom: var(--spacing-8); }
+.pb-10 { padding-bottom: var(--spacing-10); }
+.pb-12 { padding-bottom: var(--spacing-12); }
+.pb-16 { padding-bottom: var(--spacing-16); }
+.pb-24 { padding-bottom: var(--spacing-24); }
+.pb-32 { padding-bottom: var(--spacing-32); }
+.pb-40 { padding-bottom: var(--spacing-40); }
+
+/* Page-Specific Spacing Utilities (HomePage and other pages) */
+/* Navigation Spacing Utilities */
+.spacing-nav-padding { padding-top: var(--spacing-nav-padding); padding-bottom: var(--spacing-nav-padding); }
+.spacing-nav-logo-to-links { gap: var(--spacing-nav-logo-to-links); }
+.spacing-nav-link-to-link { gap: var(--spacing-nav-link-to-link); }
+.spacing-nav-links-to-cta { gap: var(--spacing-nav-links-to-cta); }
+.spacing-nav-icon-to-text { gap: var(--spacing-nav-icon-to-text); }
+
+/* Hero Section Spacing Utilities */
+.spacing-hero-section-top { padding-top: var(--spacing-hero-section-top); }
+.spacing-hero-badge-to-heading { margin-top: var(--spacing-hero-badge-to-heading); }
+.spacing-hero-heading-to-highlight { margin-top: var(--spacing-hero-heading-to-highlight); }
+.spacing-hero-heading-to-subtitle { margin-top: var(--spacing-hero-heading-to-subtitle); }
+.spacing-hero-subtitle-to-cta { margin-top: var(--spacing-hero-subtitle-to-cta); }
+.spacing-hero-cta-to-reassurance { margin-top: var(--spacing-hero-cta-to-reassurance); }
+.spacing-hero-reassurance-item-to-item { gap: var(--spacing-hero-reassurance-item-to-item); }
+.spacing-hero-reassurance-to-stats { margin-top: var(--spacing-hero-reassurance-to-stats); }
+.spacing-hero-text-to-dashboard { margin-top: var(--spacing-hero-text-to-dashboard); }
+
+/* Dashboard Preview Spacing Utilities */
+.spacing-dashboard-card-padding { padding: var(--spacing-dashboard-card-padding); }
+.spacing-dashboard-title-to-helper { margin-top: var(--spacing-dashboard-title-to-helper); }
+.spacing-dashboard-helper-to-chart { margin-top: var(--spacing-dashboard-helper-to-chart); }
+.spacing-dashboard-stat-to-stat { gap: var(--spacing-dashboard-stat-to-stat); }
+
+/* Before/After Section Spacing Utilities */
+.spacing-beforeafter-section-top { padding-top: var(--spacing-beforeafter-section-top); }
+.spacing-beforeafter-badge-to-heading { margin-top: var(--spacing-beforeafter-badge-to-heading); }
+.spacing-beforeafter-heading-to-cards { margin-top: var(--spacing-beforeafter-heading-to-cards); }
+.spacing-beforeafter-card-to-card { gap: var(--spacing-beforeafter-card-to-card); }
+.spacing-beforeafter-card-padding { padding: var(--spacing-beforeafter-card-padding); }
+.spacing-beforeafter-title-to-bullets { margin-top: var(--spacing-beforeafter-title-to-bullets); }
+.spacing-beforeafter-bullet-to-bullet { gap: var(--spacing-beforeafter-bullet-to-bullet); }
+
+/* Steps Section Spacing Utilities */
+.spacing-steps-section-top { padding-top: var(--spacing-steps-section-top); }
+.spacing-steps-badge-to-heading { margin-top: var(--spacing-steps-badge-to-heading); }
+.spacing-steps-heading-to-row { margin-top: var(--spacing-steps-heading-to-row); }
+.spacing-steps-card-to-card { gap: var(--spacing-steps-card-to-card); }
+.spacing-steps-icon-to-title { margin-top: var(--spacing-steps-icon-to-title); }
+.spacing-steps-title-to-description { margin-top: var(--spacing-steps-title-to-description); }
+.spacing-steps-card-padding { padding: var(--spacing-steps-card-padding); }
+
+/* Features Section Spacing Utilities */
+.spacing-features-section-top { padding-top: var(--spacing-features-section-top); }
+.spacing-features-badge-to-heading { margin-top: var(--spacing-features-badge-to-heading); }
+.spacing-features-heading-to-grid { margin-top: var(--spacing-features-heading-to-grid); }
+.spacing-features-card-to-card { gap: var(--spacing-features-card-to-card); }
+.spacing-features-card-padding { padding: var(--spacing-features-card-padding); }
+.spacing-features-icon-to-title { margin-top: var(--spacing-features-icon-to-title); }
+.spacing-features-title-to-description { margin-top: var(--spacing-features-title-to-description); }
+.spacing-features-description-to-bullets { margin-top: var(--spacing-features-description-to-bullets); }
+
+/* Blog Section Spacing Utilities */
+.spacing-blog-section-top { padding-top: var(--spacing-blog-section-top); }
+.spacing-blog-label-to-heading { margin-top: var(--spacing-blog-label-to-heading); }
+.spacing-blog-heading-to-cards { margin-top: var(--spacing-blog-heading-to-cards); }
+.spacing-blog-card-to-card { gap: var(--spacing-blog-card-to-card); }
+.spacing-blog-card-padding { padding: var(--spacing-blog-card-padding); }
+.spacing-blog-title-to-snippet { margin-top: var(--spacing-blog-title-to-snippet); }
+.spacing-blog-snippet-to-meta { margin-top: var(--spacing-blog-snippet-to-meta); }
+
+/* CTA Banner Spacing Utilities */
+.spacing-cta-section-padding { padding-top: var(--spacing-cta-section-padding) !important; padding-bottom: var(--spacing-cta-section-padding) !important; }
+.spacing-cta-heading-to-description { margin-top: var(--spacing-cta-heading-to-description) !important; }
+.spacing-cta-description-to-button { margin-top: var(--spacing-cta-description-to-button) !important; }
+
+/* Footer Spacing Utilities */
+.spacing-footer-top { padding-top: var(--spacing-footer-top); }
+.spacing-footer-column-to-column { gap: var(--spacing-footer-column-to-column); }
+.spacing-footer-title-to-links { margin-top: var(--spacing-footer-title-to-links); }
+.spacing-footer-link-to-link { gap: var(--spacing-footer-link-to-link); }
+.spacing-footer-content-to-copyright { margin-top: var(--spacing-footer-content-to-copyright); }
+
+/* About Us Page Spacing Utilities */
+.spacing-about-back-top { padding-top: var(--spacing-about-back-top); }
+.spacing-about-back-icon-to-text { gap: var(--spacing-about-back-icon-to-text); }
+.spacing-about-hero-section-top { padding-top: var(--spacing-about-hero-section-top); }
+.spacing-about-hero-badge-to-heading { margin-top: var(--spacing-about-hero-badge-to-heading); }
+.spacing-about-hero-heading-to-subtitle { margin-top: var(--spacing-about-hero-heading-to-subtitle); }
+.spacing-about-hero-subtitle-to-next { margin-bottom: var(--spacing-about-hero-subtitle-to-next); }
+.spacing-about-story-section-top { padding-top: var(--spacing-about-story-section-top); }
+.spacing-about-story-badge-to-heading { margin-top: var(--spacing-about-story-badge-to-heading); }
+.spacing-about-story-heading-to-paragraph { margin-top: var(--spacing-about-story-heading-to-paragraph); }
+.spacing-about-paragraph-to-paragraph { margin-top: var(--spacing-about-paragraph-to-paragraph); }
+.spacing-about-paragraph-bottom { margin-bottom: var(--spacing-about-paragraph-bottom); }
+.spacing-about-story-column-gap { gap: var(--spacing-about-story-column-gap); }
+.spacing-about-stat-card-padding { padding: var(--spacing-about-stat-card-padding); }
+.spacing-about-stat-icon-to-number { gap: var(--spacing-about-stat-icon-to-number); }
+.spacing-about-stat-number-to-label { margin-top: var(--spacing-about-stat-number-to-label); }
+.spacing-about-values-section-top { padding-top: var(--spacing-about-values-section-top); }
+.spacing-about-values-badge-to-heading { margin-top: var(--spacing-about-values-badge-to-heading); }
+.spacing-about-values-heading-to-subtitle { margin-top: var(--spacing-about-values-heading-to-subtitle); }
+.spacing-about-values-subtitle-to-cards { margin-top: var(--spacing-about-values-subtitle-to-cards); }
+.spacing-about-value-card-to-card { gap: var(--spacing-about-value-card-to-card); }
+.spacing-about-value-card-padding { padding: var(--spacing-about-value-card-padding); }
+.spacing-about-value-icon-to-title { margin-top: var(--spacing-about-value-icon-to-title); }
+.spacing-about-value-title-to-description { margin-top: var(--spacing-about-value-title-to-description); }
+.spacing-about-services-section-top { padding-top: var(--spacing-about-services-section-top); }
+.spacing-about-services-badge-to-heading { margin-top: var(--spacing-about-services-badge-to-heading); }
+.spacing-about-services-heading-to-subtitle { margin-top: var(--spacing-about-services-heading-to-subtitle); }
+.spacing-about-services-subtitle-to-first { margin-top: var(--spacing-about-services-subtitle-to-first); }
+.spacing-about-service-block-to-block { margin-top: var(--spacing-about-service-block-to-block); }
+.spacing-about-service-image-to-text { gap: var(--spacing-about-service-image-to-text); }
+.spacing-about-service-tag-to-title { margin-top: var(--spacing-about-service-tag-to-title); }
+.spacing-about-service-title-to-description { margin-top: var(--spacing-about-service-title-to-description); }
+.spacing-about-service-description-to-hashtags { margin-top: var(--spacing-about-service-description-to-hashtags); }
+.spacing-about-hashtag-to-hashtag { gap: var(--spacing-about-hashtag-to-hashtag); }
+.spacing-about-cta-section-top { padding-top: var(--spacing-about-cta-section-top); }
+.spacing-about-cta-badge-to-heading { margin-top: var(--spacing-about-cta-badge-to-heading); }
+.spacing-about-cta-heading-to-subtitle { margin-top: var(--spacing-about-cta-heading-to-subtitle); }
+.spacing-about-cta-subtitle-to-button { margin-top: var(--spacing-about-cta-subtitle-to-button); }
+.spacing-about-cta-section-padding { padding-top: var(--spacing-about-cta-section-padding); padding-bottom: var(--spacing-about-cta-section-padding); }
+
+/* Credits Usage title — excluded from dashboard-main-container * / [class] clamps */
+.dashboard-main-container aside .sidebar-credits-title,
+.dashboard-main-container .sidebar-credits .sidebar-credits-title,
+.dashboard-main-container strong.sidebar-credits-title,
+.dashboard-main-container span.sidebar-credits-title,
+aside .sidebar-credits-title,
+strong.sidebar-credits-title,
+.sidebar-credits-title {
+  display: block !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  line-height: 18px !important;
+  letter-spacing: -0.01em !important;
+  color: #0f172a !important;
+  font-family: 'Urbanist', sans-serif !important;
+  font-synthesis: weight !important;
+}

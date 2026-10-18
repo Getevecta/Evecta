@@ -1,0 +1,331 @@
+.admin-mailboxes {
+  padding: 4px 2px 28px;
+  font-family: 'Urbanist', system-ui, sans-serif;
+  color: #111827;
+}
+
+.admin-mailboxes__intro {
+  margin-bottom: 16px;
+}
+
+.admin-mailboxes__subtitle {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #a198ce;
+  max-width: 48rem;
+}
+
+.admin-mailboxes__filter-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-bottom: 20px;
+  padding: 10px 14px;
+  border: 1px solid #ced4da;
+  border-radius: 16px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.admin-mailboxes__tabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 8px;
+  background-color: rgba(208, 213, 221, 0.3);
+}
+
+.admin-mailboxes__tab {
+  padding: 6px 14px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  color: #a198ce;
+  cursor: pointer;
+  line-height: 19.5px;
+  min-height: 28px;
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.admin-mailboxes__tab--active {
+  background: #ffffff;
+  color: #030011;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06);
+}
+
+.admin-mailboxes__filter-spacer {
+  flex: 1 1 8px;
+  min-width: 8px;
+}
+
+.admin-mailboxes__search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+  max-width: 300px;
+  flex: 1 1 200px;
+}
+
+.admin-mailboxes__search-icon {
+  position: absolute;
+  left: 10px;
+  color: #6b7280;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.admin-mailboxes__search-input,
+.admin-mailboxes__input {
+  height: 36px !important;
+  border: 1px solid #ced4da !important;
+  border-radius: 6px !important;
+  font-size: 13px !important;
+  font-family: 'Urbanist', sans-serif !important;
+  color: #030011 !important;
+  background: #fff !important;
+}
+
+.admin-mailboxes__search-input {
+  padding-left: 32px !important;
+}
+
+.admin-mailboxes__refresh,
+.admin-mailboxes__submit {
+  font-family: 'Urbanist', sans-serif;
+  gap: 6px;
+}
+
+.admin-mailboxes__banner {
+  padding: 12px 14px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+.admin-mailboxes__banner--error {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.admin-mailboxes__panel {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.admin-mailboxes__panel--form {
+  max-width: 640px;
+}
+
+.admin-mailboxes__panel--wide {
+  max-width: 820px;
+}
+
+.admin-mailboxes__panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.admin-mailboxes__panel-title {
+  margin: 0 0 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  letter-spacing: -0.01em;
+}
+
+.admin-mailboxes__panel-head .admin-mailboxes__panel-title {
+  margin-bottom: 0;
+}
+
+.admin-mailboxes__count {
+  font-size: 12px;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.admin-mailboxes__form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.admin-mailboxes__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.admin-mailboxes__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-mailboxes__field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.admin-mailboxes__section-label {
+  margin: 6px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.admin-mailboxes__check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #374151;
+  cursor: pointer;
+}
+
+.admin-mailboxes__checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+
+.admin-mailboxes__check input {
+  width: 14px;
+  height: 14px;
+}
+
+.admin-mailboxes__user-primary {
+  font-weight: 500;
+  color: #111827;
+}
+
+.admin-mailboxes__muted {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.admin-mailboxes__mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+}
+
+.admin-mailboxes__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.admin-mailboxes__badge--inactive {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.admin-mailboxes__table-wrap {
+  overflow-x: auto;
+}
+
+.admin-mailboxes__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.admin-mailboxes__table th,
+.admin-mailboxes__table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: top;
+}
+
+.admin-mailboxes__table th {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #9ca3af;
+}
+
+.admin-mailboxes__table tbody tr:hover {
+  background: #fafafa;
+}
+
+.admin-mailboxes__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.admin-mailboxes__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background: #ffffff;
+  cursor: pointer;
+  color: #6b21a8;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.admin-mailboxes__icon-btn:hover:not(:disabled) {
+  background: #f8f5ff;
+  border-color: #c4b5fd;
+}
+
+.admin-mailboxes__icon-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.admin-mailboxes__icon-btn--danger {
+  color: #b91c1c;
+}
+
+.admin-mailboxes__icon-btn--danger:hover:not(:disabled) {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+
+.admin-mailboxes__form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+@media (max-width: 720px) {
+  .admin-mailboxes__search {
+    max-width: none;
+    flex: 1 1 100%;
+  }
+
+  .admin-mailboxes__grid {
+    grid-template-columns: 1fr;
+  }
+}

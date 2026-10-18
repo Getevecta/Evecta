@@ -1,0 +1,312 @@
+.verify-reset-otp-page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: url('/Verification%20OTP.jpg') center center / cover no-repeat;
+  padding: 20px;
+}
+
+.auth-page-logo {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 10;
+  color: #000;
+}
+
+.auth-page-logo:hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* Logo uses shared evecta-logo from EvectaLogo.css */
+
+.verify-reset-otp-container {
+  width: 100%;
+  max-width: 420px;
+}
+
+.verify-reset-otp-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  padding: 2.5rem 0;
+  background: transparent;
+}
+
+/* Eyebrow — Authentication Code! */
+.verify-reset-otp-eyebrow {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 145%;
+  margin: 0 0 20px 0;
+  text-align: left;
+  background: linear-gradient(90deg, #c080f0 0%, #6c30a0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.verify-reset-otp-title {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 120%;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+  text-align: left;
+}
+
+.verify-reset-otp-description {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #A198CE;
+  margin: 0;
+  text-align: left;
+}
+
+.verify-reset-otp-email {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #1f2937;
+  margin: 0 0 60px 0;
+  text-align: left;
+}
+
+/* Shell isolates the OTP row so only digit inputs are flex children (avoids
+   stray controls landing on the same row as boxes on mobile parsers). */
+.otp-inputs-shell {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.otp-input-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 6px;
+  width: 100%;
+}
+
+.otp-input-group > input.otp-box {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.otp-box {
+  max-width: 60px;
+  width: 100%;
+  min-height: 62px;
+  height: 62px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-align: center;
+  color: #1f2937;
+  background: #f9fafb;
+  outline: none;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.otp-box:focus {
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+}
+
+.otp-box.filled {
+  background: #f3f0ff;
+}
+
+.otp-box.error {
+  background: #fef2f2;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+/* Continue button - purple with right arrow, no hover effect */
+.verify-continue-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 44px;
+  height: 44px;
+  padding: 0 1rem;
+  background: #7C3AED;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+.verify-continue-button:hover:not(:disabled),
+.verify-continue-button:active:not(:disabled),
+.verify-continue-button:focus,
+.verify-continue-button:focus-visible {
+  background: #7C3AED;
+  color: #ffffff;
+  transform: none;
+  box-shadow: none;
+}
+
+.verify-continue-button:disabled {
+  background: #A78BFA;
+  color: #ffffff;
+  cursor: not-allowed;
+}
+
+.verify-continue-arrow {
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  color: #ffffff;
+}
+
+.verify-continue-button:hover:not(:disabled) .verify-continue-arrow,
+.verify-continue-button:active:not(:disabled) .verify-continue-arrow,
+.verify-continue-button:focus .verify-continue-arrow,
+.verify-continue-button:focus-visible .verify-continue-arrow {
+  color: #ffffff;
+}
+
+.resend-text {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 145%;
+  color: #A198CE;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+/* Inline link — never full-width / min-touch block (mobile global buttons were breaking layout) */
+.verify-reset-otp-page .resend-link {
+  display: inline !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  width: auto !important;
+  padding: 0 !important;
+  vertical-align: baseline;
+}
+
+.resend-link {
+  background: none;
+  border: none;
+  color: #1f2937;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 14px;
+  line-height: 145%;
+  outline: none;
+  text-decoration: underline;
+}
+
+.resend-link:hover:not(:disabled),
+.resend-link:focus,
+.resend-link:active {
+  color: #1f2937;
+  text-decoration: underline;
+  background: none;
+}
+
+.resend-link:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Back to Sign In - same as Forgot Password: white capsule with left arrow */
+.verify-reset-otp-page .back-to-signin-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 44px;
+  height: 44px;
+  margin-top: 1.5rem;
+  padding: 0 1rem;
+  background: #ffffff;
+  border: 1px solid #A198CE;
+  border-radius: 12px;
+  color: #1f2937;
+  font-family: Urbanist, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 145%;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.verify-reset-otp-page .back-to-signin-button:hover,
+.verify-reset-otp-page .back-to-signin-button:focus,
+.verify-reset-otp-page .back-to-signin-button:active {
+  background: #ffffff;
+  border-color: #A198CE;
+  color: #1f2937;
+}
+
+.verify-reset-otp-page .back-to-signin-button:focus,
+.verify-reset-otp-page .back-to-signin-button:focus-visible,
+.verify-reset-otp-page .back-to-signin-button:active {
+  outline: none;
+  box-shadow: none;
+  border-color: #A198CE;
+}
+
+.verify-reset-otp-page .back-to-signin-button .back-to-signin-arrow {
+  flex-shrink: 0;
+  margin-right: 0.25rem;
+}
+
+/* Forgot Password Specific Styles (kept for any shared use) */
+.verify-reset-otp-description.forgot-password-description {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.signin-form.forgot-password-form {
+  text-align: left;
+}
+
+.forgot-password-label {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-input-reset {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 0.875rem;
+}
+
+.continue-button.forgot-password-button {
+  margin-top: 0.75rem;
+}
+
+.additional-options.forgot-password-options {
+  margin-top: 1rem;
+}

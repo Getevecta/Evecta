@@ -1,0 +1,5 @@
+overture_id,name,lat,lng,category_primary,confidence,email,website,phone,locality,address,country_code
+manual:0001,Himalaya Java Coffee,27.7151,85.3123,cafe,0.9,info@himjava.com,http://himjava.com,+9779800000001,Kathmandu,"Thamel, Kathmandu, 44600, NP",NP
+manual:0002,Everest Steakhouse,27.7042,85.3155,restaurant,0.9,,http://evereststeak.com,,Kathmandu,"Durbar Marg, Kathmandu, 44600, NP",NP
+manual:0003,Lakeside Momo Corner,28.2053,83.9616,restaurant,0.9,,,+9779810000003,Pokhara,"Lakeside, Pokhara, NP",NP
+manual:0004,Newari Kitchen Patan,27.6766,85.3250,himalayan_nepalese_restaurant,0.85,newari.kitchen@gmail.com,http://newarikitchen.com.np,+9779840000004,Lalitpur,"Mangal Bazar, Lalitpur, NP",NP

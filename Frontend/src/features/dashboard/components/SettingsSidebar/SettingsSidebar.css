@@ -1,0 +1,270 @@
+/* Settings sidebar: same width/position as main Sidebar; shared nav/logo via Sidebar.css */
+
+.settings-sidebar-shell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  color: #0f172a;
+}
+
+/* Beat dashboard.css `aside[class*="flex"]` / `aside *` typography clamps */
+.dashboard-main-container aside.settings-sidebar-shell {
+  font-size: 14px !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0 !important;
+  font-weight: 400 !important;
+}
+
+/*
+ * Do not target .evecta-logo-text / .evecta-logo-tagline — same as dashboard.css aside.bg-white *
+ * exclusion. Otherwise inherit wins over EvectaLogo.css `aside .evecta-logo-text` (18px) and the
+ * logo looks wrong vs the main Sidebar.
+ */
+.dashboard-main-container aside.settings-sidebar-shell *:not(.evecta-logo-text):not(.evecta-logo-tagline):not(.sidebar-credits-title) {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  font-weight: inherit !important;
+}
+
+.settings-sidebar-shell--embedded {
+  position: relative;
+  top: auto;
+  left: auto;
+  bottom: auto;
+  z-index: 1;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  max-height: none;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Extra space between Evecta logo block and search (main sidebar uses pt-1; settings leads with search) */
+.settings-sidebar-shell .settings-sidebar-nav-scroll {
+  padding-top: 24px;
+}
+
+/* Nav row label + description: shared with main Sidebar (Sidebar.css `aside.bg-white .sidebar-navigation …`). */
+
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-nav-label-secondary-base {
+  font-weight: 500 !important;
+}
+
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-section-title:not(.sidebar-section-title-lead-prospecting) {
+  font-weight: 600 !important;
+  font-size: 10px !important;
+}
+
+@media (min-width: 361px) {
+  .dashboard-main-container aside.settings-sidebar-shell .sidebar-section-title:not(.sidebar-section-title-lead-prospecting) {
+    font-size: 10.5px !important;
+  }
+}
+
+@media (min-width: 481px) {
+  .dashboard-main-container aside.settings-sidebar-shell .sidebar-section-title:not(.sidebar-section-title-lead-prospecting) {
+    font-size: 11px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .dashboard-main-container aside.settings-sidebar-shell .sidebar-section-title:not(.sidebar-section-title-lead-prospecting) {
+    font-size: 12px !important;
+  }
+}
+
+.dashboard-main-container aside.settings-sidebar-shell .inbox-search-input {
+  font-size: 12px !important;
+  line-height: 19.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Tight gap under search row; spacing to Profile comes from back-dashboard block below */
+.settings-sidebar-search-wrap {
+  margin-bottom: 12px;
+}
+
+.settings-sidebar-back-dashboard-wrap {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.settings-sidebar-back-dashboard-btn {
+  display: flex !important;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  min-height: 36px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: transparent !important;
+  color: #374151 !important;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.settings-sidebar-back-dashboard-btn:hover {
+  background-color: #faf5ff !important;
+  color: #111827 !important;
+}
+
+.settings-sidebar-back-dashboard-btn:focus,
+.settings-sidebar-back-dashboard-btn:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.settings-sidebar-back-dashboard-label {
+  flex: 0 1 auto;
+  text-align: left;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-family: 'Urbanist', sans-serif !important;
+  line-height: 19.5px !important;
+  color: #374151 !important;
+}
+
+.settings-sidebar-back-dashboard-icon {
+  flex-shrink: 0;
+  color: #6b7280 !important;
+}
+
+.settings-sidebar-back-dashboard-btn:hover .settings-sidebar-back-dashboard-icon,
+.settings-sidebar-back-dashboard-btn:focus .settings-sidebar-back-dashboard-icon,
+.settings-sidebar-back-dashboard-btn:focus-visible .settings-sidebar-back-dashboard-icon {
+  color: #111827 !important;
+}
+
+/*
+ * Same DOM as Inbox: .inbox-search-filter-container > .inbox-search-refresh-wrapper > .inbox-search-input-container
+ * Inbox caps the row at 300px and pushes it with margin-left: auto — full width in the 280px settings column.
+ */
+.settings-sidebar-shell .settings-sidebar-inbox-search-filter.inbox-search-filter-container {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  flex: 1 1 auto;
+}
+
+.settings-sidebar-shell .settings-sidebar-inbox-search-row.inbox-search-refresh-wrapper {
+  width: 100%;
+  max-width: none;
+  flex: 1 1 auto;
+}
+
+.settings-sidebar-shell .settings-sidebar-inbox-search-row .inbox-search-input-container {
+  min-width: 0;
+}
+
+/*
+ * Credits Usage — match main SidebarCreditsWidget.css exactly.
+ * Needed because `aside.settings-sidebar-shell * { font-size: inherit }` otherwise wins.
+ */
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits .sidebar-credits-title,
+.settings-sidebar-shell .sidebar-credits .sidebar-credits-title,
+.settings-sidebar-shell .sidebar-credits-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  line-height: 18px !important;
+  letter-spacing: -0.01em !important;
+  color: #0f172a !important;
+}
+
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-pool-label,
+.settings-sidebar-shell .sidebar-credits-pool-label {
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  line-height: 14px !important;
+  letter-spacing: 0 !important;
+  color: #0f172a !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+}
+
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-meta,
+.settings-sidebar-shell .sidebar-credits-meta {
+  font-size: 8px !important;
+  font-weight: 400 !important;
+  line-height: 14px !important;
+  letter-spacing: 0 !important;
+  color: #64748b !important;
+}
+
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-count,
+.settings-sidebar-shell .sidebar-credits-count {
+  font-size: 9px !important;
+  font-weight: 500 !important;
+  line-height: 14px !important;
+  letter-spacing: 0 !important;
+  color: #64748b !important;
+  white-space: nowrap !important;
+}
+
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-buy.evecta-primary-btn,
+.settings-sidebar-shell .sidebar-credits-buy.evecta-primary-btn {
+  font-size: 8.47px !important;
+  font-weight: 500 !important;
+  line-height: 18.5px !important;
+  letter-spacing: 0 !important;
+  min-width: 0 !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  max-height: 28px !important;
+  padding: 0 8px !important;
+  color: #ffffff !important;
+}
+
+.settings-sidebar-shell .sidebar-credits-buy.evecta-primary-btn:hover:not(:disabled),
+.settings-sidebar-shell .sidebar-credits-buy.evecta-primary-btn:focus-visible:not(:disabled) {
+  background-color: #8058f0 !important;
+  background: #8058f0 !important;
+  color: #ffffff !important;
+  border-color: rgba(208, 213, 221, 0.3) !important;
+}
+
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-track,
+.settings-sidebar-shell .sidebar-credits-track {
+  height: 8px !important;
+  border-radius: 999px !important;
+  background: #ede9fe !important;
+}
+
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-fill,
+.settings-sidebar-shell .sidebar-credits-fill {
+  background: #8b5cf6 !important;
+  border-radius: 999px !important;
+}
+
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-actions,
+.settings-sidebar-shell .sidebar-credits-actions {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-top: 12px !important;
+}
+
+.dashboard-main-container aside.settings-sidebar-shell .sidebar-credits-inner,
+.settings-sidebar-shell .sidebar-credits-inner {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  padding: 14px 12px 12px !important;
+}

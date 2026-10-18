@@ -1,0 +1,791 @@
+/**
+ * Centralized Dashboard Data Table Design
+ * Apply .dashboard-data-table to the table wrapper for consistent styling.
+ * Change this file to update ALL tables across the app (Lead Log, Lead Database,
+ * Lead Generation, Campaign Detail, Chat leads table).
+ *
+ * COLUMN RULES - Each column has its own rule. Edit only the column you want to change:
+ * - Checkbox: [class*="checkbox"]
+ * - Company:  [class*="company"]
+ * - Email:    [class*="email"]
+ * - Location: [class*="location"]
+ * - Website:  [class*="website"]
+ * - Score:    [class*="score"]
+ */
+
+/* ===== TABLE CONTAINER - Rounded corners, white background ===== */
+.dashboard-data-table {
+  /* Must match checkbox column width (border-box) for sticky company column `left` */
+  --dashboard-table-checkbox-col-width: 46px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 8px !important;
+  position: relative;
+  /* No horizontal padding here — it made thead background narrower than the card edge.
+     Use per-column cell padding for inset instead. */
+  /* Border ends at content - no extra vertical space below last row */
+  flex: 0 1 auto !important;
+  align-self: flex-start !important;
+  max-height: 70vh;
+}
+
+.dashboard-data-table [data-slot="table-container"] {
+  overflow-x: auto;
+  overflow-y: visible;
+  border-radius: inherit;
+}
+
+.dashboard-data-table [data-slot="table"],
+.dashboard-data-table table {
+  width: 100%;
+  min-width: 700px;
+  table-layout: fixed;
+  font-size: 14px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: #FFFFFF;
+  font-family: Urbanist, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* All table cells left-aligned */
+.dashboard-data-table th,
+.dashboard-data-table td,
+.dashboard-data-table [data-slot="table-head"],
+.dashboard-data-table [data-slot="table-cell"] {
+  text-align: left !important;
+}
+
+/* ===== HEADER ROW ===== */
+.dashboard-data-table thead,
+.dashboard-data-table [data-slot="table"] thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--dashboard-table-header-bg) !important;
+}
+
+.dashboard-data-table thead tr,
+.dashboard-data-table thead tr th,
+.dashboard-data-table [data-slot="table"] thead tr th {
+  background-color: var(--dashboard-table-header-bg) !important;
+  border-bottom: 1px solid #E0E0E0 !important;
+  border-top: none !important;
+}
+
+/*
+ * Header uses the same <TableRow> as body: Tailwind hover:bg-muted/50 + transition-colors.
+ * Without overriding, hovering the header row changes background. Lock header <tr> always.
+ */
+.dashboard-data-table thead tr,
+.dashboard-data-table thead [data-slot="table-row"] {
+  transition: none !important;
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+}
+
+.dashboard-data-table thead tr:hover,
+.dashboard-data-table thead tr.hover\:bg-muted\/50:hover,
+.dashboard-data-table thead tr[class*="hover:bg-muted"]:hover,
+.dashboard-data-table thead [data-slot="table-row"]:hover,
+.dashboard-data-table thead [data-slot="table-row"].hover\:bg-muted\/50:hover,
+.dashboard-data-table thead [data-slot="table-row"][class*="hover:bg-muted"]:hover {
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+}
+
+.dashboard-data-table thead tr[class*="border-b"],
+.dashboard-data-table thead tr.border-b {
+  border-bottom: 1px solid #E0E0E0 !important;
+}
+
+.dashboard-data-table thead th,
+.dashboard-data-table [data-slot="table-head"] {
+  padding: 6px 8px !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #4A4A4A !important;
+  text-align: left !important;
+  border-right: 1px solid #E0E0E0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  transition: none !important;
+}
+
+.dashboard-data-table thead th:last-child,
+.dashboard-data-table thead th:last-of-type {
+  border-right: none !important;
+}
+
+.dashboard-data-table thead tr:hover th,
+.dashboard-data-table thead tr:hover [data-slot="table-head"] {
+  background-color: var(--dashboard-table-header-bg) !important;
+  color: #4A4A4A !important;
+}
+
+/* ===== DATA ROWS ===== */
+.dashboard-data-table tbody tr,
+.dashboard-data-table [data-slot="table-body"] tr {
+  background-color: #FFFFFF !important;
+  border-bottom: 1px solid #E0E0E0 !important;
+  transition: none !important;
+}
+
+.dashboard-data-table tbody tr:hover,
+.dashboard-data-table [data-slot="table-body"] tr:hover {
+  background-color: #FFFFFF !important;
+}
+
+/* Non-selected: no row/cell background change on hover */
+.dashboard-data-table tbody tr:not([class*="row-selected"]):not([data-state="selected"]):hover,
+.dashboard-data-table tbody tr:not([class*="row-selected"]):not([data-state="selected"]):hover td,
+.dashboard-data-table tbody tr:not([class*="row-selected"]):not([data-state="selected"]):hover th,
+.dashboard-data-table [data-slot="table-body"] tr:not([class*="row-selected"]):not([data-state="selected"]):hover,
+.dashboard-data-table [data-slot="table-body"] tr:not([class*="row-selected"]):not([data-state="selected"]):hover [data-slot="table-cell"],
+.dashboard-data-table [data-slot="table-body"] tr:not([class*="row-selected"]):not([data-state="selected"]):hover [data-slot="table-head"] {
+  background-color: #FFFFFF !important;
+}
+
+.dashboard-data-table tbody tr.hover\:bg-muted\/50:hover,
+.dashboard-data-table tbody tr[class*="hover:bg-muted"]:hover,
+.dashboard-data-table [data-slot="table-body"] tr.hover\:bg-muted\/50:hover,
+.dashboard-data-table [data-slot="table-body"] tr[class*="hover:bg-muted"]:hover {
+  background-color: #FFFFFF !important;
+}
+
+/* Header: zero visual change on hover/focus (override accent layers + Tailwind) */
+.dashboard-data-table thead th:hover,
+.dashboard-data-table thead th:focus,
+.dashboard-data-table thead th:focus-visible,
+.dashboard-data-table thead th:active,
+.dashboard-data-table [data-slot="table-head"]:hover,
+.dashboard-data-table [data-slot="table-head"]:focus,
+.dashboard-data-table [data-slot="table-head"]:focus-visible,
+.dashboard-data-table [data-slot="table-head"]:active {
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+  color: #4A4A4A !important;
+  opacity: 1 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.dashboard-data-table tbody tr:last-child,
+.dashboard-data-table [data-slot="table-body"] tr:last-child {
+  border-bottom: none !important;
+}
+
+.dashboard-data-table tbody tr[class*="border-b"],
+.dashboard-data-table tbody tr.border-b {
+  border-bottom: 1px solid #E0E0E0 !important;
+}
+
+.dashboard-data-table tbody td,
+.dashboard-data-table [data-slot="table-cell"] {
+  padding: 6px 8px !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #4A4A4A !important;
+  text-align: left !important;
+  border-right: 1px solid #E0E0E0 !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  background-color: #FFFFFF !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* Sticky columns need overflow:visible for position:sticky to work */
+/* Component CSS may set overflow:hidden - we must override for sticky */
+.dashboard-data-table td[class*="checkbox"],
+.dashboard-data-table td[class*="company"],
+.dashboard-data-table .lead-database-table-cell-company,
+.dashboard-data-table .lead-log-table-cell-company,
+.dashboard-data-table .lead-generation-table-cell-company {
+  overflow: visible !important;
+}
+
+.dashboard-data-table td[class*="company"] {
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.dashboard-data-table tbody td:last-child,
+.dashboard-data-table tbody td:last-of-type,
+.dashboard-data-table [data-slot="table-cell"]:last-child {
+  border-right: none !important;
+}
+
+/* ===== COLUMN 1: CHECKBOX - Sticky on horizontal scroll ===== */
+.dashboard-data-table th[class*="checkbox"],
+.dashboard-data-table td[class*="checkbox"] {
+  width: var(--dashboard-table-checkbox-col-width) !important;
+  min-width: var(--dashboard-table-checkbox-col-width) !important;
+  max-width: var(--dashboard-table-checkbox-col-width) !important;
+  text-align: left !important;
+  /* Same inset as other columns (14px left, 8px right, 6px vertical) */
+  padding: 6px 8px 6px 14px !important;
+  box-sizing: border-box !important;
+  position: sticky !important;
+  left: 0 !important;
+  z-index: 8 !important;
+  border-right: 1px solid #E0E0E0 !important;
+  box-shadow: 2px 0 4px -2px rgba(0, 0, 0, 0.1) !important;
+  overflow: visible !important;
+}
+
+/* Body: white cell; header: header tint (do not use one bg rule for both or thead can mismatch) */
+.dashboard-data-table tbody td[class*="checkbox"] {
+  background-color: #FFFFFF !important;
+}
+
+.dashboard-data-table thead th[class*="checkbox"] {
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+  z-index: 9 !important;
+}
+
+.dashboard-data-table td[class*="checkbox"] button,
+.dashboard-data-table th[class*="checkbox"] button {
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  height: 100% !important;
+  min-height: 32px !important;
+  position: relative !important;
+  z-index: 2 !important;
+  cursor: pointer !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.dashboard-data-table [class*="checkbox-box"] {
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px !important;
+  min-height: 14px !important;
+  border-radius: 4px !important;
+}
+
+.dashboard-data-table [class*="checkbox-box"] svg,
+.dashboard-data-table [class*="checkbox-box"] [class*="checkbox-check"],
+.dashboard-data-table [class*="checkbox-box"] [class*="checkbox-icon"] {
+  width: 10px !important;
+  height: 10px !important;
+  min-width: 10px !important;
+  min-height: 10px !important;
+}
+
+/* ===== Checkbox selected state - purple design (#9164FF) ===== */
+.dashboard-data-table [class*="checkbox-box"].checked {
+  background-color: #9164FF !important;
+  border: 1px solid #9164FF !important;
+  border-radius: 4px !important;
+}
+
+.dashboard-data-table [class*="checkbox-box"].checked svg,
+.dashboard-data-table [class*="checkbox-box"].checked [class*="checkbox-check"],
+.dashboard-data-table [class*="checkbox-box"].checked [class*="checkbox-icon"] {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+
+/* ===== CHECKBOX WHEN ROW SELECTED (detail panel open) - No purple/color in checkbox ===== */
+/* Must override hover rules so checkbox stays white when detail panel is open */
+.dashboard-data-table tbody tr[class*="row-selected"] td[class*="checkbox"],
+.dashboard-data-table tbody tr[class*="row-selected"] th[class*="checkbox"],
+.dashboard-data-table tbody tr[class*="row-selected"] [class*="checkbox-button"],
+.dashboard-data-table tbody tr[class*="row-selected"] [class*="checkbox-box"]:not(.checked),
+.dashboard-data-table tbody tr[class*="row-selected"]:hover td[class*="checkbox"],
+.dashboard-data-table tbody tr[class*="row-selected"]:hover [class*="checkbox-button"],
+.dashboard-data-table tbody tr[class*="row-selected"]:hover [class*="checkbox-box"]:not(.checked),
+.dashboard-data-table [data-slot="table-body"] tr[class*="row-selected"] td[class*="checkbox"],
+.dashboard-data-table [data-slot="table-body"] tr[class*="row-selected"] [class*="checkbox-button"],
+.dashboard-data-table [data-slot="table-body"] tr[class*="row-selected"] [class*="checkbox-box"]:not(.checked),
+.dashboard-data-table [data-slot="table-body"] tr[class*="row-selected"]:hover td[class*="checkbox"],
+.dashboard-data-table [data-slot="table-body"] tr[class*="row-selected"]:hover [class*="checkbox-button"],
+.dashboard-data-table [data-slot="table-body"] tr[class*="row-selected"]:hover [class*="checkbox-box"]:not(.checked) {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+}
+
+/* ===== CHECKBOX ON ROW HOVER - No white square, tick stays visible (all tables) ===== */
+/* Override any rule that sets white on descendants when row is hovered */
+.dashboard-data-table tbody tr:hover td[class*="checkbox"],
+.dashboard-data-table tbody tr:hover th[class*="checkbox"],
+.dashboard-data-table tbody tr:hover [class*="checkbox-button"],
+.dashboard-data-table tbody tr:hover [class*="checkbox-box"]:not(.checked),
+.dashboard-data-table tbody tr:hover [class*="checkbox-box"] svg,
+.dashboard-data-table [data-slot="table-body"] tr:hover [class*="checkbox-button"],
+.dashboard-data-table [data-slot="table-body"] tr:hover [class*="checkbox-box"]:not(.checked),
+.dashboard-data-table [data-slot="table-body"] tr:hover [class*="checkbox-box"] svg {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Checked box: same on hover as default (no border/weight shift) */
+.dashboard-data-table tbody tr:hover [class*="checkbox-box"].checked,
+.dashboard-data-table [data-slot="table-body"] tr:hover [class*="checkbox-box"].checked {
+  border: 1px solid #9164FF !important;
+  background-color: #9164FF !important;
+  background: #9164FF !important;
+}
+
+/* Checkmark stays white and visible when row hovered */
+.dashboard-data-table tbody tr:hover [class*="checkbox-box"].checked svg,
+.dashboard-data-table tbody tr:hover [class*="checkbox-box"].checked [class*="checkbox-check"],
+.dashboard-data-table tbody tr:hover [class*="checkbox-box"].checked [class*="checkbox-icon"],
+.dashboard-data-table [data-slot="table-body"] tr:hover [class*="checkbox-box"].checked svg,
+.dashboard-data-table [data-slot="table-body"] tr:hover [class*="checkbox-box"].checked [class*="checkbox-check"],
+.dashboard-data-table [data-slot="table-body"] tr:hover [class*="checkbox-box"].checked [class*="checkbox-icon"] {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+  stroke-width: 2.5 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  fill: none !important;
+  background: none !important;
+  background-color: transparent !important;
+  opacity: 1 !important;
+}
+
+/* ===== COLUMN 2: COMPANY NAME - Sticky on horizontal scroll ===== */
+/* left = checkbox column width (see --dashboard-table-checkbox-col-width) */
+/* border-left creates visible divider (company paints on top, so this shows) */
+.dashboard-data-table th[class*="company"],
+.dashboard-data-table td[class*="company"] {
+  width: 28% !important;
+  min-width: 200px !important;
+  position: sticky !important;
+  left: var(--dashboard-table-checkbox-col-width) !important;
+  z-index: 5 !important;
+  background-color: #FFFFFF !important;
+  border-left: 1px solid #E0E0E0 !important;
+  box-shadow: 2px 0 4px -2px rgba(0, 0, 0, 0.1) !important;
+  overflow: visible !important;
+  /* Extra inset so company name doesn't start flush against the column edge */
+  padding: 6px 8px 6px 14px !important;
+}
+
+.dashboard-data-table thead th[class*="company"] {
+  background-color: var(--dashboard-table-header-bg) !important;
+  z-index: 6 !important;
+  padding: 6px 8px 6px 14px !important;
+}
+
+/* ===== COLUMN 3: EMAIL ===== */
+.dashboard-data-table th[class*="email"],
+.dashboard-data-table td[class*="email"] {
+  width: 22% !important;
+  min-width: 160px !important;
+  padding: 6px 8px 6px 14px !important;
+}
+
+/* ===== COLUMN 4: STATUS (Campaign Leads etc.) ===== */
+.dashboard-data-table th[class*="status"],
+.dashboard-data-table td[class*="status"] {
+  width: 100px !important;
+  min-width: 80px !important;
+  max-width: 120px !important;
+}
+
+/* ===== COLUMN 5: LOCATION ===== */
+.dashboard-data-table th[class*="location"],
+.dashboard-data-table td[class*="location"] {
+  width: 20% !important;
+  min-width: 120px !important;
+  padding: 6px 8px 6px 14px !important;
+}
+
+/* ===== COLUMN 6: WEBSITE ===== */
+.dashboard-data-table th[class*="website"],
+.dashboard-data-table td[class*="website"] {
+  width: 22% !important;
+  min-width: 120px !important;
+  padding: 6px 8px 6px 14px !important;
+}
+
+/* ===== COLUMN 6: SCORE ===== */
+.dashboard-data-table th[class*="score"],
+.dashboard-data-table td[class*="score"] {
+  width: 80px !important;
+  min-width: 80px !important;
+  max-width: none !important;
+  text-align: left !important;
+  padding: 6px 8px 6px 14px !important;
+}
+
+/* ===== WEBSITE LINKS - Purple, underlined ===== */
+.dashboard-data-table a[class*="website"],
+.dashboard-data-table .lead-database-table-cell-website-link,
+.dashboard-data-table .lead-log-table-cell-website-link,
+.dashboard-data-table .lead-generation-table-cell-website-link,
+.dashboard-data-table .chat-leads-table-cell-website-link,
+.dashboard-data-table .detail-campaign-table-cell-website-link {
+  color: #6B21A8 !important;
+  text-decoration: underline !important;
+}
+
+.dashboard-data-table a[class*="website"]:hover,
+.dashboard-data-table .lead-database-table-cell-website-link:hover,
+.dashboard-data-table .lead-log-table-cell-website-link:hover,
+.dashboard-data-table .lead-generation-table-cell-website-link:hover,
+.dashboard-data-table .chat-leads-table-cell-website-link:hover,
+.dashboard-data-table .detail-campaign-table-cell-website-link:hover {
+  color: #6B21A8 !important;
+}
+
+/* ===== COMPANY NAME - Slightly bolder + left-aligned (never centered) ===== */
+.dashboard-data-table th[class*="company"],
+.dashboard-data-table td[class*="company"] {
+  text-align: left !important;
+}
+
+.dashboard-data-table td[class*="company"] {
+  font-weight: 400 !important;
+  color: #111827 !important;
+}
+
+/* ===== TEXT CLIP WRAPPER - Prevents overflow into other cells on hover (all tables) ===== */
+/* Wrap cell content in .dashboard-table-cell-text-clip so long text shows ellipsis and never spills */
+.dashboard-data-table .dashboard-table-cell-text-clip {
+  display: block !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* ===== Contain text - prevent overflow into other cells ===== */
+/* Exclude sticky columns (checkbox, company) and email (has dropdown) - overflow:hidden breaks position:sticky and clips dropdowns */
+.dashboard-data-table th:not([class*="checkbox"]):not([class*="company"]):not([class*="email"]) {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* Score header with info icon - allow tooltip to show */
+.dashboard-data-table th[class*="score"] {
+  overflow: visible !important;
+}
+
+/* Score icon - match table header tint */
+.dashboard-data-table .lead-database-table-head-score-icon,
+.dashboard-data-table .lead-log-table-head-score-icon,
+.dashboard-data-table .lead-generation-table-head-score-icon,
+.dashboard-data-table .chat-leads-score-icon,
+.dashboard-data-table .detail-campaign-score-icon {
+  width: 14px !important;
+  height: 14px !important;
+  flex-shrink: 0;
+  vertical-align: middle;
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+}
+
+.dashboard-data-table .lead-database-table-head-score-icon:hover,
+.dashboard-data-table .lead-log-table-head-score-icon:hover,
+.dashboard-data-table .lead-generation-table-head-score-icon:hover,
+.dashboard-data-table .chat-leads-score-icon:hover,
+.dashboard-data-table .detail-campaign-score-icon:hover {
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Score icon – no focus ring, outline, or white on focus */
+.dashboard-data-table .lead-database-table-head-score-icon:focus,
+.dashboard-data-table .lead-log-table-head-score-icon:focus,
+.dashboard-data-table .lead-generation-table-head-score-icon:focus,
+.dashboard-data-table .chat-leads-score-icon:focus,
+.dashboard-data-table .detail-campaign-score-icon:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+}
+
+/* Score header container - "Score" + icon, tight gap, vertically aligned, match header grey */
+.dashboard-data-table .lead-database-table-head-score-wrapper-high,
+.dashboard-data-table .lead-database-table-head-score-wrapper-normal,
+.dashboard-data-table .lead-database-table-head-score-dropdown-wrapper,
+.dashboard-data-table .lead-log-table-head-score-icon-wrapper,
+.dashboard-data-table .lead-generation-table-head-score-icon-wrapper,
+.dashboard-data-table .chat-leads-score-icon-wrapper,
+.dashboard-data-table .detail-campaign-score-header-container {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+}
+
+.dashboard-data-table .lead-database-table-head-score-wrapper-high:hover,
+.dashboard-data-table .lead-database-table-head-score-wrapper-normal:hover,
+.dashboard-data-table .lead-database-table-head-score-dropdown-wrapper:hover,
+.dashboard-data-table .lead-log-table-head-score-icon-wrapper:hover,
+.dashboard-data-table .lead-generation-table-head-score-icon-wrapper:hover,
+.dashboard-data-table .chat-leads-score-icon-wrapper:hover,
+.dashboard-data-table .detail-campaign-score-header-container:hover {
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+}
+
+/* Shared score tooltip (used by DetailCampaignScreen) */
+.dashboard-data-table .detail-campaign-score-tooltip {
+  display: none;
+  position: fixed;
+  padding: 8px 12px;
+  background-color: #6B21A8 !important;
+  background: #6B21A8 !important;
+  color: white;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.4;
+  white-space: normal;
+  z-index: 10002;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 220px;
+  text-align: left;
+  pointer-events: none;
+}
+
+/* No white background on arrow – prevents white block above icon on hover */
+.dashboard-data-table .detail-campaign-score-tooltip-arrow {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #6B21A8;
+  background: none !important;
+  background-color: transparent !important;
+}
+
+/* Email header - contains filter dropdown, must not clip it */
+.dashboard-data-table th[class*="email"] {
+  overflow: visible !important;
+}
+
+/* ===== Email / website column filter dropdowns (all tables) ===== */
+.dashboard-data-table [data-email-filter-dropdown] > div[data-email-filter-dropdown],
+[data-email-filter-dropdown] > div[data-email-filter-dropdown],
+.dashboard-data-table [data-website-filter-dropdown] > div[data-website-filter-dropdown],
+[data-website-filter-dropdown] > div[data-website-filter-dropdown] {
+  min-width: 120px !important;
+  width: max-content !important;
+  padding: 3px !important;
+  box-sizing: border-box !important;
+  border-radius: 8px !important;
+  gap: 2px;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.dashboard-data-table [data-email-filter-dropdown] > div[data-email-filter-dropdown] button,
+[data-email-filter-dropdown] > div[data-email-filter-dropdown] button,
+.dashboard-data-table [data-website-filter-dropdown] > div[data-website-filter-dropdown] button,
+[data-website-filter-dropdown] > div[data-website-filter-dropdown] button {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 28px !important;
+  box-sizing: border-box !important;
+  padding: 5px 8px !important;
+  margin: 0 !important;
+  text-align: left !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  color: #374151 !important;
+  border: none !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 4px !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.email-filter-dropdown-check-slot {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sidebar nav hover — matches hover:bg-purple-50 hover:text-gray-900 (inactive only) */
+.dashboard-data-table [data-email-filter-dropdown] > div[data-email-filter-dropdown] button:not(.email-filter-dropdown-option-active):hover,
+.dashboard-main-container [data-email-filter-dropdown] > div[data-email-filter-dropdown] button:not(.email-filter-dropdown-option-active):hover,
+[data-email-filter-dropdown] > div[data-email-filter-dropdown] button:not(.email-filter-dropdown-option-active):hover,
+.dashboard-data-table [data-website-filter-dropdown] > div[data-website-filter-dropdown] button:not(.email-filter-dropdown-option-active):hover,
+.dashboard-main-container [data-website-filter-dropdown] > div[data-website-filter-dropdown] button:not(.email-filter-dropdown-option-active):hover,
+[data-website-filter-dropdown] > div[data-website-filter-dropdown] button:not(.email-filter-dropdown-option-active):hover {
+  background-color: var(--color-purple-50, #faf5ff) !important;
+  color: #111827 !important;
+}
+
+.dashboard-data-table [data-email-filter-dropdown] > div[data-email-filter-dropdown] button:not(.email-filter-dropdown-option-active):focus-visible,
+.dashboard-main-container [data-email-filter-dropdown] > div[data-email-filter-dropdown] button:not(.email-filter-dropdown-option-active):focus-visible,
+[data-email-filter-dropdown] > div[data-email-filter-dropdown] button:not(.email-filter-dropdown-option-active):focus-visible,
+.dashboard-data-table [data-website-filter-dropdown] > div[data-website-filter-dropdown] button:not(.email-filter-dropdown-option-active):focus-visible,
+.dashboard-main-container [data-website-filter-dropdown] > div[data-website-filter-dropdown] button:not(.email-filter-dropdown-option-active):focus-visible,
+[data-website-filter-dropdown] > div[data-website-filter-dropdown] button:not(.email-filter-dropdown-option-active):focus-visible {
+  outline: none !important;
+  background-color: var(--color-purple-50, #faf5ff) !important;
+  color: #111827 !important;
+}
+
+/* Selected option — matches sidebar .sidebar-nav-active-gradient */
+.dashboard-data-table [data-email-filter-dropdown] > div[data-email-filter-dropdown] button.email-filter-dropdown-option-active,
+.dashboard-main-container [data-email-filter-dropdown] > div[data-email-filter-dropdown] button.email-filter-dropdown-option-active,
+[data-email-filter-dropdown] > div[data-email-filter-dropdown] button.email-filter-dropdown-option-active,
+.dashboard-data-table [data-website-filter-dropdown] > div[data-website-filter-dropdown] button.email-filter-dropdown-option-active,
+.dashboard-main-container [data-website-filter-dropdown] > div[data-website-filter-dropdown] button.email-filter-dropdown-option-active,
+[data-website-filter-dropdown] > div[data-website-filter-dropdown] button.email-filter-dropdown-option-active {
+  background: linear-gradient(to left, rgba(212, 88, 255, 0.7), #6b21a8) !important;
+  color: #ffffff !important;
+}
+
+.dashboard-data-table [data-email-filter-dropdown] > div[data-email-filter-dropdown] button.email-filter-dropdown-option-active:hover,
+.dashboard-main-container [data-email-filter-dropdown] > div[data-email-filter-dropdown] button.email-filter-dropdown-option-active:hover,
+[data-email-filter-dropdown] > div[data-email-filter-dropdown] button.email-filter-dropdown-option-active:hover,
+.dashboard-data-table [data-email-filter-dropdown] > div[data-email-filter-dropdown] button.email-filter-dropdown-option-active:focus-visible,
+.dashboard-main-container [data-email-filter-dropdown] > div[data-email-filter-dropdown] button.email-filter-dropdown-option-active:focus-visible,
+[data-email-filter-dropdown] > div[data-email-filter-dropdown] button.email-filter-dropdown-option-active:focus-visible,
+.dashboard-data-table [data-website-filter-dropdown] > div[data-website-filter-dropdown] button.email-filter-dropdown-option-active:hover,
+.dashboard-main-container [data-website-filter-dropdown] > div[data-website-filter-dropdown] button.email-filter-dropdown-option-active:hover,
+[data-website-filter-dropdown] > div[data-website-filter-dropdown] button.email-filter-dropdown-option-active:hover,
+.dashboard-data-table [data-website-filter-dropdown] > div[data-website-filter-dropdown] button.email-filter-dropdown-option-active:focus-visible,
+.dashboard-main-container [data-website-filter-dropdown] > div[data-website-filter-dropdown] button.email-filter-dropdown-option-active:focus-visible,
+[data-website-filter-dropdown] > div[data-website-filter-dropdown] button.email-filter-dropdown-option-active:focus-visible {
+  background: linear-gradient(to left, rgba(212, 88, 255, 0.7), #6b21a8) !important;
+  color: #ffffff !important;
+}
+
+.dashboard-data-table [data-email-filter-dropdown] > div[data-email-filter-dropdown] button.email-filter-dropdown-option-active svg,
+.dashboard-main-container [data-email-filter-dropdown] > div[data-email-filter-dropdown] button.email-filter-dropdown-option-active svg,
+[data-email-filter-dropdown] > div[data-email-filter-dropdown] button.email-filter-dropdown-option-active svg,
+.dashboard-data-table [data-website-filter-dropdown] > div[data-website-filter-dropdown] button.email-filter-dropdown-option-active svg,
+.dashboard-main-container [data-website-filter-dropdown] > div[data-website-filter-dropdown] button.email-filter-dropdown-option-active svg,
+[data-website-filter-dropdown] > div[data-website-filter-dropdown] button.email-filter-dropdown-option-active svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* ===== Links need ellipsis too when long ===== */
+.dashboard-data-table a[class*="website"],
+.dashboard-data-table .lead-database-table-cell-website-link,
+.dashboard-data-table .lead-log-table-cell-website-link,
+.dashboard-data-table .lead-generation-table-cell-website-link,
+.dashboard-data-table .chat-leads-table-cell-website-link,
+.dashboard-data-table .detail-campaign-table-cell-website-link {
+  display: block !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* ===== SCORE ICON TOOLTIP - Same content and gradient in all tables (AI Lead Gen, Lead Database, Lead Log, Campaign Detail) ===== */
+.lead-database-table-tooltip,
+.lead-generation-tooltip,
+.lead-log-score-tooltip,
+.detail-campaign-score-tooltip {
+  background: linear-gradient(135deg, #D458FF 0%, #6B21A8 100%) !important;
+  color: white !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+  white-space: normal !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  width: 220px !important;
+  text-align: left !important;
+}
+
+/* Score tooltip arrow/pointer – hidden in all tables */
+.lead-database-table-tooltip-arrow,
+.lead-generation-tooltip .tooltip-arrow,
+.lead-log-score-tooltip-arrow,
+.detail-campaign-score-tooltip-arrow {
+  display: none !important;
+}
+
+/* Score header cell: stay grey on hover (no white) - like AI Lead Gen - all tables */
+.lead-database-table-head-score-base:hover,
+.lead-database-table-head-score-wrapper-high:hover,
+.lead-database-table-head-score-dropdown-wrapper:hover,
+.lead-log-table-head-score:hover,
+.lead-log-table-head-score:has(.lead-log-table-head-score-icon:hover),
+.lead-log-table-head-score:has(.lead-log-table-head-score-icon-wrapper:hover),
+.detail-campaign-score-header-container:hover,
+.detail-campaign-score-header-container:has(.detail-campaign-score-icon:hover),
+.lead-generation-table-head-score:hover,
+.lead-generation-table-head-score:has(.lead-generation-table-head-score-icon:hover),
+.lead-generation-table-head-score:has(.lead-generation-table-head-score-icon-wrapper:hover) {
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+}
+
+/* ==========================================================================
+   Global — any <thead> / header cells: #D0D5DD @ 30%, no hover background shift
+   (TableRow uses hover:bg-muted/50; lock header row/cells to the same tint)
+   ========================================================================== */
+thead,
+thead[data-slot="table-header"] {
+  background-color: var(--dashboard-table-header-bg) !important;
+}
+
+thead tr,
+thead tr:hover,
+thead tr.hover\:bg-muted\/50:hover,
+thead tr[class*="hover:bg-muted"]:hover,
+thead [data-slot="table-row"],
+thead [data-slot="table-row"]:hover,
+thead [data-slot="table-row"].hover\:bg-muted\/50:hover,
+thead [data-slot="table-row"][class*="hover:bg-muted"]:hover {
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+  transition: none !important;
+}
+
+thead th,
+thead th:hover,
+thead th:focus,
+thead th:focus-visible,
+thead th:active,
+thead [data-slot="table-head"],
+thead [data-slot="table-head"]:hover,
+thead [data-slot="table-head"]:focus,
+thead [data-slot="table-head"]:focus-visible,
+thead [data-slot="table-head"]:active,
+thead tr:hover th,
+thead tr:hover [data-slot="table-head"] {
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+  transition: none !important;
+}
+

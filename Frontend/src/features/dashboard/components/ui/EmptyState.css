@@ -1,0 +1,151 @@
+/* Shared dashboard empty state — icon 60×60, title 30px medium 120%, body 18px regular 145% */
+.dashboard-empty-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  padding: 24px 16px;
+  text-align: center;
+  font-family: 'Urbanist', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Table / tight layouts: same type scale & gaps, no forced min height */
+.dashboard-empty-state--compact {
+  min-height: 0;
+  padding: 32px 20px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.dashboard-empty-state-icon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  margin-bottom: 10px;
+}
+
+.dashboard-empty-state-icon-gradient {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #d458ff 0%, #6b21a8 100%);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.dashboard-empty-state-title {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 120%;
+  margin: 0 0 8px 0;
+  padding: 0;
+  color: #030011;
+}
+
+.dashboard-empty-state-description {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 145%;
+  margin: 0;
+  padding: 0;
+  color: #a198ce;
+  max-width: 560px;
+}
+
+.dashboard-empty-state > button {
+  margin-top: 16px;
+}
+
+/*
+ * Explicit wins over .dashboard-main-container * / p rules (design-system.css)
+ * when load order or selector specificity ties.
+ */
+.dashboard-main-container .dashboard-empty-state .dashboard-empty-state-title {
+  font-size: 30px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  letter-spacing: normal !important;
+  color: #030011 !important;
+  margin: 0 0 8px 0 !important;
+}
+
+.dashboard-main-container .dashboard-empty-state .dashboard-empty-state-description {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  letter-spacing: normal !important;
+  color: #a198ce !important;
+}
+
+.dashboard-main-container .dashboard-empty-state .dashboard-empty-state-icon.dashboard-empty-state-icon-gradient {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  margin-bottom: 10px !important;
+}
+
+/* Templates: same classes, wrapper is .template-empty-state */
+.dashboard-main-container .template-empty-state .dashboard-empty-state-title {
+  font-size: 30px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  letter-spacing: normal !important;
+  color: #030011 !important;
+  margin: 0 0 8px 0 !important;
+}
+
+.dashboard-main-container .template-empty-state .dashboard-empty-state-description {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  letter-spacing: normal !important;
+  color: #a198ce !important;
+  margin: 0 !important;
+}
+
+.dashboard-main-container .template-empty-state .template-empty-state-icon {
+  width: 60px !important;
+  height: 60px !important;
+  margin-bottom: 10px !important;
+}
+
+/* Full-page empty states inside paginated scroll areas: fill height and center icon + copy */
+.dashboard-pagination-scroll-area:has(> .dashboard-empty-state:not(.dashboard-empty-state--compact)) {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-pagination-scroll-area > .dashboard-empty-state:not(.dashboard-empty-state--compact) {
+  flex: 1 1 auto;
+  min-height: 0;
+  justify-content: center;
+}
+
+.dashboard-pagination-scroll-area:has(> .lead-database-empty-state-container) {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-pagination-scroll-area > .lead-database-empty-state-container {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.dashboard-pagination-scroll-area:has(> .campaign-detail-leads-empty-state) {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-pagination-scroll-area > .campaign-detail-leads-empty-state {
+  flex: 1 1 auto;
+  min-height: 0;
+}

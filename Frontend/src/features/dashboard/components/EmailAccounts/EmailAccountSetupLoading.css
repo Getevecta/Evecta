@@ -1,0 +1,93 @@
+.email-account-setup-loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #F8F8FC;
+  padding: 20px;
+}
+
+.email-account-setup-loading-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(145, 100, 255, 0.1);
+}
+
+.connect-email-loader-card .connect-email-loader-header {
+  margin-bottom: 8px;
+}
+
+.connect-email-loader-card .connect-email-loader-icon {
+  animation: connect-email-loader-pulse 2s ease-in-out infinite;
+}
+
+@keyframes connect-email-loader-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+.connect-email-loader-card .connect-email-loader-title {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  color: #030011 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  margin: 0 0 8px 0 !important;
+  letter-spacing: normal !important;
+}
+
+.connect-email-loader-card .connect-email-loader-subtitle {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  font-family: 'Urbanist', sans-serif !important;
+  margin: 0 0 12px 0 !important;
+  letter-spacing: normal !important;
+}
+
+.connect-email-loader-card .connect-email-loader-how-it-works {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.connect-email-loader-card .connect-email-loader-check-icon {
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+.connect-email-loader-card .connect-email-loader-how-content {
+  flex: 1;
+}
+
+.connect-email-loader-card .connect-email-loader-how-title {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #030011 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  margin: 0 0 4px 0 !important;
+  letter-spacing: normal !important;
+}
+
+.connect-email-loader-card .connect-email-loader-how-text {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  font-family: 'Urbanist', sans-serif !important;
+  margin: 0 !important;
+  letter-spacing: normal !important;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .email-account-setup-loading-card {
+    padding: 32px 24px;
+  }
+}
+

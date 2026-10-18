@@ -1,0 +1,2562 @@
+/* SelectEmailAccount Component Styles */
+
+/* Google Consent Page Styles */
+.google-consent-container {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  display: flex;
+  justify-content: center;
+}
+
+.google-consent-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px 20px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.google-consent-logo {
+  margin-bottom: 10px;
+}
+
+.google-consent-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0px 0;
+  padding: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.google-consent-subtitle {
+  font-size: 12px;
+  color: #6B7280;
+  margin: 0 0 12px 0;
+  padding: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.google-consent-how-it-works {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 12px;
+  background-color: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.google-consent-how-it-works-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.google-consent-check-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-consent-how-it-works-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.google-consent-how-it-works-text {
+  font-size: 10px;
+  color: #6B7280;
+  margin: 0;
+  line-height: 1.3;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.google-consent-access-section {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.google-consent-access-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 8px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.google-consent-access-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.google-consent-access-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.google-consent-access-item-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.google-consent-access-item-content {
+  flex: 1;
+}
+
+.google-consent-access-item-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 4px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.google-consent-access-item-text {
+  font-size: 10px;
+  color: #6B7280;
+  margin: 0;
+  line-height: 1.4;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.google-consent-button {
+  width: auto;
+  padding: 6px 20px;
+  background-color: #8B5CF6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Urbanist', sans-serif;
+  cursor: pointer;
+  margin-top: 4px;
+  align-self: center;
+}
+
+.google-consent-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* IMAP Consent Page Styles */
+.imap-consent-container {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  display: flex;
+  justify-content: center;
+}
+
+.imap-consent-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px 20px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.imap-consent-logo {
+  margin-bottom: 12px;
+}
+
+.imap-consent-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0px 0;
+  padding: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.imap-consent-subtitle {
+  font-size: 12px;
+  color: #6B7280;
+  margin: 0 0 12px 0;
+  padding: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.imap-consent-how-it-works {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 12px;
+  background-color: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.imap-consent-how-it-works-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.imap-consent-check-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.imap-consent-how-it-works-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.imap-consent-how-it-works-text {
+  font-size: 10px;
+  color: #6B7280;
+  margin: 0;
+  line-height: 1.4;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.imap-consent-access-section {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.imap-consent-access-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 8px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.imap-consent-access-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.imap-consent-access-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.imap-consent-access-item-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.imap-consent-access-item-content {
+  flex: 1;
+}
+
+.imap-consent-access-item-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 4px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.imap-consent-access-item-text {
+  font-size: 10px;
+  color: #6B7280;
+  margin: 0;
+  line-height: 1.4;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.imap-consent-button {
+  width: auto;
+  padding: 6px 20px;
+  background-color: #8B5CF6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Urbanist', sans-serif;
+  cursor: pointer;
+  margin-top: 4px;
+  align-self: center;
+}
+
+/* Loading Component Styles */
+.loading-container {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  display: flex;
+  justify-content: center;
+}
+
+.loading-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px 20px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.loading-spinner-container {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.loading-spinner-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #8B5CF6;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+  animation: spinner-rotate 1.2s linear infinite;
+}
+
+/* Dynamic spinner dot styles using data attributes */
+.loading-spinner-dot[data-index="0"] { transform: rotate(0deg) translate(20px, 0) translate(-50%, -50%); opacity: 0.5; animation-delay: 0s; }
+.loading-spinner-dot[data-index="1"] { transform: rotate(30deg) translate(20px, 0) translate(-50%, -50%); opacity: 0.3; animation-delay: 0.1s; }
+.loading-spinner-dot[data-index="2"] { transform: rotate(60deg) translate(20px, 0) translate(-50%, -50%); opacity: 0.5; animation-delay: 0.2s; }
+.loading-spinner-dot[data-index="3"] { transform: rotate(90deg) translate(20px, 0) translate(-50%, -50%); opacity: 0.7; animation-delay: 0.3s; }
+.loading-spinner-dot[data-index="4"] { transform: rotate(120deg) translate(20px, 0) translate(-50%, -50%); opacity: 0.5; animation-delay: 0.4s; }
+.loading-spinner-dot[data-index="5"] { transform: rotate(150deg) translate(20px, 0) translate(-50%, -50%); opacity: 0.3; animation-delay: 0.5s; }
+.loading-spinner-dot[data-index="6"] { transform: rotate(180deg) translate(20px, 0) translate(-50%, -50%); opacity: 0.5; animation-delay: 0.6s; }
+.loading-spinner-dot[data-index="7"] { transform: rotate(210deg) translate(20px, 0) translate(-50%, -50%); opacity: 0.7; animation-delay: 0.7s; }
+.loading-spinner-dot[data-index="8"] { transform: rotate(240deg) translate(20px, 0) translate(-50%, -50%); opacity: 0.5; animation-delay: 0.8s; }
+.loading-spinner-dot[data-index="9"] { transform: rotate(270deg) translate(20px, 0) translate(-50%, -50%); opacity: 0.3; animation-delay: 0.9s; }
+.loading-spinner-dot[data-index="10"] { transform: rotate(300deg) translate(20px, 0) translate(-50%, -50%); opacity: 0.5; animation-delay: 1.0s; }
+.loading-spinner-dot[data-index="11"] { transform: rotate(330deg) translate(20px, 0) translate(-50%, -50%); opacity: 0.7; animation-delay: 1.1s; }
+
+@keyframes spinner-rotate {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+.loading-title {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  color: #030011 !important;
+  margin: 0 0 8px 0 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  letter-spacing: normal !important;
+}
+
+.loading-subtitle {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  margin: 0 0 12px 0 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  letter-spacing: normal !important;
+}
+
+.loading-info-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background-color: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+}
+
+.loading-info-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.loading-info-content {
+  flex: 1;
+}
+
+.loading-info-title {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #030011 !important;
+  margin: 0 0 4px 0 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  letter-spacing: normal !important;
+}
+
+.loading-info-text {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  margin: 0 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  letter-spacing: normal !important;
+}
+
+/* Main Content Styles */
+.select-email-content {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.select-email-title-container {
+  margin-bottom: 2px;
+}
+
+.select-email-title {
+  margin-bottom: 4px;
+  margin-top: 0;
+  font-size: 16px !important; /* Smaller font size */
+  line-height: 1.2 !important;
+}
+
+/* Choose Your Email Setup Option — 16 medium #030011 (matches EmailAccounts) */
+.select-email-title.email-setup-option-page-title,
+h1.select-email-title.email-setup-option-page-title {
+  font-size: 16px !important;
+  line-height: 1.3 !important;
+  font-weight: 500 !important;
+  color: #030011 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  margin-bottom: 4px !important;
+  margin-top: 0 !important;
+}
+
+.select-email-cards {
+  gap: 6px;
+}
+
+.select-email-card {
+  padding: 34px;
+}
+
+.select-email-card-icon {
+  width: 18px;
+  height: 18px;
+  margin-bottom: 4px;
+}
+
+.select-email-card-header {
+  margin-bottom: 0;
+  position: relative;
+}
+
+.select-email-card-title {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+}
+
+/* Step 4: System Email card keeps 18 medium #030011 (EmailAccounts.css wins for .email-accounts-cards) */
+.select-email-card.pre-warmed-card .email-account-card-title.select-email-card-title.heading-xl,
+.select-email-card.pre-warmed-card h2.email-account-card-title {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
+  color: #030011 !important;
+}
+
+/* Override heading-xl on non–pre-warmed select cards only */
+.select-email-card:not(.pre-warmed-card) .select-email-card-title.heading-xl,
+h2.select-email-card-title.heading-xl:not(.select-email-connect-accounts-title) {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+}
+
+.select-email-card.pre-warmed-card > .select-email-card-description {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  margin: 8px 0 0 0 !important;
+}
+
+.select-email-card-description {
+  font-size: 10px;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.select-email-features {
+  gap: 3px;
+  margin-bottom: 6px;
+}
+
+/* System Email Accounts: space above feature list (Zero-Configuration Setup) */
+.select-email-card.pre-warmed-card .select-email-features {
+  margin-top: 40px;
+}
+
+.select-email-feature-item {
+  gap: 4px;
+}
+
+.select-email-feature-icon {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  margin-top: 2px;
+  color: #a198ce !important;
+}
+
+.select-email-card.pre-warmed-card .select-email-feature-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  color: #a198ce !important;
+}
+
+.select-email-feature-text {
+  gap: 1px;
+}
+
+.select-email-card.pre-warmed-card .select-email-feature-title {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #030011 !important;
+}
+
+.select-email-card.pre-warmed-card .select-email-feature-subtitle {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+}
+
+.select-email-feature-title {
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.select-email-feature-subtitle {
+  font-size: 9px;
+  line-height: 1.3;
+}
+
+.select-email-connect-button {
+  margin-top: 8px;
+}
+
+/* Same primary treatment as Email Accounts → System Email "Connect Email (Early Access)" (not the pale default .pre-warmed-button) */
+.select-email-card.pre-warmed-card .connect-button.pre-warmed-button.select-email-connect-button,
+.select-email-card.pre-warmed-card .connect-button.pre-warmed-button.select-email-connect-button:hover,
+.select-email-card.pre-warmed-card .connect-button.pre-warmed-button.select-email-connect-button:focus,
+.select-email-card.pre-warmed-card .connect-button.pre-warmed-button.select-email-connect-button:focus-visible,
+.select-email-card.pre-warmed-card .connect-button.pre-warmed-button.select-email-connect-button:active {
+  background-color: #9164ff !important;
+  background: #9164ff !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  border-color: rgba(208, 213, 221, 0.3) !important;
+  opacity: 1 !important;
+  filter: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: none !important;
+  outline: none !important;
+}
+
+.select-email-connect-button-icon {
+  height: 28px;
+}
+
+.select-email-connect-account-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px !important; /* Reduced from 12px */
+  margin-top: 8px !important; /* Reduced from 16px */
+  margin-bottom: 4px !important; /* Reduced from 8px */
+}
+
+.select-email-connect-account-feature-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.select-email-connect-account-feature-content {
+  flex: 1;
+}
+
+.select-email-connect-account-feature-title {
+  font-size: 16px !important; /* Set to 16px as requested */
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  margin-bottom: 2px !important; /* Reduced from 4px */
+  padding: 0 !important;
+}
+
+/* Override heading-m class for "Connect Your Own Email:" title */
+.select-email-connect-account-feature-title.heading-m,
+h3.select-email-connect-account-feature-title.heading-m,
+.feature-title.select-email-connect-account-feature-title.heading-m {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  margin-bottom: 2px !important;
+  padding: 0 !important;
+}
+
+.select-email-connect-account-feature-text {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.select-email-connection-options {
+  gap: 4px;
+}
+
+.select-email-connection-option {
+  padding: 6px;
+  position: relative;
+}
+
+.select-email-connection-option.active {
+  border: 1px solid #8B5CF6;
+  background-color: #F5F3FF;
+}
+
+.select-email-connection-option-content {
+  gap: 6px;
+}
+
+.select-email-connection-option-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.select-email-connection-option-text {
+  gap: 1px;
+}
+
+.select-email-connection-option-label-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.select-email-connection-option-label {
+  font-size: 12px;
+}
+
+.select-email-connection-option-using {
+  font-size: 8px;
+  color: #8B5CF6;
+  font-weight: 600;
+}
+
+.select-email-connection-option-sublabel {
+  font-size: 10px;
+}
+
+.select-email-connection-option-arrow {
+  width: 12px;
+  height: 12px;
+}
+
+/* Currently Using Badge - left side, slightly up so it doesn't cover title */
+.currently-using-badge {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  background-color: #8B5CF6;
+  color: white;
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 1;
+}
+
+.currently-using-badge-left {
+  top: 8px;
+  left: 16px;
+  right: auto;
+}
+
+.currently-using-badge-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #34D399;
+  border-radius: 50%;
+}
+
+/* IMAP Modal Styles */
+.imap-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.imap-modal {
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 95vh;
+  overflow: auto;
+  position: relative;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.imap-modal-header {
+  padding: 0px 4px 0px 4px;
+}
+
+.imap-modal-close-row {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-right: 8px;
+}
+
+.imap-modal-header-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 0 !important;
+}
+
+.imap-modal-header-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.imap-modal-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.imap-modal-title-block .imap-modal-title {
+  margin-bottom: 0 !important;
+  line-height: 1 !important;
+  padding-bottom: 0 !important;
+}
+
+.imap-modal-title-block .imap-modal-subtitle {
+  margin: 0 !important;
+  margin-top: -2px !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+}
+
+.imap-modal-icon-container {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imap-modal-title {
+  font-size: 14px !important;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.2 !important;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Override heading-l class for modal title */
+.imap-modal-title.heading-l,
+h2.imap-modal-title.heading-l {
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.imap-modal-close-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: #6B7280;
+}
+
+.imap-modal-close-button:hover,
+.imap-modal-close-button:active,
+.imap-modal-close-button:focus {
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.imap-modal-subtitle {
+  font-size: 9px !important;
+  color: #A198CE;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  padding-top: 0 !important;
+  padding-left: 26px;
+  line-height: 1.2 !important;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 400 !important;
+}
+
+.imap-modal-content {
+  padding: 16px;
+}
+
+.imap-modal-section {
+  margin-bottom: 16px;
+}
+
+.imap-modal-section:last-of-type {
+  margin-bottom: 0px;
+}
+
+.imap-modal-section-title {
+  font-size: 11px !important;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 10px;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Override heading-m class for section titles */
+.imap-modal-section-title.heading-m,
+h3.imap-modal-section-title.heading-m {
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+}
+
+.imap-modal-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.imap-modal-form-grid:last-child {
+  margin-bottom: 0;
+}
+
+.imap-modal-label {
+  font-size: 9px !important;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 4px;
+  display: block;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.imap-modal-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(145, 100, 255, 0.2);
+  border-radius: 12px;
+  font-size: 12px !important;
+  font-family: 'Urbanist', sans-serif;
+  color: #000000;
+  background-color: #FFFFFF;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+.imap-modal-input::placeholder,
+.imap-modal-password-input::placeholder {
+  color: #A198CE !important;
+}
+
+.imap-modal-input::-webkit-input-placeholder,
+.imap-modal-password-input::-webkit-input-placeholder {
+  color: #A198CE !important;
+}
+
+.imap-modal-input::-moz-placeholder,
+.imap-modal-password-input::-moz-placeholder {
+  color: #A198CE !important;
+  opacity: 1;
+}
+
+.imap-modal-input:focus,
+.imap-modal-password-input:focus {
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  outline: none;
+  box-shadow: none;
+}
+
+.imap-modal-password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.imap-modal-password-input {
+  width: 100%;
+  padding: 10px 12px;
+  padding-right: 2.5rem;
+  border: 1px solid rgba(145, 100, 255, 0.2);
+  border-radius: 12px;
+  font-size: 12px !important;
+  font-family: 'Urbanist', sans-serif;
+  color: #000000;
+  background-color: #FFFFFF;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+/* Smaller placeholder text in IMAP modal inputs */
+
+.imap-modal-password-toggle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 1.25rem;
+  margin: auto 0;
+  transform: none !important;
+  background: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  cursor: pointer;
+  color: #a198ce;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: color 0.15s ease !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.imap-modal-password-toggle:hover,
+.imap-modal-password-toggle:focus,
+.imap-modal-password-toggle:focus-visible,
+.imap-modal-password-toggle:active {
+  color: #8b7fc9;
+  background: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
+.imap-modal-password-toggle svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: block;
+  transform: none !important;
+}
+
+.imap-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 8px;
+  margin-bottom: 0;
+  background: transparent;
+}
+
+/* Connect Account button - same style as Create Campaign button */
+.imap-modal-connect-button.create-campaign-style-button {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  background-color: #9164FF !important;
+  color: white !important;
+  border: none !important;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.imap-modal-connect-button.create-campaign-style-button:hover:not(:disabled),
+.imap-modal-connect-button.create-campaign-style-button:active:not(:disabled) {
+  background-color: #9164FF !important;
+  color: white !important;
+}
+
+.imap-modal-connect-button.create-campaign-style-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.imap-modal-security-note {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background-color: #F9FAFB;
+  border: 1px solid rgba(145, 100, 255, 0.2);
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.imap-modal-security-note-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.imap-modal-security-note-content {
+  flex: 1;
+}
+
+.imap-modal-security-note-title {
+  font-size: 11px !important;
+  color: #07020D;
+  margin: 0;
+  margin-bottom: 4px;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.imap-modal-security-note-text {
+  font-size: 9px !important;
+  color: #A198CE;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* Override dashboard global border so Security Note shows #9164FF 20% */
+.imap-modal .imap-modal-security-note {
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+}
+
+.imap-modal-help {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+}
+
+.imap-modal-help-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.imap-modal-help-content {
+  flex: 1;
+}
+
+.imap-modal-help-title {
+  font-size: 10px !important;
+  color: #07020D;
+  margin: 0;
+  margin-bottom: 4px;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.imap-modal-help-text {
+  font-size: 9px !important;
+  color: #6B7280;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* Error Modal Styles */
+.error-modal {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2147483647;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.error-modal-content {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: linear-gradient(135deg, #D458FF 0%, #6B21A8 100%);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 16px 20px;
+  overflow: hidden;
+  border: none;
+}
+
+.error-modal-text {
+  flex: 1;
+}
+
+.error-modal-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 6px 0;
+}
+
+.error-modal-message {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.error-modal-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 18px;
+}
+
+.error-modal-indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: #6B21A8;
+}
+
+/* Active Selection Styles */
+.active-selection {
+  border: 1px solid #8B5CF6 !important;
+  background-color: #F5F3FF !important;
+}
+
+/* Icon Sizes */
+.select-email-zap-icon {
+  width: 10px;
+  height: 10px;
+}
+
+.select-email-popular-badge {
+  height: 14px;
+}
+
+.select-email-existing-icon-container {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 6px;
+}
+
+.select-email-settings-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.select-email-connect-accounts-title {
+  font-size: 18px !important;
+  line-height: 1.3 !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
+}
+
+/* Override heading-l / heading-xl for Connect Accounts title */
+.select-email-connect-accounts-title.heading-l,
+.select-email-connect-accounts-title.heading-xl,
+h2.select-email-connect-accounts-title.heading-l,
+h2.select-email-connect-accounts-title.heading-xl,
+.email-account-card-title.select-email-connect-accounts-title.heading-l,
+.email-account-card-title.select-email-connect-accounts-title.heading-xl {
+  font-size: 18px !important;
+  line-height: 1.3 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  color: #030011 !important;
+}
+
+/* Same hero blurb as System card (16px medium 145% #a198ce) */
+.select-email-connect-accounts-description {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  margin: 8px 0 0 0 !important;
+}
+
+.select-email-mail-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Returning user "Choose Email Sending Method" view                          */
+/* -------------------------------------------------------------------------- */
+
+.select-email-existing-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 12px 12px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.select-email-existing-header {
+  margin-bottom: 6px;
+}
+
+.select-email-existing-steps {
+  font-size: 10px;
+  color: #6b7280;
+  margin-bottom: 3px;
+}
+
+.select-email-existing-step-label {
+  font-weight: 500;
+}
+
+.select-email-existing-step-title {
+  margin-left: 6px;
+}
+
+.select-email-existing-main-title {
+  font-size: 16px !important;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2 !important;
+}
+
+/* Override heading-xl for this specific component - use highest specificity */
+.select-email-existing-container .select-email-existing-main-title.heading-xl,
+.select-email-existing-container h1.select-email-existing-main-title.heading-xl,
+.select-email-existing-header .select-email-existing-main-title.heading-xl,
+.select-email-existing-header h1.select-email-existing-main-title.heading-xl {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.select-email-existing-main-subtitle {
+  font-size: 7px;
+  color: #6b7280;
+  margin: 0;
+  margin-bottom: 4px;
+  padding: 0;
+  line-height: 1.2;
+}
+
+/* Tab bar: single continuous bar, rounded outer corners only */
+.select-email-existing-toggle-row {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  width: 100%;
+  background: #f3f4f6;
+}
+
+.select-email-existing-toggle {
+  border: none;
+  background: #f3f4f6;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #A198CE;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  font-family: 'Urbanist', sans-serif;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* First tab: rounded left corners only */
+.select-email-existing-toggle-row .select-email-existing-toggle:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+/* Second tab: rounded right corners only */
+.select-email-existing-toggle-row .select-email-existing-toggle:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.select-email-existing-toggle-active {
+  background: #9164FF !important;
+  color: white !important;
+  box-shadow: none;
+}
+
+.select-email-existing-toggle:hover:not(.select-email-existing-toggle-active) {
+  background: #f3f4f6 !important;
+  color: #A198CE !important;
+}
+
+.select-email-existing-toggle:focus,
+.select-email-existing-toggle:active,
+.select-email-existing-toggle:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.select-email-existing-toggle:focus:not(.select-email-existing-toggle-active),
+.select-email-existing-toggle:active:not(.select-email-existing-toggle-active) {
+  background: #f3f4f6 !important;
+  color: #A198CE !important;
+}
+
+.select-email-existing-toggle-active:hover,
+.select-email-existing-toggle-active:focus,
+.select-email-existing-toggle-active:active,
+.select-email-existing-toggle-active:focus-visible {
+  background: #9164FF !important;
+  color: white !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.select-email-existing-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  padding: 16px;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  width: 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.select-email-existing-header {
+  margin-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px!important;
+}
+
+.select-email-existing-header-with-back {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 2px;
+}
+
+.select-email-back-button-inline {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  color: #6b7280;
+  padding: 0;
+  padding-top: 2px;
+}
+
+.select-email-back-button-inline:hover {
+  color: #6b7280;
+}
+
+.select-email-existing-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.select-email-existing-header-with-back .select-email-existing-main-title {
+  margin: 0;
+  padding: 0;
+}
+
+.select-email-existing-header-text .select-email-existing-main-subtitle {
+  margin: 0;
+  margin-bottom: 0;
+}
+
+.select-email-existing-toggle-row {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.select-email-existing-accounts-section {
+  /* Light blue background using BEDBFF in a soft shade */
+  background: rgba(190, 219, 255, 0.25);
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.select-email-existing-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0 !important;
+}
+
+.select-email-existing-card-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0 !important;
+}
+
+.select-email-existing-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.select-email-existing-card-title-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: #BEDBFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.select-email-existing-card-title {
+  font-size: 16px !important;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.2 !important;
+}
+
+.select-email-existing-card-subtitle {
+  font-size: 9px;
+  color: #A198CE;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+  line-height: 1.3;
+}
+
+.select-email-existing-card-count {
+  font-size: 9px;
+  color: #6b7280;
+}
+
+.select-email-existing-mailbox-list {
+  margin-bottom: 16px;
+}
+
+.select-email-existing-mailbox-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  background: #ffffff;
+  margin-bottom: 6px;
+}
+
+.select-email-existing-mailbox-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.select-email-existing-mailbox-icon {
+  /* Hide the mailbox icon in the account list rows */
+  display: none;
+}
+
+.select-email-existing-mailbox-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-email-existing-mailbox-email {
+  font-size: 10px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.select-email-existing-mailbox-meta {
+  font-size: 9px;
+  color: #6b7280;
+}
+
+.select-email-existing-mailbox-status {
+  font-size: 9px;
+}
+
+.select-email-existing-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #ecfdf3;
+  color: #166534;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.select-email-existing-status-badge.inactive {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.select-email-existing-connect-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.select-email-existing-connect-button:hover,
+.select-email-existing-connect-button:active {
+  background: #ffffff;
+}
+
+.select-email-existing-limit-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  background: #faf5ff;
+}
+
+.select-email-existing-limit-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: #E9D4FF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b5cf6;
+  flex-shrink: 0;
+}
+
+.select-email-existing-limit-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.select-email-existing-limit-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #8b5cf6;
+  display: block;
+  margin: 0;
+}
+
+.select-email-existing-limit-value {
+  font-size: 9px;
+  color: #a855f7;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.select-email-existing-duration-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  background: #f0f9ff;
+}
+
+.select-email-existing-duration-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: #BEDBFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+  flex-shrink: 0;
+}
+
+.select-email-existing-duration-content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.select-email-existing-duration-text {
+  font-size: 9px;
+  color: #1e40af;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.select-email-existing-duration-text strong {
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.select-email-existing-duration-label {
+  font-size: 12px;
+  color: #9ca3af;
+  display: block;
+  margin: 0;
+}
+
+.select-email-existing-duration-value {
+  font-size: 13px;
+  color: #4b5563;
+  margin: 0;
+}
+
+.select-email-existing-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.select-email-existing-primary {
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8b5cf6, #6366f1);
+  color: #f9fafb;
+  font-weight: 500;
+  font-size: 11px;
+  padding: 6px 16px;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.select-email-existing-secondary {
+  border-radius: 999px;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  background: #ffffff;
+  color: #4b5563;
+  font-size: 11px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.select-email-existing-primary-svg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-email-existing-footer-nav {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Managed Email Pool Card Styles                                            */
+/* -------------------------------------------------------------------------- */
+
+.select-email-managed-pool-content {
+  margin-top: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.select-email-managed-pool-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0 !important;
+  width: 100%;
+}
+
+.select-email-managed-pool-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: rgba(139, 92, 246, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.select-email-managed-pool-title {
+  font-size: 16px !important;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.2 !important;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Override heading-l class for managed pool title */
+.select-email-managed-pool-title.heading-l,
+h2.select-email-managed-pool-title.heading-l {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.select-email-managed-pool-subtitle {
+  font-size: 9px !important;
+  color: #A198CE;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+  padding: 0 !important;
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+  line-height: 1.3 !important;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.select-email-managed-pool-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.select-email-managed-pool-metric-card {
+  background: #ffffff;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.select-email-managed-pool-metric-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.select-email-managed-pool-metric-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(139, 92, 246, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.select-email-managed-pool-metric-label {
+  font-size: 11px;
+  color: #6b7280;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.select-email-managed-pool-metric-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.2;
+}
+
+.select-email-managed-pool-benefits {
+  margin-bottom: 16px;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-radius: 12px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.select-email-managed-pool-benefits-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 12px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.select-email-managed-pool-benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: none !important;
+}
+
+/* Tick design like Key Improvements (step 3) */
+.select-email-managed-pool-benefits-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: #A198CE !important;
+  line-height: 1.5;
+  font-family: 'Urbanist', sans-serif;
+  border: none !important;
+  padding: 0;
+  margin: 0;
+  background: none !important;
+}
+
+.select-email-managed-pool-benefits-item span,
+.select-email-managed-pool-benefits-list .select-email-managed-pool-benefits-item span {
+  color: #A198CE !important;
+}
+
+.select-email-managed-pool-benefits-item::before,
+.select-email-managed-pool-benefits-item::after {
+  display: none !important;
+}
+
+.select-email-managed-pool-benefits-tick {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  color: #A198CE;
+}
+
+.select-email-managed-pool-benefits-tick rect,
+.select-email-managed-pool-benefits-tick path {
+  stroke: currentColor;
+}
+
+.select-email-managed-pool-daily-limit {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  background: #faf5ff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.select-email-managed-pool-daily-limit-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.select-email-managed-pool-daily-limit-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b5cf6;
+  display: block;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.select-email-managed-pool-daily-limit-value {
+  font-size: 10px;
+  color: #a855f7;
+  line-height: 1.4;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.select-email-managed-pool-duration {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  background: #f0f9ff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Force #9164FF 20% border on all managed pool cards (override any parent/global styles) */
+.select-email-existing-container .select-email-managed-pool-metric-card,
+.select-email-existing-container .select-email-managed-pool-benefits,
+.select-email-existing-container .select-email-managed-pool-daily-limit,
+.select-email-existing-container .select-email-managed-pool-duration {
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+}
+
+.select-email-managed-pool-duration-content {
+  flex: 1;
+}
+
+.select-email-managed-pool-duration-text {
+  font-size: 11px;
+  color: #1e40af;
+  line-height: 1.5;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.select-email-managed-pool-duration-text strong {
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.select-email-managed-pool-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* Select this method / Selected – same style as Create Campaign (purple, white text) */
+.select-email-primary-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  min-width: 126px !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  padding: 0 12px !important;
+  box-sizing: border-box !important;
+  background-color: #9164ff !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  border-radius: 8px;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 19.5px !important;
+  font-family: 'Urbanist', sans-serif;
+  white-space: nowrap !important;
+  cursor: pointer;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+.select-email-primary-btn:hover:not(:disabled),
+.select-email-primary-btn:focus,
+.select-email-primary-btn:active,
+.select-email-primary-btn:focus-visible {
+  background-color: #9164ff !important;
+  color: #ffffff !important;
+  border-color: rgba(208, 213, 221, 0.3) !important;
+  opacity: 1 !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+.select-email-primary-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background-color: #9164FF !important;
+  color: white !important;
+}
+
+.select-email-managed-pool-select-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-email-managed-pool-select-button:hover {
+  background-color: #9164FF !important;
+  /* No hover color change */
+}
+
+.select-email-managed-pool-select-button:active {
+  background-color: #9164FF !important;
+}
+
+.select-email-managed-pool-select-button:focus {
+  outline: none !important;
+}
+
+.select-email-managed-pool-select-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ============================================
+   CRITICAL OVERRIDE: Force font size for title
+   Must be at end of file to override global heading-xl
+   ============================================ */
+.select-email-existing-container .select-email-existing-header h1.select-email-existing-main-title.heading-xl,
+.select-email-existing-container .select-email-existing-header .select-email-existing-main-title.heading-xl,
+div.select-email-existing-container div.select-email-existing-header h1.select-email-existing-main-title.heading-xl {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.select-email-existing-container .select-email-existing-header p.select-email-existing-main-subtitle {
+  font-size: 7px !important;
+  margin-bottom: 4px !important;
+  line-height: 1.2 !important;
+}
+
+/* ============================================
+   CRITICAL OVERRIDE: Force 16px font size for "Your Email Accounts" title
+   Override heading-l class to ensure 16px is applied
+   ============================================ */
+.select-email-existing-accounts-section .select-email-existing-card-title.heading-l,
+.select-email-existing-accounts-section h2.select-email-existing-card-title.heading-l,
+.select-email-existing-card-header .select-email-existing-card-title.heading-l,
+.select-email-existing-card-header h2.select-email-existing-card-title.heading-l,
+.select-email-existing-card-header-left .select-email-existing-card-title.heading-l,
+.select-email-existing-card-header-left h2.select-email-existing-card-title.heading-l {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove all spacing between title and subtitle */
+.select-email-existing-card-header-left {
+  gap: 0 !important;
+}
+
+.select-email-existing-card-header {
+  margin-bottom: 0 !important;
+}
+
+/* Ensure title has absolutely no bottom spacing */
+.select-email-existing-card-header-left .select-email-existing-card-title,
+.select-email-existing-card-header-left h2.select-email-existing-card-title,
+.select-email-existing-card-title-row .select-email-existing-card-title,
+.select-email-existing-card-title-row h2.select-email-existing-card-title {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.2 !important;
+}
+
+/* Ensure subtitle has absolutely no top spacing and starts exactly below title */
+.select-email-existing-card-header-left .select-email-existing-card-subtitle,
+.select-email-existing-card-header-left p.select-email-existing-card-subtitle {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  line-height: 1.3 !important;
+}
+
+/* ============================================
+   ULTIMATE OVERRIDE: Force 16px and remove spacing
+   Must override design-system.css heading-l class
+   ============================================ */
+.select-email-existing-accounts-section .select-email-existing-card-header-left .select-email-existing-card-title-row h2.select-email-existing-card-title.heading-l,
+.select-email-existing-accounts-section .select-email-existing-card-header-left .select-email-existing-card-title-row .select-email-existing-card-title.heading-l,
+div.select-email-existing-accounts-section div.select-email-existing-card-header div.select-email-existing-card-header-left div.select-email-existing-card-title-row h2.select-email-existing-card-title.heading-l {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Remove ALL spacing - including line-height spacing */
+.select-email-existing-accounts-section .select-email-existing-card-header-left {
+  gap: 0 !important;
+  row-gap: 0 !important;
+}
+
+.select-email-existing-accounts-section .select-email-existing-card-header-left .select-email-existing-card-title-row {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.select-email-existing-accounts-section .select-email-existing-card-header-left p.select-email-existing-card-subtitle {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  line-height: 1.3 !important;
+  display: block !important;
+}
+
+/* Force title to have minimal line-height to prevent spacing */
+.select-email-existing-accounts-section .select-email-existing-card-header-left .select-email-existing-card-title-row h2.select-email-existing-card-title.heading-l {
+  line-height: 1 !important;
+  display: block !important;
+}
+
+/* ============================================
+   IMAP MODAL FONT SIZE OVERRIDES - FINAL
+   Override global typography classes to ensure correct font sizes
+   ============================================ */
+.imap-modal .imap-modal-title.heading-l,
+.imap-modal h2.imap-modal-title.heading-l,
+.imap-modal-header .imap-modal-title.heading-l,
+.imap-modal-header h2.imap-modal-title.heading-l {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+}
+
+.imap-modal .imap-modal-section-title.heading-m,
+.imap-modal h3.imap-modal-section-title.heading-m {
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+}
+
+.imap-modal .imap-modal-subtitle {
+  font-size: 9px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  line-height: 1.2 !important;
+  font-weight: 400 !important;
+}
+
+/* Remove spacing between title and subtitle */
+.imap-modal-header .imap-modal-header-content {
+  margin-bottom: 0 !important;
+}
+
+.imap-modal-header .imap-modal-subtitle,
+.imap-modal-title-block .imap-modal-subtitle {
+  margin-top: -2px !important;
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Ensure title appears larger than subtitle */
+.imap-modal-header .imap-modal-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  margin-bottom: 0 !important;
+}
+
+.imap-modal-title-block .imap-modal-subtitle {
+  margin-top: -2px !important;
+}
+
+.imap-modal-header .imap-modal-subtitle {
+  font-size: 9px !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+}
+
+.imap-modal .imap-modal-label {
+  font-size: 9px !important;
+}
+
+.imap-modal .imap-modal-input,
+.imap-modal .imap-modal-password-input {
+  font-size: 12px !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+}
+
+.imap-modal .imap-modal-input:focus,
+.imap-modal .imap-modal-password-input:focus {
+  border-color: rgba(145, 100, 255, 0.2) !important;
+}
+
+.imap-modal .imap-modal-input::placeholder,
+.imap-modal .imap-modal-password-input::placeholder {
+  font-size: 12px !important;
+  color: #A198CE !important;
+}
+
+.imap-modal .imap-modal-security-note-title {
+  font-size: 11px !important;
+}
+
+.imap-modal .imap-modal-security-note-text {
+  font-size: 9px !important;
+}
+
+.imap-modal .imap-modal-help-title {
+  font-size: 10px !important;
+}
+
+.imap-modal .imap-modal-help-text {
+  font-size: 9px !important;
+}
+
+/* ============================================
+   TOGGLE BUTTON FOCUS/ACTIVE STATE FIXES
+   Prevent grey background from appearing when clicking toggle buttons
+   ============================================ */
+.select-email-existing-toggle,
+.select-email-existing-toggle-active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.select-email-existing-toggle:focus,
+.select-email-existing-toggle:focus-visible,
+.select-email-existing-toggle:active {
+  outline: none !important;
+  box-shadow: none !important;
+  background: #f3f4f6 !important;
+  background-color: #f3f4f6 !important;
+  color: #A198CE !important;
+}
+
+.select-email-existing-toggle-active:focus,
+.select-email-existing-toggle-active:focus-visible,
+.select-email-existing-toggle-active:active {
+  outline: none !important;
+  box-shadow: none !important;
+  background: #9164FF !important;
+  background-color: #9164FF !important;
+  color: white !important;
+}
+
+/* Override any global button styles */
+button.select-email-existing-toggle:focus,
+button.select-email-existing-toggle:focus-visible,
+button.select-email-existing-toggle:active {
+  outline: none !important;
+  box-shadow: none !important;
+  background: #f3f4f6 !important;
+  background-color: #f3f4f6 !important;
+  color: #A198CE !important;
+}
+
+button.select-email-existing-toggle-active:focus,
+button.select-email-existing-toggle-active:focus-visible,
+button.select-email-existing-toggle-active:active {
+  outline: none !important;
+  box-shadow: none !important;
+  background: #9164FF !important;
+  background-color: #9164FF !important;
+  color: white !important;
+}
+
+/* ============================================
+   MANAGED EMAIL POOL - Match "Your Email Accounts" styling
+   Same font sizes and padding-left alignment
+   ============================================ */
+.select-email-managed-pool-content .select-email-managed-pool-title.heading-l,
+.select-email-managed-pool-content h2.select-email-managed-pool-title.heading-l,
+.select-email-managed-pool-header .select-email-managed-pool-title.heading-l,
+.select-email-managed-pool-header h2.select-email-managed-pool-title.heading-l {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.select-email-managed-pool-content .select-email-managed-pool-subtitle,
+.select-email-managed-pool-content p.select-email-managed-pool-subtitle {
+  font-size: 9px !important;
+  margin-top: 0 !important;
+  margin-bottom: 12px !important; /* Add space after subtitle before border/metrics */
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+  line-height: 1.3 !important;
+}
+
+/* Remove spacing between title and subtitle */
+.select-email-managed-pool-header {
+  margin-bottom: 0 !important;
+  gap: 8px !important;
+}
+
+/* ============================================
+   CRITICAL OVERRIDES: Force 16px font size for card titles
+   Must be at the end to override global design-system.css rules
+   ============================================ */
+.email-accounts-container .email-account-card-title.select-email-card-title.heading-l,
+.email-accounts-container h2.email-account-card-title.select-email-card-title.heading-l,
+.email-accounts-content .email-account-card-title.select-email-card-title.heading-l,
+.email-accounts-content h2.email-account-card-title.select-email-card-title.heading-l,
+.select-email-cards .email-account-card-title.select-email-card-title.heading-l,
+.select-email-cards h2.email-account-card-title.select-email-card-title.heading-l,
+.select-email-card .email-account-card-title.select-email-card-title.heading-l,
+.select-email-card h2.email-account-card-title.select-email-card-title.heading-l {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+}
+
+.email-accounts-container .email-account-card-title.select-email-connect-accounts-title.heading-l,
+.email-accounts-container .email-account-card-title.select-email-connect-accounts-title.heading-xl,
+.email-accounts-container h2.email-account-card-title.select-email-connect-accounts-title.heading-l,
+.email-accounts-container h2.email-account-card-title.select-email-connect-accounts-title.heading-xl,
+.email-accounts-content .email-account-card-title.select-email-connect-accounts-title.heading-l,
+.email-accounts-content .email-account-card-title.select-email-connect-accounts-title.heading-xl,
+.email-accounts-content h2.email-account-card-title.select-email-connect-accounts-title.heading-l,
+.email-accounts-content h2.email-account-card-title.select-email-connect-accounts-title.heading-xl,
+.select-email-cards .email-account-card-title.select-email-connect-accounts-title.heading-l,
+.select-email-cards .email-account-card-title.select-email-connect-accounts-title.heading-xl,
+.select-email-cards h2.email-account-card-title.select-email-connect-accounts-title.heading-l,
+.select-email-cards h2.email-account-card-title.select-email-connect-accounts-title.heading-xl,
+.select-email-card .email-account-card-title.select-email-connect-accounts-title.heading-l,
+.select-email-card .email-account-card-title.select-email-connect-accounts-title.heading-xl,
+.select-email-card h2.email-account-card-title.select-email-connect-accounts-title.heading-l,
+.select-email-card h2.email-account-card-title.select-email-connect-accounts-title.heading-xl {
+  font-size: 18px !important;
+  line-height: 1.3 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  color: #030011 !important;
+}
+
+/* Override heading-m class for "Connect Your Own Email:" - Critical override at end */
+.email-accounts-container .feature-title.select-email-connect-account-feature-title.heading-m,
+.email-accounts-container h3.feature-title.select-email-connect-account-feature-title.heading-m,
+.email-accounts-content .feature-title.select-email-connect-account-feature-title.heading-m,
+.email-accounts-content h3.feature-title.select-email-connect-account-feature-title.heading-m,
+.select-email-connect-account-feature .feature-title.select-email-connect-account-feature-title.heading-m,
+.select-email-connect-account-feature h3.feature-title.select-email-connect-account-feature-title.heading-m,
+.select-email-connect-account-feature-content .feature-title.select-email-connect-account-feature-title.heading-m,
+.select-email-connect-account-feature-content h3.feature-title.select-email-connect-account-feature-title.heading-m {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  margin-bottom: 2px !important;
+  padding: 0 !important;
+}
+
+/* Force #9164FF 20% border on all visible borders (override dashboard/CreateCampaign/EmailAccounts) */
+.create-campaign-card .select-email-existing-container .select-email-existing-card,
+.create-campaign-card .select-email-existing-container .select-email-existing-accounts-section,
+.create-campaign-card .select-email-existing-container .select-email-existing-mailbox-row,
+.create-campaign-card .select-email-existing-container .select-email-existing-connect-button,
+.create-campaign-card .select-email-existing-container .select-email-existing-limit-card,
+.create-campaign-card .select-email-existing-container .select-email-existing-duration-card,
+.create-campaign-card .select-email-existing-container .select-email-existing-secondary,
+.create-campaign-card .select-email-existing-container .select-email-managed-pool-metric-card,
+.create-campaign-card .select-email-existing-container .select-email-managed-pool-benefits,
+.create-campaign-card .select-email-existing-container .select-email-managed-pool-daily-limit,
+.create-campaign-card .select-email-existing-container .select-email-managed-pool-duration,
+.select-email-existing-container .select-email-existing-card,
+.select-email-existing-container .select-email-existing-accounts-section,
+.select-email-existing-container .select-email-existing-mailbox-row,
+.select-email-existing-container .select-email-existing-connect-button,
+.select-email-existing-container .select-email-existing-limit-card,
+.select-email-existing-container .select-email-existing-duration-card,
+.select-email-existing-container .select-email-existing-secondary {
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+}
+
+/* ============================================
+   Setup option cards — System Email + Connect Accounts (matched type + title→blurb gap)
+   ============================================ */
+.select-email-cards .select-email-card.pre-warmed-card h2.email-account-card-title,
+.select-email-cards .select-email-card.pre-warmed-card .email-account-card-title,
+.select-email-cards .select-email-card.existing-card h2.email-account-card-title,
+.select-email-cards .select-email-card.existing-card .email-account-card-title,
+.select-email-cards .select-email-card h2.select-email-card-title,
+.select-email-cards .select-email-card h2.select-email-connect-accounts-title,
+#create-campaign-root .select-email-cards .select-email-card h2.email-account-card-title {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
+  color: #030011 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.select-email-cards .select-email-card.pre-warmed-card > .select-email-card-description,
+.select-email-cards .select-email-card.pre-warmed-card > .email-account-card-description,
+.select-email-cards .select-email-card.existing-card .email-accounts-connect-card-blurb,
+.select-email-cards .select-email-card.existing-card .select-email-connect-accounts-description,
+.select-email-cards .select-email-card.existing-card p.email-accounts-card-description-margin,
+#create-campaign-root .select-email-cards .select-email-card.pre-warmed-card > .email-account-card-description,
+#create-campaign-root .select-email-cards .select-email-card.existing-card .email-accounts-connect-card-blurb {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  font-family: 'Urbanist', sans-serif !important;
+  letter-spacing: normal !important;
+  margin: 8px 0 0 0 !important;
+  padding: 0 !important;
+}
+
+.select-email-cards .select-email-card .select-email-card-header,
+.select-email-cards .select-email-card .email-account-card-header,
+.select-email-cards .select-email-card .email-account-card-header-wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
+}
+

@@ -1,0 +1,386 @@
+.gemini-purchases {
+  padding: 4px 2px 28px;
+  font-family: 'Urbanist', system-ui, sans-serif;
+  color: #111827;
+}
+
+.gemini-purchases__intro {
+  margin-bottom: 16px;
+}
+
+.gemini-purchases__subtitle {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #a198ce;
+  max-width: 42rem;
+}
+
+/* Filter shell — matches AI Usage / Credits */
+.gemini-purchases__filter-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-bottom: 20px;
+  padding: 10px 14px;
+  border: 1px solid #ced4da;
+  border-radius: 16px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.gemini-purchases__tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 8px;
+  background-color: rgba(208, 213, 221, 0.3);
+}
+
+.gemini-purchases__tab {
+  padding: 6px 14px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  color: #a198ce;
+  cursor: pointer;
+  line-height: 19.5px;
+  min-height: 28px;
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.gemini-purchases__tab--active {
+  background: #ffffff;
+  color: #030011;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06);
+}
+
+.gemini-purchases__filter-spacer {
+  flex: 1 1 8px;
+  min-width: 8px;
+}
+
+.gemini-purchases__refresh,
+.gemini-purchases__submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gemini-purchases__banner {
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.gemini-purchases__banner--error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.gemini-purchases__banner--ok {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.gemini-purchases__banner--warn {
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.gemini-purchases__form--inline {
+  display: grid;
+  grid-template-columns: minmax(0, 240px) auto;
+  gap: 12px;
+  align-items: end;
+}
+
+@media (max-width: 900px) {
+  .gemini-purchases__form--inline {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gemini-purchases__stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.gemini-purchases__stat {
+  border: 1px solid #ced4da;
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gemini-purchases__stat-label {
+  font-size: 12px;
+  color: #a198ce;
+  font-weight: 500;
+}
+
+.gemini-purchases__stat-value--sm {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.gemini-purchases__status-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.gemini-purchases__http {
+  font-size: 12px;
+  font-weight: 700;
+  color: #991b1b;
+  font-variant-numeric: tabular-nums;
+}
+
+.gemini-purchases__bar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(208, 213, 221, 0.55);
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.gemini-purchases__bar--lg {
+  height: 10px;
+  margin: 8px 0;
+}
+
+.gemini-purchases__bar-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #d458ff 0%, #6b21a8 100%);
+  transition: width 0.25s ease;
+}
+
+.gemini-purchases__bar-fill--done {
+  background: #16a34a;
+}
+
+.gemini-purchases__panel {
+  border: 1px solid #ced4da;
+  border-radius: 16px;
+  padding: 18px 18px 16px;
+  background: #ffffff;
+  margin-bottom: 16px;
+}
+
+.gemini-purchases__panel--grant {
+  margin-bottom: 16px;
+}
+
+.gemini-purchases__panel--focus {
+  background: linear-gradient(180deg, #faf8ff 0%, #ffffff 100%);
+}
+
+.gemini-purchases__panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.gemini-purchases__panel-title {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #030011;
+}
+
+.gemini-purchases__panel-head .gemini-purchases__panel-title {
+  margin-bottom: 0;
+}
+
+.gemini-purchases__count {
+  font-size: 12px;
+  color: #a198ce;
+}
+
+.gemini-purchases__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gemini-purchases__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gemini-purchases__field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.gemini-purchases__amounts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.gemini-purchases__input {
+  height: 36px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.gemini-purchases__muted {
+  margin: 0 0 12px;
+  font-size: 12px;
+  color: #a198ce;
+  line-height: 1.45;
+}
+
+.gemini-purchases__current {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 16px;
+  align-items: end;
+}
+
+.gemini-purchases__current-amount {
+  font-size: 28px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  color: #030011;
+}
+
+.gemini-purchases__current-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.gemini-purchases__table-wrap {
+  overflow-x: auto;
+}
+
+.gemini-purchases__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.gemini-purchases__table th,
+.gemini-purchases__table td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid #eef0f3;
+  vertical-align: top;
+}
+
+.gemini-purchases__table th {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #a198ce;
+  font-weight: 600;
+}
+
+.gemini-purchases__table tbody tr:hover {
+  background: #fafafa;
+}
+
+.gemini-purchases__desc {
+  margin-top: 2px;
+  max-width: 220px;
+}
+
+.gemini-purchases__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.gemini-purchases__badge--active {
+  background: #f3e8ff;
+  color: #6b21a8;
+}
+
+.gemini-purchases__badge--completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.gemini-purchases__badge--cancelled {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.gemini-purchases__badge--danger {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.gemini-purchases__badge--warn {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.gemini-purchases__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.gemini-purchases__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid #ced4da;
+  background: #fff;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-family: inherit;
+  color: #374151;
+  cursor: pointer;
+}
+
+.gemini-purchases__action:hover {
+  background: #f9fafb;
+}
+
+.gemini-purchases__action--danger {
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+@media (max-width: 900px) {
+  .gemini-purchases__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gemini-purchases__current,
+  .gemini-purchases__amounts {
+    grid-template-columns: 1fr;
+  }
+}

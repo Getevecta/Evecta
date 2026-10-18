@@ -1,0 +1,83 @@
+/* ============================================
+   GLOBAL POPUP / TOAST MESSAGE STYLES
+   Single style: same as "Processing your leads" / "Logged in successfully!"
+   One layer only – no double box, no extra overrides
+   ============================================ */
+
+/* Sonner viewport: same position as lead-gen (top 80px, right 0) */
+[data-sonner-toaster] {
+  top: 80px !important;
+  right: 0 !important;
+  left: auto !important;
+  bottom: auto !important;
+  padding: 0 !important;
+  width: auto !important;
+  max-width: 380px !important;
+}
+
+/* Single toast box – all visual styling on outer only (no inner layer) */
+[data-sonner-toast] {
+  background: linear-gradient(135deg, #D458FF 0%, #6B21A8 100%) !important;
+  border: none !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 20px rgba(107, 33, 168, 0.35) !important;
+  border-radius: 12px 0 0 12px !important;
+  padding: 12px 20px !important;
+  margin: 0 0 8px 0 !important;
+  animation: global-popup-slide-in 0.3s ease-out !important;
+  font-size: 14px !important;
+  font-family: Urbanist, sans-serif !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+}
+
+/* Inner div(s): no background/shadow so only one box is visible (no double design) */
+[data-sonner-toast] > div {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: inherit !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+@keyframes global-popup-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+[data-sonner-toast] [data-title],
+[data-sonner-toast] [data-description],
+[data-sonner-toast] .title,
+[data-sonner-toast] .description,
+[data-sonner-toast] p,
+[data-sonner-toast] span:not([data-button] span):not(button span) {
+  color: #FFFFFF !important;
+}
+
+[data-sonner-toast] [data-icon] {
+  display: none !important;
+}
+
+[data-sonner-toast] [data-close-button],
+[data-sonner-toast] button[aria-label="Close"],
+[data-sonner-toast] [data-button] {
+  color: rgba(255, 255, 255, 0.9) !important;
+  opacity: 1;
+}
+
+[data-sonner-toast] [data-close-button]:hover,
+[data-sonner-toast] button[aria-label="Close"]:hover {
+  opacity: 0.7;
+}
+
+[data-sonner-toast]::before,
+[data-sonner-toast]::after {
+  background: transparent !important;
+}

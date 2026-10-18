@@ -1,0 +1,3858 @@
+/* Lead Generation Component Styles */
+
+/* Force left alignment for all table content (except checkbox/star columns) */
+.lead-generation-table-wrapper th:not(.lead-generation-table-head-checkbox):not(.lead-generation-table-head-star),
+.lead-generation-table-wrapper td:not(.lead-generation-table-cell-checkbox):not(.lead-generation-table-cell-star) {
+  text-align: left !important;
+}
+
+/* Override Tailwind hover:bg-muted/50 - must fully override so NO visual change on hover */
+.lead-generation-table-wrapper tbody *[class*="hover:bg-muted"]:hover,
+.lead-generation-table-wrapper tbody tr[class*="hover:bg-muted"]:hover,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover:bg-muted"]:hover,
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover"]:hover {
+  background-color: white !important;
+  background: white !important;
+  background-image: none !important;
+  transition: none !important;
+}
+
+.lead-generation-table-wrapper tbody *[class*="hover:bg-muted"]:hover *,
+.lead-generation-table-wrapper tbody tr[class*="hover:bg-muted"]:hover td,
+.lead-generation-table-wrapper tbody tr[class*="hover:bg-muted"]:hover th,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover:bg-muted"]:hover [data-slot="table-cell"],
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover td,
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover th {
+  background-color: white !important;
+  background: white !important;
+  background-image: none !important;
+}
+
+/* CRITICAL: Override universal * rule above – checkbox area must NOT get white (no white square, tick stays visible) */
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover .lead-generation-table-checkbox-button,
+.lead-generation-table-wrapper tbody tr[class*="hover:bg-muted"]:hover .lead-generation-table-checkbox-button,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover"]:hover .lead-generation-table-checkbox-button,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover:bg-muted"]:hover .lead-generation-table-checkbox-button,
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover .lead-generation-table-checkbox-box:not(.checked),
+.lead-generation-table-wrapper tbody tr[class*="hover:bg-muted"]:hover .lead-generation-table-checkbox-box:not(.checked),
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover"]:hover .lead-generation-table-checkbox-box:not(.checked),
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover:bg-muted"]:hover .lead-generation-table-checkbox-box:not(.checked),
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover .lead-generation-table-checkbox-box svg,
+.lead-generation-table-wrapper tbody tr[class*="hover:bg-muted"]:hover .lead-generation-table-checkbox-box svg,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover"]:hover .lead-generation-table-checkbox-box svg,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover:bg-muted"]:hover .lead-generation-table-checkbox-box svg {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Checkbox cell: transparent on row hover so no white square appears inside checkbox */
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover td.lead-generation-table-cell-checkbox,
+.lead-generation-table-wrapper tbody tr[class*="hover:bg-muted"]:hover td.lead-generation-table-cell-checkbox,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover"]:hover .lead-generation-table-cell-checkbox,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover:bg-muted"]:hover .lead-generation-table-cell-checkbox {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Explicit: checkbox cell, button, and box - NO change from hover:bg-muted, stay exact same */
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover .lead-generation-table-cell-checkbox,
+.lead-generation-table-wrapper tbody tr[class*="hover:bg-muted"]:hover .lead-generation-table-cell-checkbox,
+.lead-generation-table-wrapper tbody *[class*="hover:bg-muted"]:hover .lead-generation-table-cell-checkbox,
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover .lead-generation-table-checkbox-button,
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover .lead-generation-table-checkbox-box:not(.checked) {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+/* Checked checkbox box - stay fully purple when row hovered (no white square, tick visible) */
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover .lead-generation-table-checkbox-box.checked,
+.lead-generation-table-wrapper tbody tr[class*="hover:bg-muted"]:hover .lead-generation-table-checkbox-box.checked,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover"]:hover .lead-generation-table-checkbox-box.checked,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover:bg-muted"]:hover .lead-generation-table-checkbox-box.checked {
+  border: 2px solid #9164FF !important;
+  background-color: #9164FF !important;
+  background: #9164FF !important;
+}
+
+/* Checkmark stays white when row hovered (override any rule that hides it) */
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover .lead-generation-table-checkbox-box.checked .lead-generation-table-checkbox-check,
+.lead-generation-table-wrapper tbody tr[class*="hover:bg-muted"]:hover .lead-generation-table-checkbox-box.checked .lead-generation-table-checkbox-check,
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover .lead-generation-table-checkbox-box.checked svg,
+.lead-generation-table-wrapper tbody tr[class*="hover:bg-muted"]:hover .lead-generation-table-checkbox-box.checked svg,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover"]:hover .lead-generation-table-checkbox-box.checked .lead-generation-table-checkbox-check,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover:bg-muted"]:hover .lead-generation-table-checkbox-box.checked .lead-generation-table-checkbox-check,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover"]:hover .lead-generation-table-checkbox-box.checked svg,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover:bg-muted"]:hover .lead-generation-table-checkbox-box.checked svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+  fill: none !important;
+  background: none !important;
+  background-color: transparent !important;
+  opacity: 1 !important;
+}
+
+/* Override dashboard.css – unchecked: no white square (transparent); checked: stay purple */
+.dashboard-main-container .lead-generation-table-wrapper .lead-generation-table-checkbox-box:not(.checked):hover,
+.dashboard-main-container .lead-generation-table-wrapper .lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-box:not(.checked) {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+.dashboard-main-container .lead-generation-table-wrapper .lead-generation-table-checkbox-box.checked:hover,
+.dashboard-main-container .lead-generation-table-wrapper .lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-box.checked {
+  background-color: #9164FF !important;
+  background: #9164FF !important;
+  border: 2px solid #9164FF !important;
+}
+
+.dashboard-main-container .lead-generation-table-wrapper .lead-generation-table-checkbox-box.checked .lead-generation-table-checkbox-check,
+.dashboard-main-container .lead-generation-table-wrapper .lead-generation-table-checkbox-box.checked svg,
+.dashboard-main-container .lead-generation-table-wrapper .lead-generation-table-checkbox-box.checked:hover .lead-generation-table-checkbox-check,
+.dashboard-main-container .lead-generation-table-wrapper .lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-box.checked .lead-generation-table-checkbox-check,
+.dashboard-main-container .lead-generation-table-wrapper .lead-generation-table-checkbox-box.checked:hover svg,
+.dashboard-main-container .lead-generation-table-wrapper .lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-box.checked svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+  stroke-width: 2.5 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+/* AI Lead Gen: NO hover change - disable transition and keep exact same appearance */
+.lead-generation-table-wrapper .lead-generation-table-row-no-hover,
+.lead-generation-table-wrapper .lead-generation-table-row-no-hover:hover,
+.lead-generation-table-wrapper tr.lead-generation-table-row-no-hover,
+.lead-generation-table-wrapper tr.lead-generation-table-row-no-hover:hover {
+  transition: none !important;
+}
+
+/* White rows - stay white on hover */
+.lead-generation-table-wrapper .lead-generation-table-row-no-hover:hover,
+.lead-generation-table-wrapper tr.lead-generation-table-row-no-hover:hover {
+  background-color: white !important;
+  background: white !important;
+}
+
+/* Selected row (purple) - stay purple on hover, no change */
+.lead-generation-table-wrapper .lead-generation-table-row-selected:hover,
+.lead-generation-table-wrapper tr.lead-generation-table-row-selected:hover {
+  background-color: #F3E8FF !important;
+  background: #F3E8FF !important;
+}
+
+.lead-generation-table-wrapper .lead-generation-table-row-selected:hover td,
+.lead-generation-table-wrapper tr.lead-generation-table-row-selected:hover td {
+  background-color: #F3E8FF !important;
+  background: #F3E8FF !important;
+}
+
+/* Table header - same tint always (matches --dashboard-table-header-bg); beat TableRow hover */
+.lead-generation-table-wrapper thead tr,
+.lead-generation-table-wrapper thead tr:hover,
+.lead-generation-table-wrapper thead tr.hover\:bg-muted\/50:hover,
+.lead-generation-table-wrapper thead tr[class*="hover:bg-muted"]:hover,
+.lead-generation-table-wrapper thead [data-slot="table-row"],
+.lead-generation-table-wrapper thead [data-slot="table-row"]:hover,
+.lead-generation-table-wrapper thead th,
+.lead-generation-table-wrapper thead th:hover,
+.lead-generation-table thead tr,
+.lead-generation-table thead tr:hover,
+.lead-generation-table thead tr.hover\:bg-muted\/50:hover,
+.lead-generation-table thead tr[class*="hover:bg-muted"]:hover,
+.lead-generation-table thead [data-slot="table-row"],
+.lead-generation-table thead [data-slot="table-row"]:hover,
+.lead-generation-table thead th,
+.lead-generation-table thead th:hover,
+.lead-generation-table-wrapper thead tr[class*="hover"]:hover,
+.lead-generation-table-wrapper thead tr[class*="hover"]:hover th,
+.lead-generation-table thead tr[class*="hover"]:hover,
+.lead-generation-table thead tr[class*="hover"]:hover th {
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+  background-image: none !important;
+  transition: none !important;
+}
+
+/* Main Container */
+.lead-generation-container {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Header */
+.lead-generation-header {
+  position: relative;
+  border-bottom: 0.8px solid #6B7280;
+  background-color: white;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  min-height: 64px;
+  height: 64px;
+}
+
+.lead-generation-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 0;
+}
+
+.lead-generation-menu-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.lead-generation-menu-button:hover {
+  background-color: #F3F4F6;
+}
+
+.lead-generation-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lead-generation-header-title h1 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Pro Button in Header */
+.lead-generation-pro-button {
+  background: linear-gradient(135deg, #9333EA 0%, #C026D3 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.lead-generation-pro-button:hover {
+  opacity: 0.9;
+}
+
+/* Main Prompt Section - Same max-width as chat/input for alignment */
+.lead-generation-main-prompt-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: var(--lead-gen-content-max-width);
+  margin: 0 auto;
+  padding: 0;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+.lead-generation-main-prompt-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px !important;
+  row-gap: 10px !important;
+  margin: 0;
+  padding: 0 !important;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Scoped to dashboard so global / mobile rules cannot shrink these */
+.dashboard-main-container .lead-generation-main-prompt-eyebrow {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+  background: linear-gradient(90deg, #c080f0 0%, #6c30a0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.lead-generation-main-prompt-eyebrow {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+  background: linear-gradient(90deg, #c080f0 0%, #6c30a0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.dashboard-main-container h2.lead-generation-main-prompt-title {
+  font-size: 34px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  color: #111827 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center;
+  letter-spacing: normal !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.lead-generation-main-prompt-title {
+  font-size: 34px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  color: #111827 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center;
+  letter-spacing: normal !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.lead-generation-trending-icon {
+  color: #EF4444;
+  flex-shrink: 0;
+  stroke-width: 2;
+}
+
+/* 30px gap is a dedicated spacer in TSX — no margin-top on input container */
+.lead-generation-welcome-spacer-30 {
+  width: 100%;
+  height: 30px;
+  min-height: 30px;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  pointer-events: none;
+}
+
+/* Large Input Container - Full width of parent (matches chat/input) */
+.lead-generation-large-input-container {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0 !important;
+  margin-bottom: 0;
+  min-width: 0;
+  flex-shrink: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.lead-generation-main-prompt-section .lead-generation-large-input-container {
+  margin-top: 0 !important;
+}
+
+.lead-generation-main-input-form {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.lead-generation-bottom-input-wrapper .lead-generation-main-input-form {
+  border: none !important;
+  outline: none !important;
+}
+
+.lead-generation-chatbar-disclaimer {
+  margin: 8px 6px 0;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #6b7280;
+  text-align: center;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.lead-generation-main-input-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: rgba(208, 213, 221, 0.3) !important;
+  border-radius: 16px;
+  padding: 20px 20px;
+  width: 100%;
+  min-width: 0;
+  min-height: 145px;
+  border: 1px solid rgba(208, 213, 221, 0.4) !important;
+  transition: border-color 0.2s, background-color 0.2s;
+  box-sizing: border-box;
+  /* visible so credit hint tooltip can sit above the (i) icon */
+  overflow: visible;
+}
+
+.lead-generation-main-input-wrapper:focus-within {
+  border-color: rgba(208, 213, 221, 0.55) !important;
+  background-color: rgba(208, 213, 221, 0.3) !important;
+}
+
+.lead-generation-input-icon {
+  color: #9CA3AF;
+  flex-shrink: 0;
+  stroke-width: 2;
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px;
+  min-height: 12px;
+  margin-top: 2px;
+}
+
+.lead-generation-main-input {
+  flex: 1;
+  border: none !important;
+  border-width: 0 !important;
+  background: transparent !important;
+  outline: none !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  font-weight: 400 !important;
+  color: #000000 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  box-shadow: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  white-space: pre-wrap !important;
+  text-overflow: clip !important;
+  display: block;
+}
+
+/* Beat shadcn Textarea field-sizing; explicit 14px beats rem-based text-base / md:text-sm on 12px root */
+textarea.lead-generation-main-input.lead-generation-main-textarea {
+  font-size: 14px !important;
+  resize: none !important;
+  vertical-align: top !important;
+  text-align: left !important;
+  align-self: flex-start !important;
+  field-sizing: fixed !important;
+  /* Match wrapper content height: min-height 145px − vertical padding (20px × 2) */
+  height: calc(145px - 40px) !important;
+  min-height: calc(145px - 40px) !important;
+  max-height: calc(145px - 40px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  flex: 1 1 auto;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  scrollbar-gutter: stable;
+}
+
+.lead-generation-main-input:focus {
+  border: none !important;
+  border-width: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.lead-generation-main-input:focus-visible {
+  border: none !important;
+  border-width: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  ring: none !important;
+}
+
+.lead-generation-main-input[data-slot="input"],
+.lead-generation-main-input.h-9 {
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.5 !important;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Placeholder #030011 @ 50% — beat dashboard global textarea::placeholder + Tailwind placeholder:text-muted-foreground */
+textarea.lead-generation-main-input.lead-generation-main-textarea::placeholder {
+  color: rgba(3, 0, 17, 0.5) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  opacity: 1 !important;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+textarea.lead-generation-main-input.lead-generation-main-textarea::-webkit-input-placeholder {
+  color: rgba(3, 0, 17, 0.5) !important;
+  font-size: 14px !important;
+  line-height: 145% !important;
+  opacity: 1 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+textarea.lead-generation-main-input.lead-generation-main-textarea::-moz-placeholder {
+  color: rgba(3, 0, 17, 0.5) !important;
+  font-size: 14px !important;
+  line-height: 145% !important;
+  opacity: 1 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.lead-generation-bottom-input-wrapper textarea.lead-generation-main-input.lead-generation-main-textarea::placeholder,
+.lead-generation-bottom-input-wrapper textarea.lead-generation-main-input.lead-generation-main-textarea::-webkit-input-placeholder,
+.lead-generation-bottom-input-wrapper textarea.lead-generation-main-input.lead-generation-main-textarea::-moz-placeholder {
+  color: rgba(3, 0, 17, 0.5) !important;
+}
+
+/* Slack send: local rules override .evecta-primary-btn footprint for the embedded stadium control */
+button.lead-generation-main-input-submit[data-slot="button"],
+.lead-generation-main-input-submit[data-slot="button"],
+.lead-generation-main-input-submit {
+  background-color: #c5b4f3 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: none !important;
+  /* True stadium: half of height so ends are semicircular */
+  border-radius: 20px !important;
+  width: auto !important;
+  min-width: 52px !important;
+  height: 40px !important;
+  max-height: 40px !important;
+  min-height: 40px !important;
+  padding: 0 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  cursor: pointer;
+  flex-shrink: 0;
+  align-self: flex-end;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+  overflow: hidden !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Beat ghost hover:bg-accent / any utility layer — same as idle (no hover tint) */
+button.lead-generation-main-input-submit[data-slot="button"]:hover:not(:disabled),
+.lead-generation-main-input-submit[data-slot="button"]:hover:not(:disabled),
+.lead-generation-main-input-submit:hover:not(:disabled) {
+  background-color: #c5b4f3 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  filter: none !important;
+}
+
+/* When user has typed — full-strength brand purple (not dashboard gray --primary) */
+button.lead-generation-main-input-submit.lead-generation-main-input-submit-filled[data-slot="button"]:not(:disabled),
+.lead-generation-main-input-submit.lead-generation-main-input-submit-filled[data-slot="button"]:not(:disabled),
+.lead-generation-main-input-submit-filled:not(:disabled) {
+  background-color: #9164ff !important;
+  background-image: none !important;
+  box-shadow: 0 2px 16px rgba(145, 100, 255, 0.55) !important;
+  opacity: 1 !important;
+}
+
+button.lead-generation-main-input-submit.lead-generation-main-input-submit-filled[data-slot="button"]:hover:not(:disabled),
+.lead-generation-main-input-submit.lead-generation-main-input-submit-filled[data-slot="button"]:hover:not(:disabled),
+.lead-generation-main-input-submit-filled:hover:not(:disabled) {
+  background-color: #9164ff !important;
+  background-image: none !important;
+  filter: none !important;
+  box-shadow: 0 2px 16px rgba(145, 100, 255, 0.55) !important;
+}
+
+.lead-generation-main-input-submit:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.lead-generation-main-input-submit svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px !important;
+  min-height: 14px !important;
+  flex-shrink: 0;
+}
+
+.lead-generation-submit-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.lead-generation-credit-hint {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.lead-generation-credit-hint-text {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: rgba(3, 0, 17, 0.45);
+}
+
+.lead-generation-credit-hint-info {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(3, 0, 17, 0.4);
+  cursor: help;
+  outline: none;
+}
+
+.lead-generation-credit-hint-info:hover,
+.lead-generation-credit-hint-info:focus-visible {
+  color: rgba(3, 0, 17, 0.65);
+}
+
+.lead-generation-credit-hint-tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 280px;
+  padding: 10px 14px;
+  background: linear-gradient(90deg, #6b21a8 0%, #c084fc 55%, #d458ff 100%);
+  color: #ffffff;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-align: left;
+  white-space: normal;
+  z-index: 10000;
+  pointer-events: none;
+  box-shadow: 0 6px 20px rgba(107, 33, 168, 0.35);
+}
+
+.lead-generation-credit-hint-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #d458ff;
+}
+
+.lead-generation-credit-hint-info:hover .lead-generation-credit-hint-tooltip,
+.lead-generation-credit-hint-info:focus-visible .lead-generation-credit-hint-tooltip {
+  display: block;
+}
+
+/* Suggestion Tags */
+.lead-generation-suggestion-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.lead-generation-suggestion-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #9164ff !important;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 14px;
+  line-height: 145%;
+  color: #ffffff !important;
+  cursor: pointer;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 400;
+  white-space: nowrap;
+  height: auto;
+  min-height: 36px;
+}
+
+/* No hover / focus color shift — keep pill appearance static */
+.lead-generation-suggestion-tag:hover,
+.lead-generation-suggestion-tag:focus,
+.lead-generation-suggestion-tag:focus-visible,
+.lead-generation-suggestion-tag:active {
+  background-color: #9164ff !important;
+  color: #ffffff !important;
+  opacity: 1;
+}
+
+.lead-generation-suggestion-tag:hover .lead-generation-tag-icon,
+.lead-generation-suggestion-tag:hover .lead-generation-tag-label,
+.lead-generation-suggestion-tag:hover .lead-generation-tag-chevron,
+.lead-generation-suggestion-tag:focus .lead-generation-tag-icon,
+.lead-generation-suggestion-tag:focus .lead-generation-tag-label,
+.lead-generation-suggestion-tag:focus .lead-generation-tag-chevron,
+.lead-generation-suggestion-tag:focus-visible .lead-generation-tag-icon,
+.lead-generation-suggestion-tag:focus-visible .lead-generation-tag-label,
+.lead-generation-suggestion-tag:focus-visible .lead-generation-tag-chevron,
+.lead-generation-suggestion-tag:active .lead-generation-tag-icon,
+.lead-generation-suggestion-tag:active .lead-generation-tag-label,
+.lead-generation-suggestion-tag:active .lead-generation-tag-chevron {
+  color: #ffffff !important;
+}
+
+.lead-generation-suggestion-tag-selected {
+  background-color: #9164ff !important;
+}
+
+/* State-aware recovery actions under AI failure messages */
+.lead-generation-recovery-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.lead-generation-recovery-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff !important;
+  border: 1px solid #d4d4d8 !important;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  line-height: 145%;
+  color: #3f3f46 !important;
+  cursor: pointer;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  min-height: 36px;
+}
+
+.lead-generation-recovery-action:hover:not(:disabled),
+.lead-generation-recovery-action:focus-visible:not(:disabled) {
+  border-color: #9164ff !important;
+  color: #5b21b6 !important;
+  background-color: #faf5ff !important;
+}
+
+.lead-generation-recovery-action:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.lead-generation-tag-icon {
+  color: #FFFFFF !important;
+  flex-shrink: 0;
+  stroke-width: 2;
+}
+
+.lead-generation-tag-label {
+  color: #FFFFFF !important;
+}
+
+.lead-generation-tag-chevron {
+  color: #FFFFFF !important;
+  flex-shrink: 0;
+  stroke-width: 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .lead-generation-main-prompt-section {
+    padding: 0;
+  }
+
+  .lead-generation-main-prompt-header {
+    margin-bottom: 0;
+    gap: 10px !important;
+    row-gap: 10px !important;
+    padding: 0 !important;
+  }
+
+  .lead-generation-main-input-wrapper {
+    padding: 12px 14px;
+  }
+
+  textarea.lead-generation-main-input.lead-generation-main-textarea {
+    height: calc(145px - 24px) !important;
+    min-height: calc(145px - 24px) !important;
+    max-height: calc(145px - 24px) !important;
+  }
+
+  .lead-generation-suggestion-tags {
+    gap: 6px;
+  }
+
+  .lead-generation-suggestion-tag {
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 145%;
+    border-radius: 6px;
+  }
+}
+
+/* Desktop (min-width: 768px) - Show loader */
+@media (min-width: 768px) {
+  .lead-generation-loader-container {
+    display: flex !important;
+  }
+}
+
+/* Mobile (max-width: 767px) - Match mobile-content-area padding (16px) */
+@media (max-width: 767px) {
+  .lead-generation-main-container {
+    --lead-gen-content-padding-x: 16px;
+  }
+
+  .lead-generation-header-title h1 {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #111827 !important;
+    font-family: 'Urbanist', sans-serif !important;
+  }
+  
+  /* Show loader on mobile view */
+  .lead-generation-loader-container {
+    display: flex !important;
+  }
+  
+  /* Hide pagination controls on mobile view */
+  .lead-generation-pagination-container {
+    display: none !important;
+  }
+  
+  /* Prevent text from overflowing into other columns on mobile */
+  /* Exclude sticky columns - overflow:hidden breaks position:sticky */
+  .lead-generation-table-wrapper th:not(.lead-generation-table-head-checkbox):not(.lead-generation-table-head-company),
+  .lead-generation-table-wrapper td:not(.lead-generation-table-cell-checkbox):not(.lead-generation-table-cell-company) {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Save All Leads Dialog - Mobile responsive */
+  [data-save-all-dialog="true"] {
+    width: calc(100% - 32px) !important;
+    max-width: 90% !important;
+    padding: 20px 16px !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    border-radius: 12px !important;
+  }
+
+  /* Processing Dialog - Mobile responsive */
+  [data-processing-dialog="true"] {
+    width: calc(100% - 32px) !important;
+    max-width: 90% !important;
+    padding: 20px 16px !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    border-radius: 12px !important;
+  }
+
+  [data-save-all-dialog="true"] h2 {
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    line-height: 120% !important;
+    margin-bottom: 0 !important;
+  }
+
+  [data-save-all-dialog="true"] p {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 145% !important;
+    margin-bottom: 0 !important;
+  }
+
+  [data-save-all-dialog="true"] img {
+    height: 36px !important;
+    width: auto !important;
+  }
+}
+
+.lead-generation-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Content Area */
+.lead-generation-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 6px 12px;
+  min-height: 0;
+}
+
+.lead-generation-results {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.lead-generation-results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  flex-shrink: 0;
+  padding-top: 16px;
+  padding-bottom: 4px;
+}
+
+.lead-generation-results-title-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lead-generation-results-sparkles {
+  height: 12px;
+  width: 12px;
+  color: #6B21A8;
+  display: block;
+}
+
+.lead-generation-results-title {
+  /* S: Small screens */
+  font-size: var(--typography-heading-card-size-s);
+  line-height: var(--typography-heading-card-line-s);
+  font-weight: var(--typography-heading-card-weight);
+  color: #111827;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .lead-generation-results-title {
+    font-size: var(--typography-heading-card-size-m);
+    line-height: var(--typography-heading-card-line-m);
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .lead-generation-results-title {
+    font-size: var(--typography-heading-card-size-l);
+    line-height: var(--typography-heading-card-line-l);
+  }
+}
+
+.lead-generation-results-stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 16px;
+}
+
+.lead-generation-results-stats-text {
+  font-size: 10px;
+  color: #6B7280;
+}
+
+.lead-generation-results-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Action Buttons */
+.lead-generation-action-button {
+  font-size: 8px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  border-radius: 4px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  box-shadow: none;
+  height: auto;
+  min-width: auto;
+  width: auto;
+  cursor: pointer;
+}
+
+.lead-generation-action-button img {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+/* Tabs */
+.lead-generation-tabs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 4px;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.lead-generation-tabs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.lead-generation-tabs-list {
+  flex: 0 0 auto;
+  background-color: #F3F4F6;
+  padding: 1px;
+  gap: 1px;
+  border-radius: 9999px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+}
+
+.lead-generation-tab-trigger {
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.lead-generation-search-container {
+  flex: 1 1 0%;
+  max-width: 381px;
+}
+
+/* Pagination */
+.lead-generation-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #6B7280;
+  min-height: 26px;
+  font-family: 'Urbanist', sans-serif;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+.lead-generation-pagination-text {
+  font-size: 10px;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lead-generation-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lead-generation-pagination-arrow {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+  line-height: 1;
+  outline: none;
+  box-shadow: none;
+}
+
+.lead-generation-pagination-arrow:hover,
+.lead-generation-pagination-arrow:active,
+.lead-generation-pagination-arrow:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.lead-generation-pagination-arrow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lead-generation-pagination-arrow img {
+  height: 26px;
+  width: 28px;
+  display: block;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+}
+
+.lead-generation-page-info {
+  color: #1F2937;
+  font-size: 10px;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lead-generation-items-per-page {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1;
+}
+
+.lead-generation-items-per-page span {
+  color: #1F2937;
+  font-size: 10px;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lead-generation-items-select {
+  border: 1px solid #E5E7EB;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  background-color: white;
+  color: #1F2937;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+.lead-generation-items-select:hover,
+.lead-generation-items-select:active,
+.lead-generation-items-select:focus {
+  border: 1px solid #E5E7EB !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Table Styles */
+.lead-generation-table-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  border: 0.5px solid #E5E7EB;
+  border-radius: 0;
+  background-color: white;
+  margin-top: 8px;
+  position: relative;
+  min-height: 0;
+}
+
+.lead-generation-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 12px;
+  background-color: white;
+}
+
+.lead-generation-table thead {
+  background-color: var(--dashboard-table-header-bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.lead-generation-table thead tr {
+  border-bottom: none;
+}
+
+.lead-generation-table thead th {
+  padding: 2px 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  text-align: left;
+  font-family: 'Urbanist', sans-serif;
+  background-color: var(--dashboard-table-header-bg);
+  border-right: 0.5px solid #E5E7EB;
+  border-bottom: 0.5px solid #E5E7EB;
+  border-top: none;
+  border-left: none;
+  position: sticky;
+  top: 0;
+  height: auto;
+  min-height: 0;
+  line-height: 2.5;
+  box-sizing: border-box;
+}
+
+/* Checkbox header cell - no vertical separator */
+.lead-generation-table thead th.lead-generation-table-head-checkbox,
+.lead-generation-table-wrapper .lead-database-table thead th.lead-generation-table-head-checkbox,
+.lead-generation-table-wrapper [data-slot="table"] thead th.lead-generation-table-head-checkbox {
+  border-top: none !important;
+  border-left: none !important;
+  border-bottom: 0.5px solid #E5E7EB !important;
+  border-right: 0.5px solid #E5E7EB !important;
+  background-color: var(--dashboard-table-header-bg) !important;
+}
+
+/* Remove hover and selected states from checkbox header cell */
+.lead-generation-table thead th.lead-generation-table-head-checkbox:hover,
+.lead-generation-table thead th.lead-generation-table-head-checkbox:focus,
+.lead-generation-table thead th.lead-generation-table-head-checkbox:active,
+.lead-generation-table-wrapper thead th.lead-generation-table-head-checkbox:hover,
+.lead-generation-table-wrapper thead th.lead-generation-table-head-checkbox:focus,
+.lead-generation-table-wrapper thead th.lead-generation-table-head-checkbox:active {
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+  border-right: 0.5px solid #E5E7EB !important;
+  border-bottom: 0.5px solid #E5E7EB !important;
+}
+
+.lead-generation-table tbody tr {
+  border-bottom: none;
+  background-color: white;
+  height: auto;
+  min-height: 0;
+}
+
+/* Remove hover background from table rows */
+.lead-generation-table tbody tr:hover,
+.lead-generation-table-row-base:hover,
+[data-slot="table-row"].lead-generation-table-row-base:hover {
+  background-color: white !important;
+}
+
+/* Remove hover background from checkbox cells specifically */
+.lead-generation-table tbody tr:hover .lead-generation-table-cell-checkbox,
+.lead-generation-table-row-base:hover .lead-generation-table-cell-checkbox,
+[data-slot="table-row"]:hover .lead-generation-table-cell-checkbox {
+  background-color: white !important;
+}
+
+.lead-generation-table tbody td {
+  padding: 2px 4px;
+  font-size: 12px;
+  color: #111827;
+  text-align: left;
+  font-family: 'Urbanist', sans-serif;
+  border-right: 0.5px solid #E5E7EB;
+  border-bottom: 0.5px solid #E5E7EB;
+  border-top: none;
+  border-left: none;
+  vertical-align: middle;
+  height: auto;
+  min-height: 0;
+  line-height: 2.5;
+  box-sizing: border-box;
+}
+
+.lead-generation-table th:last-child,
+.lead-generation-table td:last-child {
+  border-right: none;
+}
+
+.lead-generation-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.lead-generation-table-head.checkbox {
+  /* width from DashboardTableShared.css */
+  text-align: center;
+}
+
+.lead-generation-table-head.company {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  text-align: left;
+}
+
+/* Lead Database Table Design - Matching Lead Database Component */
+.lead-database-table {
+  width: 100%;
+  table-layout: fixed;
+  font-size: 12px;
+  position: relative;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0;
+  border: none;
+  background-color: white;
+}
+
+.lead-database-table th,
+.lead-database-table td {
+  box-sizing: border-box;
+  padding: 2px 4px !important;
+  border-right: 0.5px solid #E5E7EB;
+  border-bottom: 0.5px solid #E5E7EB;
+  border-top: none;
+  border-left: none;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  line-height: 2.5 !important;
+  font-size: 12px !important;
+  background-color: white;
+  text-align: left !important;
+}
+
+.lead-database-table thead tr[class*="border-b"],
+.lead-database-table thead tr.border-b {
+  border-bottom: none !important;
+}
+
+.lead-database-table thead {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+  background-color: var(--dashboard-table-header-bg) !important;
+}
+
+.lead-database-table thead tr th {
+  border-bottom: 0.5px solid #E5E7EB !important;
+  background-color: var(--dashboard-table-header-bg) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+}
+
+.lead-database-table thead tr th.lead-generation-table-head-checkbox {
+  border-top: none !important;
+  border-left: none !important;
+  border-bottom: 0.5px solid #E5E7EB !important;
+  border-right: 0.5px solid #E5E7EB !important;
+}
+
+/* Sticky header for Lead Generation table wrapper */
+.lead-generation-table-wrapper {
+  position: relative;
+}
+
+/* Remove ALL hover backgrounds from table rows in lead generation wrapper - tbody only to keep header grey */
+.lead-generation-table-wrapper tbody tr:hover,
+.lead-generation-table-wrapper tbody tr.hover\:bg-muted\/50:hover,
+.lead-generation-table-wrapper tbody [data-slot="table-row"]:hover,
+.lead-generation-table-wrapper tbody [data-slot="table-row"].hover\:bg-muted\/50:hover,
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover,
+.lead-generation-table-wrapper tbody [data-slot="table-row"][class*="hover"]:hover {
+  background-color: white !important;
+  background: white !important;
+  background-image: none !important;
+}
+
+/* Remove hover background from all cells when row is hovered - tbody only, exclude thead to keep header grey */
+.lead-generation-table-wrapper tbody tr:hover td,
+.lead-generation-table-wrapper tbody tr:hover th,
+.lead-generation-table-wrapper tbody [data-slot="table-row"]:hover [data-slot="table-cell"],
+.lead-generation-table-wrapper tbody [data-slot="table-row"]:hover [data-slot="table-head"],
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover td,
+.lead-generation-table-wrapper tbody tr[class*="hover"]:hover th {
+  background-color: white !important;
+  background: white !important;
+  background-image: none !important;
+}
+
+/* Keep overflow-x: auto for horizontal sticky columns */
+.lead-generation-table-wrapper [data-slot="table-container"] {
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+}
+
+.lead-generation-table-wrapper .lead-database-table,
+.lead-generation-table-wrapper [data-slot="table"] {
+  position: relative;
+}
+
+/* Force left alignment for all table cells in lead generation */
+.lead-generation-table-wrapper .lead-database-table th,
+.lead-generation-table-wrapper .lead-database-table td,
+.lead-generation-table-wrapper [data-slot="table"] th,
+.lead-generation-table-wrapper [data-slot="table"] td,
+.lead-generation-table-wrapper .lead-generation-table-cell-base,
+.lead-generation-table-wrapper .lead-generation-table-cell-score {
+  text-align: left !important;
+}
+
+.lead-generation-table-wrapper .lead-database-table thead,
+.lead-generation-table-wrapper [data-slot="table"] thead {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+  background-color: var(--dashboard-table-header-bg) !important;
+}
+
+.lead-generation-table-wrapper .lead-database-table thead tr,
+.lead-generation-table-wrapper [data-slot="table"] thead tr,
+.lead-generation-table-wrapper .lead-database-table thead tr:hover,
+.lead-generation-table-wrapper [data-slot="table"] thead tr:hover,
+.lead-generation-table-wrapper .lead-database-table thead tr.hover\:bg-muted\/50:hover,
+.lead-generation-table-wrapper [data-slot="table"] thead tr.hover\:bg-muted\/50:hover {
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+  transition: none !important;
+}
+
+.lead-generation-table-wrapper .lead-database-table thead tr th,
+.lead-generation-table-wrapper [data-slot="table"] thead tr th {
+  position: sticky !important;
+  top: 0 !important;
+  background-color: var(--dashboard-table-header-bg) !important;
+  z-index: 10 !important;
+}
+
+.lead-generation-table-wrapper .lead-database-table thead tr th.lead-generation-table-head-checkbox,
+.lead-generation-table-wrapper [data-slot="table"] thead tr th.lead-generation-table-head-checkbox {
+  border-top: none !important;
+  border-left: none !important;
+  border-bottom: 0.5px solid #E5E7EB !important;
+  border-right: 0.5px solid #E5E7EB !important;
+}
+
+.lead-database-table th:last-child,
+.lead-database-table td:last-child {
+  border-right: none;
+}
+
+.lead-database-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.lead-database-table tbody tr {
+  height: auto !important;
+  min-height: 0 !important;
+  border-bottom: none !important;
+}
+
+.lead-database-table tbody tr[class*="border-b"],
+.lead-database-table tbody tr.border-b {
+  border-bottom: none !important;
+}
+
+/* Main Container */
+.lead-generation-main-container {
+  --lead-gen-content-max-width: 640px;
+  --lead-gen-content-padding-x: 24px;
+  width: 100%;
+  min-height: 0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Content Area - Same padding as bottom input, scrollbar-gutter prevents width shift when scrollbar appears */
+.lead-generation-content-area {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: var(--lead-gen-content-padding-x);
+  padding-right: var(--lead-gen-content-padding-x);
+  flex: 1 1 0%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.lead-generation-content-area:has(.lead-generation-messages-container) {
+  display: block;
+  justify-content: flex-start;
+  padding-top: 24px;
+  padding-bottom: 16px;
+}
+
+/* Results/table section - left align */
+.lead-generation-content-area:has(.lead-generation-results-container) {
+  align-items: flex-start;
+}
+
+/* Empty welcome: center the block vertically in the card (like before) */
+.lead-generation-content-area:has(.lead-generation-welcome-container) {
+  justify-content: center !important;
+  align-items: center !important;
+  padding-top: 0 !important;
+  padding-bottom: 24px !important;
+}
+
+/* Bottom input: in flex column below scrollable messages (not position:fixed — fixed overlay blocked scroll) */
+.lead-generation-bottom-input-container {
+  position: relative;
+  flex-shrink: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px var(--lead-gen-content-padding-x) 24px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: white;
+}
+
+.lead-generation-bottom-input-wrapper {
+  width: 100%;
+  max-width: var(--lead-gen-content-max-width);
+  margin: 0 auto;
+  padding: 0;
+  background-color: white;
+  border-radius: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  /* Matches content area width - no full-width white bar on sides */
+}
+
+/* Dark strip above chat (credit + error) — shared footprint so both banners match */
+.lead-generation-credit-limit-banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #1e212b;
+  color: #fff;
+  border: 1px solid rgba(111, 104, 146, 0.4);
+  border-radius: 16px;
+  padding: 10px 38px 10px 12px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 100%;
+  min-height: 112px;
+}
+
+.lead-generation-credit-limit-banner-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.95);
+  cursor: pointer;
+}
+
+.lead-generation-credit-limit-banner-close:hover,
+.lead-generation-credit-limit-banner-close:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  outline: none;
+}
+
+.lead-generation-credit-limit-banner-title {
+  margin: 0 0 6px 0;
+  padding-right: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.lead-generation-credit-limit-banner-text {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: #a198ce;
+  max-width: 100%;
+  /* Reserve two lines so credit + error banners stay the same height */
+  min-height: calc(11px * 1.45 * 2);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  flex: 1 1 auto;
+}
+
+.lead-generation-credit-limit-banner-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: auto;
+  min-height: 28px;
+  flex-shrink: 0;
+}
+
+.lead-generation-credit-limit-banner-cta {
+  background: #fff;
+  color: #1e212b;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.lead-generation-credit-limit-banner-cta:hover,
+.lead-generation-credit-limit-banner-cta:focus-visible {
+  background: #fff;
+  color: #111827;
+}
+
+.lead-generation-bottom-input-wrapper .lead-generation-main-input-wrapper {
+  border: none !important;
+  border-width: 0 !important;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  outline: none !important;
+  padding: 20px 20px !important;
+  min-height: 145px !important;
+  background-color: rgba(208, 213, 221, 0.3) !important;
+  border-radius: 16px !important;
+  overflow: visible !important;
+}
+
+.lead-generation-bottom-input-wrapper .lead-generation-main-input-wrapper:focus,
+.lead-generation-bottom-input-wrapper .lead-generation-main-input-wrapper:focus-within,
+.lead-generation-bottom-input-wrapper .lead-generation-main-input-wrapper:hover {
+  border: none !important;
+  border-width: 0 !important;
+  outline: none !important;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.lead-generation-bottom-input-wrapper .lead-generation-main-input,
+.lead-generation-bottom-input-wrapper .lead-generation-main-input[data-slot="input"],
+.lead-generation-bottom-input-wrapper .lead-generation-main-input[data-slot="textarea"] {
+  border: none !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #000000 !important;
+}
+
+.lead-generation-bottom-input-wrapper .lead-generation-main-input:focus,
+.lead-generation-bottom-input-wrapper .lead-generation-main-input:focus-visible,
+.lead-generation-bottom-input-wrapper .lead-generation-main-input[data-slot="input"]:focus,
+.lead-generation-bottom-input-wrapper .lead-generation-main-input[data-slot="input"]:focus-visible,
+.lead-generation-bottom-input-wrapper .lead-generation-main-input[data-slot="textarea"]:focus,
+.lead-generation-bottom-input-wrapper .lead-generation-main-input[data-slot="textarea"]:focus-visible {
+  border: none !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  ring: none !important;
+}
+
+/* Welcome Section — full column width up to max; centered in content area */
+.lead-generation-welcome-container {
+  width: 100%;
+  max-width: var(--lead-gen-content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  box-sizing: border-box;
+}
+
+.lead-generation-welcome-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.lead-generation-welcome-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lead-generation-welcome-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.lead-generation-welcome-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 0;
+}
+
+.lead-generation-welcome-description {
+  color: #4B5563;
+  max-width: 36rem;
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Urbanist';
+  line-height: 1.4;
+  margin-top: 0px;
+}
+
+/* Prompt Starters Card */
+.lead-generation-prompt-card {
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  margin-top: 16px;
+  padding: 20px 24px;
+  border-radius: 16px;
+  border: 1px solid #8B5CF6; /* solid purple border */
+  background: transparent; /* no background color inside border */
+}
+
+.lead-generation-prompt-card-header {
+  flex-shrink: 0;
+  padding-bottom: 0px;
+}
+
+.lead-generation-prompt-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.lead-generation-prompt-card-title-icon {
+  color: #FF6B35;
+}
+
+.lead-generation-prompt-card-description {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'Urbanist';
+  margin-top: 4px;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.lead-generation-prompt-card-content {
+  flex: 1 1 0%;
+  overflow-y: auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0px;
+  margin-top: 0;
+}
+
+.lead-generation-prompt-starter-button {
+  padding: 8px 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #E5E7EB !important; /* light gray border for each prompt */
+}
+
+.lead-generation-prompt-starter-text {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'Urbanist';
+  line-height: 17.5px;
+  letter-spacing: 0.1px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Inline Loader - Slack icon, no full-page overlay */
+.lead-generation-loader-container {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  flex: 1;
+  min-height: 200px;
+  width: 100%;
+}
+
+.lead-generation-inline-loader-icon {
+  color: #9164FF;
+  flex-shrink: 0;
+}
+
+/* Pulse/fade animation - replaces spin for thinking state */
+.lead-generation-loader-pulse {
+  animation: lead-gen-pulse-fade 2.5s ease-in-out infinite;
+}
+
+@keyframes lead-gen-pulse-fade {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Count-first reveal: show total leads found before the results table opens */
+.lead-generation-count-reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 8px 4px 16px;
+  animation: lead-gen-count-reveal-in 0.35s ease-out both;
+}
+
+.lead-generation-count-reveal-eyebrow {
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6B7280;
+}
+
+.lead-generation-count-reveal-number {
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #111827;
+  animation: lead-gen-count-pop 0.45s ease-out both;
+}
+
+.lead-generation-count-reveal-label {
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.lead-generation-count-reveal-hint {
+  margin: 8px 0 0;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6B7280;
+}
+
+@keyframes lead-gen-count-reveal-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lead-gen-count-pop {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Loader bubble - ChatGPT style, left-aligned like AI message */
+.lead-generation-loader-bubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+.lead-generation-loader-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6B7280;
+  font-family: 'Urbanist', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+/* Animated dots - ChatGPT style thinking indicator */
+.lead-generation-loader-dots {
+  display: inline-flex;
+  margin-left: 2px;
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+.lead-generation-loader-dots span {
+  animation: lead-gen-dot-blink 1.2s ease-in-out infinite both;
+}
+
+.lead-generation-loader-dots span:nth-child(1) { animation-delay: 0s; }
+.lead-generation-loader-dots span:nth-child(2) { animation-delay: 0.15s; }
+.lead-generation-loader-dots span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes lead-gen-dot-blink {
+  0%, 70%, 100% { opacity: 0.2; transform: scale(0.8); }
+  35% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Koala Loader Animation - Image Based with Magnifying Glass */
+.koala-loader-wrapper {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.koala-loader {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: koala-bounce 1.5s ease-in-out infinite;
+  /* Keep natural koala colors from image */
+}
+
+.koala-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  /* Koala stays fixed - no rotation */
+}
+
+@keyframes koala-bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.02);
+  }
+}
+
+
+
+
+.koala-face {
+  position: relative;
+  width: 120px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.koala-ear {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #6B21A8 0%, #8B5CF6 50%, #3B82F6 100%);
+  border-radius: 50% 50% 50% 0;
+  top: -10px;
+  animation: ear-wiggle 1.2s ease-in-out infinite;
+  box-shadow: 0 4px 12px rgba(107, 33, 168, 0.4);
+}
+
+.koala-ear-left {
+  left: 5px;
+  transform: rotate(-20deg);
+  animation-delay: 0s;
+}
+
+.koala-ear-right {
+  right: 5px;
+  transform: rotate(20deg) scaleX(-1);
+  animation-delay: 0.3s;
+}
+
+@keyframes ear-wiggle {
+  0%, 100% {
+    transform: rotate(-20deg);
+    background: linear-gradient(135deg, #6B21A8 0%, #8B5CF6 50%, #3B82F6 100%);
+  }
+  25% {
+    transform: rotate(-15deg);
+    background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #6B21A8 100%);
+  }
+  50% {
+    transform: rotate(-20deg);
+    background: linear-gradient(135deg, #3B82F6 0%, #6B21A8 50%, #8B5CF6 100%);
+  }
+  75% {
+    transform: rotate(-25deg);
+    background: linear-gradient(135deg, #8B5CF6 0%, #6B21A8 50%, #3B82F6 100%);
+  }
+}
+
+.koala-ear-right {
+  animation-name: ear-wiggle-right;
+}
+
+@keyframes ear-wiggle-right {
+  0%, 100% {
+    transform: rotate(20deg) scaleX(-1);
+    background: linear-gradient(135deg, #6B21A8 0%, #8B5CF6 50%, #3B82F6 100%);
+  }
+  25% {
+    transform: rotate(25deg) scaleX(-1);
+    background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #6B21A8 100%);
+  }
+  50% {
+    transform: rotate(20deg) scaleX(-1);
+    background: linear-gradient(135deg, #3B82F6 0%, #6B21A8 50%, #8B5CF6 100%);
+  }
+  75% {
+    transform: rotate(15deg) scaleX(-1);
+    background: linear-gradient(135deg, #8B5CF6 0%, #6B21A8 50%, #3B82F6 100%);
+  }
+}
+
+.koala-head {
+  position: absolute;
+  width: 100px;
+  height: 90px;
+  background: linear-gradient(135deg, #8B5CF6 0%, #6B21A8 50%, #3B82F6 100%);
+  border-radius: 50% 50% 45% 45%;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 6px 16px rgba(107, 33, 168, 0.4);
+  animation: head-pulse 2s ease-in-out infinite;
+}
+
+@keyframes head-pulse {
+  0%, 100% {
+    background: linear-gradient(135deg, #8B5CF6 0%, #6B21A8 50%, #3B82F6 100%);
+    box-shadow: 0 6px 16px rgba(107, 33, 168, 0.4);
+  }
+  50% {
+    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #6B21A8 100%);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
+  }
+}
+
+.koala-eye {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  top: 35px;
+  animation: blink 2.5s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.koala-eye::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #3B82F6;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: eye-shine 2s ease-in-out infinite;
+}
+
+@keyframes eye-shine {
+  0%, 100% {
+    background: #3B82F6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    background: #6B21A8;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+.koala-eye-left {
+  left: 25px;
+}
+
+.koala-eye-right {
+  right: 25px;
+}
+
+@keyframes blink {
+  0%, 45%, 55%, 100% {
+    height: 14px;
+    top: 35px;
+  }
+  48%, 52% {
+    height: 2px;
+    top: 40px;
+  }
+}
+
+.koala-nose {
+  position: absolute;
+  width: 18px;
+  height: 15px;
+  background: linear-gradient(135deg, #6B7280 0%, #3B82F6 100%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.koala-mouth {
+  position: absolute;
+  width: 30px;
+  height: 15px;
+  border: 2px solid #6B7280;
+  border-top: none;
+  border-radius: 0 0 30px 30px;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: mouth-smile 2s ease-in-out infinite;
+}
+
+@keyframes mouth-smile {
+  0%, 100% {
+    width: 30px;
+    border-color: #6B7280;
+  }
+  50% {
+    width: 35px;
+    border-color: #8B5CF6;
+  }
+}
+
+.koala-body {
+  position: relative;
+  width: 80px;
+  height: 70px;
+  background: linear-gradient(135deg, #6B21A8 0%, #8B5CF6 50%, #3B82F6 100%);
+  border-radius: 50% 50% 40% 40%;
+  margin-top: -10px;
+  box-shadow: 0 6px 16px rgba(107, 33, 168, 0.4);
+  animation: body-glow 2s ease-in-out infinite;
+}
+
+@keyframes body-glow {
+  0%, 100% {
+    background: linear-gradient(135deg, #6B21A8 0%, #8B5CF6 50%, #3B82F6 100%);
+    box-shadow: 0 6px 16px rgba(107, 33, 168, 0.4);
+  }
+  50% {
+    background: linear-gradient(135deg, #3B82F6 0%, #6B21A8 50%, #8B5CF6 100%);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
+  }
+}
+
+.koala-arm {
+  position: absolute;
+  width: 25px;
+  height: 40px;
+  background: linear-gradient(135deg, #8B5CF6 0%, #6B21A8 100%);
+  border-radius: 20px;
+  top: 10px;
+  animation: arm-sway 1.8s ease-in-out infinite;
+  box-shadow: 0 3px 8px rgba(107, 33, 168, 0.3);
+}
+
+.koala-arm-left {
+  left: -15px;
+  transform: rotate(-20deg);
+  animation-delay: 0s;
+}
+
+.koala-arm-right {
+  right: -15px;
+  transform: rotate(20deg);
+  animation-delay: 0.5s;
+}
+
+@keyframes arm-sway {
+  0%, 100% {
+    transform: rotate(-20deg);
+    background: linear-gradient(135deg, #8B5CF6 0%, #6B21A8 100%);
+  }
+  25% {
+    transform: rotate(-10deg);
+    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+  }
+  50% {
+    transform: rotate(-20deg);
+    background: linear-gradient(135deg, #6B21A8 0%, #3B82F6 100%);
+  }
+  75% {
+    transform: rotate(-15deg);
+    background: linear-gradient(135deg, #8B5CF6 0%, #6B21A8 100%);
+  }
+}
+
+.koala-arm-right {
+  animation-name: arm-sway-right;
+}
+
+@keyframes arm-sway-right {
+  0%, 100% {
+    transform: rotate(20deg);
+    background: linear-gradient(135deg, #8B5CF6 0%, #6B21A8 100%);
+  }
+  25% {
+    transform: rotate(10deg);
+    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+  }
+  50% {
+    transform: rotate(20deg);
+    background: linear-gradient(135deg, #6B21A8 0%, #3B82F6 100%);
+  }
+  75% {
+    transform: rotate(15deg);
+    background: linear-gradient(135deg, #8B5CF6 0%, #6B21A8 100%);
+  }
+}
+
+/* Mobile loader - simpler version */
+@media (max-width: 767px) {
+  .koala-loader-wrapper {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .koala-loader {
+    width: 150px;
+    height: 150px;
+  }
+  
+}
+
+.lead-generation-mobile-loading-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  z-index: 10;
+}
+
+.lead-generation-mobile-loading-text {
+  font-size: 16px;
+  color: #6B7280;
+  font-weight: 500;
+  font-family: 'Urbanist';
+  margin: 0;
+  text-align: center;
+}
+
+/* Results Container */
+.lead-generation-results-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex: 1 1 0%;
+  overflow: hidden;
+  min-height: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.lead-generation-results-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  flex: 1 1 0%;
+  overflow: hidden;
+  min-height: 0;
+  padding-top: 0;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-top: 0;
+}
+
+.lead-generation-results-header-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+  margin-top: 0;
+  padding: 12px 20px;
+  border: 1px solid rgba(208, 213, 221, 0.3);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.lead-generation-results-header-section:hover {
+  border-color: rgba(208, 213, 221, 0.3);
+  background-color: transparent;
+}
+
+.lead-generation-results-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.lead-generation-results-title-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  flex: 1;
+  max-width: calc(100% - 300px); /* Reserve space for buttons */
+  overflow: hidden;
+}
+
+.lead-generation-results-title-row {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  width: fit-content;
+}
+
+.lead-generation-results-sparkles-icon {
+  height: 12px;
+  width: 12px;
+  color: #6B21A8;
+  display: block;
+  flex-shrink: 0;
+}
+
+.lead-generation-results-title-text,
+h1.lead-generation-results-title-text {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 145% !important;
+  color: #030011 !important;
+  margin: 0;
+  padding: 0;
+  font-family: 'Urbanist', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: block;
+}
+
+.lead-generation-results-stats-text {
+  font-size: 14px !important;
+  line-height: 145% !important;
+  font-weight: 400 !important;
+  color: #a198ce !important;
+  white-space: nowrap;
+}
+
+#root .dashboard-main-container .lead-generation-results-title-text {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 145% !important;
+  color: #030011 !important;
+  letter-spacing: normal !important;
+}
+
+#root .dashboard-main-container .lead-generation-results-stats-text {
+  font-size: 14px !important;
+  line-height: 145% !important;
+  font-weight: 400 !important;
+  color: #a198ce !important;
+  letter-spacing: normal !important;
+}
+
+.lead-generation-results-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  gap: 8px;
+}
+
+/* Search Prompt Display */
+.lead-generation-results-prompt-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.lead-generation-results-prompt-label {
+  font-size: var(--typography-text-s-size) !important;
+  font-weight: var(--typography-text-s-weight) !important;
+  line-height: var(--typography-text-s-line) !important;
+  color: var(--color-text-secondary);
+  font-family: 'Urbanist', sans-serif;
+}
+
+.lead-generation-results-prompt-text {
+  font-size: var(--typography-text-s-size) !important;
+  font-weight: var(--typography-text-m-weight) !important;
+  line-height: var(--typography-text-s-line) !important;
+  color: var(--color-text-primary);
+  font-family: 'Urbanist', sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Results actions: sizing from dashboard .evecta-*; keep row wrap + icon size */
+.lead-generation-results-action-btn[data-slot='button'],
+button.lead-generation-results-action-btn {
+  max-width: 100% !important;
+}
+
+.lead-generation-results-action-btn:disabled {
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+}
+
+.lead-generation-results-action-btn-icon {
+  flex-shrink: 0 !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* Secondary (outline + evecta-secondary-btn): explicit icon stroke for Lucide */
+.lead-generation-results-action-btn.evecta-secondary-btn .lead-generation-results-action-btn-icon {
+  color: #030011 !important;
+  stroke: #030011 !important;
+}
+
+.lead-generation-results-action-btn.evecta-primary-btn .lead-generation-results-action-btn-icon {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.lead-generation-save-button {
+  padding: 0 !important;
+  border: none !important;
+  border-width: 0 !important;
+  outline: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  height: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  min-width: auto;
+  width: auto;
+  cursor: pointer;
+}
+
+.lead-generation-save-button:focus,
+.lead-generation-save-button:focus-visible,
+.lead-generation-save-button:active,
+.lead-generation-save-button:hover {
+  border: none !important;
+  border-width: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.lead-generation-save-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.lead-generation-save-button-img {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+/* Pagination */
+.lead-generation-pagination-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4px;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.lead-generation-pagination-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #6B7280;
+  min-height: 26px;
+  font-family: 'Urbanist, sans-serif';
+  margin-top: 2px;
+  line-height: 1;
+  flex-wrap: nowrap;
+}
+
+.lead-generation-pagination-info {
+  font-size: 10px;
+  font-weight: 500;
+  font-family: 'Urbanist, sans-serif';
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lead-generation-selected-leads-badge {
+  font-size: 10px;
+  font-weight: 600;
+  font-family: Urbanist, sans-serif;
+  color: #6B21A8;
+  background-color: #F3E8FF;
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.lead-generation-selected-leads-badge-icon {
+  width: 12px;
+  height: 12px;
+  color: #6B21A8;
+  flex-shrink: 0;
+}
+
+.lead-generation-pagination-controls-row {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.lead-generation-pagination-arrows {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.lead-generation-pagination-arrow-button {
+  width: auto;
+  height: auto;
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+  line-height: 1;
+  opacity: 1;
+  outline: none !important;
+  box-shadow: none !important;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.lead-generation-pagination-arrow-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lead-generation-pagination-arrow-button:hover,
+.lead-generation-pagination-arrow-button:focus,
+.lead-generation-pagination-arrow-button:active,
+.lead-generation-pagination-arrow-button:focus-visible,
+.lead-generation-pagination-arrow-button:focus-within {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.lead-generation-pagination-arrow-img {
+  height: 26px;
+  width: 28px;
+  display: block;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+  border: none;
+}
+
+.lead-generation-page-number {
+  color: #1F2937;
+  font-size: 10px !important;
+  font-weight: 500;
+  font-family: 'Urbanist, sans-serif';
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lead-generation-items-per-page-container {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.lead-generation-items-per-page-label {
+  color: #1F2937;
+  font-size: 10px !important;
+  font-weight: 500;
+  font-family: 'Urbanist, sans-serif';
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+/* Force small font for Show/dropdown - override dashboard typography */
+.lead-generation-pagination-wrapper .lead-generation-items-per-page-label,
+.lead-generation-pagination-row .lead-generation-items-per-page-label,
+.lead-generation-results-wrapper .lead-generation-items-per-page-label {
+  font-size: 10px !important;
+  line-height: 1 !important;
+}
+
+.lead-generation-items-per-page-select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.lead-generation-items-per-page-select {
+  padding: 4px 24px 4px 8px;
+  border: 0.5px solid rgba(107, 33, 168, 0.3);
+  border-radius: 6px;
+  font-size: 10px !important;
+  font-weight: 500;
+  font-family: 'Urbanist, sans-serif';
+  background-color: #FAFAFA;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: #1F2937;
+  height: 26px;
+  min-height: 26px;
+  line-height: 1;
+  outline: none;
+  box-sizing: border-box;
+  width: auto;
+  min-width: 50px;
+}
+
+/* Force small font for select - override dashboard typography */
+.lead-generation-pagination-wrapper .lead-generation-items-per-page-select,
+.lead-generation-pagination-row select.lead-generation-items-per-page-select,
+.lead-generation-results-wrapper .lead-generation-items-per-page-select,
+.lead-generation-items-per-page-container select {
+  font-size: 10px !important;
+  line-height: 1 !important;
+}
+
+.lead-generation-items-per-page-select-arrow {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 12px;
+  width: 12px;
+  color: rgba(107, 33, 168, 0.3);
+  pointer-events: none;
+  line-height: 1;
+  z-index: 1;
+}
+
+/* Table Wrapper - Left aligned */
+.lead-generation-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  border: 0.5px solid #E5E7EB;
+  border-radius: 0;
+  background-color: white;
+  margin-top: 8px;
+  margin-right: auto;
+  position: relative;
+  max-height: 70vh;
+  align-self: flex-start;
+}
+
+.lead-generation-table-element {
+  width: 100%;
+  table-layout: fixed;
+  position: relative;
+}
+
+.lead-generation-table-header-bg {
+  background-color: var(--dashboard-table-header-bg);
+}
+
+/* Table Head Styles */
+.lead-generation-table-head-checkbox,
+.lead-generation-table-wrapper .lead-database-table thead tr th.lead-generation-table-head-checkbox,
+.lead-generation-table-wrapper [data-slot="table"] thead tr th.lead-generation-table-head-checkbox,
+.lead-generation-table thead th.lead-generation-table-head-checkbox,
+table thead th.lead-generation-table-head-checkbox,
+thead th.lead-generation-table-head-checkbox,
+th.lead-generation-table-head-checkbox {
+  /* width from DashboardTableShared.css */
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  text-align: left !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-bottom: 0.5px solid #E5E7EB !important;
+  border-right: 0.5px solid #E5E7EB !important;
+}
+
+.lead-generation-table-head-star {
+  width: 32px;
+  min-width: 32px;
+  max-width: 32px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  text-align: center;
+}
+
+.lead-generation-table-star-icon {
+  color: var(--color-neutral-400);
+  stroke-width: 1.5;
+  width: 16px;
+  height: 16px;
+  display: block;
+  margin: 0 auto;
+}
+
+.lead-generation-table-head-company {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  text-align: left;
+}
+
+.lead-generation-table-head-email {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  text-align: left;
+}
+
+.lead-generation-table-head-location {
+  width: 120px;
+  min-width: 80px;
+  max-width: 150px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  text-align: left;
+}
+
+.lead-generation-table-head-website {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  text-align: left;
+}
+
+.lead-generation-table-head-score {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  text-align: left;
+  overflow: visible;
+  position: relative;
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+}
+
+.lead-generation-table-head-score-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 100%;
+}
+
+/* Score header cell: stay grey when icon is hovered – no white background */
+.lead-generation-table-wrapper .lead-generation-table-head-score:hover,
+.lead-generation-table-wrapper .lead-generation-table-head-score:has(.lead-generation-table-head-score-icon:hover),
+.lead-generation-table-wrapper .lead-generation-table-head-score:has(.lead-generation-table-head-score-icon-wrapper:hover) {
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+}
+
+/* Score icon wrapper – never white, including when tooltip is visible (icon hovered) */
+.lead-generation-table-wrapper .lead-generation-table-head-score-icon-wrapper:hover,
+.lead-generation-table-wrapper .lead-generation-table-head-score-icon-wrapper:has(.lead-generation-table-head-score-icon:hover) {
+  background-color: var(--dashboard-table-header-bg) !important;
+  background: var(--dashboard-table-header-bg) !important;
+}
+
+/* Checkbox Button */
+.lead-generation-checkbox-button {
+  background: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none !important;
+  position: relative;
+}
+
+/* Remove hover, focus and purple dotted outline from header checkbox button - no visual change */
+.lead-generation-checkbox-button:hover,
+.lead-generation-checkbox-button:focus,
+.lead-generation-checkbox-button:focus-visible,
+.lead-generation-checkbox-button:active,
+.lead-generation-checkbox-button:active:hover,
+.lead-generation-checkbox-button:focus-within {
+  background: transparent !important;
+  background-color: transparent !important;
+  outline: none !important;
+  outline-width: 0 !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-width: 0px !important;
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-color: transparent !important;
+}
+
+.lead-generation-checkbox-box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #D1D5DB;
+  background-color: white !important;
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: none !important;
+}
+
+.lead-generation-checkbox-box.checked {
+  border: 2px solid #9164FF;
+  background-color: #9164FF !important;
+}
+
+/* Checked – white checkmark on purple */
+.lead-generation-checkbox-box.checked .lead-generation-checkbox-icon,
+.lead-generation-checkbox-box.checked svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+
+/* Force identical appearance on hover - unchecked stays grey, checked stays purple (no white) */
+.lead-generation-checkbox-box:hover {
+  border: 2px solid #D1D5DB;
+  background-color: white !important;
+}
+.lead-generation-checkbox-box.checked:hover {
+  border: 2px solid #9164FF !important;
+  background-color: #9164FF !important;
+}
+
+/* Keep checkmark white on hover when checked */
+.lead-generation-checkbox-box.checked:hover .lead-generation-checkbox-icon,
+.lead-generation-checkbox-button:hover .lead-generation-checkbox-box.checked .lead-generation-checkbox-icon,
+.lead-generation-checkbox-box.checked:hover svg,
+.lead-generation-checkbox-button:hover .lead-generation-checkbox-box.checked svg,
+.lead-generation-table-checkbox-box.checked:hover .lead-generation-table-checkbox-check,
+.lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-box.checked .lead-generation-table-checkbox-check,
+.lead-generation-table-checkbox-box.checked:hover svg,
+.lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-box.checked svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+  opacity: 1 !important;
+}
+
+/* Unchecked hover – purple checkmark (exclude checked state so tick stays white) */
+.lead-generation-checkbox-button:hover .lead-generation-checkbox-icon,
+.lead-generation-checkbox-button:hover svg,
+.lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-check,
+.lead-generation-table-checkbox-button:hover svg {
+  color: #9164FF !important;
+  stroke: #9164FF !important;
+  opacity: 1 !important;
+}
+
+.lead-generation-checkbox-icon {
+  width: 12px;
+  height: 12px;
+  color: #6B21A8;
+  stroke-width: 3;
+}
+
+/* Tooltip Styles – gradient D458FF to 6B21A8 */
+.lead-generation-tooltip {
+  display: none;
+  position: fixed;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #D458FF 0%, #6B21A8 100%) !important;
+  color: white;
+  border: none !important;
+  border-radius: 6px;
+  font-size: 9px !important;
+  font-weight: 400;
+  line-height: 1.3 !important;
+  letter-spacing: 0;
+  white-space: normal;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 220px;
+  text-align: left;
+  pointer-events: none;
+}
+
+/* Tooltip arrow – hidden to remove white block that appears above icon on hover */
+.lead-generation-tooltip .tooltip-arrow {
+  display: none !important;
+}
+
+/* Save All Leads dialog: shell + z-index; typography & buttons → EvectaDialog.css */
+.lead-generation-save-all-overlay,
+.lead-generation-save-all-dialog-overlay {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 100000;
+}
+
+.lead-generation-save-all-dialog-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lead-generation-save-all-dialog-close {
+  margin: -4px -4px 0 0;
+}
+
+/* Save / discard dialog body copy — spec purple-gray */
+.evecta-dialog-description.lead-generation-save-all-dialog-text {
+  color: #a198ce !important;
+}
+
+/* Chat Message Styles - Same max-width as input for alignment */
+.lead-generation-messages-container {
+  width: 100%;
+  max-width: var(--lead-gen-content-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.lead-generation-user-message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 100%;
+  margin-left: auto;
+}
+
+/* User bubble: TL/BL/BR rounded, TR square — reads as message from the right */
+.lead-generation-user-message-bubble {
+  background-color: rgba(208, 213, 221, 0.3);
+  border-radius: 20px 0 20px 20px;
+  padding: 14px 18px;
+  width: fit-content;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  border: none;
+  box-sizing: border-box;
+}
+
+.lead-generation-user-message-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #030011;
+  margin: 0;
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 145%;
+  text-align: left;
+}
+
+/* Win over design-system dashboard `p` / `*` typography !important */
+#root .dashboard-main-container .lead-generation-user-message-bubble {
+  background-color: rgba(208, 213, 221, 0.3) !important;
+  border-radius: 20px 0 20px 20px !important;
+  border: none !important;
+}
+
+#root .dashboard-main-container .lead-generation-user-message-text {
+  font-size: 14px !important;
+  line-height: 145% !important;
+  font-weight: 400 !important;
+  color: #030011 !important;
+  letter-spacing: normal !important;
+}
+
+.lead-generation-ai-message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+}
+
+.lead-generation-ai-message-bubble {
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 16px;
+  border: none;
+  width: fit-content;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.lead-generation-ai-message-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111827;
+  font-family: Urbanist, 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 155%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+#root .dashboard-main-container .lead-generation-ai-message-text {
+  font-size: 15px !important;
+  line-height: 155% !important;
+  font-weight: 500 !important;
+  color: #111827 !important;
+  letter-spacing: normal !important;
+}
+
+.lead-generation-upgrade-cta {
+  margin-top: 12px;
+}
+
+.lead-generation-lead-stats-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.lead-generation-success-message-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  margin: 0;
+  font-family: Urbanist;
+  line-height: 1.6;
+}
+
+/* Pagination Button Styles */
+.lead-generation-pagination-button {
+  font-size: 12px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  border-radius: 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  box-shadow: none;
+  height: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  min-width: auto;
+  width: auto;
+  font-family: Urbanist;
+}
+
+/* Inline Styles Extracted - Table Styles */
+.lead-generation-table-row-base {
+  border-bottom: 0.5px solid #E5E7EB;
+  background-color: white;
+}
+
+/* Remove hover background from table rows - override Tailwind hover:bg-muted/50 */
+/* Also disable transition-colors so no color change animation on hover */
+.lead-generation-table-row-base,
+.lead-generation-table-row-base:hover,
+[data-slot="table-row"].lead-generation-table-row-base,
+[data-slot="table-row"].lead-generation-table-row-base:hover,
+.lead-generation-table-row-base.hover\:bg-muted\/50:hover,
+[data-slot="table-row"].hover\:bg-muted\/50:hover,
+.lead-generation-table-wrapper tr.lead-generation-table-row-base,
+.lead-generation-table-wrapper tr.lead-generation-table-row-base:hover,
+.lead-generation-table-wrapper [data-slot="table-row"].lead-generation-table-row-base,
+.lead-generation-table-wrapper [data-slot="table-row"].lead-generation-table-row-base:hover {
+  transition: none !important;
+  transition-property: none !important;
+}
+
+.lead-generation-table-row-base:hover,
+[data-slot="table-row"].lead-generation-table-row-base:hover,
+.lead-generation-table-row-base.hover\:bg-muted\/50:hover,
+[data-slot="table-row"].hover\:bg-muted\/50:hover,
+.lead-generation-table-wrapper tr.lead-generation-table-row-base:hover,
+.lead-generation-table-wrapper [data-slot="table-row"].lead-generation-table-row-base:hover {
+  background-color: white !important;
+  background: white !important;
+  background-image: none !important;
+}
+
+/* Remove selected state background - override Tailwind data-[state=selected]:bg-muted */
+.lead-generation-table-row-base[data-state="selected"],
+[data-slot="table-row"].lead-generation-table-row-base[data-state="selected"],
+.lead-generation-table-row-base[data-state="selected"]:hover,
+[data-slot="table-row"].lead-generation-table-row-base[data-state="selected"]:hover,
+.lead-generation-table-wrapper tr[data-state="selected"],
+.lead-generation-table-wrapper [data-slot="table-row"][data-state="selected"],
+.lead-generation-table-wrapper tr[data-state="selected"]:hover,
+.lead-generation-table-wrapper [data-slot="table-row"][data-state="selected"]:hover {
+  background-color: white !important;
+  background: white !important;
+  background-image: none !important;
+}
+
+/* Remove selected state background from cells */
+.lead-generation-table-wrapper tr[data-state="selected"] td,
+.lead-generation-table-wrapper tr[data-state="selected"] th,
+.lead-generation-table-wrapper [data-slot="table-row"][data-state="selected"] [data-slot="table-cell"],
+.lead-generation-table-wrapper [data-slot="table-row"][data-state="selected"] [data-slot="table-head"],
+.lead-generation-table-row-base[data-state="selected"] td,
+.lead-generation-table-row-base[data-state="selected"] th {
+  background-color: white !important;
+  background: white !important;
+  background-image: none !important;
+}
+
+.lead-generation-table-cell-checkbox {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  border: none !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-bottom: 0.5px solid #E5E7EB !important;
+  border-right: 0.5px solid #E5E7EB !important;
+  background-color: white !important;
+  text-align: left !important;
+  box-shadow: none !important;
+}
+
+/* Force white background on checkbox cell - always (overridden for selected row below) */
+.lead-generation-table-cell-checkbox,
+.lead-generation-table-cell-checkbox:hover,
+.lead-generation-table-cell-checkbox:focus,
+.lead-generation-table-cell-checkbox:active {
+  background-color: white !important;
+  background: white !important;
+}
+
+/* Checkbox cell in selected row - match row's purple */
+.lead-generation-table-wrapper tr.lead-generation-table-row-selected .lead-generation-table-cell-checkbox,
+.lead-generation-table-wrapper tr.lead-generation-table-row-selected:hover .lead-generation-table-cell-checkbox {
+  background-color: #F3E8FF !important;
+  background: #F3E8FF !important;
+}
+
+/* Remove selected state background from checkbox cells */
+.lead-generation-table-row-base[data-state="selected"] .lead-generation-table-cell-checkbox,
+[data-slot="table-row"][data-state="selected"] .lead-generation-table-cell-checkbox,
+.lead-generation-table-wrapper tr[data-state="selected"] .lead-generation-table-cell-checkbox,
+.lead-generation-table-wrapper tr[data-state="selected"] td.lead-generation-table-cell-checkbox {
+  background-color: white !important;
+  background: white !important;
+  background-image: none !important;
+}
+
+/* Remove hover background from ALL table rows in lead generation */
+.lead-generation-table-wrapper tr:hover,
+.lead-generation-table-wrapper [data-slot="table-row"]:hover,
+.lead-generation-table-wrapper .lead-generation-table-row-base:hover,
+.lead-generation-table-wrapper [data-slot="table-row"].lead-generation-table-row-base:hover,
+.lead-generation-table tbody tr:hover,
+.lead-generation-table tbody [data-slot="table-row"]:hover {
+  background-color: white !important;
+  background: white !important;
+  background-image: none !important;
+}
+
+/* OVERRIDE: Selected row stays purple on hover (must come after rules above) */
+.lead-generation-table-wrapper tr.lead-generation-table-row-selected:hover,
+.lead-generation-table-wrapper tr.lead-generation-table-row-selected:hover td,
+.lead-generation-table-wrapper tr.lead-generation-table-row-selected:hover .lead-generation-table-cell-checkbox {
+  background-color: #F3E8FF !important;
+  background: #F3E8FF !important;
+  background-image: none !important;
+}
+
+/* Remove hover background from checkbox cells - use transparent so no white square appears on row hover */
+.lead-generation-table-row-base:hover .lead-generation-table-cell-checkbox,
+[data-slot="table-row"]:hover .lead-generation-table-cell-checkbox,
+.lead-generation-table tbody tr:hover .lead-generation-table-cell-checkbox,
+tr:hover .lead-generation-table-cell-checkbox,
+tr.hover\:bg-muted\/50:hover .lead-generation-table-cell-checkbox,
+[data-slot="table-row"].hover\:bg-muted\/50:hover .lead-generation-table-cell-checkbox,
+.lead-generation-table-wrapper tr:hover td.lead-generation-table-cell-checkbox,
+.lead-generation-table-wrapper [data-slot="table-row"]:hover [data-slot="table-cell"].lead-generation-table-cell-checkbox,
+.lead-generation-table-wrapper tr:hover .lead-generation-table-cell-checkbox {
+  background-color: transparent !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* Remove focus outline from checkbox buttons in table - override any browser/global styles */
+.lead-generation-table-wrapper button.lead-generation-table-checkbox-button,
+.lead-generation-table-wrapper button.lead-generation-checkbox-button,
+.lead-generation-table-wrapper .lead-generation-table-checkbox-button,
+.lead-generation-table-wrapper .lead-generation-checkbox-button,
+.lead-generation-table-wrapper button.lead-generation-table-checkbox-button:focus,
+.lead-generation-table-wrapper button.lead-generation-table-checkbox-button:focus-visible,
+.lead-generation-table-wrapper button.lead-generation-checkbox-button:focus,
+.lead-generation-table-wrapper button.lead-generation-checkbox-button:focus-visible {
+  outline: none !important;
+  outline-width: 0 !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Ensure checkbox cells maintain border separator, no white halo on hover */
+.lead-generation-table-cell-checkbox,
+.lead-generation-table-cell-checkbox:hover,
+.lead-generation-table-row-base:hover .lead-generation-table-cell-checkbox,
+.lead-generation-table-wrapper tr:hover td.lead-generation-table-cell-checkbox,
+.lead-generation-table-cell-checkbox:has(.lead-generation-table-checkbox-button:hover) {
+  box-shadow: none !important;
+  border-right: 0.5px solid #E5E7EB !important;
+}
+
+/* Prevent any background/outline on checkbox cell when button is hovered */
+.lead-generation-table-cell-checkbox:has(button:hover) {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.lead-generation-table-cell-star {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  text-align: center;
+}
+
+.lead-generation-table-checkbox-button {
+  background: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  outline: none !important;
+  outline-width: 0 !important;
+  outline-style: none !important;
+  box-shadow: none !important;
+  position: relative;
+  transition: none !important;
+}
+
+/* Remove focus/active/hover states - no visual change, no white halo */
+.lead-generation-table-checkbox-button:focus,
+.lead-generation-table-checkbox-button:focus-visible,
+.lead-generation-table-checkbox-button:active,
+.lead-generation-table-checkbox-button:hover,
+.lead-generation-table-checkbox-button:focus-within {
+  background: transparent !important;
+  background-color: transparent !important;
+  outline: none !important;
+  outline-width: 0 !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+  border-style: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-width: 0px !important;
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-color: transparent !important;
+}
+
+.lead-generation-table-checkbox-box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #D1D5DB;
+  background-color: transparent !important;
+  background: transparent !important;
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: none !important;
+}
+
+/* Header select-all: white fill on grey thead so border matches body checkboxes (transparent shows header bg and hides border) */
+.lead-generation-table thead th.lead-generation-table-head-checkbox .lead-generation-table-checkbox-box:not(.checked),
+.lead-generation-table-wrapper thead th.lead-generation-table-head-checkbox .lead-generation-table-checkbox-box:not(.checked),
+.lead-generation-table-wrapper [data-slot="table"] thead th.lead-generation-table-head-checkbox .lead-generation-table-checkbox-box:not(.checked) {
+  background-color: white !important;
+  background: white !important;
+  border: 2px solid #D1D5DB !important;
+}
+
+.lead-generation-table thead th.lead-generation-table-head-checkbox .lead-generation-table-checkbox-box:not(.checked):hover,
+.lead-generation-table-wrapper thead th.lead-generation-table-head-checkbox .lead-generation-table-checkbox-box:not(.checked):hover,
+.lead-generation-table-wrapper thead th.lead-generation-table-head-checkbox .lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-box:not(.checked) {
+  background-color: white !important;
+  background: white !important;
+  border: 2px solid #D1D5DB !important;
+}
+
+/* Checked checkbox - #9164FF (base and hover match) */
+.lead-generation-table-wrapper.dashboard-data-table .lead-generation-table-checkbox-box.checked,
+.lead-generation-table-checkbox-box.checked {
+  border: 2px solid #9164FF !important;
+  background-color: #9164FF !important;
+}
+
+/* Checked – white checkmark on purple (smooth stroke, no ridge at bend) */
+.lead-generation-table-checkbox-box.checked .lead-generation-table-checkbox-check,
+.lead-generation-table-checkbox-box.checked svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+  stroke-width: 2.5 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+/* Disable hover – checkbox looks identical on hover (no visual change, prevents white outline) */
+.lead-generation-table-checkbox-box:hover,
+.lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-box,
+.lead-generation-table-checkbox-box.checked:hover,
+.lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-box.checked {
+  /* Unchecked: grey border, white bg. Checked: purple border, purple bg – match default exactly */
+}
+
+.lead-generation-table-checkbox-box:hover {
+  border: 2px solid #D1D5DB !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.lead-generation-table-checkbox-box.checked:hover,
+.lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-box.checked {
+  border: 2px solid #9164FF !important;
+  background-color: #9164FF !important;
+}
+
+/* Checked – SVG/icon no background, outline, or box that could show white */
+.lead-generation-table-checkbox-box svg,
+.lead-generation-table-checkbox-box .lead-generation-table-checkbox-check,
+.lead-generation-table-checkbox-box:hover svg,
+.lead-generation-table-checkbox-box.checked:hover svg,
+.lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-box svg,
+.lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-box.checked svg {
+  background: none !important;
+  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.lead-generation-table-checkbox-box.checked .lead-generation-table-checkbox-check,
+.lead-generation-table-checkbox-box.checked svg,
+.lead-generation-table-checkbox-box.checked:hover .lead-generation-table-checkbox-check,
+.lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-box.checked .lead-generation-table-checkbox-check,
+.lead-generation-table-checkbox-box.checked:hover svg,
+.lead-generation-table-checkbox-button:hover .lead-generation-table-checkbox-box.checked svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+  stroke-width: 2.5 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  opacity: 1 !important;
+}
+
+/* Override when row has hover - checkbox stays purple */
+.lead-generation-table-wrapper tbody tr:hover .lead-generation-table-checkbox-box.checked,
+.lead-generation-table-wrapper tbody tr[class*="hover:bg-muted"]:hover .lead-generation-table-checkbox-box.checked {
+  border: 2px solid #9164FF !important;
+  background-color: #9164FF !important;
+}
+
+.lead-generation-table-checkbox-check {
+  width: 12px;
+  height: 12px;
+  color: #9164FF;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lead-generation-table-cell-base {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size: 12px;
+  font-family: Urbanist;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.lead-generation-table-cell-company {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.lead-generation-table-cell-email {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+  color: #374151;
+}
+
+.lead-generation-table-cell-address {
+  width: 120px;
+  min-width: 80px;
+  max-width: 150px;
+  color: #374151;
+}
+
+.lead-generation-table-cell-website {
+  width: 140px;
+  min-width: 100px;
+  max-width: 180px;
+  color: #374151;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lead-generation-table-cell-website-link {
+  color: #6B21A8;
+  text-decoration: none;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline;
+  max-width: 100%;
+  line-height: inherit;
+  vertical-align: baseline;
+  outline: none;
+  border: none;
+}
+
+.lead-generation-table-cell-website-inner {
+  display: inline;
+  line-height: inherit;
+}
+
+.lead-generation-table-cell-website-link:hover {
+  text-decoration: underline;
+  color: #7C3AED;
+}
+
+.lead-generation-table-cell-website-link:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.lead-generation-table-cell-website-link:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.lead-generation-table-cell-website-link:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.lead-generation-table-cell-score {
+  width: 80px;
+  min-width: 60px;
+  max-width: 100px;
+  color: #374151;
+  text-align: left !important;
+}
+
+.lead-generation-table-processing-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #6B7280;
+}
+
+.lead-generation-table-processing-loader {
+  color: #6B21A8;
+}
+
+.lead-generation-table-processing-text {
+  font-size: 12px;
+}
+
+/* Form Styles */
+.lead-generation-chat-form {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.lead-generation-chat-form-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.lead-generation-chat-textarea {
+  min-height: 40px;
+  max-height: 60px;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: Urbanist;
+  padding: 10px 50px 10px 12px;
+  line-height: 1.4;
+  background-color: white;
+  outline: none;
+  color: #666;
+  border: 1px solid #E5E7EB;
+  box-shadow: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.lead-generation-chat-textarea:focus,
+.lead-generation-chat-textarea-focused {
+  border-color: #6B21A8;
+}
+
+.lead-generation-chat-button {
+  position: absolute;
+  right: 4px;
+  top: 5%;
+  height: auto;
+  width: auto;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  z-index: 10;
+  padding: 0;
+  transition: none;
+}
+
+.lead-generation-chat-button-icon-enabled {
+  color: #6B21A8;
+}
+
+.lead-generation-chat-button-icon-disabled {
+  color: #6B7280;
+}
+
+/* AI Message Styles */
+.lead-generation-ai-message-text-with-leads {
+  margin: 0 0 12px 0;
+}
+
+.lead-generation-ai-message-text-no-leads {
+  margin: 0;
+}
+
+.lead-generation-lead-stats-container-with-message {
+  margin-top: 16px;
+}
+
+.lead-generation-lead-stats-container-no-message {
+  margin-top: 0;
+}
+
+.lead-generation-success-indicator-container {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #E5E7EB;
+}
+
+.lead-generation-success-indicator-icon {
+  color: #10B981;
+}
+
+.lead-generation-success-indicator-text {
+  font-size: 12px;
+  color: #6B7280;
+  font-family: Urbanist;
+}
+
+/* Processing Dialog Styles */
+.lead-generation-processing-dialog-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 40px 16px;
+  pointer-events: none;
+}
+
+.lead-generation-processing-dialog {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.lead-generation-processing-dialog-title {
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 12px 0;
+  font-family: Urbanist;
+  text-align: center;
+}
+
+.lead-generation-processing-dialog-description {
+  color: #6B7280;
+  margin: 0 0 16px 0;
+  font-family: Urbanist;
+  text-align: center;
+}
+
+.lead-generation-processing-dialog-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+.lead-generation-processing-dialog-button-proceed {
+  padding: 6px 12px;
+  border: none;
+  background-color: #6B21A8;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: Urbanist;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+}
+
+.lead-generation-processing-dialog-button-cancel {
+  padding: 6px 12px;
+  border: 1px solid #D1D5DB;
+  background-color: white;
+  color: #374151;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: Urbanist;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+}
+
+/* Pagination Button Styles */
+.lead-generation-pagination-button-disabled {
+  color: #9CA3AF;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.lead-generation-pagination-button-enabled {
+  color: #111827;
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Welcome headline — data-attr + long chain (beats mobile h2/p & design-system) */
+/* -------------------------------------------------------------------------- */
+.dashboard-main-container .lead-generation-main-prompt-section[data-lead-gen-welcome="true"] .lead-generation-main-prompt-header,
+.lead-generation-main-prompt-section[data-lead-gen-welcome="true"] .lead-generation-main-prompt-header {
+  gap: 10px !important;
+  row-gap: 10px !important;
+  column-gap: 10px !important;
+}
+
+.dashboard-main-container .lead-generation-main-prompt-section[data-lead-gen-welcome="true"] .lead-generation-main-prompt-eyebrow,
+.lead-generation-main-prompt-section[data-lead-gen-welcome="true"] .lead-generation-main-prompt-eyebrow {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  background: linear-gradient(90deg, #c080f0 0%, #6c30a0 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+.dashboard-main-container .lead-generation-main-prompt-section[data-lead-gen-welcome="true"] h2.lead-generation-main-prompt-title,
+.lead-generation-main-prompt-section[data-lead-gen-welcome="true"] h2.lead-generation-main-prompt-title {
+  font-size: 34px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  letter-spacing: normal !important;
+  color: #111827 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  text-align: center !important;
+}
+
+.lead-generation-content-area:has(.lead-generation-main-prompt-section[data-lead-gen-welcome="true"]) {
+  padding-top: 0 !important;
+}

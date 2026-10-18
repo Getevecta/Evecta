@@ -1,0 +1,1819 @@
+/* Campaign Email Screen Component Styles */
+
+.campaign-email-screen {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  overflow-y: visible;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#create-campaign-root .campaign-email-screen {
+  padding-left: var(--cc-header-inner-x, 24px);
+  padding-right: var(--cc-header-inner-x, 24px);
+}
+
+.campaign-email-content {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 100%;
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: visible;
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  height: auto;
+  min-height: auto;
+  flex: none;
+}
+
+.campaign-email-card {
+  background: white;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 0;
+  box-shadow: none;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: visible;
+  height: auto;
+  min-height: auto;
+  flex: none;
+  padding-bottom: 0;
+}
+
+.campaign-email-header {
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.campaign-email-title {
+  /* S: Small screens */
+  font-size: var(--typography-heading-section-size-s);
+  line-height: var(--typography-heading-section-line-s);
+  font-weight: var(--typography-heading-section-weight);
+  color: #111827;
+  margin: 0 0 8px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .campaign-email-title {
+    font-size: var(--typography-heading-section-size-m);
+    line-height: var(--typography-heading-section-line-m);
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .campaign-email-title {
+    font-size: var(--typography-heading-section-size-l);
+    line-height: var(--typography-heading-section-line-l);
+  }
+}
+
+.campaign-email-subtitle {
+  /* S: Small screens */
+  font-size: var(--typography-body-text-size-s);
+  line-height: var(--typography-body-text-line-s);
+  font-weight: var(--typography-body-text-weight);
+  color: #6B7280;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .campaign-email-subtitle {
+    font-size: var(--typography-body-text-size-m);
+    line-height: var(--typography-body-text-line-m);
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .campaign-email-subtitle {
+    font-size: var(--typography-body-text-size-l);
+    line-height: var(--typography-body-text-line-l);
+  }
+}
+
+.email-creation-method-section {
+  margin-bottom: 24px;
+}
+
+.email-creation-method-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.campaign-email-screen .email-creation-method-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.campaign-email-screen .campaign-email-creation-tabs {
+  display: inline-flex;
+  gap: 2px;
+  padding: 4px;
+  align-items: center;
+  overflow: visible;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background-color: #f3f4f6;
+  width: fit-content;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+}
+
+.campaign-email-screen .campaign-email-creation-tabs .campaign-email-creation-tab {
+  padding: 8px 16px;
+  border: none !important;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  color: #6b7280;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+  line-height: 1.25;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  box-sizing: border-box;
+  margin: 0;
+  outline: none !important;
+  box-shadow: none;
+}
+
+.campaign-email-screen .campaign-email-creation-tabs .campaign-email-creation-tab:hover:not(.active) {
+  color: #4b5563;
+  background: transparent;
+  border: none !important;
+}
+
+.campaign-email-screen .campaign-email-creation-tabs .campaign-email-creation-tab:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-email-screen .campaign-email-creation-tabs .campaign-email-creation-tab:focus-visible {
+  outline: 2px solid rgba(139, 92, 246, 0.35) !important;
+  outline-offset: 2px;
+}
+
+.campaign-email-screen .campaign-email-creation-tabs .campaign-email-creation-tab.active {
+  background-color: #ffffff;
+  color: #111827;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 1;
+}
+
+.campaign-email-screen .campaign-email-creation-tabs .campaign-email-creation-tab.active:hover,
+.campaign-email-screen .campaign-email-creation-tabs .campaign-email-creation-tab.active:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06) !important;
+}
+
+.email-form-section {
+  width: 100%;
+}
+
+.email-form-field {
+  margin-bottom: 16px;
+}
+
+.campaign-email-screen .email-form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #030011;
+  margin-bottom: 8px;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.campaign-email-screen .email-tone-select {
+  width: 100%;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.campaign-email-screen .personalization-plan-hint {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #6B7280;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.required {
+  color: #EF4444;
+}
+
+/* Match sign-in page: border-radius 12px, min-height 44px, border #9164FF 20% opacity */
+/* Scoped under .campaign-email-screen to override dashboard.css .dashboard-main-container * { border-color: #E5E7EB } */
+.campaign-email-screen .email-form-input,
+.campaign-email-screen .email-form-textarea,
+.campaign-email-screen .email-form-select {
+  width: 100%;
+  font-family: 'Urbanist', sans-serif;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #030011;
+  padding: 0.625rem 1rem;
+  min-height: 44px;
+  height: auto;
+  background-color: #ffffff !important;
+  box-sizing: border-box;
+}
+
+.email-form-textarea {
+  min-height: 200px;
+  resize: vertical;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+
+/* Select trigger (Choose a template) - match sign-in input height */
+.campaign-email-screen .email-form-select,
+.campaign-email-screen [data-slot="select-trigger"].email-form-select {
+  min-height: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  background-color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #030011 !important;
+}
+
+.campaign-email-screen [data-slot="select-trigger"].email-form-select span {
+  color: #030011;
+  line-height: 145%;
+}
+
+/* Manual draft: taller area so less scrolling inside the box */
+.manual-draft-textarea {
+  min-height: 380px;
+}
+
+.email-form-input::placeholder,
+.email-form-textarea::placeholder,
+.email-form-input::-webkit-input-placeholder,
+.email-form-textarea::-webkit-input-placeholder,
+.email-form-input::-moz-placeholder,
+.email-form-textarea::-moz-placeholder {
+  font-family: 'Urbanist', sans-serif;
+  color: #A198CE !important;
+  font-style: italic;
+  opacity: 1;
+}
+
+.campaign-email-screen .email-form-input:focus,
+.campaign-email-screen .email-form-textarea:focus {
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  outline: none;
+  box-shadow: none;
+}
+
+/* ContentEditable styling for AI generate section - same as sign-in placeholder */
+.content-editable-input:empty:before,
+.content-editable-textarea:empty:before {
+  content: attr(data-placeholder);
+  color: #A198CE;
+  font-style: italic;
+  pointer-events: none;
+}
+
+.campaign-email-screen .content-editable-input:focus,
+.campaign-email-screen .content-editable-textarea:focus {
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  outline: none;
+  box-shadow: none;
+}
+
+.content-editable-input span,
+.content-editable-textarea span {
+  font-weight: 500;
+}
+
+.personalization-variables-section {
+  margin-top: 16px;
+  padding-top: 0;
+  border-top: none;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.personalization-variables-label {
+  font-size: 14px;
+  color: #6B7280;
+  margin: 0 0 8px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.personalization-variables-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 14px;
+  color: #374151;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.5;
+}
+
+.personalization-variable {
+  display: inline;
+  padding: 0;
+  background-color: transparent;
+  color: #374151;
+  border: none;
+  border-radius: 0;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Urbanist', sans-serif;
+  cursor: default;
+  user-select: text;
+  pointer-events: none;
+}
+
+/* AI Generate — "Describe your email context": match Create Campaign step 1 description */
+.campaign-email-screen textarea.email-form-textarea.ai-description-textarea[data-slot="textarea"] {
+  field-sizing: fixed !important;
+  display: block;
+  flex: none;
+  height: 88px !important;
+  min-height: 88px !important;
+  max-height: 88px !important;
+  resize: none !important;
+  padding: 0.875rem 1rem 0.75rem !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+  background-color: #f8f8fa !important;
+  line-height: 145% !important;
+  scrollbar-width: auto;
+  scrollbar-color: rgba(145, 100, 255, 0.5) #ede9f7;
+}
+
+.campaign-email-screen textarea.email-form-textarea.ai-description-textarea[data-slot="textarea"]::-webkit-scrollbar {
+  width: 8px;
+}
+
+.campaign-email-screen textarea.email-form-textarea.ai-description-textarea[data-slot="textarea"]::-webkit-scrollbar-track {
+  background: #ede9f7;
+  border-radius: 0 10px 10px 0;
+}
+
+.campaign-email-screen textarea.email-form-textarea.ai-description-textarea[data-slot="textarea"]::-webkit-scrollbar-thumb {
+  background: rgba(145, 100, 255, 0.45);
+  border-radius: 4px;
+}
+
+.campaign-email-screen textarea.email-form-textarea.ai-description-textarea[data-slot="textarea"]::-webkit-scrollbar-thumb:hover {
+  background: rgba(145, 100, 255, 0.65);
+}
+
+.ai-description-textarea::placeholder,
+.ai-description-textarea::-webkit-input-placeholder,
+.ai-description-textarea::-moz-placeholder {
+  color: #A198CE !important;
+  opacity: 1 !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 145%;
+}
+
+.generate-email-button-container {
+  margin-top: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.generate-email-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Generate Email button – same style as Create Campaign (purple, white text) */
+.generate-email-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #9164FF !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  cursor: pointer;
+  outline: none !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: opacity 0.2s;
+}
+
+.generate-email-button:hover:not(:disabled),
+.generate-email-button:hover,
+.generate-email-button:focus,
+.generate-email-button:active,
+.generate-email-button:focus-visible {
+  background-color: #9164FF !important;
+  color: white !important;
+  border: none !important;
+  outline: none !important;
+  opacity: 1;
+}
+
+.generate-email-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background-color: #9164FF !important;
+  color: white !important;
+}
+
+.generate-email-button-active {
+  background-color: #9164FF !important;
+  color: white !important;
+  opacity: 1;
+}
+
+.template-placeholder {
+  padding: 24px;
+  text-align: center;
+}
+
+.form-placeholder-text {
+  color: #A198CE;
+  font-size: 14px;
+  font-style: italic;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .campaign-email-card {
+    padding: 20px;
+  }
+
+  .campaign-email-title {
+    font-size: 18px;
+  }
+
+  .campaign-email-subtitle {
+    font-size: 13px;
+  }
+
+  .email-creation-method-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .campaign-email-screen .campaign-email-creation-tabs {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .campaign-email-screen .campaign-email-creation-tabs .campaign-email-creation-tab {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .generate-email-button-container {
+    margin-top: 14px;
+    justify-content: center;
+  }
+
+  .generate-email-button {
+    padding: 10px 18px;
+  }
+
+  /* Spam Check Section - Mobile Responsive */
+  .spam-check-info-banner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px;
+    padding: 10px 16px;
+  }
+
+  .spam-check-info-left {
+    width: 100%;
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;
+  }
+  
+  .spam-check-button {
+    align-self: stretch !important;
+    width: 100% !important;
+  }
+
+  .campaign-email-screen .spam-check-info-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 145%;
+    color: #030011;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    word-wrap: break-word;
+  }
+
+  .spam-check-button:not(.spam-check-passed):not(.spam-check-failed) {
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #030011;
+    justify-content: center;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .spam-check-button.spam-check-passed,
+  .spam-check-button.spam-check-failed {
+    width: 100%;
+    padding: 8px 16px;
+    justify-content: center;
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 14px;
+  }
+
+  .spam-check-result {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .spam-check-score-line {
+    font-size: 13px;
+  }
+
+  .spam-check-main-reason,
+  .spam-check-main-suggestion {
+    font-size: 12px;
+  }
+}
+
+  /* Very small screens */
+@media (max-width: 480px) {
+  .spam-check-info-banner {
+    padding: 8px 12px;
+    gap: 10px;
+  }
+
+  .spam-check-info-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .campaign-email-screen .spam-check-info-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 145%;
+    color: #030011;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    word-wrap: break-word;
+  }
+  
+  .spam-check-info-left {
+    overflow: hidden;
+  }
+
+  .spam-check-button:not(.spam-check-passed):not(.spam-check-failed) {
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #030011;
+  }
+
+  .spam-check-button.spam-check-passed,
+  .spam-check-button.spam-check-failed {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .spam-check-result {
+    padding: 10px;
+    font-size: 12px;
+  }
+}
+
+/* Tablet/Medium screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .spam-check-info-banner {
+    padding: 10px 18px;
+    gap: 14px;
+  }
+
+  .campaign-email-screen .spam-check-info-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 145%;
+    color: #030011;
+  }
+
+  .spam-check-button:not(.spam-check-passed):not(.spam-check-failed) {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #030011;
+  }
+
+  .spam-check-button.spam-check-passed,
+  .spam-check-button.spam-check-failed {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Spam Test Comparison Section */
+.spam-test-comparison-container {
+  margin-top: 12px;
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  font-size: 0; /* Hide any text nodes that might appear in the container */
+  line-height: 0;
+}
+
+/* Reset font-size for direct children */
+.spam-test-comparison-container > * {
+  font-size: initial;
+  line-height: initial;
+}
+
+.spam-test-comparison-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #9164FF !important;
+  border: 1px solid #9164FF;
+  border-radius: 12px;
+  margin: 0 0 0 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.spam-test-comparison-content {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16px;
+  padding: 16px 16px 16px 16px; /* top gap between header and cards */
+  grid-auto-flow: row;
+  direction: ltr !important;
+  font-size: 0 !important; /* Hide any text nodes that might appear directly in the container */
+  line-height: 0 !important; /* Hide any text nodes */
+  color: transparent !important; /* Hide any text color */
+  overflow: hidden; /* Prevent any overflow text */
+}
+
+/* Hide any text nodes or whitespace directly in spam-test-comparison-content */
+.spam-test-comparison-content::before,
+.spam-test-comparison-content::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Hide any elements that appear directly in spam-test-comparison-content but outside panels */
+.spam-test-comparison-content > *:not(.spam-test-comparison-panel) {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+/* Reset font-size for panels */
+.spam-test-comparison-content > .spam-test-comparison-panel {
+  font-size: initial;
+  line-height: initial;
+  color: initial;
+}
+
+/* Ensure comparison stays side-by-side on larger screens */
+@media (min-width: 768px) {
+  .spam-test-comparison-content {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-auto-flow: row !important;
+    direction: ltr !important;
+    font-size: 0 !important; /* Maintain font-size: 0 in media query */
+    line-height: 0 !important;
+    color: transparent !important;
+    overflow: hidden;
+  }
+  
+  .spam-test-comparison-content > .spam-test-comparison-panel {
+    font-size: initial;
+    line-height: initial;
+    color: initial;
+  }
+  
+  /* Ensure Original Content is on left, Improved Content on right */
+  .spam-test-comparison-content > .spam-test-comparison-panel:first-child,
+  .spam-test-comparison-content > .spam-test-comparison-panel.spam-test-comparison-panel-grid-column-1 {
+    grid-column: 1 / 2 !important;
+    grid-column-start: 1 !important;
+    grid-column-end: 2 !important;
+    order: 1 !important;
+  }
+  
+  .spam-test-comparison-content > .spam-test-comparison-panel:last-child,
+  .spam-test-comparison-content > .spam-test-comparison-panel.improved-content-panel,
+  .spam-test-comparison-content > .spam-test-comparison-panel.spam-test-comparison-panel-grid-column-2 {
+    grid-column: 2 / 3 !important;
+    grid-column-start: 2 !important;
+    grid-column-end: 3 !important;
+    order: 2 !important;
+  }
+}
+
+/* Stack vertically only on very small screens */
+@media (max-width: 767px) {
+  .spam-test-comparison-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+}
+
+.spam-test-comparison-panel {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(145, 100, 255, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+/* Ensure correct order: Original Content on left (first), Improved Content on right (second) */
+/* Inline styles with gridColumn are used, but keep nth-child as fallback */
+.spam-test-comparison-panel:nth-child(1) {
+  grid-column: 1 / 2 !important;
+  grid-column-start: 1 !important;
+  grid-column-end: 2 !important;
+  order: 1 !important;
+}
+
+.spam-test-comparison-panel:nth-child(2) {
+  grid-column: 2 / 3 !important;
+  grid-column-start: 2 !important;
+  grid-column-end: 3 !important;
+  order: 2 !important;
+}
+
+/* Improved Content Panel - light purple (#9164FF 10%) from top to bottom */
+.improved-content-panel {
+  --improved-content-bg: rgba(145, 100, 255, 0.1);
+  grid-column: 2 / 3 !important;
+  grid-column-start: 2 !important;
+  grid-column-end: 3 !important;
+  order: 2 !important;
+  background-color: var(--improved-content-bg) !important;
+  border-bottom: 1px solid #E5E7EB !important;
+}
+
+.improved-content-panel .spam-test-comparison-panel-header,
+.improved-content-panel .spam-test-comparison-panel-body,
+.improved-content-panel .spam-test-comparison-field-with-line {
+ 
+}
+
+.improved-content-panel .spam-test-comparison-panel-body {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Original Content Panel - white background, neutral border, closed with bottom border */
+.spam-test-comparison-panel:not(.improved-content-panel) {
+  grid-column: 1 / 2 !important;
+  grid-column-start: 1 !important;
+  grid-column-end: 2 !important;
+  order: 1 !important;
+  background-color: #ffffff !important;
+  border: 1px solid #E5E7EB;
+  border-bottom: 1px solid #E5E7EB !important;
+}
+
+.spam-test-comparison-panel:not(.improved-content-panel) .spam-test-comparison-panel-header,
+.spam-test-comparison-panel:not(.improved-content-panel) .spam-test-comparison-panel-body {
+  background-color: #ffffff !important;
+}
+
+/* Improved Content Panel - same light purple to bottom */
+.improved-content-panel .spam-test-comparison-panel-header {
+  background-color: var(--improved-content-bg, rgba(145, 100, 255, 0.1)) !important;
+  border-bottom: 1px solid rgba(145, 100, 255, 0.2) !important;
+}
+
+.improved-content-panel .spam-test-comparison-panel-body {
+  background-color: var(--improved-content-bg, rgba(145, 100, 255, 0.1)) !important;
+}
+
+/* Improved panel: subject and body same light purple as panel */
+.improved-content-panel .spam-test-comparison-input,
+.improved-content-panel .spam-test-comparison-textarea,
+.improved-content-panel .spam-test-comparison-input.spam-test-comparison-highlighted {
+
+  border: none !important;
+}
+
+/* Placeholder spans: no purple patch */
+.improved-content-panel .spam-test-comparison-highlighted span {
+  background-color: transparent !important;
+}
+
+.spam-test-comparison-panel-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 12px;
+  background-color: #F9FAFB;
+  border-bottom: 1px solid rgba(145, 100, 255, 0.2);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #030011;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.spam-test-comparison-panel-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.spam-test-comparison-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.spam-test-comparison-field-label {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #030011;
+  font-family: 'Urbanist', sans-serif;
+  margin: 0;
+}
+
+/* Separator line below subject (like in design – line only, no label) */
+.spam-test-comparison-field-with-line {
+  border-bottom: 1px solid rgba(145, 100, 255, 0.2);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+/* Improved Content: separator line under subject on light purple */
+.improved-content-panel .spam-test-comparison-field-with-line {
+
+}
+
+/* No box/placeholder look – plain text with separator line only */
+.spam-test-comparison-input,
+.spam-test-comparison-textarea {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #030011;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0;
+  padding: 0 0 0 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Original column: body copy in lavender (variable spans keep inline highlight colors) */
+.spam-test-comparison-panel:not(.improved-content-panel) .spam-test-comparison-input,
+.spam-test-comparison-panel:not(.improved-content-panel) .spam-test-comparison-textarea {
+  color: #a198ce;
+}
+
+.spam-test-comparison-input:read-only,
+.spam-test-comparison-textarea:read-only {
+  background-color: transparent !important;
+  cursor: default;
+}
+
+.spam-test-comparison-textarea {
+  min-height: 80px;
+  resize: none;
+}
+
+/* Highlighted content – variable styling only, no box */
+.spam-test-comparison-highlighted {
+  background-color: transparent !important;
+  cursor: default;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.spam-test-comparison-highlighted span {
+  font-weight: 500;
+}
+
+.spam-test-results-section {
+  margin-top: 16px;
+  padding: 16px;
+  background-color: #F9FAFB;
+  border-top: 1px solid #E5E7EB;
+}
+
+.spam-test-results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.spam-test-results-header-left {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.spam-test-deliverability-score {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.spam-test-results-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spam-test-result-message {
+  display: flex;
+  align-items: flex-start;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.4;
+}
+
+.spam-test-result-message.success {
+  background-color: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #10B981;
+  display: flex;
+  align-items: center;
+}
+
+/* Key Improvements – white panel, border #9164FF 20%, gap inside so text doesn’t touch border, no horizontal lines */
+.spam-test-suggestions {
+  margin-top: 12px;
+  background-color: #ffffff !important;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-radius: 8px;
+  padding: 20px 28px;
+  box-sizing: border-box;
+}
+
+/* Override dashboard h4 / heading-m tokens */
+.campaign-email-screen .spam-test-suggestions h4.heading-m,
+.campaign-email-screen .spam-test-suggestions h4 {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 1.25 !important;
+  color: #030011 !important;
+  margin: 0 0 12px 0 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  letter-spacing: normal !important;
+}
+
+.spam-test-suggestions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* No horizontal lines between Key Improvements list items */
+.spam-test-suggestions ul li,
+.spam-test-suggestion-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border: none !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  font-size: 14px;
+  font-weight: 400;
+  color: #030011;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 145%;
+}
+
+.spam-test-suggestion-item span {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #030011;
+}
+
+.spam-test-suggestions ul li::after,
+.spam-test-suggestions ul li::before,
+.spam-test-suggestion-item::after,
+.spam-test-suggestion-item::before {
+  display: none !important;
+}
+
+.spam-test-suggestion-item:last-child {
+  border-bottom: none !important;
+}
+
+/* Tick — same stroke color as list text */
+.spam-test-suggestion-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  color: #030011;
+}
+
+.spam-test-suggestion-icon rect,
+.spam-test-suggestion-icon path {
+  stroke: currentColor;
+}
+
+/* Note – outside Key Improvements frame, own box below */
+.spam-test-suggestions-note {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background-color: rgba(161, 152, 206, 0.1);
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.campaign-email-screen .spam-test-suggestions-note p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #030011;
+  font-family: 'Urbanist', sans-serif;
+  font-style: normal;
+}
+
+.spam-test-comparison-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px;
+  background-color: transparent;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Spam Test Comparison Header Inner Styles */
+.spam-test-comparison-header-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.spam-test-comparison-header-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spam-test-comparison-header-title {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #ffffff;
+}
+
+.spam-test-comparison-header-description {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #ffffff;
+  margin-left: 0;
+}
+
+.spam-test-comparison-header-score-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.spam-test-comparison-header-score-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 145%;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.spam-test-comparison-header-score-value {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 145%;
+  color: #ffffff;
+}
+
+.spam-test-comparison-header-score-risk {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 145%;
+}
+
+.spam-test-comparison-header-score-risk-muted {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.spam-test-comparison-header-score-risk-value {
+  color: #ffffff;
+}
+
+/* Spam Test Comparison Panel Grid Column */
+.spam-test-comparison-panel-grid-column-1 {
+  grid-column: 1 / 2 !important;
+  grid-column-start: 1 !important;
+  grid-column-end: 2 !important;
+  order: 1 !important;
+}
+
+.spam-test-comparison-panel-grid-column-2 {
+  grid-column: 2 / 3 !important;
+  grid-column-start: 2 !important;
+  grid-column-end: 3 !important;
+  order: 2 !important;
+}
+
+/* Spam Test Comparison Panel Header SVG */
+.spam-test-comparison-panel-header svg {
+  margin-right: 8px;
+}
+
+/* Spam Test Suggestions Override – keep internal spacing so content doesn't touch border */
+.spam-test-suggestions-override {
+  padding: 20px 28px;
+  margin-top: 0;
+}
+
+/* Spam Check Passed SVG */
+.spam-check-passed-svg {
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+/* Spam Check Section */
+.spam-check-section {
+  margin-top: 12px;
+  width: 100%;
+}
+
+.personalization-info-box {
+  margin-bottom: 4px;
+  padding: 8px 12px;
+  background-color: #F9FAFB;
+  border: 1px solid #6B7280 !important;
+  border-radius: 6px;
+}
+
+/* Same style as Email Subject/Content: #9164FF 20% border, 12px radius, white background */
+.spam-check-info-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0.625rem 1rem;
+  background-color: rgba(161, 152, 206, 0.1) !important; /* #A198CE 10% */
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-radius: 12px;
+  margin-bottom: 4px;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+.spam-check-info-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.spam-check-info-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.campaign-email-screen .spam-check-info-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #030011;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.spam-check-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  background-color: white;
+  color: #030011;
+  border: 1px solid #D1D5DB;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 145%;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  height: fit-content;
+  margin: 0;
+}
+
+.spam-check-button:disabled {
+  cursor: default;
+}
+
+.spam-check-button:hover:not(:disabled) {
+  background-color: #F9FAFB;
+  color: #030011;
+  border-color: #000000;
+}
+
+.spam-check-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: white;
+  color: #030011;
+  border-color: #000000;
+}
+
+.spam-check-button.spam-check-passed:disabled {
+  opacity: 1 !important;
+  cursor: default;
+  background: linear-gradient(90deg, rgba(212, 88, 255, 0.16) 0%, rgba(107, 33, 168, 0.16) 100%) !important;
+  border-color: rgba(107, 33, 168, 0.25) !important;
+}
+
+/* Spam Check Passed: soft purple gradient bg (16% opacity); label + icon use D458FF 70% → 6B21A8 */
+.spam-check-button.spam-check-passed {
+  background: linear-gradient(90deg, rgba(212, 88, 255, 0.16) 0%, rgba(107, 33, 168, 0.16) 100%);
+  border: 1px solid rgba(107, 33, 168, 0.25);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: default;
+}
+
+.spam-check-button.spam-check-passed .spam-check-passed-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 145%;
+  font-family: 'Urbanist', sans-serif;
+  background: linear-gradient(90deg, rgba(212, 88, 255, 0.7) 0%, #6B21A8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.spam-check-button.spam-check-passed:hover {
+  background: linear-gradient(90deg, rgba(212, 88, 255, 0.16) 0%, rgba(107, 33, 168, 0.16) 100%);
+  border-color: rgba(107, 33, 168, 0.25);
+  cursor: default;
+}
+
+.spam-check-button.spam-check-passed:hover .spam-check-passed-label {
+  background: linear-gradient(90deg, rgba(212, 88, 255, 0.7) 0%, #6B21A8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Spam Check Failed: same soft gradient bg; label #FF0004 */
+.spam-check-button.spam-check-failed {
+  background: linear-gradient(90deg, rgba(212, 88, 255, 0.16) 0%, rgba(107, 33, 168, 0.16) 100%);
+  border: 1px solid rgba(107, 33, 168, 0.25);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.spam-check-button.spam-check-failed .spam-check-failed-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 145%;
+  font-family: 'Urbanist', sans-serif;
+  color: #FF0004;
+}
+
+.spam-check-button.spam-check-failed:hover {
+  background: linear-gradient(90deg, rgba(212, 88, 255, 0.16) 0%, rgba(107, 33, 168, 0.16) 100%);
+  border-color: rgba(107, 33, 168, 0.25);
+}
+
+.spam-check-button.spam-check-failed:hover .spam-check-failed-label {
+  color: #FF0004;
+}
+
+.spam-check-result {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.spam-check-result-safe {
+  background-color: #E6F8ED;
+  color: #0A6B38;
+  border: 1px solid #10B981;
+}
+
+.spam-check-result-safe:hover {
+  color: #0A6B38;
+}
+
+.spam-check-result-warn {
+  background-color: #FFF4DB;
+  color: #8A5A00;
+  border: 1px solid #F59E0B;
+}
+
+.spam-check-result-warn:hover {
+  color: #8A5A00;
+}
+
+.spam-check-result-high {
+  background-color: #FDEAEA;
+  color: #8F1D1D;
+}
+
+/* Badge styles for new risk level labels */
+.spam-check-result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.spam-check-result-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.spam-check-result-badge {
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.spam-check-result-badge.outreach-ready {
+  background-color: #10B981;
+  color: white;
+}
+
+.spam-check-result-badge.fair {
+  background-color: #F59E0B;
+  color: white;
+}
+
+.spam-check-result-badge.risky {
+  background-color: #EF4444;
+  color: white;
+  border: 1px solid #EF4444;
+}
+
+/* Campaign Email Screen - Inline Styles Extracted */
+
+/* Lottie Animation */
+.campaign-email-lottie-animation {
+  width: 200px;
+  height: 200px;
+}
+
+/* Email Form Field with Top Margin */
+.email-form-field.with-top-margin {
+  margin-top: 24px;
+}
+
+/* Content Editable Input (AI Generated & Manual Draft) - match sign-in size/shape, border #9164FF 20% */
+/* Scoped to override dashboard.css .dashboard-main-container * border */
+.campaign-email-screen .content-editable-input {
+  width: 100%;
+  font-family: Urbanist, sans-serif;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  /* No display:flex here — flex on contenteditable breaks caret/selection (jumps to top). */
+  padding: 10px 1rem;
+  min-height: 44px;
+  background-color: #ffffff;
+  color: #030011;
+  outline: none;
+  border-radius: 12px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+.content-editable-input:empty::before {
+  content: attr(data-placeholder);
+  color: #A198CE;
+  font-style: italic;
+  pointer-events: none;
+  line-height: 1.45;
+}
+
+.campaign-email-screen .template-content-editable-input:empty::before {
+  content: attr(data-placeholder);
+  color: #A198CE;
+  font-style: italic;
+  pointer-events: none;
+  line-height: 1.45;
+}
+
+/* Content Editable Textarea (AI Generated & Manual Draft) - match sign-in shape, border #9164FF 20% */
+/* Scoped to override dashboard.css .dashboard-main-container * border */
+.campaign-email-screen .content-editable-textarea {
+  width: 100%;
+  font-family: Urbanist, sans-serif;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #030011;
+  padding: 0.625rem 1rem;
+  min-height: 200px;
+  background-color: #ffffff;
+  outline: none;
+  border-radius: 12px;
+  resize: vertical;
+  white-space: pre-wrap;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+.content-editable-textarea:empty::before {
+  content: attr(data-placeholder);
+  color: #A198CE;
+  pointer-events: none;
+  white-space: pre-wrap;
+}
+
+/* Template Content Editable Input - match sign-in size/shape, border #9164FF 20% */
+/* Scoped to override dashboard.css .dashboard-main-container * border */
+.campaign-email-screen .template-content-editable-input {
+  min-height: 44px;
+  padding: 10px 1rem;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  font-family: Urbanist, sans-serif;
+  color: #030011;
+  outline: none;
+  background-color: white;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Template Content Editable Textarea - match sign-in shape, border #9164FF 20% */
+.campaign-email-screen .template-content-editable-textarea {
+  min-height: 200px;
+  padding: 0.625rem 1rem;
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  font-family: Urbanist, sans-serif;
+  color: #030011;
+  background-color: white;
+  outline: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+/* Personalization Info Box */
+.personalization-info-box.with-border {
+  border: 1px solid #6B7280;
+}
+
+.personalization-info-text {
+  font-size: 11px;
+  font-weight: 500;
+  color: #374151;
+  margin: 0 0 6px 0;
+}
+
+.personalization-variables-container {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.personalization-variable {
+  font-size: 12px;
+  font-family: inherit;
+  background-color: #F3F4F6;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Spam Check Info Banner */
+.spam-check-info-banner.with-border {
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+}
+
+.spam-check-score-line.with-margin {
+  margin-bottom: 4px;
+}
+
+.spam-check-score-legend {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding: 4px 6px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.spam-check-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #374151;
+}
+
+.spam-check-legend-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.spam-check-legend-dot.safe {
+  background-color: #10B981;
+}
+
+.spam-check-legend-dot.medium {
+  background-color: #F59E0B;
+}
+
+.spam-check-legend-dot.high {
+  background-color: #EF4444;
+}
+
+.spam-check-improvements-applied {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #059669;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.spam-check-improvements-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #10B981;
+  border-radius: 50%;
+}
+
+/* Variable Suggestions Popup */
+.variable-suggestions-popup {
+  position: fixed;
+  background-color: white;
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+  min-width: 200px;
+  max-width: 300px;
+  padding: 8px 0;
+  margin-top: 4px;
+}
+
+.variable-suggestion-item {
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.15s;
+}
+
+.variable-suggestion-item:hover {
+  background-color: #F3F4F6;
+}
+
+.variable-suggestion-name {
+  font-weight: 500;
+}
+
+.spam-check-result-high:hover {
+  color: #8F1D1D;
+}
+
+.spam-check-result-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spam-check-result-summary:hover {
+  color: inherit;
+}
+
+.spam-check-score-line {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.4;
+  color: inherit;
+}
+
+.spam-check-score-line:hover {
+  color: inherit;
+}
+
+.spam-check-main-reason {
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: 0.9;
+  color: inherit;
+}
+
+.spam-check-main-reason:hover {
+  color: inherit;
+}
+
+.spam-check-main-suggestion {
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: 0.9;
+  font-style: italic;
+  color: inherit;
+}
+
+.spam-check-main-suggestion:hover {
+  color: inherit;
+}
+
+/* design-system.css forces 12px/11px via .dashboard-main-container * / [class] / label !important; mobile-responsive.css forces 16px on textarea ≤767px — pin this step to 14px */
+.dashboard-main-container .campaign-email-screen .email-creation-method-label,
+.dashboard-main-container .campaign-email-screen .email-form-label,
+.dashboard-main-container .campaign-email-screen .spam-check-info-text,
+.dashboard-main-container .campaign-email-screen .email-form-textarea,
+.dashboard-main-container .campaign-email-screen .email-form-input,
+.dashboard-main-container .campaign-email-screen .email-form-select,
+.dashboard-main-container .campaign-email-screen .content-editable-input,
+.dashboard-main-container .campaign-email-screen .content-editable-textarea,
+.dashboard-main-container .campaign-email-screen .template-content-editable-input,
+.dashboard-main-container .campaign-email-screen .template-content-editable-textarea,
+.dashboard-main-container .campaign-email-screen .manual-draft-textarea {
+  font-size: 14px !important;
+}
+
+.dashboard-main-container .campaign-email-screen .cle-gen-prompt-label {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  letter-spacing: normal !important;
+  color: #030011 !important;
+}
+
+.dashboard-main-container .campaign-email-screen .cle-gen-banner-title {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.25 !important;
+  letter-spacing: normal !important;
+  color: #27272a !important;
+}
+
+.campaign-email-lead-gen-toolbar {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.campaign-email-lead-gen-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: #6d5ef0;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Urbanist', sans-serif;
+  cursor: pointer;
+}
+
+.campaign-email-lead-gen-back:hover {
+  color: #5b4de0;
+  text-decoration: underline;
+}
+

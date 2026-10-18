@@ -1,0 +1,278 @@
+/**
+ * Shared Lead Detail Panel - used wherever a lead row is clicked.
+ */
+
+/* Wrapper - full viewport for click-outside-to-close */
+.lead-detail-panel-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+}
+
+.lead-detail-panel-backdrop {
+  position: absolute;
+  inset: 0;
+  cursor: default;
+}
+
+/* Panel - white, narrower width, slide from right */
+.lead-detail-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 35%;
+  min-width: 280px;
+  max-width: 400px;
+  background-color: white;
+  border-left: 1px solid #E5E7EB;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.12);
+  z-index: 10051;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Top 84px: only close control, with horizontal insets */
+.lead-detail-panel-close-strip {
+  flex-shrink: 0;
+  min-height: 84px;
+  box-sizing: border-box;
+  padding-left: 24px;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.lead-detail-panel-close-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  border-radius: 0;
+  flex-shrink: 0;
+}
+
+.lead-detail-panel-close-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.lead-detail-panel-close-button:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #000000;
+}
+
+.lead-detail-panel-close-button:focus,
+.lead-detail-panel-close-button:focus-visible {
+  background: transparent !important;
+  outline: none !important;
+}
+
+/* Main column: left 24px, right 30px */
+.lead-detail-panel-body {
+  flex: 1;
+  min-height: 0;
+  box-sizing: border-box;
+  padding-left: 24px;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.lead-detail-panel-header {
+  padding: 0 0 16px 0;
+  border-bottom: 1px solid #E5E7EB;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.lead-detail-panel-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+}
+
+/* Company name – semibold 20, line-height 120% */
+.dashboard-main-container .lead-detail-panel-wrapper .lead-detail-panel h2.lead-detail-panel-title,
+.lead-detail-panel-wrapper .lead-detail-panel h2.lead-detail-panel-title {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  line-height: 120% !important;
+  color: #000000;
+  margin: 0;
+  font-family: Urbanist, sans-serif;
+  white-space: normal;
+  word-break: break-word;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Score chip: #9164FF, ~10px radius, 14 regular */
+.lead-detail-panel-score-badge {
+  padding: 4px 10px;
+  min-height: 10px;
+  background-color: #9164ff;
+  color: #ffffff;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: Urbanist, sans-serif;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 145%;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+/* Category / industry line under title – regular 14, 145%, #A198CE */
+.lead-detail-panel-category {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #a198ce;
+  margin: 0;
+  font-family: Urbanist, sans-serif;
+}
+
+/* Content */
+.lead-detail-panel-content {
+  padding: 16px 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.lead-detail-panel-section {
+  padding: 16px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.lead-detail-panel-section:last-child {
+  border-bottom: none;
+}
+
+/* Section titles e.g. Contact Information – semibold 16, line 28px */
+.lead-detail-panel-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 28px !important;
+  color: #000000 !important;
+  margin: 0 0 12px 0 !important;
+  font-family: Urbanist, sans-serif !important;
+}
+
+.lead-detail-panel-section-icon {
+  flex-shrink: 0;
+  color: #000000;
+}
+
+.lead-detail-panel-contact-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lead-detail-panel-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lead-detail-panel-contact-icon {
+  flex-shrink: 0;
+  color: #a198ce;
+}
+
+.lead-detail-panel-contact-text {
+  font-size: 14px;
+  color: #a198ce;
+  font-family: Urbanist, sans-serif;
+  font-weight: 400;
+  line-height: 145%;
+}
+
+.lead-detail-panel-contact-value {
+  color: #000000;
+}
+
+.lead-detail-panel-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lead-detail-panel-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+/* Detail rows: label (e.g. Industry:) + value – mixed 14 / 145% */
+.lead-detail-panel-info-label {
+  font-size: 14px !important;
+  color: #a198ce;
+  font-family: Urbanist, sans-serif;
+  font-weight: 600;
+  line-height: 145% !important;
+  flex-shrink: 0;
+}
+
+.lead-detail-panel-info-value {
+  font-size: 14px !important;
+  color: #000000;
+  font-family: Urbanist, sans-serif;
+  font-weight: 400;
+  line-height: 145% !important;
+  min-width: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.lead-detail-panel-info-value-muted {
+  color: #000000;
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Status - "Not Started" as plain red text */
+.lead-detail-panel-status-text {
+  font-size: 14px !important;
+  font-weight: 400;
+  font-family: Urbanist, sans-serif;
+  line-height: 145%;
+}
+
+/* Status badge */
+.lead-detail-panel-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 14px !important;
+  font-weight: 400;
+  font-family: Urbanist, sans-serif;
+  line-height: 145%;
+}

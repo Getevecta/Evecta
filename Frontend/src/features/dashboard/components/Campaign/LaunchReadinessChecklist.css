@@ -1,0 +1,97 @@
+.launch-readiness {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px 18px;
+  background: #fff;
+}
+
+.launch-readiness--sidebar {
+  margin-bottom: 0;
+}
+
+.launch-readiness-loading {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.launch-readiness-title {
+  margin: 0 0 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.launch-readiness-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.launch-readiness-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.launch-readiness-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.launch-readiness-item.passed .launch-readiness-icon {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.launch-readiness-item.failed .launch-readiness-icon {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.launch-readiness-item.warning .launch-readiness-icon {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.launch-readiness-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.launch-readiness-label {
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.35;
+}
+
+.launch-readiness-message {
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.launch-readiness-item.warning .launch-readiness-label {
+  color: #9a3412;
+}
+
+.launch-readiness-item.warning .launch-readiness-message {
+  color: #c2410c;
+}
+
+.launch-readiness-summary {
+  margin: 12px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #166534;
+}

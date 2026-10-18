@@ -1,0 +1,356 @@
+/**
+ * Shared dialog / confirmation UI (Save All Leads, Remove leads, Delete campaign, Template delete, Radix Dialog).
+ */
+
+.evecta-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10040;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.evecta-dialog {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10041;
+  width: min(320px, calc(100% - 32px));
+  max-width: 90vw;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 20px 20px 16px 20px;
+}
+
+@media (max-width: 767px) {
+  .evecta-dialog {
+    padding: 20px 16px 12px 16px;
+  }
+}
+
+.evecta-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+}
+
+.evecta-dialog-title {
+  margin: 0;
+  font-family: Urbanist, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 120%;
+  color: #030011;
+  flex: 1;
+  min-width: 0;
+}
+
+.evecta-dialog-close {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  padding: 6px !important;
+  cursor: pointer;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  /* index.css forces Text/M on .dashboard-main-container buttons — dialog X must opt out */
+  font-size: inherit !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+}
+
+/*
+ * Lucide X — fixed pixel size. Class must NOT include the substring "icon" or global rules
+ * in index.css / mobile-responsive.css ([class*="icon"], svg { … }) override width/height.
+ */
+button.evecta-dialog-close svg.evecta-dialog-close-x {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: none !important;
+  max-height: none !important;
+  flex-shrink: 0;
+  display: block;
+  color: inherit;
+  stroke: currentColor;
+}
+
+.evecta-dialog-close:hover,
+.evecta-dialog-close:focus,
+.evecta-dialog-close:focus-visible,
+.evecta-dialog-close:active {
+  background: transparent !important;
+  outline: none !important;
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+/* 10px between title row and body copy */
+.evecta-dialog-description {
+  margin: 10px 0 0 0;
+  font-family: Urbanist, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #374151;
+}
+
+.evecta-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* 40px tall, square footprint with slight corner rounding; fixed box + 1px border (no layout shift) */
+.evecta-dialog-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  box-sizing: border-box !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  padding: 0 16px !important;
+  border-radius: 6px !important;
+  font-family: Urbanist, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin: 0;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+  transform: none !important;
+  -webkit-tap-highlight-color: transparent;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.evecta-dialog-btn.evecta-dialog-btn--secondary {
+  color: #9164ff !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  /* Solid #D0D5DD — 30% opacity was too faint on white; full stroke stays visible */
+  border: 1px solid #d0d5dd !important;
+}
+
+.evecta-dialog-btn.evecta-dialog-btn--primary {
+  color: #ffffff !important;
+  background: #9164ff !important;
+  background-color: #9164ff !important;
+  border: 1px solid #9164ff !important;
+}
+
+.evecta-dialog-btn.evecta-dialog-btn--secondary:hover:not(:disabled),
+.evecta-dialog-btn.evecta-dialog-btn--secondary:focus-visible:not(:disabled) {
+  color: #9164ff !important;
+  background: #f9fafb !important;
+  background-color: #f9fafb !important;
+  border: 1px solid #9ca3af !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  padding: 0 16px !important;
+  border-radius: 6px !important;
+  filter: none !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transform: none !important;
+}
+
+.evecta-dialog-btn.evecta-dialog-btn--secondary:focus:not(:disabled),
+.evecta-dialog-btn.evecta-dialog-btn--secondary:active:not(:disabled) {
+  color: #9164ff !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border: 1px solid #d0d5dd !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  padding: 0 16px !important;
+  border-radius: 6px !important;
+  filter: none !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transform: none !important;
+}
+
+.evecta-dialog-btn.evecta-dialog-btn--primary:hover:not(:disabled),
+.evecta-dialog-btn.evecta-dialog-btn--primary:focus-visible:not(:disabled) {
+  color: #ffffff !important;
+  background: #8058f0 !important;
+  background-color: #8058f0 !important;
+  border: 1px solid #8058f0 !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  padding: 0 16px !important;
+  border-radius: 6px !important;
+  filter: none !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transform: none !important;
+}
+
+.evecta-dialog-btn.evecta-dialog-btn--primary:focus:not(:disabled),
+.evecta-dialog-btn.evecta-dialog-btn--primary:active:not(:disabled) {
+  color: #ffffff !important;
+  background: #9164ff !important;
+  background-color: #9164ff !important;
+  border: 1px solid #9164ff !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  padding: 0 16px !important;
+  border-radius: 6px !important;
+  filter: none !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transform: none !important;
+}
+
+/* Radix / shadcn Dialog — match typography when used */
+[data-slot="dialog-header"] {
+  gap: 10px !important;
+}
+
+[data-slot="dialog-title"] {
+  font-family: Urbanist, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  color: #030011 !important;
+}
+
+[data-slot="dialog-description"] {
+  font-family: Urbanist, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #374151 !important;
+}
+
+[data-slot="dialog-footer"] .evecta-dialog-btn,
+[data-slot="dialog-footer"] .evecta-dialog-btn--primary,
+[data-slot="dialog-footer"] .evecta-dialog-btn--secondary,
+[data-slot="dialog-footer"] .evecta-dialog-btn--destructive {
+  margin: 0;
+}
+
+/* Destructive / remove / delete — red text outline (sitewide) */
+.evecta-destructive-btn,
+button.evecta-destructive-btn,
+[data-slot="button"].evecta-destructive-btn,
+.evecta-dialog-btn.evecta-dialog-btn--destructive {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  box-sizing: border-box !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  min-width: 0 !important;
+  padding: 0 12px !important;
+  border-radius: 8px !important;
+  white-space: nowrap !important;
+  font-family: 'Urbanist', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 19.5px !important;
+  color: #ff0004 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 1px solid #ced4da !important;
+  cursor: pointer !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+  transform: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.evecta-destructive-btn svg,
+button.evecta-destructive-btn svg,
+[data-slot="button"].evecta-destructive-btn svg,
+.evecta-dialog-btn.evecta-dialog-btn--destructive svg {
+  color: #ff0004 !important;
+  stroke: #ff0004 !important;
+  flex-shrink: 0;
+}
+
+.evecta-destructive-btn:hover:not(:disabled),
+button.evecta-destructive-btn:hover:not(:disabled),
+[data-slot="button"].evecta-destructive-btn:hover:not(:disabled),
+.evecta-dialog-btn.evecta-dialog-btn--destructive:hover:not(:disabled),
+.evecta-destructive-btn:focus-visible:not(:disabled),
+button.evecta-destructive-btn:focus-visible:not(:disabled),
+[data-slot="button"].evecta-destructive-btn:focus-visible:not(:disabled),
+.evecta-dialog-btn.evecta-dialog-btn--destructive:focus-visible:not(:disabled) {
+  background: #fef2f2 !important;
+  background-color: #fef2f2 !important;
+  border-color: #fca5a5 !important;
+  color: #ff0004 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.evecta-destructive-btn:hover:not(:disabled) svg,
+button.evecta-destructive-btn:hover:not(:disabled) svg,
+[data-slot="button"].evecta-destructive-btn:hover:not(:disabled) svg,
+.evecta-dialog-btn.evecta-dialog-btn--destructive:hover:not(:disabled) svg {
+  color: #ff0004 !important;
+  stroke: #ff0004 !important;
+}
+
+.evecta-destructive-btn:disabled,
+button.evecta-destructive-btn:disabled,
+[data-slot="button"].evecta-destructive-btn:disabled,
+.evecta-dialog-btn.evecta-dialog-btn--destructive:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Dropdown / card menu delete rows — same red, no button shell */
+.evecta-destructive-menu-item,
+.evecta-destructive-menu-item span {
+  color: #ff0004 !important;
+}
+
+.evecta-destructive-menu-item svg {
+  color: #ff0004 !important;
+  stroke: #ff0004 !important;
+}
+
+.evecta-destructive-menu-item:hover,
+.evecta-destructive-menu-item:focus-visible {
+  background-color: #fef2f2 !important;
+  color: #ff0004 !important;
+}

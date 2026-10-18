@@ -1,0 +1,343 @@
+/* Centralized table design - change here to update ALL tables */
+@import './shared/styles/DashboardTableShared.css';
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.main-content {
+  flex: 1;
+  min-height: 100vh;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  /* S: Full width, no margin */
+  margin-left: 0;
+}
+
+/* M: Add sidebar margin */
+@media (min-width: 768px) {
+  .main-content {
+    margin-left: 80px;
+  }
+}
+
+/* L: Full sidebar margin */
+@media (min-width: 1024px) {
+  .main-content {
+    margin-left: 120px;
+  }
+}
+
+
+
+/* When sidebar is hidden */
+.main-content.sidebar-hidden {
+  margin-left: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  position: relative !important;
+  left: 0 !important;
+}
+
+
+
+/* Global styles for dashboard page headers when sidebar is hidden */
+.main-content.sidebar-hidden .dashboard-header,
+.main-content.sidebar-hidden .page-header {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: 0 !important;
+  position: relative !important;
+  left: 0 !important;
+}
+
+/* Global styles for dashboard content areas when sidebar is hidden */
+.main-content.sidebar-hidden .dashboard-content,
+.main-content.sidebar-hidden .page-content {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: 0 !important;
+  position: relative !important;
+  left: 0 !important;
+}
+
+/* Basic styling for placeholder dashboard pages */
+.campaigns-page,
+.email-sequences-page,
+.email-templates-page,
+.analytics-page,
+.user-management-page,
+.admin-dashboard-page {
+  padding: 24px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* When sidebar is collapsed */
+.app .sidebar.collapsed + .main-content {
+  margin-left: 120px;
+}
+
+/* Global transitions */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Mobile sidebar overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none; /* Allow clicks to pass through to elements behind */
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto; /* Enable clicks when active */
+}
+
+/* Ensure sidebar is always above overlay and clickable */
+.sidebar.mobile-open {
+  z-index: 1002 !important;
+  pointer-events: auto !important;
+}
+
+.sidebar.mobile-open * {
+  pointer-events: auto !important;
+}
+
+.sidebar.mobile-open .mobile-close-button {
+  z-index: 1003 !important;
+  pointer-events: auto !important;
+  position: relative !important;
+}
+
+/* Mobile hamburger menu */
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1001;
+  background: white;
+  border: 0.5px solid #E5E7EB;
+  border-radius: 4px;
+  padding: 2px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide hamburger menu when sidebar is open */
+.mobile-menu-toggle.sidebar-open {
+  display: none !important;
+}
+
+/* Hide hamburger menu when sidebar is open (additional check) */
+.sidebar.mobile-open ~ .main-content .mobile-menu-toggle,
+.sidebar.mobile-open + .main-content .mobile-menu-toggle {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+.mobile-menu-toggle:hover {
+  background: #F9FAFB;
+  transform: scale(1.05);
+}
+
+.mobile-menu-toggle svg {
+  width: 16px;
+  height: 16px;
+  color: #1F2937;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Responsive adjustments - Using S/M/L breakpoints */
+
+/* S: Small screens (0-767px) - Mobile */
+.mobile-menu-toggle {
+  display: flex;
+  position: fixed;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  z-index: 1001;
+  background: white;
+  border: 0.5px solid #E5E7EB;
+  border-radius: 4px;
+  padding: var(--spacing-xs);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu-toggle svg {
+  width: 16px;
+  height: 16px;
+  color: #1F2937;
+  display: block;
+  margin: 0 auto;
+}
+
+.mobile-menu-toggle.sidebar-open {
+  display: none !important;
+}
+
+/* Hide hamburger menu when sidebar is open - ensure it's completely hidden */
+.sidebar.mobile-open ~ .main-content .mobile-menu-toggle,
+.sidebar.mobile-open + .main-content .mobile-menu-toggle,
+.app:has(.sidebar.mobile-open) .mobile-menu-toggle,
+.sidebar.mobile-open ~ .mobile-menu-toggle,
+.sidebar.mobile-open + .mobile-menu-toggle {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hide hamburger icon inside sidebar header */
+.sidebar .mobile-menu-toggle,
+.sidebar-header .mobile-menu-toggle,
+.sidebar .sidebar-header .mobile-menu-toggle {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hide sidebar on mobile by default */
+.sidebar {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.sidebar.mobile-open {
+  transform: translateX(0);
+}
+
+/* Hide hamburger icon when sidebar is open - ensure it doesn't appear inside sidebar */
+.sidebar.mobile-open ~ .mobile-menu-toggle,
+.sidebar.mobile-open + .mobile-menu-toggle,
+.app:has(.sidebar.mobile-open) .mobile-menu-toggle {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+/* Dashboard should always take full width on mobile */
+.app:has(.dashboard-page) .main-content {
+  margin-left: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.app .sidebar.collapsed + .main-content {
+  margin-left: 0;
+}
+
+/* M: Medium screens (768px-1023px) - Tablets */
+@media (min-width: 768px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+  
+  .main-content {
+    margin-left: 80px;
+  }
+  
+  .app .sidebar.collapsed + .main-content {
+    margin-left: 80px;
+  }
+  
+  /* Dashboard should always take full width */
+  .app:has(.dashboard-page) .main-content {
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .sidebar {
+    transform: translateX(0);
+  }
+}
+
+/* L: Large screens (1024px+) - Desktop */
+@media (min-width: 1024px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+  
+  .main-content {
+    margin-left: 120px;
+  }
+  
+  .app .sidebar.collapsed + .main-content {
+    margin-left: 120px;
+  }
+  
+  /* Dashboard should always take full width */
+  .app:has(.dashboard-page) .main-content {
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Loading styles */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 16px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #F3F4F6;
+  border-top: 4px solid #6B21A8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-container p {
+  font-size: 16px;
+  margin: 0;
+}

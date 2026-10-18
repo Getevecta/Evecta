@@ -1,0 +1,82 @@
+/* Page Wrapper - Clean Design */
+.page-wrapper {
+  min-height: 100vh;
+  position: relative;
+  background: #F5F5F5;
+  border-radius: 20px;
+  margin: 2px;
+  overflow: hidden;
+}
+
+
+/* When sidebar is hidden, remove margins and border-radius for full width */
+.main-content.sidebar-hidden .page-wrapper {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+}
+
+/* Page Content */
+.page-content {
+  position: relative;
+  padding: 4px 4px 4px 0;
+  min-height: 100vh;
+  background: transparent;
+}
+
+/* When sidebar is hidden, remove padding for full width */
+.main-content.sidebar-hidden .page-content {
+  padding: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+}
+
+/* Content Cards - Clean Design - Responsive padding */
+.content-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  /* S: Small screens - Responsive padding defined in media queries below */
+  padding: var(--spacing-lg);
+  margin: var(--spacing-md) 0;
+}
+
+/* Responsive Design - Using S/M/L breakpoints */
+/* S: Small screens (0-767px) */
+.page-content {
+  padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) 0;
+}
+
+.content-card {
+  padding: var(--spacing-lg);
+  margin: var(--spacing-md) 0;
+}
+
+/* M: Medium screens (768px-1023px) */
+@media (min-width: 768px) {
+  .page-content {
+    padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) 0;
+  }
+  
+  .content-card {
+    padding: var(--spacing-xl);
+    margin: var(--spacing-lg) 0;
+  }
+}
+
+/* L: Large screens (1024px+) */
+@media (min-width: 1024px) {
+  .page-content {
+    padding: 4px 4px 4px 0;
+  }
+  
+  .content-card {
+    padding: 30px;
+    margin: var(--spacing-xl) 0;
+  }
+}

@@ -1,0 +1,345 @@
+.admin-users {
+  padding: 0 2px 0;
+  font-family: 'Urbanist', system-ui, sans-serif;
+  color: #111827;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.admin-users__intro {
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.admin-users__subtitle {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #a198ce;
+  max-width: 48rem;
+}
+
+.admin-users__filter-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border: 1px solid #ced4da;
+  border-radius: 16px;
+  background: #ffffff;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.admin-users__search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+  max-width: 300px;
+  flex: 1 1 200px;
+}
+
+.admin-users__search-icon {
+  position: absolute;
+  left: 10px;
+  color: #6b7280;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.admin-users__search-input {
+  width: 100%;
+  height: 36px;
+  padding: 0 12px 0 32px;
+  box-sizing: border-box;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'Urbanist', sans-serif;
+  color: #030011;
+  background: #fff;
+}
+
+.admin-users__filter-spacer {
+  flex: 1 1 8px;
+  min-width: 8px;
+}
+
+.admin-users__refresh {
+  gap: 4px;
+  height: 36px !important;
+  min-height: 36px !important;
+  padding: 0 12px !important;
+  font-size: 12px !important;
+}
+
+.admin-users__main {
+  border: 1px solid #ced4da;
+  border-radius: 16px;
+  background: #ffffff;
+  overflow: hidden;
+  flex: 1 1 0%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-users__table-wrap {
+  padding: 0;
+  flex: 1 1 0%;
+  min-height: 0;
+  overflow: auto;
+  background: #ffffff;
+  isolation: isolate;
+}
+
+.admin-users__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 880px;
+}
+
+.admin-users__table th,
+.admin-users__table td {
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid #eef0f3;
+  font-size: 13px;
+}
+
+/* Match Lead Database sticky header — opaque so rows scroll fully behind it */
+.admin-users__table thead {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #f3f4f6 !important;
+  background-color: #f3f4f6 !important;
+}
+
+.admin-users__table thead tr {
+  background: #f3f4f6 !important;
+  background-color: #f3f4f6 !important;
+}
+
+.admin-users__table thead th {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #6b7280;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #f3f4f6 !important;
+  background-color: #f3f4f6 !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  /* Solid slab above + below so nothing peeks through while scrolling */
+  box-shadow:
+    0 1px 0 #e5e7eb,
+    0 -32px 0 0 #f3f4f6;
+}
+
+.admin-users__table tbody {
+  position: relative;
+  z-index: 0;
+}
+
+.admin-users__table tbody td {
+  position: relative;
+  z-index: 0;
+  background-color: #ffffff;
+}
+
+.admin-users__table tbody tr:hover td {
+  background-color: #faf9ff;
+}
+
+.admin-users__user-primary {
+  font-weight: 600;
+  color: #030011;
+}
+
+.admin-users__muted {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.admin-users__badge {
+  display: inline-block;
+  margin-top: 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.admin-users__badge--active {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.admin-users__badge--inactive {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.admin-users__badge--verified {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.admin-users__badge--unverified {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.admin-users__plan {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: capitalize;
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.admin-users__plan--free {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.admin-users__plan--starter {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.admin-users__plan--growth {
+  background: #f5f3ff;
+  color: #6d28d9;
+}
+
+.admin-users__plan--scale {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.admin-users__plan-dropdown {
+  width: 140px;
+  min-width: 140px;
+}
+
+.admin-users__plan-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.admin-users__link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b21a8;
+  cursor: pointer;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.admin-users__link-btn:hover:not(:disabled) {
+  text-decoration: underline;
+  color: #581c87;
+}
+
+.admin-users__link-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.admin-users__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background: #ffffff;
+  cursor: pointer;
+  color: #6b21a8;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.admin-users__icon-btn:hover:not(:disabled) {
+  background: #f8f5ff;
+  border-color: #c4b5fd;
+}
+
+.admin-users__icon-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.admin-users__icon-btn--save {
+  color: #15803d;
+}
+
+.admin-users__icon-btn--save:hover:not(:disabled) {
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #166534;
+}
+
+.admin-users__icon-btn--cancel {
+  color: #6b7280;
+}
+
+.admin-users__icon-btn--cancel:hover:not(:disabled) {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+.admin-users__row--editing {
+  background: #faf8ff;
+}
+
+.admin-users__row--editing td {
+  background-color: #faf8ff;
+  z-index: 1;
+}
+
+.admin-users .dashboard-pagination-fixed {
+  padding: 0 14px;
+  border-top: 1px solid #eef0f3;
+}
+
+@media (max-width: 720px) {
+  .admin-users__search {
+    max-width: none;
+    flex: 1 1 100%;
+  }
+}

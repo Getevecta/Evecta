@@ -1,0 +1,155 @@
+/* No Internet — typography, spacing, and layout aligned with NotFoundPage */
+.no-internet-container {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: url('/No_internet-connection.jpg') center center / cover no-repeat;
+  background-color: #F0E5FF;
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.no-internet-logo {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  text-decoration: none;
+  color: #000;
+  z-index: 10;
+}
+
+.no-internet-logo:hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.no-internet-logo:focus,
+.no-internet-logo:focus-visible,
+.no-internet-logo:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.no-internet-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 520px;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  margin-top: 22rem;
+  transform: translateY(4rem);
+}
+
+.no-internet-oops {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+  text-align: center;
+  background: linear-gradient(90deg, #c080f0 0%, #6c30a0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.no-internet-title {
+  font-size: 30px;
+  font-weight: 500;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+  line-height: 120%;
+}
+
+.no-internet-description {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 0 2.5rem 0;
+  line-height: 145%;
+}
+
+.no-internet-desc-line {
+  color: #A198CE;
+}
+
+.no-internet-retry-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 1rem;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 145%;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  background: #7C3AED;
+  color: #FFFFFF;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.no-internet-retry-button:hover {
+  background: #7C3AED;
+  color: #FFFFFF;
+}
+
+.no-internet-retry-button:active {
+  background: #5B21B6;
+  transform: translateY(0);
+}
+
+.no-internet-retry-button:focus {
+  outline: none;
+}
+
+.no-internet-retry-icon {
+  flex-shrink: 0;
+}
+
+.no-internet-retry-icon-spin {
+  animation: no-internet-spin 1s linear infinite;
+}
+
+@keyframes no-internet-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .no-internet-container {
+    padding: 1rem;
+  }
+
+  .no-internet-content {
+    padding: 1.5rem 1rem;
+    margin-top: 16rem;
+    transform: translateY(3.5rem);
+  }
+}

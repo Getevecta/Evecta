@@ -1,0 +1,159 @@
+/* Desktop Required blocker - same structure as no-internet page */
+.dashboard-mobile-blocker {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: url('/Verification%20OTP.jpg') center center / cover no-repeat;
+  background-color: #F0E5FF;
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Logo - top-left, same as no-internet page */
+.dashboard-blocker-logo {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  text-decoration: none;
+  color: #000;
+  z-index: 10;
+}
+
+.dashboard-blocker-logo:hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.dashboard-blocker-logo:focus,
+.dashboard-blocker-logo:focus-visible,
+.dashboard-blocker-logo:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* Content - same placement as no-internet (margin-top pushes it down), narrower width */
+.dashboard-blocker-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  margin-top: 16rem;
+}
+
+/* AI Lead Gen Slack icon in gradient above title - same as dashboard header */
+.dashboard-blocker-slack-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.dashboard-blocker-slack-icon svg {
+  display: block;
+}
+
+/* Main heading - bold, almost black */
+.dashboard-blocker-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.3;
+}
+
+/* Instructional text - purple */
+.dashboard-blocker-description {
+  font-size: 1rem;
+  color: #A198CE;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.5;
+}
+
+.dashboard-blocker-secondary {
+  font-size: 0.9375rem;
+  color: #A198CE;
+  margin: 0 0 2rem 0;
+  line-height: 1.5;
+}
+
+/* Logout button - same style as no-internet Retry button */
+.dashboard-blocker-logout-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 1rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  background: #7C3AED;
+  color: #FFFFFF;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.dashboard-blocker-logout-button:hover {
+  background: #6D28D9;
+  color: #FFFFFF;
+}
+
+.dashboard-blocker-logout-button:active {
+  background: #5B21B6;
+  transform: translateY(0);
+}
+
+.dashboard-blocker-logout-button:focus {
+  outline: none;
+}
+
+.dashboard-blocker-footer {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #7C3AED;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 640px) {
+  .dashboard-mobile-blocker {
+    padding: 1rem;
+  }
+
+  .dashboard-blocker-content {
+    padding: 1.5rem 1rem;
+    margin-top: 20rem;
+  }
+
+  .dashboard-blocker-title {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-blocker-description,
+  .dashboard-blocker-secondary {
+    font-size: 0.9375rem;
+  }
+}

@@ -1,0 +1,10 @@
+# Enforce LF line endings for all text files
+* text=auto eol=lf
+
+# Python and config files must always use LF
+*.py text eol=lf
+*.ini text eol=lf
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.mako text eol=lf

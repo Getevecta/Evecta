@@ -1,0 +1,976 @@
+/* Global style to ensure Select / Popover dropdowns appear above modal */
+body > [data-radix-portal] [data-slot="select-content"],
+body > [data-radix-portal] [data-radix-select-content],
+body > [data-radix-portal] [data-radix-popover-content] {
+  z-index: 10001 !important;
+}
+
+.profile-settings-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(100, 90, 130, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 10px;
+}
+
+.profile-settings-modal {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: 680px;
+  width: 100%;
+  max-height: 95vh;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  z-index: 10000;
+}
+
+.profile-settings-inline {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.profile-settings-header {
+  padding: 20px 20px 16px 20px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Override dashboard global h1 - higher specificity + !important so our size wins */
+.profile-settings-modal .profile-settings-header h1.profile-settings-title,
+.profile-settings-inline .profile-settings-header h1.profile-settings-title {
+  font-size: 20px !important;
+  line-height: 120% !important;
+  font-weight: 500 !important;
+  color: #1a1a1a !important;
+  margin: 0 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.profile-settings-subtitle {
+  font-size: 14px;
+  line-height: 145%;
+  font-weight: 400;
+  color: #a198ce;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.profile-settings-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.profile-settings-progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #111827;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.profile-settings-progress-info span:last-child {
+  color: #6B7280;
+}
+
+.profile-settings-progress-bar {
+  width: 100%;
+  height: 5px;
+  background-color: #F3F4F6;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.profile-settings-progress-fill {
+  height: 100%;
+  background-color: #9333EA;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  width: var(--progress-percent, 0%);
+}
+
+.profile-settings-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 24px 20px 20px 20px;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-settings-step {
+  display: flex;
+  flex-direction: column;
+  /* Tighter vertical spacing between header, description and form */
+  gap: 2px;
+}
+
+.profile-settings-section-header {
+  /* Container for the section title; spacing handled by the title element */
+  margin-bottom: 0;
+}
+
+.profile-settings-section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  font-size: var(--typography-helper-text-size-s);
+  line-height: 1.2;
+  font-weight: 600;
+  color: #111827;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.profile-settings-section-title svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+@media (min-width: 768px) {
+  .profile-settings-section-title {
+    font-size: var(--typography-helper-text-size-m);
+    line-height: var(--typography-helper-text-line-m);
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile-settings-section-title {
+    font-size: var(--typography-helper-text-size-l);
+    line-height: var(--typography-helper-text-line-l);
+  }
+}
+
+.profile-settings-section-description {
+  font-size: 10px;
+  color: #6B7280;
+  /* Minimal space under section description */
+  margin: 0 0 2px 0;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.3;
+}
+
+.profile-settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-settings-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+}
+
+@media (max-width: 540px) {
+  .profile-settings-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.profile-settings-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-settings-error-message {
+  color: #DC2626;
+  font-size: 10px;
+  font-weight: 500;
+  margin-top: 2px;
+  margin-left: 2px;
+  font-family: 'Urbanist', sans-serif;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-settings-field label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-settings-field > *:not(label) {
+  margin-top: 0 !important;
+}
+
+.profile-settings-field .optional {
+  font-weight: 400;
+  color: #6B7280;
+}
+
+/* Match sign-in input design: shape, size, color */
+.profile-settings-input {
+  width: 100%;
+  min-height: 44px;
+  height: 44px;
+  padding: 0 1rem;
+  font-size: 0.9375rem !important;
+  font-weight: 400;
+  border: 1px solid #A198CE;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Urbanist', sans-serif;
+  transition: border-color 0.2s;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  box-sizing: border-box;
+}
+
+.profile-settings-input::placeholder {
+  color: #A198CE !important;
+}
+
+.profile-settings-input::-webkit-input-placeholder {
+  color: #A198CE !important;
+}
+
+.profile-settings-input::-moz-placeholder {
+  color: #A198CE !important;
+  opacity: 1;
+}
+
+.profile-settings-input:focus {
+  outline: none;
+  border-color: #A198CE;
+  box-shadow: none;
+}
+
+.profile-settings-input.error {
+  border-color: #EF4444 !important;
+  background-color: #FEF2F2 !important;
+}
+
+.profile-settings-input.error:focus {
+  border-color: #EF4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+.profile-settings-select {
+  width: 100%;
+  font-size: 0.9375rem;
+  font-family: 'Urbanist', sans-serif;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
+
+
+.profile-settings-field .profile-settings-select {
+  margin-top: 0 !important;
+  padding: 0px 10px !important;
+}
+
+/* Match sign-in input design: shape, size, color */
+button.profile-settings-select,
+.profile-settings-select[data-slot="select-trigger"] {
+  min-height: 44px !important;
+  height: 44px !important;
+  padding: 0 1rem !important;
+  font-size: 0.9375rem !important;
+  font-weight: 400;
+  box-sizing: border-box !important;
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  border: 1px solid #A198CE !important;
+  border-radius: 12px;
+}
+
+button.profile-settings-select:focus-visible,
+.profile-settings-select[data-slot="select-trigger"]:focus-visible {
+  border-color: #A198CE !important;
+  outline: none;
+  box-shadow: none;
+}
+
+/* No hover / focus color or background shift on profile dropdown triggers */
+button.profile-settings-select:hover,
+button.profile-settings-select:focus,
+button.profile-settings-select:active,
+.profile-settings-select[data-slot="select-trigger"]:hover,
+.profile-settings-select[data-slot="select-trigger"]:focus,
+.profile-settings-select[data-slot="select-trigger"]:active {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #a198ce !important;
+  border-color: #a198ce !important;
+  box-shadow: none !important;
+}
+
+button.profile-settings-select:hover *,
+button.profile-settings-select:focus *,
+.profile-settings-select[data-slot="select-trigger"]:hover *,
+.profile-settings-select[data-slot="select-trigger"]:focus * {
+  color: #a198ce !important;
+  opacity: 1 !important;
+}
+
+button.profile-settings-select:hover .profile-settings-select-chevron,
+button.profile-settings-select:focus .profile-settings-select-chevron,
+.profile-settings-select[data-slot="select-trigger"]:hover .profile-settings-select-chevron,
+.profile-settings-select[data-slot="select-trigger"]:focus .profile-settings-select-chevron {
+  color: #a198ce !important;
+  opacity: 0.5 !important;
+}
+
+/* Searchable select: trigger layout + placeholder */
+button.profile-settings-select.profile-settings-searchable-trigger {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+}
+
+.profile-settings-searchable-trigger [data-slot='select-value'] {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-settings-searchable-placeholder {
+  color: #a198ce !important;
+}
+
+.profile-settings-select-chevron {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+/* Single-input combobox: type here; suggestions list is separate */
+.profile-settings-combobox {
+  position: relative;
+  width: 100%;
+}
+
+.profile-settings-combobox-input {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 44px;
+  height: 44px;
+  padding: 0 2.75rem 0 1rem;
+  margin: 0;
+  font-size: 0.9375rem !important;
+  font-weight: 400;
+  font-family: 'Urbanist', sans-serif;
+  border: 1px solid #a198ce;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #1a1a1a;
+  outline: none;
+}
+
+.profile-settings-combobox-input::placeholder {
+  color: #a198ce;
+  opacity: 0.9;
+}
+
+.profile-settings-combobox-input:focus {
+  border-color: #a198ce;
+  box-shadow: none;
+  outline: none;
+}
+
+.profile-settings-combobox-input-placeholder:not(:focus) {
+  color: #a198ce;
+}
+
+.profile-settings-combobox-chevron {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #a198ce;
+  cursor: pointer;
+}
+
+.profile-settings-combobox-chevron:hover,
+.profile-settings-combobox-chevron:focus-visible {
+  background: transparent;
+  color: #a198ce;
+  outline: none;
+}
+
+.profile-settings-combobox-error .profile-settings-combobox-input {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+/* Popover list: filter + options — no hover background/color change */
+.profile-settings-searchable-popover-content {
+  box-sizing: border-box;
+  padding: 8px;
+  background: #ffffff;
+  border: 1px solid #a198ce;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+}
+
+.profile-settings-searchable-popover-suggestions {
+  padding: 4px 6px 8px;
+}
+
+.profile-settings-searchable-filter-input {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 40px;
+  margin: 0 0 8px 0;
+  padding: 0 12px;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  font-family: 'Urbanist', sans-serif;
+  border: 1px solid #a198ce;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1a1a1a;
+  caret-color: #1a1a1a;
+  outline: none;
+}
+
+.profile-settings-searchable-filter-input::placeholder {
+  color: #a198ce;
+  opacity: 0.7;
+}
+
+.profile-settings-searchable-filter-input:focus {
+  border-color: #a198ce;
+  box-shadow: none;
+  outline: none;
+}
+
+.profile-settings-searchable-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  max-height: min(52vh, 360px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.profile-settings-searchable-list > li {
+  margin: 0;
+  padding: 0;
+}
+
+/* One hairline between rows (avoid li border-top + button edge reading as a double rule) */
+.profile-settings-searchable-list > li:not(:last-child)::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background-color: #e5e7eb;
+  margin: 0;
+}
+
+.profile-settings-searchable-empty {
+  padding: 10px 12px;
+  font-size: 0.8125rem;
+  font-family: 'Urbanist', sans-serif;
+  color: #a198ce;
+}
+
+/* Portaled to document.body — excluded from mobile-responsive global buttons; WebKit needs appearance reset + flex for glyph clipping */
+body .profile-settings-searchable-list button.profile-settings-searchable-option {
+  -webkit-appearance: none;
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  text-align: left;
+  font: 400 0.9375rem/1.5 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  letter-spacing: normal !important;
+  color: #1a1a1a;
+  cursor: pointer;
+  min-height: unset !important;
+  height: auto !important;
+  max-height: none !important;
+  min-width: unset !important;
+  overflow: visible;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.profile-settings-searchable-option:hover,
+.profile-settings-searchable-option:focus-visible {
+  background: transparent !important;
+  color: #1a1a1a !important;
+  outline: none;
+}
+
+/* Override Tailwind border-input and bg-input-background on the trigger */
+button.profile-settings-select,
+.profile-settings-select[data-slot="select-trigger"] {
+  background-color: white !important;
+  background: white !important;
+}
+
+/* Override Tailwind padding classes to match input field */
+.profile-settings-select [data-radix-select-trigger].px-3,
+.profile-settings-select [data-slot="select-trigger"].px-3 {
+  padding: 8px 16px !important;
+}
+
+.profile-settings-select [data-radix-select-trigger].py-2,
+.profile-settings-select [data-slot="select-trigger"].py-2 {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+
+.profile-settings-select [data-radix-select-trigger] * {
+  font-size: 0.9375rem !important;
+  font-weight: 400;
+}
+
+.profile-settings-select [data-radix-select-trigger] span {
+  font-size: 0.9375rem !important;
+  font-weight: 400;
+}
+
+.profile-settings-select [data-slot="select-value"] {
+  font-size: 0.9375rem !important;
+  font-weight: 400;
+  color: #A198CE !important;
+}
+
+/* Dropdown text color A198CE (selected value and placeholder) */
+.profile-settings-select [data-radix-select-trigger],
+.profile-settings-select [data-slot="select-trigger"],
+.profile-settings-select [data-radix-select-trigger] *,
+.profile-settings-select [data-slot="select-trigger"] *,
+.profile-settings-select [data-radix-select-trigger] span,
+.profile-settings-select [data-slot="select-trigger"] span {
+  color: #A198CE !important;
+}
+
+/* Ensure placeholder text has proper spacing and color */
+.profile-settings-select [data-radix-select-trigger][data-placeholder],
+.profile-settings-select [data-slot="select-trigger"][data-placeholder] {
+  padding: 8px 16px !important;
+}
+
+.profile-settings-select [data-radix-select-trigger][data-placeholder] *,
+.profile-settings-select [data-slot="select-trigger"][data-placeholder] *,
+.profile-settings-select [data-radix-select-trigger][data-placeholder] span,
+.profile-settings-select [data-slot="select-trigger"][data-placeholder] span {
+  color: #A198CE !important;
+}
+
+
+/* Additional override for placeholder state */
+.profile-settings-select [data-radix-select-trigger] span[data-placeholder] {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.profile-settings-select.error [data-radix-select-trigger],
+.profile-settings-select.error [data-slot="select-trigger"] {
+  border-color: #EF4444 !important;
+  background-color: #FEF2F2 !important;
+}
+
+.profile-settings-select.error [data-radix-select-trigger]:focus,
+.profile-settings-select.error [data-slot="select-trigger"]:focus {
+  border-color: #EF4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+.profile-settings-select [data-radix-select-content] {
+  font-size: 0.9375rem;
+}
+
+/* Ensure Select dropdown portal appears above modal */
+.profile-settings-select-content,
+[data-slot="select-content"].profile-settings-select-content,
+[data-radix-select-content].profile-settings-select-content {
+  z-index: 10001 !important;
+}
+
+/* Global override for Select dropdown content to appear above modal overlay */
+body > [data-radix-portal] [data-slot="select-content"],
+body > [data-radix-portal] [data-radix-select-content],
+body > [data-radix-portal] .profile-settings-select-content {
+  z-index: 10001 !important;
+}
+
+/* Target the Radix Portal container when it contains select content */
+body > [data-radix-portal]:has([data-slot="select-content"]),
+body > [data-radix-portal]:has([data-radix-select-content]) {
+  z-index: 10001 !important;
+}
+
+.profile-settings-select [data-radix-select-item] {
+  font-size: 0.9375rem;
+  padding: 6px 10px;
+}
+
+.profile-settings-footer {
+  padding: 12px 20px 16px 20px;
+  border-top: 1px solid #E5E7EB;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.profile-settings-footer-single {
+  justify-content: flex-end;
+}
+
+.profile-settings-footer-left,
+.profile-settings-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-settings-pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.profile-settings-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #D1D5DB;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.profile-settings-dot.active {
+  background-color: #9333EA;
+  width: 18px;
+  border-radius: 3px;
+}
+
+.profile-settings-navigation {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.profile-settings-button {
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  font-family: 'Urbanist', sans-serif;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-settings-button:active:not(:disabled) {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+.profile-settings-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.profile-settings-button-image {
+  display: block;
+  max-height: 100%;
+  border: none;
+  outline: none;
+  width: auto;
+  height: auto;
+  background: transparent;
+}
+
+/* Remove background, padding, and borders from buttons with SVG images to prevent double border effect */
+.profile-settings-button-image-only {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  min-width: auto;
+  min-height: auto;
+}
+
+.profile-settings-button-image-only:hover:not(:disabled) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: translateY(-1px) scale(1.02);
+  opacity: 0.9;
+}
+
+.profile-settings-button-image-only:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  opacity: 0.8;
+}
+
+.profile-settings-button-image-only:focus {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.profile-settings-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.profile-settings-button-cancel {
+  background-color: #F3F4F6;
+  color: #111827;
+}
+
+.profile-settings-button-cancel:hover:not(:disabled) {
+  background-color: #E5E7EB;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-settings-button-cancel:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.profile-settings-button-back {
+  background-color: #F3F4F6;
+  color: #111827;
+}
+
+.profile-settings-button-back:hover:not(:disabled) {
+  background-color: #E5E7EB;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-settings-button-back:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary — same footprint as global .evecta-primary-btn */
+.profile-settings-button-primary {
+  background-color: #9164ff;
+  color: #ffffff;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 19.5px !important;
+  min-width: 126px !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  padding: 0 12px !important;
+  box-sizing: border-box !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+}
+
+.profile-settings-button-primary:hover:not(:disabled),
+.profile-settings-button-primary:active:not(:disabled),
+.profile-settings-button-primary:focus {
+  background-color: #9164ff !important;
+  color: #ffffff !important;
+  border-color: rgba(208, 213, 221, 0.3) !important;
+  transform: none;
+  box-shadow: none;
+  opacity: 1;
+  filter: none;
+}
+
+/* Complete Setup */
+.profile-settings-button-complete {
+  min-width: 126px !important;
+  border-radius: 8px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .profile-settings-modal {
+    max-width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .profile-settings-header,
+  .profile-settings-content,
+  .profile-settings-footer {
+    padding: 24px 20px;
+  }
+
+  .profile-settings-footer {
+    flex-wrap: wrap;
+  }
+
+  .profile-settings-pagination {
+    order: -1;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Win over design-system.css `.dashboard-main-container *` and scoped h1/p/label
+   rules (they use !important + higher specificity than plain .profile-settings-*).
+   --------------------------------------------------------------------------- */
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-modal .profile-settings-header h1.profile-settings-title,
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-inline .profile-settings-header h1.profile-settings-title,
+#root .dashboard-main-container .profile-settings-modal .profile-settings-header h1.profile-settings-title,
+#root .dashboard-main-container .profile-settings-inline .profile-settings-header h1.profile-settings-title {
+  font-size: 20px !important;
+  line-height: 120% !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+  color: #1a1a1a !important;
+  margin: 0 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-modal p.profile-settings-subtitle,
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-inline p.profile-settings-subtitle,
+#root .dashboard-main-container .profile-settings-modal p.profile-settings-subtitle,
+#root .dashboard-main-container .profile-settings-inline p.profile-settings-subtitle {
+  font-size: 14px !important;
+  line-height: 145% !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+  color: #a198ce !important;
+  margin: 0 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-modal .profile-settings-field > label,
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-inline .profile-settings-field > label,
+#root .dashboard-main-container .profile-settings-modal .profile-settings-field > label,
+#root .dashboard-main-container .profile-settings-inline .profile-settings-field > label {
+  font-size: 14px !important;
+  line-height: 28px !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+  color: #1a1a1a !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-modal .profile-settings-field-lead-expectation > label,
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-inline .profile-settings-field-lead-expectation > label,
+#root .dashboard-main-container .profile-settings-modal .profile-settings-field-lead-expectation > label,
+#root .dashboard-main-container .profile-settings-inline .profile-settings-field-lead-expectation > label {
+  white-space: nowrap !important;
+  letter-spacing: -0.02em !important;
+}
+
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-modal .profile-settings-combobox-input,
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-inline .profile-settings-combobox-input,
+#root .dashboard-main-container .profile-settings-modal .profile-settings-combobox-input,
+#root .dashboard-main-container .profile-settings-inline .profile-settings-combobox-input {
+  font-size: 0.9375rem !important;
+  line-height: normal !important;
+  letter-spacing: normal !important;
+  font-weight: 400 !important;
+}
+
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-modal button.profile-settings-select,
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-inline button.profile-settings-select,
+#root .dashboard-main-container .profile-settings-modal button.profile-settings-select,
+#root .dashboard-main-container .profile-settings-inline button.profile-settings-select {
+  font-size: 0.9375rem !important;
+  line-height: normal !important;
+  letter-spacing: normal !important;
+}
+
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-modal .profile-settings-error-message,
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-inline .profile-settings-error-message,
+#root .dashboard-main-container .profile-settings-modal .profile-settings-error-message,
+#root .dashboard-main-container .profile-settings-inline .profile-settings-error-message {
+  font-size: 10px !important;
+  line-height: 1.35 !important;
+  letter-spacing: normal !important;
+}
+
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-modal .profile-settings-button,
+#root .dashboard-main-container .profile-settings-overlay .profile-settings-inline .profile-settings-button,
+#root .dashboard-main-container .profile-settings-modal .profile-settings-button,
+#root .dashboard-main-container .profile-settings-inline .profile-settings-button {
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  letter-spacing: normal !important;
+}
+

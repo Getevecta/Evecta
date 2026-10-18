@@ -1,0 +1,136 @@
+/* Shared layout for pagination at end of screen (like Search History) */
+.dashboard-content-with-pagination {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  min-height: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.dashboard-pagination-scroll-area {
+  flex: 1 1 0%;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.dashboard-pagination-fixed {
+  flex-shrink: 0;
+  margin-top: auto;
+  border-top: 1px solid #E5E7EB;
+  background-color: white;
+}
+
+/* Dashboard Pagination - Shared minimalist design (same as Search History) */
+.dashboard-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 12px;
+  font-family: Urbanist, sans-serif;
+  min-height: 36px;
+  width: 100%;
+}
+
+.dashboard-pagination-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dashboard-pagination-showing {
+  color: #A198CE;
+  font-weight: 500;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.dashboard-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dashboard-pagination-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: white;
+  border: 1px solid #DEE2E6;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #212529;
+  padding: 0;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.dashboard-pagination-btn:hover:not(:disabled) {
+  background-color: #F8F9FA;
+  border-color: #CED4DA;
+}
+
+.dashboard-pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dashboard-pagination-btn:focus {
+  outline: none;
+}
+
+.dashboard-pagination-page {
+  color: #212529;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dashboard-pagination-show-label {
+  color: #212529;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dashboard-pagination-select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.dashboard-pagination-select {
+  appearance: none;
+  padding: 6px 28px 6px 10px;
+  border: 1px solid #DEE2E6;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: Urbanist, sans-serif;
+  background-color: white;
+  color: #212529;
+  cursor: pointer;
+  min-width: 56px;
+  height: 28px;
+}
+
+.dashboard-pagination-select:hover {
+  border-color: #CED4DA;
+}
+
+.dashboard-pagination-select:focus {
+  outline: none;
+  border-color: #ADB5BD;
+}
+
+.dashboard-pagination-select-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #212529;
+  pointer-events: none;
+}

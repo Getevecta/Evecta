@@ -1,0 +1,217 @@
+.imap-consent-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 20px;
+}
+
+.imap-consent-card.consent-form-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(145, 100, 255, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.consent-form-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  width: 100%;
+  align-self: stretch;
+}
+
+.consent-form-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.consent-form-close:hover {
+  opacity: 0.7;
+}
+
+.imap-logo-container {
+  margin-bottom: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.imap-header-message-icon .imap-header-icon {
+  width: 32px;
+  height: 32px;
+  color: #9164FF;
+}
+
+.imap-consent-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #030011;
+  margin: 0 !important;
+  line-height: 1.2;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.imap-consent-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #A198CE;
+  margin: 0 0 4px 0 !important;
+  line-height: 1.45;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.imap-consent-section {
+  width: 100%;
+  align-self: stretch;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.imap-consent-section > .consent-section-title {
+  margin-bottom: 4px !important;
+}
+
+.how-it-works-box {
+  background-color: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.consent-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.consent-check-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.consent-section-title {
+  margin: 0;
+}
+
+.consent-how-heading {
+  font-size: 14px;
+  font-weight: 400;
+  color: #030011;
+  line-height: 1.45;
+}
+
+.consent-access-heading {
+  font-size: 20px;
+  font-weight: 500;
+  color: #030011;
+  line-height: 1.2;
+}
+
+.consent-section-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #A198CE;
+  margin: 0;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.consent-permissions-list.consent-permissions-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 0;
+}
+
+.consent-permission-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  text-align: left;
+}
+
+.consent-permission-content {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.consent-permission-title {
+  font-size: 14px;
+  font-weight: 400;
+  color: #030011;
+  margin: 0 0 2px 0;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.consent-permission-description {
+  font-size: 14px;
+  font-weight: 400;
+  color: #A198CE;
+  margin: 0;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.imap-consent-button-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.imap-consent-continue-button {
+  width: 50%;
+  min-width: 160px;
+  padding: 14px 24px;
+  background: #9164FF;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.imap-consent-continue-button:hover:not(:disabled) {
+  background: #9164FF;
+  color: white;
+}
+
+.imap-consent-continue-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .imap-consent-card.consent-form-card {
+    padding: 24px;
+  }
+}

@@ -1,0 +1,1185 @@
+/* Sidebar Component Styles */
+
+/* Embedded Styles from Sidebar.tsx <style> tag */
+aside[data-collapsed="true"] {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+aside[data-collapsed="true"][data-hovering="true"] {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* Dialog Styles - Embedded in Sidebar.tsx */
+[data-slot="dialog-content"] {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: translate(-50%, -50%) !important;
+  -webkit-transform: translate(-50%, -50%) !important;
+  -ms-transform: translate(-50%, -50%) !important;
+  transform-origin: center center !important;
+  z-index: 10000 !important;
+}
+
+[data-radix-dialog-content],
+[data-slot="dialog-content"],
+div[role="dialog"] {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  transform: translate(-50%, -50%) !important;
+  -webkit-transform: translate(-50%, -50%) !important;
+  -ms-transform: translate(-50%, -50%) !important;
+}
+
+[data-slot="dialog-content"][data-state="open"],
+[data-radix-dialog-content][data-state="open"] {
+  transform: translate(-50%, -50%) scale(1) !important;
+  -webkit-transform: translate(-50%, -50%) scale(1) !important;
+  animation: dialogPopIn 0.2s ease-out !important;
+}
+
+[data-slot="dialog-content"][data-state="closed"],
+[data-radix-dialog-content][data-state="closed"] {
+  transform: translate(-50%, -50%) scale(0.95) !important;
+  -webkit-transform: translate(-50%, -50%) scale(0.95) !important;
+}
+
+@keyframes dialogPopIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95) !important;
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) !important;
+  }
+}
+
+button[data-slot="dialog-close"],
+[data-slot="dialog-content"] > button:first-child,
+[data-slot="dialog-content"] > button[aria-label*="Close"],
+[data-slot="dialog-content"] button[class*="absolute"],
+[data-radix-dialog-content] > button:first-child {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+[data-slot="dialog-overlay"],
+[data-radix-dialog-overlay] {
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  z-index: 9999 !important;
+  animation: overlayFadeIn 0.2s ease-out !important;
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Note: Many inline styles remain in the component for dynamic/conditional styling */
+/* These include: opacity transitions, conditional padding/margins, dynamic colors */
+
+/* Sidebar Container */
+.sidebar-container {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Sidebar Aside Element */
+.sidebar-aside {
+  background-color: white;
+  transition: width, min-width, shadow 300ms ease-out;
+  display: flex;
+  flex-direction: column;
+  border-right: 0.8px solid #6B7280;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.sidebar-aside.mobile-open {
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  z-index: 50;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  will-change: width;
+}
+
+.sidebar-aside.collapsed-hovering {
+  z-index: 50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  will-change: width;
+}
+
+.sidebar-aside.collapsed {
+  will-change: width;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  padding: 8px 0;
+  border-bottom: 0.8px solid #6B7280!important;
+  flex-shrink: 0;
+  min-height: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  transition: padding 300ms ease-out;
+}
+
+.sidebar-header-content.mobile,
+.sidebar-header-content.collapsed {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.sidebar-header-content.expanded {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Sidebar Logo uses shared evecta-logo from EvectaLogo.css */
+
+/* Sidebar Logo */
+.sidebar-logo-short {
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+}
+
+.sidebar-logo-full {
+  height: 48px;
+  width: auto;
+}
+
+/* Sidebar Close Button */
+.sidebar-close-button {
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.sidebar-close-button:hover {
+  background-color: #F3F4F6;
+}
+
+.sidebar-close-icon {
+  height: 20px;
+  width: 20px;
+  color: #6B7280;
+}
+
+/* Sidebar Navigation */
+.sidebar-navigation {
+  flex: 1;
+  padding-top: 4px;
+  padding-bottom: 0;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: padding 300ms ease-out;
+  scrollbar-width: thin;
+  scrollbar-color: #E5E7EB transparent;
+}
+
+/* Default gap between stacked nav sections (`.sidebar-nav-section` overrides for 20px). */
+.sidebar-navigation > div > div + div {
+  margin-top: 2px !important;
+}
+
+/* 20px above each nav section after the first row (dashboard + settings sidebars). */
+aside .sidebar-navigation > div > div.sidebar-nav-section:not(:first-child) {
+  margin-top: 20px !important;
+}
+
+/* Custom scrollbar for webkit browsers */
+.sidebar-navigation::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-navigation::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-navigation::-webkit-scrollbar-thumb {
+  background-color: #E5E7EB;
+  border-radius: 3px;
+}
+
+.sidebar-navigation::-webkit-scrollbar-thumb:hover {
+  background-color: #D1D5DB;
+}
+
+.sidebar-navigation.mobile,
+.sidebar-navigation.collapsed {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.sidebar-navigation.expanded {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Section Title */
+.sidebar-section-title {
+  font-weight: 600;
+  color: #A198CE !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+  margin-top: 4px;
+  /* Small mobile (0-360px) */
+  font-size: 10px;
+}
+
+@media (min-width: 361px) {
+  .sidebar-section-title {
+    /* Medium mobile (361px-480px) */
+    font-size: 10.5px;
+  }
+}
+
+@media (min-width: 481px) {
+  .sidebar-section-title {
+    /* Large mobile (481px-767px) */
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar-section-title {
+    /* Tablet and up */
+    font-size: 12px;
+  }
+}
+
+/* AI Lead Prospecting heading — Medium 13 / lh 19.5; 10px gap to first nav row */
+.dashboard-main-container aside .sidebar-section-title-lead-prospecting,
+aside .sidebar-section-title-lead-prospecting {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 19.5px !important;
+  margin-bottom: 4px !important;
+  margin-top: 4px !important;
+}
+
+/* Navigation Button - inactive: background hover only, text color stays fixed */
+.sidebar-nav-button-inactive {
+  color: #374151;
+  border: 2px solid transparent;
+}
+
+aside[data-sidebar-item] button.sidebar-nav-button-inactive,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:hover,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:focus,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:focus-visible,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:active {
+  color: #374151 !important;
+  transition: background-color 0.15s ease !important;
+}
+
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:hover,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:focus,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:focus-visible {
+  background-color: #faf5ff;
+}
+
+aside[data-sidebar-item] button.sidebar-nav-button-inactive .sidebar-nav-label-main,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive .sidebar-nav-label-secondary,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:hover .sidebar-nav-label-main,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:hover .sidebar-nav-label-secondary,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:focus .sidebar-nav-label-main,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:focus .sidebar-nav-label-secondary,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:focus-visible .sidebar-nav-label-main,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:focus-visible .sidebar-nav-label-secondary,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:active .sidebar-nav-label-main,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:active .sidebar-nav-label-secondary {
+  color: #030011 !important;
+}
+
+aside[data-sidebar-item] button.sidebar-nav-button-inactive .sidebar-nav-description-main,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive .sidebar-nav-description-secondary,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:hover .sidebar-nav-description-main,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:hover .sidebar-nav-description-secondary,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:focus .sidebar-nav-description-main,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:focus .sidebar-nav-description-secondary,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:focus-visible .sidebar-nav-description-main,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:focus-visible .sidebar-nav-description-secondary,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:active .sidebar-nav-description-main,
+aside[data-sidebar-item] button.sidebar-nav-button-inactive:active .sidebar-nav-description-secondary {
+  color: #a198ce !important;
+}
+
+/* Navigation Button - Active state with gradient (left: 6B21A8 100%, right: D458FF 70%) */
+.sidebar-nav-active-gradient {
+  background: linear-gradient(to left, rgba(212, 88, 255, 0.7), #6B21A8) !important;
+  color: white !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Navigation Button */
+.sidebar-nav-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  text-align: left;
+  transition: none;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure wrapper divs don't add extra spacing */
+.sidebar-navigation > div > div {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sidebar-nav-button.mobile,
+.sidebar-nav-button.collapsed {
+  justify-content: center;
+  padding: 4px;
+}
+
+.sidebar-nav-button.expanded {
+  gap: 0.531rem; /* 8.5px — icon to label */
+  padding: 6px;
+  min-height: auto;
+  height: auto;
+}
+
+.sidebar-nav-button.active {
+  background-color: #4B5563 !important;
+  color: white;
+  border: 2px solid #9CA3AF;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+.sidebar-nav-button.inactive {
+  color: #374151;
+  border: 2px solid transparent;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+.sidebar-nav-button.inactive:hover {
+  background-color: #F3F4F6;
+  color: #111827;
+  transition: none !important;
+  transform: none !important;
+  scale: 1 !important;
+  box-shadow: none !important;
+  translate: none !important;
+}
+
+/* Remove all transitions and transforms from sidebar buttons */
+aside button[class*="rounded-lg"],
+aside button[class*="rounded-lg"]:hover,
+aside button[class*="rounded-lg"]:focus,
+aside button[class*="rounded-lg"]:active {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transform: none !important;
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  -o-transform: none !important;
+  scale: 1 !important;
+  box-shadow: none !important;
+  translate: none !important;
+}
+
+/* No border/outline on active sidebar items */
+aside button.sidebar-nav-active-gradient,
+aside button.sidebar-nav-active-gradient:hover,
+aside button.sidebar-nav-active-gradient:focus,
+aside button.sidebar-nav-active-gradient:focus-visible,
+aside button.sidebar-nav-active-gradient:active {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  --tw-ring-offset-width: 0 !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-offset-shadow: 0 0 #0000 !important;
+}
+
+/* Remove post-click focus ring / faint edge around icon (all sidebar nav buttons) */
+aside[data-sidebar-item] button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+aside[data-sidebar-item] button:focus,
+aside[data-sidebar-item] button:focus-visible,
+aside[data-sidebar-item] button:active {
+  outline: none !important;
+  box-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  --tw-ring-offset-width: 0 !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-offset-shadow: 0 0 #0000 !important;
+}
+
+aside[data-sidebar-item] button::-moz-focus-inner {
+  border: 0 !important;
+}
+
+/* Icon squircle wrapper — no separate focus/highlight edge */
+aside[data-sidebar-item] button > div.rounded-lg {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+aside[data-sidebar-item] button .sidebar-nav-image {
+  outline: none !important;
+}
+
+/* Prevent any pop-out effects on sidebar buttons */
+aside button:hover,
+aside button:focus,
+aside button:active {
+  transform: none !important;
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  -o-transform: none !important;
+  scale: 1 !important;
+  translate: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+}
+
+/* Navigation Button Icon Container */
+.sidebar-nav-icon-container {
+  border-radius: 8px;
+}
+
+.sidebar-nav-icon-container.mobile,
+.sidebar-nav-icon-container.collapsed {
+  padding: 4px;
+}
+
+.sidebar-nav-icon-container.expanded {
+  padding: 8px;
+}
+
+.sidebar-nav-icon-container.active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.sidebar-nav-icon-container.inactive.purple {
+  background-color: rgba(75, 85, 99, 0.1);
+}
+
+.sidebar-nav-icon-container.inactive.orange {
+  background-color: rgba(255, 107, 53, 0.1);
+}
+
+.sidebar-nav-icon-container.inactive.blue {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Navigation Icon */
+.sidebar-nav-icon {
+  display: block;
+}
+
+.sidebar-nav-icon.mobile,
+.sidebar-nav-icon.collapsed {
+  height: 16px;
+  width: 16px;
+}
+
+.sidebar-nav-icon.expanded {
+  height: 20px;
+  width: 20px;
+}
+
+.sidebar-nav-icon.active {
+  color: white;
+}
+
+.sidebar-nav-icon.inactive {
+  color: #6B7280;
+}
+
+/* Navigation Label Container */
+.sidebar-nav-label-container {
+  flex: 1;
+  min-width: 0;
+  transition: opacity 300ms ease-out;
+  transition-delay: 75ms;
+}
+
+/* Navigation Label */
+.sidebar-nav-label {
+  font-weight: 600;
+}
+
+/* Responsive Navigation Labels - AI Lead Gen Section */
+.sidebar-nav-label-main {
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  /* Use Text / S from typography system */
+  font-size: var(--typography-text-s-size) !important;
+  line-height: var(--typography-text-s-line) !important;
+}
+
+/* Responsive Navigation Labels - Lead Campaigns Section */
+.sidebar-nav-label-secondary {
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  /* Use Text / S from typography system */
+  font-size: var(--typography-text-s-size) !important;
+  line-height: var(--typography-text-s-line) !important;
+}
+
+/* Responsive Navigation Descriptions - AI Lead Gen Section */
+.sidebar-nav-description-main {
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  margin-top: 1px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  color: #A198CE !important;
+  /* Use consistent line-height with labels */
+  line-height: var(--typography-text-s-line) !important;
+  /* Small mobile (0-360px) */
+  font-size: 12px;
+}
+
+/* Active state: white text on gradient background */
+button.sidebar-nav-active-gradient .sidebar-nav-description-main,
+button.sidebar-nav-active-gradient .sidebar-nav-description-secondary {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+@media (min-width: 361px) {
+  .sidebar-nav-description-main {
+    /* Medium mobile (361px-480px) */
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 481px) {
+  .sidebar-nav-description-main {
+    /* Large mobile (481px-767px) */
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar-nav-description-main {
+    /* Tablet and up */
+    font-size: 14px;
+  }
+}
+
+/* Sidebar title + subtitle rows (dashboard + settings): beat dashboard.css `aside.bg-white *` */
+.dashboard-main-container aside.bg-white .sidebar-navigation .sidebar-nav-label-main,
+aside.bg-white .sidebar-navigation .sidebar-nav-label-main {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 18px !important;
+}
+
+.dashboard-main-container aside.bg-white .sidebar-navigation .sidebar-nav-description-main,
+aside.bg-white .sidebar-navigation .sidebar-nav-description-main {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 16px !important;
+  margin-top: 0 !important;
+}
+
+.dashboard-main-container aside.bg-white .sidebar-navigation .sidebar-nav-label-secondary,
+aside.bg-white .sidebar-navigation .sidebar-nav-label-secondary {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 18px !important;
+}
+
+.dashboard-main-container aside.bg-white .sidebar-navigation .sidebar-nav-description-secondary,
+aside.bg-white .sidebar-navigation .sidebar-nav-description-secondary {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 16px !important;
+  margin-top: 0 !important;
+}
+
+/* Responsive Navigation Descriptions - Lead Campaigns Section */
+.sidebar-nav-description-secondary {
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  margin-top: 1px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  color: #A198CE !important;
+  /* Use consistent line-height with labels */
+  line-height: var(--typography-text-s-line) !important;
+  /* Small mobile (0-360px) */
+  font-size: 11px;
+}
+
+@media (min-width: 361px) {
+  .sidebar-nav-description-secondary {
+    /* Medium mobile (361px-480px) */
+    font-size: 11.5px;
+  }
+}
+
+@media (min-width: 481px) {
+  .sidebar-nav-description-secondary {
+    /* Large mobile (481px-767px) */
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar-nav-description-secondary {
+    /* Tablet and up */
+    font-size: 12px;
+  }
+}
+
+/* Navigation Description */
+.sidebar-nav-description {
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.sidebar-nav-description.active {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar-nav-description.inactive {
+  color: #6B7280;
+}
+
+/* Navigation Count Badge */
+.sidebar-nav-count {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 500;
+  transition: opacity 300ms ease-out;
+  transition-delay: 75ms;
+}
+
+.sidebar-nav-count.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.sidebar-nav-count.inactive {
+  background-color: #E5E7EB;
+  color: #6B7280;
+}
+
+/* Profile Section */
+.sidebar-profile-section {
+  background-color: white;
+  flex-shrink: 0;
+  position: relative;
+  border-top: 0.8px solid #6B7280;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 0;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-profile-section.mobile,
+.sidebar-profile-section.collapsed {
+  padding-right: 8px;
+}
+
+.sidebar-profile-section.expanded {
+  padding-right: 24px;
+}
+
+.sidebar-profile-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.sidebar-profile-content.mobile,
+.sidebar-profile-content.collapsed {
+  padding-left: 0;
+}
+
+.sidebar-profile-content.expanded {
+  padding-left: 16px;
+}
+
+/* Profile Avatar */
+.sidebar-profile-avatar {
+  background-color: #4B5563;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.sidebar-profile-avatar.small {
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar-profile-avatar.large {
+  width: 32px;
+  height: 32px;
+}
+
+.sidebar-profile-initials {
+  font-weight: 500;
+  color: white;
+  font-size: 11px;
+}
+
+/* Profile Info */
+.sidebar-profile-info {
+  flex: 1;
+  min-width: 0;
+  margin-left: 10px;
+  text-align: left;
+}
+
+.sidebar-profile-name {
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.2;
+  white-space: nowrap;
+  /* Small mobile (0-360px) */
+  font-size: 16px;
+}
+
+@media (min-width: 361px) {
+  .sidebar-profile-name {
+    /* Medium mobile (361px-480px) */
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 481px) {
+  .sidebar-profile-name {
+    /* Large mobile (481px-767px) */
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar-profile-name {
+    /* Tablet and up */
+    font-size: 18px;
+  }
+}
+
+.sidebar-profile-link {
+  color: #6B7280;
+  line-height: 1.2;
+  white-space: nowrap;
+  /* Small mobile (0-360px) */
+  font-size: 14px;
+}
+
+@media (min-width: 361px) {
+  .sidebar-profile-link {
+    /* Medium mobile (361px-480px) */
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 481px) {
+  .sidebar-profile-link {
+    /* Large mobile (481px-767px) */
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar-profile-link {
+    /* Tablet and up */
+    font-size: 16px;
+  }
+}
+
+/* Dropdown Menu */
+.sidebar-dropdown-menu {
+  width: 96px;
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.sidebar-dropdown-item {
+  cursor: pointer;
+  font-size: 10px;
+  padding: 2px 4px;
+}
+
+.sidebar-dropdown-icon {
+  height: 8px;
+  width: 8px;
+  margin-right: 2px;
+}
+
+/* Logout Dialog Styles */
+.sidebar-logout-dialog-content {
+  width: 90vw;
+  max-width: 320px;
+  padding: 0;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  right: auto;
+  bottom: auto;
+  z-index: 10000;
+}
+
+.sidebar-logout-dialog-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px 20px;
+}
+
+.sidebar-logout-icon-container {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #F3F4F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.sidebar-logout-icon {
+  height: 24px;
+  width: 24px;
+  color: #6B7280;
+}
+
+.sidebar-logout-title {
+  /* S: Small screens */
+  font-size: var(--typography-heading-card-size-s);
+  line-height: var(--typography-heading-card-line-s);
+  font-weight: var(--typography-heading-card-weight);
+  color: #111827;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .sidebar-logout-title {
+    font-size: var(--typography-heading-card-size-m);
+    line-height: var(--typography-heading-card-line-m);
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .sidebar-logout-title {
+    font-size: var(--typography-heading-card-size-l);
+    line-height: var(--typography-heading-card-line-l);
+  }
+}
+
+.sidebar-logout-description {
+  font-size: 14px;
+  color: #6B7280;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar-logout-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+
+.sidebar-logout-cancel-button {
+  flex: 1;
+  max-width: none;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #007AFF;
+  background-color: transparent;
+  border: 1px solid #007AFF;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.sidebar-logout-cancel-button:hover {
+  background-color: rgba(0, 122, 255, 0.05);
+}
+
+.sidebar-logout-confirm-button {
+  flex: 1;
+  max-width: none;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.8);
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.sidebar-logout-confirm-button:hover {
+  background-color: rgba(255, 0, 0, 0.9);
+}
+
+/* Mobile Overlay */
+.sidebar-mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+}
+
+/* Data Attributes for Collapsed/Hovering States */
+/* Removed transform and top rules to prevent vertical movement on hover */
+
+/* Inline Styles Extracted - Header */
+.sidebar-header-container {
+  min-height: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-pro-logo {
+  display: block;
+}
+
+/* Section Title Styles */
+.sidebar-section-title-base {
+  opacity: 1;
+}
+
+.sidebar-section-title-collapsed {
+  opacity: 0;
+}
+
+/* Navigation Content Styles */
+.sidebar-nav-content-visible {
+  opacity: 1;
+  overflow: hidden;
+}
+
+.sidebar-nav-content-hidden {
+  opacity: 0;
+  overflow: hidden;
+}
+
+.sidebar-nav-content-with-count {
+  margin-right: 8px;
+}
+
+.sidebar-nav-content-no-count {
+  margin-right: 0;
+}
+
+.sidebar-nav-label-main-base {
+  font-weight: 500;
+}
+
+.sidebar-nav-label-secondary-base {
+  font-weight: 500;
+}
+
+/* Button Styles */
+.sidebar-nav-button {
+  overflow: hidden;
+}
+
+.sidebar-nav-image {
+  display: block;
+}
+
+/* Nav icons — 20×20 (all primary sidebar items) */
+.dashboard-main-container aside .sidebar-nav-image-fixed,
+aside .sidebar-nav-image-fixed {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Inactive state: sidebar icons are black (not gradient) */
+aside button:not(.sidebar-nav-active-gradient) .sidebar-nav-image {
+  filter: brightness(0);
+}
+
+/* When the same SVG is used for both states (e.g. slack-header), make it white when active */
+.sidebar-nav-image-active-white {
+  filter: brightness(0) invert(1);
+}
+
+/* Count Badge Styles */
+.sidebar-count-badge-visible {
+  opacity: 1;
+}
+
+.sidebar-count-badge-hidden {
+  opacity: 0;
+}
+
+/* Profile Section Styles */
+.sidebar-profile-section {
+  border-top: 1px solid #E5E7EB;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 0;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-profile-section-collapsed {
+  padding-right: 8px;
+}
+
+.sidebar-profile-section-expanded {
+  padding-right: 24px;
+}
+
+.sidebar-profile-button-no-transition {
+  transition: none;
+}
+
+.sidebar-profile-avatar-no-transition {
+  transition: none;
+  transform: none;
+  width: 32px;
+  height: 32px;
+}
+
+.sidebar-profile-logout-button {
+  flex-shrink: 0;
+}
+
+.sidebar-workspace-switch {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  margin-top: 4px;
+  border: 1px solid #ced4da;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #030011;
+  font-family: 'Urbanist', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar-workspace-switch:hover {
+  background: #f8f7fc;
+}
+
+.sidebar-workspace-switch--collapsed {
+  justify-content: center;
+  padding: 10px 8px;
+}
+
+.sidebar-workspace-switch__label {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.3;
+}
+
+.sidebar-workspace-switch__icon {
+  flex-shrink: 0;
+  color: #a198ce;
+}
+

@@ -1,0 +1,1347 @@
+/* ============================================
+   MOBILE RESPONSIVE CSS
+   Ensures consistent design across ALL mobile screen sizes
+   Only affects mobile view (max-width: 767px)
+   ============================================ */
+
+/* Mobile breakpoint - applies to all mobile devices */
+@media screen and (max-width: 767px) {
+  
+  /* ============================================
+     PROMPT STARTERS CARD - Equal padding on both sides
+     ============================================ */
+  /* Card component - ensure equal padding */
+  .bg-gray-50[class*="Card"],
+  [class*="Card"][class*="bg-gray-50"],
+  div[style*="flex: '1 1 0%'"][style*="display: flex"][style*="flexDirection: 'column'"],
+  div[style*="border: '0.8px solid rgba(139, 92, 246, 0.2)'"] {
+    padding-left: 1rem !important; /* 16px */
+    padding-right: 1rem !important; /* 16px */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* CardHeader - equal padding - override px-6 */
+  [class*="CardHeader"],
+  div[class*="CardHeader"],
+  [class*="pb-2"][style*="flexShrink: 0"],
+  [data-slot="card-header"] {
+    padding-left: 1rem !important; /* 16px - override px-6 */
+    padding-right: 1rem !important; /* 16px - override px-6 */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* CardContent - equal padding - override px-6 */
+  [class*="CardContent"],
+  div[class*="CardContent"],
+  div[style*="flex: '1 1 0%'"][style*="overflowY: 'auto'"],
+  [data-slot="card-content"] {
+    padding-left: 1rem !important; /* 16px - override px-6 */
+    padding-right: 1rem !important; /* 16px - override px-6 */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Prompt starter buttons - ensure they fit within card with equal padding */
+  .prompt-starter-button,
+  button[class*="prompt-starter"],
+  button[class*="w-full"][class*="text-left"],
+  button[style*="padding: '8px 14px'"] {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0.875rem !important; /* 14px */
+    padding-right: 0.875rem !important; /* 14px */
+    box-sizing: border-box !important;
+  }
+
+  /* Welcome section container - ensure equal spacing */
+  .welcome-section-container,
+  div[class*="welcome-section"],
+  div[style*="maxWidth: '48rem'"] {
+    padding-left: 1rem !important; /* 16px */
+    padding-right: 1rem !important; /* 16px */
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Main content area - ensure equal padding */
+  .mobile-content-area,
+  div[style*="paddingLeft: '16px'"],
+  div[style*="paddingRight: '16px'"],
+  div[style*="paddingLeft: 16px"],
+  div[style*="paddingRight: 16px"] {
+    padding-left: 1rem !important; /* 16px */
+    padding-right: 1rem !important; /* 16px */
+  }
+  
+  /* ============================================
+     BASE FONT SCALING - Consistent across all mobile sizes
+     ============================================ */
+  html {
+    font-size: 16px !important; /* Fixed base for mobile consistency */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  body {
+    font-size: 0.875rem !important; /* 14px - consistent readable size */
+    line-height: 1.5 !important;
+  }
+  
+  /* ============================================
+     TYPOGRAPHY - Consistent font sizes on mobile
+     ============================================ */
+  h1, .h1 {
+    font-size: 1.5rem !important; /* 24px */
+    line-height: 1.3 !important;
+  }
+  
+  h2, .h2 {
+    font-size: 1.25rem !important; /* 20px */
+    line-height: 1.3 !important;
+  }
+  
+  h3, .h3 {
+    font-size: 1.125rem !important; /* 18px */
+    line-height: 1.3 !important;
+  }
+  
+  h4, .h4, h5, .h5, h6, .h6 {
+    font-size: 1rem !important; /* 16px */
+    line-height: 1.4 !important;
+  }
+  
+  p, span, div, label, a {
+    font-size: 0.875rem !important; /* 14px */
+    line-height: 1.5 !important;
+  }
+
+  /*
+   * Homepage — Features: one <p> for body copy; override global p { line-height: 1.5 !important }.
+   */
+  .homepage .features-homepage-frame p.features-homepage-card-desc {
+    font-size: 0.8125rem !important; /* 13px */
+    line-height: 1.45 !important;
+    margin: 0 !important;
+  }
+
+  /* AI Lead Gen welcome title & eyebrow — override generic h2/p above */
+  h2.lead-generation-main-prompt-title,
+  .lead-generation-main-prompt-title {
+    font-size: 34px !important;
+    line-height: 120% !important;
+    font-weight: 500 !important;
+    letter-spacing: normal !important;
+  }
+  p.lead-generation-main-prompt-eyebrow,
+  .lead-generation-main-prompt-eyebrow {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+  }
+  
+  small, .small, .text-sm {
+    font-size: 0.75rem !important; /* 12px */
+    line-height: 1.4 !important;
+  }
+  
+  /* ============================================
+     BUTTONS - Consistent sizing on all mobile devices
+     (exclude .password-toggle — it must stay icon-sized or the eye jumps inside the field)
+     ============================================ */
+  /* .resend-link: inline text control on OTP pages — must not get 44×44 pill layout
+     Profile Settings searchable dropdown options are portaled to body — same clipping fix as password-toggle */
+  /* Exclude homepage carousel step dots — otherwise global min 44×44px beats .features-homepage-mobile-dots overrides */
+  button:not(.password-toggle):not(.password-toggle-button):not(.resend-link):not(.profile-settings-searchable-option):not(.profile-settings-combobox-chevron):not(.features-homepage-mobile-dot):not(.how-it-works-homepage-progress-segment):not(.about-values-cards-dot):not(.evecta-primary-btn):not(.inbox-thread-detail-back):not(.inbox-email-detail-back),
+  .btn,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"] {
+    font-size: 0.875rem !important; /* 14px */
+    padding: 0.75rem 1.25rem !important;
+    min-height: 2.75rem !important; /* 44px - touch friendly */
+    min-width: 2.75rem !important;
+    border-radius: 0.5rem !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+  }
+  
+  button.btn-sm,
+  .btn-sm {
+    font-size: 0.8125rem !important; /* 13px */
+    padding: 0.625rem 1rem !important;
+    min-height: 2.5rem !important; /* 40px */
+  }
+  
+  button.btn-lg,
+  .btn-lg {
+    font-size: 1rem !important; /* 16px */
+    padding: 0.875rem 1.5rem !important;
+    min-height: 3rem !important; /* 48px */
+  }
+
+  /* OTP verification / reset: keep a strict column stack so resend never shares the input row */
+  .verify-reset-otp-page .verify-reset-otp-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .verify-reset-otp-page .otp-inputs-shell {
+    display: block !important;
+    width: 100% !important;
+  }
+  .verify-reset-otp-page .otp-input-group {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+  }
+
+  /* Homepage — How it works step indicator dots (override 44×44px touch targets above) */
+  .homepage
+    .how-it-works-homepage
+    .how-it-works-homepage-preview-steps-bundle
+    .how-it-works-homepage-mobile-progress
+    button.how-it-works-homepage-progress-segment:not(.how-it-works-homepage-progress-segment-active) {
+    align-self: center;
+    min-width: var(--home-dot-track, 8px) !important;
+    min-height: var(--home-dot-track, 8px) !important;
+    max-height: var(--home-dot-track, 8px) !important;
+    padding: 0 !important;
+    width: var(--home-dot-track, 8px) !important;
+    max-width: var(--home-dot-track, 8px) !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    border-radius: 9999px !important;
+    font-weight: 400 !important;
+  }
+  .homepage
+    .how-it-works-homepage
+    .how-it-works-homepage-preview-steps-bundle
+    .how-it-works-homepage-mobile-progress
+    button.how-it-works-homepage-progress-segment.how-it-works-homepage-progress-segment-active {
+    align-self: center;
+    width: var(--home-dot-active-w, 24px) !important;
+    min-width: var(--home-dot-active-w, 24px) !important;
+    max-width: var(--home-dot-active-w, 24px) !important;
+    height: var(--home-dot-track, 8px) !important;
+    min-height: var(--home-dot-track, 8px) !important;
+    max-height: var(--home-dot-track, 8px) !important;
+  }
+
+  /* Homepage — Features carousel dots (same specificity chain as How it works so 8×8 / 24×8 wins over 44px buttons) */
+  .homepage
+    .features-homepage-section
+    .features-homepage-frame
+    .features-homepage-content
+    .features-homepage-mobile-dots
+    button.features-homepage-mobile-dot:not(.features-homepage-mobile-dot-active) {
+    flex: 0 0 auto;
+    align-self: center;
+    margin: 0 !important;
+    min-width: var(--home-dot-track, 8px) !important;
+    min-height: var(--home-dot-track, 8px) !important;
+    max-height: var(--home-dot-track, 8px) !important;
+    padding: 0 !important;
+    width: var(--home-dot-track, 8px) !important;
+    max-width: var(--home-dot-track, 8px) !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    border-radius: 9999px !important;
+    font-weight: 400 !important;
+  }
+  .homepage
+    .features-homepage-section
+    .features-homepage-frame
+    .features-homepage-content
+    .features-homepage-mobile-dots
+    button.features-homepage-mobile-dot.features-homepage-mobile-dot-active {
+    align-self: center;
+    width: var(--home-dot-active-w, 24px) !important;
+    min-width: var(--home-dot-active-w, 24px) !important;
+    max-width: var(--home-dot-active-w, 24px) !important;
+    height: var(--home-dot-track, 8px) !important;
+    min-height: var(--home-dot-track, 8px) !important;
+    max-height: var(--home-dot-track, 8px) !important;
+    padding: 0 !important;
+  }
+
+  /* About page — Our Values carousel dots (same 8×8 / 24×8 as How it works; override 44×44 touch targets) */
+  .about-us-page
+    .values-section-dark
+    .values-container
+    .about-values-cards-dots
+    button.about-values-cards-dot {
+    flex: 0 0 auto;
+    margin: 0 !important;
+    min-width: 8px !important;
+    min-height: 8px !important;
+    max-height: 8px !important;
+    padding: 0 !important;
+    width: 8px !important;
+    max-width: 8px !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    border-radius: 9999px !important;
+    font-weight: 400 !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+  .about-us-page
+    .values-section-dark
+    .values-container
+    .about-values-cards-dots
+    button.about-values-cards-dot.is-active {
+    width: 24px !important;
+    min-width: 24px !important;
+    max-width: 24px !important;
+    height: 8px !important;
+    min-height: 8px !important;
+    max-height: 8px !important;
+    padding: 0 !important;
+  }
+  
+  /* ============================================
+     INPUTS & FORMS - Consistent sizing
+     ============================================ */
+  input,
+  textarea,
+  select {
+    font-size: 1rem !important; /* 16px - prevents iOS zoom */
+    padding: 0.75rem 1rem !important;
+    min-height: 2.75rem !important; /* 44px */
+    border-radius: 0.5rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="number"] {
+    font-size: 1rem !important; /* Prevents iOS zoom on focus */
+  }
+  
+  label {
+    font-size: 0.875rem !important; /* 14px */
+    margin-bottom: 0.5rem !important;
+    font-weight: 500 !important;
+  }
+  
+  /* ============================================
+     ICONS - Consistent sizing
+     ============================================ */
+  svg,
+  .icon,
+  [class*="icon"] {
+    min-width: 1.25rem !important;
+    min-height: 1.25rem !important;
+  }
+  
+ 
+  
+  /* Small icons */
+  .icon-sm,
+  svg.icon-sm {
+    width: 1rem !important; /* 16px */
+    height: 1rem !important;
+  }
+  
+  /* Large icons */
+  .icon-lg,
+  svg.icon-lg {
+    width: 1.5rem !important; /* 24px */
+    height: 1.5rem !important;
+  }
+
+  /* ============================================
+     SIDEBAR - Ensure it's always on the left side and narrower on mobile
+     (Homepage marketing nav drawer `.homepage-mobile-menu` is excluded — it slides from the right; see HomePage.css)
+     ============================================ */
+  /* Target all possible sidebar selectors */
+  aside[class*="sidebar"]:not(.homepage-mobile-menu),
+  aside.sidebar-aside:not(.homepage-mobile-menu),
+  .sidebar,
+  .sidebar-aside,
+  [data-sidebar],
+  aside[style*="position"]:not(.homepage-mobile-menu) {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    right: auto !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    transform: translateX(0) !important;
+    -webkit-transform: translateX(0) !important;
+    -moz-transform: translateX(0) !important;
+    -o-transform: translateX(0) !important;
+    /* Reduce sidebar width on mobile */
+    width: 300px !important; /* Reduced from 288px (w-72) */
+    min-width: 300px !important;
+    max-width: 300px !important;
+  }
+
+  /* When sidebar is open on mobile, ensure it's on the left and narrower */
+  aside[class*="sidebar"][style*="position"]:not(.homepage-mobile-menu),
+  aside[style*="position"][style*="left"]:not(.homepage-mobile-menu),
+  .sidebar.mobile-open,
+  .sidebar-aside.mobile-open,
+  aside.mobile-open:not(.homepage-mobile-menu) {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    right: auto !important;
+    margin-left: 0 !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    transform: translateX(0) !important;
+    -webkit-transform: translateX(0) !important;
+    /* Reduce sidebar width on mobile */
+    width: 300px !important; /* Reduced from 288px (w-72) */
+    min-width: 300px !important;
+    max-width: 300px !important;
+  }
+
+  /* Override Tailwind width classes for mobile */
+  aside[class*="w-72"],
+  aside[class*="min-w-72"] {
+    width: 300px !important;
+    min-width: 300px !important;
+    max-width: 300px !important;
+  }
+
+  /* Override any inline styles that might center the sidebar */
+  aside[style*="left: 50%"]:not(.homepage-mobile-menu),
+  aside[style*="left:50%"]:not(.homepage-mobile-menu),
+  aside[style*="transform: translate"]:not(.homepage-mobile-menu) {
+    left: 0 !important;
+    transform: translateX(0) !important;
+    -webkit-transform: translateX(0) !important;
+  }
+
+  /* Sidebar Header - Minimal left padding to move content left */
+  .sidebar-header,
+  .sidebar-header-content,
+  aside .py-2[style*="display: flex"],
+  aside > div[class*="flex"][class*="items-center"] {
+    padding-left: 0.5rem !important; /* Minimal padding */
+    padding-right: 0.5rem !important;
+  }
+
+  /* Override Tailwind padding classes in sidebar */
+  aside[class*="px-6"],
+  aside[class*="px-3"],
+  aside > div[class*="px-6"],
+  aside > div[class*="px-3"] {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  /* Sidebar Navigation - Minimal left padding */
+  .sidebar-navigation,
+  .sidebar-navigation.mobile,
+  .sidebar-navigation.collapsed,
+  .sidebar-navigation.expanded {
+    padding-left: 0.5rem !important; /* Minimal padding */
+    padding-right: 0.5rem !important;
+  }
+
+  /* Sidebar Navigation Buttons - Align left with minimal padding */
+  .sidebar-nav-button,
+  .sidebar-nav-button.mobile,
+  .sidebar-nav-button.collapsed,
+  .sidebar-nav-button.expanded,
+  button[class*="sidebar"] {
+    padding-left: 0.5rem !important; /* Minimal padding */
+    padding-right: 0.5rem !important;
+    justify-content: flex-start !important; /* Align content to left */
+    margin-left: 0 !important;
+  }
+
+  /* Sidebar Icon Container - Minimal padding, align left */
+  .sidebar-nav-icon-container,
+  .sidebar-nav-icon-container.mobile,
+  .sidebar-nav-icon-container.collapsed,
+  .sidebar-nav-icon-container.expanded,
+  div[class*="sidebar"][class*="icon"] {
+    padding-left: 0.25rem !important; /* Minimal padding */
+    padding-right: 0.25rem !important;
+    margin-left: 0 !important;
+  }
+
+  /* Sidebar Profile Section - Minimal left padding */
+  .sidebar-profile-section,
+  .sidebar-profile-section.mobile,
+  .sidebar-profile-section.collapsed,
+  .sidebar-profile-section.expanded {
+    padding-left: 0.5rem !important; /* Minimal padding */
+    padding-right: 0.5rem !important;
+  }
+
+  .sidebar-profile-content,
+  .sidebar-profile-content.mobile,
+  .sidebar-profile-content.collapsed,
+  .sidebar-profile-content.expanded {
+    padding-left: 0.5rem !important; /* Minimal padding */
+    margin-left: 0 !important;
+  }
+
+  /* Override any flex centering in sidebar */
+  aside[class*="sidebar"] > *,
+  .sidebar > *,
+  .sidebar-aside > *,
+  aside > div {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Ensure all sidebar content aligns left */
+  aside[class*="sidebar"] * {
+    text-align: left !important;
+  }
+
+  /* Override justify-center or justify-between in sidebar */
+  aside[class*="justify-center"],
+  aside[class*="justify-between"],
+  aside > div[class*="justify-center"],
+  aside > div[class*="justify-between"] {
+    justify-content: flex-start !important;
+  }
+
+  /* Move icons to the very left */
+  aside svg,
+  aside img[class*="icon"],
+  aside [class*="icon"] {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  /* Further reduce sidebar width for smaller mobile screens */
+  @media screen and (max-width: 480px) {
+    aside[class*="sidebar"]:not(.homepage-mobile-menu),
+    aside.sidebar-aside:not(.homepage-mobile-menu),
+    .sidebar,
+    .sidebar-aside,
+    [data-sidebar],
+    aside[style*="position"]:not(.homepage-mobile-menu),
+    aside[class*="sidebar"][style*="position"]:not(.homepage-mobile-menu),
+    aside[style*="position"][style*="left"]:not(.homepage-mobile-menu),
+    .sidebar.mobile-open,
+    .sidebar-aside.mobile-open,
+    aside.mobile-open:not(.homepage-mobile-menu),
+    aside[class*="w-72"]:not(.homepage-mobile-menu),
+    aside[class*="min-w-72"]:not(.homepage-mobile-menu) {
+      width: 260px !important; /* Even narrower for small phones */
+      min-width: 260px !important;
+      max-width: 260px !important;
+    }
+  }
+
+  /* Smallest mobile screens */
+  @media screen and (max-width: 360px) {
+    aside[class*="sidebar"]:not(.homepage-mobile-menu),
+    aside.sidebar-aside:not(.homepage-mobile-menu),
+    .sidebar,
+    .sidebar-aside,
+    [data-sidebar],
+    aside[style*="position"]:not(.homepage-mobile-menu),
+    aside[class*="sidebar"][style*="position"]:not(.homepage-mobile-menu),
+    aside[style*="position"][style*="left"]:not(.homepage-mobile-menu),
+    .sidebar.mobile-open,
+    .sidebar-aside.mobile-open,
+    aside.mobile-open:not(.homepage-mobile-menu),
+    aside[class*="w-72"]:not(.homepage-mobile-menu),
+    aside[class*="min-w-72"]:not(.homepage-mobile-menu) {
+      width: 240px !important; /* Narrowest for very small phones */
+      min-width: 240px !important;
+      max-width: 240px !important;
+    }
+  }
+
+  /* ============================================
+     SEND BUTTON - Make responsive on mobile
+     ============================================ */
+  /* Chat textarea - ensure enough right padding for button */
+  .chat-textarea-mobile,
+  textarea[class*="chat-textarea"],
+  textarea[class*="chat-input"] {
+    padding-right: 3rem !important; /* 48px - enough space for button */
+    padding-left: 0.75rem !important; /* 12px */
+    padding-top: 0.625rem !important; /* 10px */
+    padding-bottom: 0.625rem !important; /* 10px */
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  /* Chat form container - ensure button stays inside */
+  .chat-form-container,
+  div[style*="position: relative"][style*="display: flex"] {
+    position: relative !important;
+    overflow: visible !important;
+    padding-right: 0 !important;
+  }
+
+  /* Send button in chat/lead generation input */
+  .chat-button-mobile,
+  button[class*="chat-button"],
+  button[class*="send"],
+  button[style*="position: absolute"][style*="right"],
+  button[style*="right: 4px"],
+  button[style*="right:4px"] {
+    position: absolute !important;
+    right: 0.5rem !important; /* 8px from right edge */
+    top: 50% !important; /* Override inline top: -30% */
+    transform: translateY(-50%) !important;
+    -webkit-transform: translateY(-50%) !important;
+    width: 2rem !important; /* 32px - fits inside padding */
+    height: 2rem !important; /* 32px - fits inside padding */
+    min-width: 2rem !important;
+    min-height: 2rem !important;
+    max-width: 2rem !important;
+    max-height: 2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
+    overflow: visible !important;
+  }
+
+  /* Send button icon - properly sized for mobile */
+  .chat-button-mobile svg,
+  .chat-button-mobile [class*="Send"],
+  button[class*="chat-button"] svg,
+  button[class*="send"] svg {
+    width: 1rem !important; /* 16px - fits nicely */
+    height: 1rem !important; /* 16px - fits nicely */
+    min-width: 1rem !important;
+    min-height: 1rem !important;
+    max-width: 1rem !important;
+    max-height: 1rem !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Smaller mobile screens - adjust button size */
+  @media screen and (max-width: 480px) {
+    .chat-textarea-mobile,
+    textarea[class*="chat-textarea"],
+    textarea[class*="chat-input"] {
+      padding-right: 2.75rem !important; /* 44px - enough space */
+    }
+
+    .chat-button-mobile,
+    button[class*="chat-button"],
+    button[class*="send"],
+    button[style*="position: absolute"][style*="right"],
+    button[style*="right: 4px"],
+    button[style*="right:4px"] {
+      width: 1.875rem !important; /* 30px */
+      height: 1.875rem !important; /* 30px */
+      min-width: 1.875rem !important;
+      min-height: 1.875rem !important;
+      max-width: 1.875rem !important;
+      max-height: 1.875rem !important;
+      right: 0.5rem !important; /* 8px */
+      top: 50% !important; /* Override inline top: -30% */
+      transform: translateY(-50%) !important;
+      -webkit-transform: translateY(-50%) !important;
+    }
+
+    .chat-button-mobile svg,
+    .chat-button-mobile [class*="Send"],
+    button[class*="chat-button"] svg,
+    button[class*="send"] svg {
+      width: 1rem !important; /* 16px */
+      height: 1rem !important; /* 16px */
+    }
+  }
+
+  /* Very small mobile screens */
+  @media screen and (max-width: 360px) {
+    .chat-textarea-mobile,
+    textarea[class*="chat-textarea"],
+    textarea[class*="chat-input"] {
+      padding-right: 2.5rem !important; /* 40px - enough space */
+    }
+
+    .chat-button-mobile,
+    button[class*="chat-button"],
+    button[class*="send"],
+    button[style*="position: absolute"][style*="right"],
+    button[style*="right: 4px"],
+    button[style*="right:4px"] {
+      width: 1.75rem !important; /* 28px */
+      height: 1.75rem !important; /* 28px */
+      min-width: 1.75rem !important;
+      min-height: 1.75rem !important;
+      max-width: 1.75rem !important;
+      max-height: 1.75rem !important;
+      right: 0.5rem !important; /* 8px */
+      top: 50% !important; /* Override inline top: -30% */
+      transform: translateY(-50%) !important;
+      -webkit-transform: translateY(-50%) !important;
+    }
+
+    .chat-button-mobile svg,
+    .chat-button-mobile [class*="Send"],
+    button[class*="chat-button"] svg,
+    button[class*="send"] svg {
+      width: 0.875rem !important; /* 14px */
+      height: 0.875rem !important; /* 14px */
+    }
+  }
+  
+  /* Our Services Section - Scaled proportionally */
+  .discover-our-services {
+    padding: 2rem 1rem !important; /* Scaled from 4rem 2rem */
+  }
+  
+  .discover-our-services-badge {
+    margin-bottom: 1rem !important; /* Scaled from 2rem */
+  }
+  
+  .discover-our-services-badge-svg {
+    max-width: 70% !important;
+    height: auto !important;
+  }
+  
+  .discover-our-services-headline {
+    font-size: 1.25rem !important; /* Scaled from desktop */
+    line-height: 1.3 !important;
+    margin: 0 0 0.5rem !important; /* Scaled from 1rem */
+  }
+  
+  .discover-our-services-description {
+    font-size: 0.875rem !important; /* Scaled from desktop */
+    line-height: 1.5 !important;
+    max-width: 100% !important;
+  }
+  
+  /* Lead Generation Section - Scaled proportionally */
+  .discover-lead-generation,
+  .discover-lead-generation-2 {
+    padding: 1.5rem 1rem !important; /* Scaled from 2rem 2rem */
+  }
+  
+  .discover-lead-generation-container,
+  .discover-lead-generation-2-container {
+    grid-template-columns: 1fr !important; /* Stack on mobile */
+    gap: 1rem !important; /* Scaled from 2rem */
+  }
+  
+  .discover-lead-generation-content,
+  .discover-lead-generation-2-content {
+    gap: 0.5rem !important; /* Scaled from 0.75rem */
+  }
+  
+  .discover-lead-generation-badge,
+  .discover-lead-generation-2-badge {
+    padding: 0.375rem 0.75rem !important; /* Scaled from 0.5rem 1rem */
+    margin-bottom: 0 !important;
+  }
+  
+  .discover-lead-generation-badge span,
+  .discover-lead-generation-2-badge span {
+    font-size: 0.75rem !important; /* Scaled from 0.875rem */
+  }
+  
+  .discover-lead-generation-headline,
+  .discover-lead-generation-2-headline {
+    font-size: 1.125rem !important; /* Scaled from desktop */
+    line-height: 1.3 !important;
+    margin: 0 !important;
+  }
+  
+  .discover-lead-generation-description,
+  .discover-lead-generation-2-description {
+    font-size: 0.8125rem !important; /* Scaled from desktop */
+    line-height: 1.5 !important;
+    margin: 0 !important;
+  }
+  
+  .discover-lead-generation-tags,
+  .discover-lead-generation-2-tags {
+    gap: 0.5rem !important; /* Scaled from 0.75rem */
+    margin-top: 0.375rem !important; /* Scaled from 0.5rem */
+  }
+  
+  .discover-lead-generation-tag,
+  .discover-lead-generation-2-tag {
+    padding: 0.375rem 0.75rem !important; /* Scaled from 0.5rem 1rem */
+    font-size: 0.6875rem !important; /* Scaled from desktop */
+  }
+  
+  .discover-lead-generation-svg,
+  .discover-lead-generation-2-svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 0.75rem !important; /* Scaled from 12px */
+  }
+  
+  /* AI Outreach Section - Scaled proportionally */
+  .discover-ai-outreach {
+    padding: 1.5rem 1rem !important; /* Scaled from 2rem 2rem */
+  }
+  
+  .discover-ai-outreach-container {
+    grid-template-columns: 1fr !important; /* Stack on mobile */
+    gap: 1rem !important; /* Scaled from 2rem */
+  }
+  
+  .discover-ai-outreach-content {
+    gap: 0.5rem !important; /* Scaled from 0.75rem */
+  }
+  
+  .discover-ai-outreach-badge {
+    padding: 0.375rem 0.75rem !important; /* Scaled from 0.5rem 1rem */
+    margin-bottom: 0 !important;
+  }
+  
+  .discover-ai-outreach-badge span {
+    font-size: 0.75rem !important; /* Scaled from 0.875rem */
+  }
+  
+  .discover-ai-outreach-headline {
+    font-size: 1.125rem !important; /* Scaled from desktop */
+    line-height: 1.3 !important;
+    margin: 0 !important;
+  }
+  
+  .discover-ai-outreach-description {
+    font-size: 0.8125rem !important; /* Scaled from desktop */
+    line-height: 1.5 !important;
+    margin: 0 !important;
+  }
+  
+  .discover-ai-outreach-tags {
+    gap: 0.5rem !important; /* Scaled from 0.75rem */
+    margin-top: 0.375rem !important; /* Scaled from 0.5rem */
+  }
+  
+  .discover-ai-outreach-tag {
+    padding: 0.375rem 0.75rem !important; /* Scaled from 0.5rem 1rem */
+    font-size: 0.6875rem !important; /* Scaled from desktop */
+  }
+  
+  .discover-ai-outreach-svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 0.75rem !important; /* Scaled from 12px */
+  }
+  
+  /* Background SVG - Maintains aspect ratio */
+  .discover-background-svg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  
+  /* ============================================
+     SPACING - Consistent gaps and padding
+     ============================================ */
+  .container,
+  .container-fluid {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Cards and containers */
+  .card,
+  [class*="card"],
+  [class*="Card"] {
+    padding: 1rem !important;
+    border-radius: 0.75rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Classes like blog-content-card / blog-card-image-wrap / blog-card-body match [class*="card"] — reset */
+  .blog-page .blog-content-card {
+    padding: 0 !important;
+    border-radius: 20px !important;
+    margin-bottom: 0 !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 20px !important;
+    border: none !important;
+    box-shadow: inset 0 0 0 1px rgba(145, 100, 255, 0.2) !important;
+  }
+  .blog-page .blog-card-image-wrap {
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    align-self: stretch !important;
+    box-sizing: border-box !important;
+  }
+  .blog-page .blog-card-image {
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    object-fit: cover !important;
+  }
+  .blog-page .blog-card-body {
+    padding: 20px !important;
+    margin-bottom: 0 !important;
+    border-radius: 0 0 20px 20px !important;
+    background: #1A0D3D !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+  .blog-page .blog-card-list {
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+  }
+  .blog-page .blog-card-category {
+    padding: 0 !important;
+    margin-bottom: 4px !important;
+    border-radius: 0 !important;
+  }
+  .blog-page .blog-card-title {
+    padding: 0 !important;
+    margin: 0 0 10px !important;
+    border-radius: 0 !important;
+  }
+  .blog-page .blog-card-excerpt {
+    padding: 0 0 1px 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+  .blog-page .blog-card-read-more {
+    padding: 0.5rem 1rem !important;
+    margin-bottom: 0 !important;
+    border-radius: 8px !important;
+  }
+  .blog-page .blog-card-empty {
+    padding: 3rem 1rem !important;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  /* Blog post article: names like blog-points-cards / blog-points-cards-wrap / blog-point-card match
+     [class*="card"] and were getting generic card padding — cards looked inset vs body copy */
+  .blog-post-page .blog-points-cards-wrap {
+    padding: 0 !important;
+    /* Space after card row before following copy (e.g. flat paragraphs) — do not zero; generic [class*="card"] + earlier reset removed this */
+    margin-bottom: 40px !important;
+    border-radius: 0 !important;
+  }
+  .blog-post-page .blog-points-cards {
+    padding: 0 !important;
+    margin-top: 40px !important;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .blog-post-page .blog-point-card {
+    padding: 1.5rem 1.25rem !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    border-radius: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* ============================================
+     TABLES - Mobile friendly
+     ============================================ */
+  table {
+    font-size: 0.8125rem !important; /* 13px */
+  }
+  
+  th, td {
+    padding: 0.75rem 0.5rem !important;
+    font-size: 0.8125rem !important;
+  }
+  
+  th {
+    font-size: 0.875rem !important; /* 14px */
+    font-weight: 600 !important;
+  }
+  
+  /* ============================================
+     BADGES & LABELS
+     ============================================ */
+  .badge,
+  [class*="badge"],
+  [class*="Badge"] {
+    font-size: 0.75rem !important; /* 12px */
+    padding: 0.375rem 0.625rem !important;
+    border-radius: 0.375rem !important;
+    font-weight: 600 !important;
+  }
+  
+  /* ============================================
+     OVERRIDE INLINE STYLES - Force consistency
+     ============================================ */
+  
+  /* Font sizes */
+  [style*="fontSize: '8px'"],
+  [style*="fontSize: '9px'"],
+  [style*="fontSize: '10px'"],
+  [style*="fontSize: '11px'"],
+  [style*="fontSize: 8px"],
+  [style*="fontSize: 9px"],
+  [style*="fontSize: 10px"],
+  [style*="fontSize: 11px"] {
+    font-size: 0.75rem !important; /* 12px minimum */
+  }
+  
+  [style*="fontSize: '12px'"],
+  [style*="fontSize: '13px'"],
+  [style*="fontSize: 12px"],
+  [style*="fontSize: 13px"] {
+    font-size: 0.875rem !important; /* 14px */
+  }
+  
+  [style*="fontSize: '14px'"],
+  [style*="fontSize: '15px'"],
+  [style*="fontSize: '16px'"],
+  [style*="fontSize: 14px"],
+  [style*="fontSize: 15px"],
+  [style*="fontSize: 16px"] {
+    font-size: 1rem !important; /* 16px */
+  }
+  
+  [style*="fontSize: '18px'"],
+  [style*="fontSize: '20px'"],
+  [style*="fontSize: 18px"],
+  [style*="fontSize: 20px"] {
+    font-size: 1.25rem !important; /* 20px */
+  }
+  
+  [style*="fontSize: '24px'"],
+  [style*="fontSize: '28px'"],
+  [style*="fontSize: 24px"],
+  [style*="fontSize: 28px"] {
+    font-size: 1.75rem !important; /* 28px */
+  }
+  
+  /* Icon sizes in inline styles */
+  [style*="width: '12px'"],
+  [style*="width: '14px'"],
+  [style*="width: '16px'"],
+  [style*="width: 12px"],
+  [style*="width: 14px"],
+  [style*="width: 16px"],
+  [style*="height: '12px'"],
+  [style*="height: '14px'"],
+  [style*="height: '16px'"],
+  [style*="height: 12px"],
+  [style*="height: 14px"],
+  [style*="height: 16px"] {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+  }
+  
+  [style*="width: '18px'"],
+  [style*="width: '20px'"],
+  [style*="width: 18px"],
+  [style*="width: 20px"],
+  [style*="height: '18px'"],
+  [style*="height: '20px'"],
+  [style*="height: 18px"],
+  [style*="height: 20px"] {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+  }
+  
+  /* Button padding */
+  button[style*="padding: '8px"],
+  button[style*="padding: 8px"],
+  button[style*="padding: '10px"],
+  button[style*="padding: 10px"],
+  button[style*="padding: '12px"],
+  button[style*="padding: 12px"] {
+    padding: 0.75rem 1.25rem !important;
+    min-height: 2.75rem !important;
+  }
+  
+  /* Input heights */
+  input[style*="height: '36px'"],
+  input[style*="height: 36px"],
+  input[style*="height: '40px'"],
+  input[style*="height: 40px"],
+  input[style*="height: '42px'"],
+  input[style*="height: 42px"],
+  input[style*="height: '50px'"],
+  input[style*="height: 50px"] {
+    height: 2.75rem !important;
+    min-height: 2.75rem !important;
+    padding: 0.75rem 1rem !important;
+  }
+  
+  /* ============================================
+     AUTH PAGE - Email / password field fixes (scoped to .auth-page only).
+     Reset password uses .reset-password-page + grid for the eye — do not apply these here.
+     ============================================ */
+  .auth-page .input-with-icon,
+  .auth-page .password-input-container {
+    height: 2.75rem !important;
+    min-height: 2.75rem !important;
+    position: relative !important;
+    width: 100% !important;
+  }
+  
+  .auth-page .input-with-icon .form-input,
+  .auth-page .password-input-container .form-input,
+  .form-input {
+    width: 100% !important;
+    height: 2.75rem !important;
+    min-height: 2.75rem !important;
+    padding-left: 1rem !important;
+    padding-right: 3rem !important;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    box-sizing: border-box !important;
+    border-radius: 0.5rem !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+
+  .auth-page .input-with-icon .form-input {
+    font-weight: 500 !important;
+  }
+
+  /* Password: normal weight — Firefox scales mask dots with weight/size more than Chromium. */
+  .auth-page .password-input-container .form-input {
+    font-weight: 400 !important;
+  }
+  
+  /* Email input with icon on right */
+  input[type="email"],
+  input[type="text"][name="username"],
+  input[type="text"][name="email"],
+  .form-group:has(input[type="email"]) input {
+    padding-right: 3rem !important;
+    padding-left: 1rem !important;
+    font-size: 1rem !important;
+  }
+  
+  /* Icon positioning in input fields - RIGHT SIDE */
+  .input-icon {
+    position: absolute !important;
+    right: 1rem !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    min-width: 1.25rem !important;
+    min-height: 1.25rem !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    line-height: 1 !important;
+  }
+  
+  /* Auth eye — fixed offset in 2.75rem field (AuthPage.css 3-class rule usually wins on card) */
+  .auth-page .password-toggle {
+    position: absolute !important;
+    right: 1rem !important;
+    left: auto !important;
+    top: 13px !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    scale: 1 !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    min-width: 1.25rem !important;
+    min-height: 1.25rem !important;
+    max-width: 1.25rem !important;
+    max-height: 1.25rem !important;
+    box-sizing: border-box !important;
+    z-index: 2 !important;
+    transition: none !important;
+    color: #a198ce !important;
+  }
+  
+  /* Ensure placeholder text is fully visible */
+  .form-input::placeholder {
+    font-size: 1rem !important;
+    color: #9CA3AF !important;
+    opacity: 1 !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix text overflow in inputs */
+  .form-input {
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+  }
+  
+  /* Ensure input text is visible */
+  .form-input,
+  input[type="email"],
+  input[type="text"],
+  input[type="password"] {
+    color: #1F2937 !important;
+    background: #FFFFFF !important;
+  }
+  
+  /* ============================================
+     AUTH PAGE - Form Options (Remember me & Forgot password on same line)
+     ============================================ */
+  .form-options {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin: 1rem 0 !important;
+    width: 100% !important;
+  }
+  
+  .remember-me {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    font-size: 0.875rem !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
+  
+  .forgot-password {
+    font-size: 0.875rem !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    align-self: center !important;
+    flex-shrink: 0 !important;
+  }
+  
+  /* Spacing adjustments */
+  [style*="gap: '8px'"],
+  [style*="gap: 8px"],
+  [style*="gap: '10px'"],
+  [style*="gap: 10px"],
+  [style*="gap: '12px'"],
+  [style*="gap: 12px"] {
+    gap: 0.75rem !important;
+  }
+  
+  [style*="gap: '16px'"],
+  [style*="gap: 16px"],
+  [style*="gap: '18px'"],
+  [style*="gap: 18px"],
+  [style*="gap: '20px'"],
+  [style*="gap: 20px"],
+  [style*="gap: '24px'"],
+  [style*="gap: 24px"] {
+    gap: 1rem !important;
+  }
+  
+  [style*="padding: '12px'"],
+  [style*="padding: 12px"],
+  [style*="padding: '16px'"],
+  [style*="padding: 16px"],
+  [style*="padding: '24px'"],
+  [style*="padding: 24px"] {
+    padding: 1rem !important;
+  }
+  
+  [style*="marginTop: '12px'"],
+  [style*="marginTop: 12px"],
+  [style*="marginTop: '16px'"],
+  [style*="marginTop: 16px"],
+  [style*="marginTop: '24px'"],
+  [style*="marginTop: 24px"] {
+    margin-top: 1rem !important;
+  }
+  
+  [style*="marginBottom: '12px'"],
+  [style*="marginBottom: 12px"],
+  [style*="marginBottom: '16px'"],
+  [style*="marginBottom: 16px"],
+  [style*="marginBottom: '24px'"],
+  [style*="marginBottom: 24px"] {
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* ============================================
+   VERY SMALL MOBILE DEVICES (320px - 360px)
+   ============================================ */
+@media screen and (max-width: 360px) {
+  /* Keep same sizes but ensure nothing breaks */
+  html {
+    font-size: 16px !important;
+  }
+  
+  body {
+    font-size: 0.875rem !important; /* 14px */
+  }
+  
+  button:not(.password-toggle):not(.password-toggle-button):not(.resend-link):not(.otp-resend-inline-btn):not(.profile-settings-searchable-option):not(.profile-settings-combobox-chevron):not(.evecta-primary-btn),
+  .btn {
+    padding: 0.625rem 1rem !important;
+    font-size: 0.875rem !important;
+    min-height: 2.5rem !important; /* 40px */
+  }
+  
+  input,
+  textarea,
+  select {
+    font-size: 1rem !important; /* Prevents zoom */
+    padding: 0.625rem 0.875rem !important;
+    min-height: 2.5rem !important;
+  }
+}
+
+/* ============================================
+   MEDIUM MOBILE DEVICES (361px - 480px)
+   ============================================ */
+@media screen and (min-width: 361px) and (max-width: 480px) {
+  /* Same as base mobile - ensures consistency */
+  html {
+    font-size: 16px !important;
+  }
+}
+
+/* ============================================
+   LARGE MOBILE DEVICES (481px - 767px)
+   ============================================ */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  /* Same as base mobile - ensures consistency */
+  html {
+    font-size: 16px !important;
+  }
+  
+  /* Slightly larger touch targets for larger phones */
+  button:not(.password-toggle):not(.password-toggle-button):not(.resend-link):not(.otp-resend-inline-btn):not(.profile-settings-searchable-option):not(.profile-settings-combobox-chevron):not(.evecta-primary-btn),
+  .btn {
+    min-height: 2.875rem !important; /* 46px */
+  }
+}
+

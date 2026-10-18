@@ -1,0 +1,564 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import './design-system.css';
+@import './shared/styles/EvectaLogo.css';
+@import './shared/styles/GlobalPopupMessage.css';
+@import './shared/components/PopupMessage/PopupMessage.css';
+@import './responsive-system.css';
+@import './mobile-responsive.css';
+@import './features/dashboard/dashboard.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* Base font size uses Master Typography Hierarchy - Text / M (Dashboard only) */
+}
+
+/* Dashboard body typography override */
+.dashboard-main-container,
+.dashboard-main-container body {
+  font-size: var(--typography-text-m-size) !important;
+  line-height: var(--typography-text-m-line) !important;
+  font-weight: var(--typography-text-m-weight) !important;
+  letter-spacing: var(--typography-text-m-spacing) !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+/* Ensure all elements use Urbanist font */
+* {
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif !important;
+}
+
+/* Remove border-radius from all SVG images */
+img[src$=".svg"],
+img[src*=".svg"] {
+  border-radius: 0 !important;
+}
+
+/* Global Dropdown/Select Hover Styles - Purple-50 (#FAF5FF) */
+/* Select Items (Radix UI Select) */
+[data-slot="select-item"]:focus,
+[data-slot="select-item"][data-highlighted],
+[data-radix-select-item]:focus,
+[data-radix-select-item][data-highlighted],
+[data-radix-select-item]:hover,
+[role="option"]:focus,
+[role="option"][data-highlighted],
+[role="option"]:hover {
+  background-color: #FAF5FF !important;
+  color: #111827 !important;
+}
+
+/* Dropdown Menu Items (Radix UI Dropdown) */
+[data-slot="dropdown-menu-item"]:focus,
+[data-slot="dropdown-menu-item"][data-highlighted],
+[data-slot="dropdown-menu-checkbox-item"]:focus,
+[data-slot="dropdown-menu-checkbox-item"][data-highlighted],
+[data-slot="dropdown-menu-radio-item"]:focus,
+[data-slot="dropdown-menu-radio-item"][data-highlighted],
+[data-slot="dropdown-menu-sub-trigger"]:focus,
+[data-slot="dropdown-menu-sub-trigger"][data-highlighted] {
+  background-color: #FAF5FF !important;
+  color: #111827 !important;
+}
+
+/* ============================================
+   TYPOGRAPHY SYSTEM - Master Typography Hierarchy (DASHBOARD ONLY)
+   ============================================
+   All typography now uses the Master Typography Hierarchy
+   defined in design-system.css
+   
+   Scoped to dashboard pages only (.dashboard-main-container)
+   
+   Use these classes throughout your application:
+   - .heading-xl, .heading-l, .heading-m
+   - .text-l, .text-m, .text-s
+   - .label-xs
+   ============================================ */
+
+/* H1 - Page Title - Uses Heading / XL (Dashboard only) */
+.dashboard-main-container h1:not(.heading-l):not(.heading-m):not(.billing-page-title):not(.inbox-thread-detail-title):not(.inbox-email-detail-subject) {
+  font-size: var(--typography-heading-xl-size) !important;
+  line-height: var(--typography-heading-xl-line) !important;
+  font-weight: var(--typography-heading-xl-weight) !important;
+  letter-spacing: var(--typography-heading-xl-spacing) !important;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+/* Top bar page title (AI Lead Gen, Lead Database, Campaigns, …) — medium, Heading / M */
+.dashboard-main-container h1.dashboard-header-text {
+  font-size: var(--typography-heading-m-size) !important;
+  line-height: var(--typography-heading-m-line) !important;
+  font-weight: 500 !important;
+  letter-spacing: var(--typography-heading-m-spacing) !important;
+  margin: 0 !important;
+}
+
+/* H2 - Section Title - Uses Heading / L (Dashboard only) */
+.dashboard-main-container h2:not(.heading-xl):not(.heading-m):not(.email-accounts-empty-state-title):not(.email-accounts-empty-managed-pool-title):not(.email-accounts-imap-modal-header-title) {
+  font-size: var(--typography-heading-l-size) !important;
+  line-height: var(--typography-heading-l-line) !important;
+  font-weight: var(--typography-heading-l-weight) !important;
+  letter-spacing: var(--typography-heading-l-spacing) !important;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+/* H3-H6 - Component Title - Uses Heading / M (Dashboard only) */
+.dashboard-main-container h3:not(.heading-xl):not(.heading-l):not(.billing-page-title):not(.inbox-campaign-card-title):not(.email-accounts-feature-title-conditional):not(.spending-additional-title):not(.spending-region-title):not(.spending-region-title--sub),
+.dashboard-main-container h4:not(.heading-xl):not(.heading-l):not(.spending-order-title),
+.dashboard-main-container h5:not(.heading-xl):not(.heading-l),
+.dashboard-main-container h6:not(.heading-xl):not(.heading-l) {
+  font-size: var(--typography-heading-m-size) !important;
+  line-height: var(--typography-heading-m-line) !important;
+  font-weight: var(--typography-heading-m-weight) !important;
+  letter-spacing: var(--typography-heading-m-spacing) !important;
+
+}
+
+/* Body Large - Maps to Text / L */
+.body-large, .body-l {
+  font-size: var(--typography-text-l-size) !important;
+  line-height: var(--typography-text-l-line) !important;
+  font-weight: var(--typography-text-l-weight) !important;
+  letter-spacing: var(--typography-text-l-spacing) !important;
+}
+
+/* Body Medium - Default - Maps to Text / M (Dashboard only) */
+.dashboard-main-container p:not(.text-l):not(.text-s):not(.label-xs):not(.heading-xl):not(.heading-l):not(.heading-m):not(.billing-page-subtitle):not(.billing-page-credits-note):not(.spending-region-lead):not(.spending-additional-lead):not(.billing-card-desc):not(.dashboard-empty-state-title):not(.dashboard-empty-state-description):not(.email-accounts-feature-subtitle-conditional):not(.inbox-empty-state-description):not(.inbox-campaign-card-meta):not(.inbox-thread-detail-desc):not(.email-creation-method-label):not(.cle-gen-banner-title):not(.cle-gen-banner-meta):not(.cle-gen-prompt-value),
+.body-medium, .body-m {
+  font-size: var(--typography-text-m-size) !important;
+  line-height: var(--typography-text-m-line) !important;
+  font-weight: var(--typography-text-m-weight) !important;
+  letter-spacing: var(--typography-text-m-spacing) !important;
+}
+
+/* Body Small - Maps to Text / S */
+.body-small, .body-s {
+  font-size: var(--typography-text-s-size) !important;
+  line-height: var(--typography-text-s-line) !important;
+  font-weight: var(--typography-text-s-weight) !important;
+  letter-spacing: var(--typography-text-s-spacing) !important;
+}
+
+/* Caption / Meta Text - Maps to Label / XS */
+.caption, .meta, .caption-text, .meta-text {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+}
+
+/* Buttons / CTAs - Use Text / M from Master Typography Hierarchy (Dashboard only) */
+.dashboard-main-container button:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.text-s):not(.label-xs):not(.email-accounts-setup-back-button):not(.password-toggle-button):not(.imap-modal-password-toggle):not(.evecta-dialog-close):not(.campaign-email-creation-tab):not(.email-tone-card),
+.dashboard-main-container .btn:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.text-s):not(.label-xs),
+.dashboard-main-container .button:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.text-s):not(.label-xs),
+.dashboard-main-container .cta:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.text-s):not(.label-xs),
+.dashboard-main-container [role="button"]:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.text-s):not(.label-xs) {
+  font-size: var(--typography-text-m-size) !important;
+  line-height: var(--typography-text-m-line) !important;
+  font-weight: var(--typography-text-m-weight) !important;
+  letter-spacing: var(--typography-text-m-spacing) !important;
+}
+
+button.btn-small, .btn-small, button.small {
+  font-size: var(--typography-text-s-size) !important;
+  line-height: var(--typography-text-s-line) !important;
+  font-weight: var(--typography-text-s-weight) !important;
+}
+
+button.btn-large, .btn-large, button.large {
+  font-size: var(--typography-text-l-size) !important;
+  line-height: var(--typography-text-l-line) !important;
+  font-weight: var(--typography-text-l-weight) !important;
+}
+
+/* Ensure all text elements use Urbanist */
+p, span, div, a, button, input, textarea, select, label, li, td, th, tr, table, form, fieldset, legend {
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif !important;
+}
+
+/* Navigation text - Use Label / XS from Master Typography Hierarchy (Dashboard only) */
+.dashboard-main-container nav:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.text-m):not(.text-s),
+.dashboard-main-container .nav:not(.heading-xl):not(.heading-l):not(.heading-m):not(.text-l):not(.text-m):not(.text-s),
+.dashboard-main-container .sidebar:not(.heading-xl):not(.heading-l):not(.heading-m):not(.heading-s):not(.text-l):not(.text-m):not(.text-s) {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+}
+
+/* Sidebar specific text sizes - Use Label / XS from Master Typography Hierarchy */
+.sidebar *:not(.heading-xl):not(.heading-l):not(.heading-m):not(.heading-s):not(.text-l):not(.text-m):not(.text-s) {
+  font-size: inherit;
+}
+
+/* Override font-medium class in sidebar to use Label / XS */
+.sidebar .font-medium,
+.sidebar div.font-medium,
+.sidebar button .font-medium {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+}
+
+.sidebar .logo-text,
+.sidebar .section-title,
+.sidebar .nav-label,
+.sidebar .nav-description,
+.sidebar .add-label,
+.sidebar .user-name,
+.sidebar .signin-label {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+}
+
+.sidebar .user-email {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+}
+
+/* Override all text in sidebar to use Label / XS (exclude Evecta logo) */
+.sidebar div:not(.heading-xl):not(.heading-l):not(.heading-m):not(.heading-s):not(.text-l):not(.text-m):not(.text-s):not(.text-xs):not(.text-sm):not(.text-lg):not(.text-xl):not(.text-2xl):not(.text-3xl):not(.evecta-logo):not(.evecta-logo-text):not(.evecta-logo-tagline),
+.sidebar span:not(.heading-xl):not(.heading-l):not(.heading-m):not(.heading-s):not(.text-l):not(.text-m):not(.text-s):not(.text-xs):not(.text-sm):not(.text-lg):not(.text-xl):not(.text-2xl):not(.text-3xl):not(.evecta-logo-text):not(.evecta-logo-tagline),
+.sidebar p:not(.heading-xl):not(.heading-l):not(.heading-m):not(.heading-s):not(.text-l):not(.text-m):not(.text-s) {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+}
+
+/* Specifically target font-medium class - HIGH SPECIFICITY */
+.sidebar div.font-medium,
+.sidebar .font-medium,
+.sidebar button .font-medium,
+.sidebar button div.font-medium,
+.sidebar > * .font-medium,
+.sidebar [class*="flex"] .font-medium {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+}
+
+/* Also target all divs directly inside sidebar buttons */
+.sidebar button > div:not(.heading-xl):not(.heading-l):not(.heading-m):not(.heading-s):not(.text-l):not(.text-m):not(.text-s),
+.sidebar button div:not(.heading-xl):not(.heading-l):not(.heading-m):not(.heading-s):not(.text-l):not(.text-m):not(.text-s) {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+}
+
+/* Sidebar headings use Heading / S */
+.sidebar h3:not(.heading-xl):not(.heading-l):not(.heading-m) {
+  font-size: var(--typography-heading-s-size) !important;
+  line-height: var(--typography-heading-s-line) !important;
+  font-weight: var(--typography-heading-s-weight) !important;
+  letter-spacing: var(--typography-heading-s-spacing) !important;
+}
+
+/* Ensure icons remain readable */
+.icon, svg, [class*="icon"], [data-icon] {
+  min-width: 16px;
+  min-height: 16px;
+}
+
+/* Close buttons — exclude Evecta dialog X (EvectaDialog.css owns sizing) */
+.close-btn,
+.close-button,
+[aria-label*="close"]:not(.evecta-dialog-close),
+[aria-label*="Close"]:not(.evecta-dialog-close) {
+  font-size: var(--typography-text-l-size) !important;
+  line-height: var(--typography-text-l-line) !important;
+  min-width: 20px;
+  min-height: 20px;
+  padding: 4px;
+}
+
+/* CRITICAL: Sidebar font-size overrides - MUST be after all Tailwind imports */
+/* Override Tailwind's base font-size for all sidebar elements using Master Typography Hierarchy */
+.sidebar:not(.heading-xl):not(.heading-l):not(.heading-m):not(.heading-s):not(.text-l):not(.text-m):not(.text-s),
+.sidebar *:not(.heading-xl):not(.heading-l):not(.heading-m):not(.heading-s):not(.text-l):not(.text-m):not(.text-s):not(.text-xs):not(.text-sm):not(.text-lg):not(.text-xl):not(.text-2xl):not(.text-3xl):not(svg):not(path):not(.evecta-logo-text):not(.evecta-logo-tagline) {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+}
+
+/* Specifically target the div.font-medium elements */
+.sidebar div.font-medium,
+.sidebar button div.font-medium,
+.sidebar [class*="flex"] div.font-medium,
+.sidebar [class*="flex-1"] div.font-medium,
+.sidebar [class*="min-w-0"] div.font-medium {
+  font-size: var(--typography-label-xs-size) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+}
+
+/* Evecta logo - load last to override all sidebar typography */
+.sidebar .evecta-logo-text,
+aside .evecta-logo-text,
+aside.bg-white .evecta-logo-text,
+aside[class*="flex"] .evecta-logo-text,
+.dashboard-main-container .evecta-logo-text {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.2 !important;
+}
+.sidebar .evecta-logo-tagline,
+aside .evecta-logo-tagline,
+aside.bg-white .evecta-logo-tagline,
+aside[class*="flex"] .evecta-logo-tagline,
+.dashboard-main-container .evecta-logo-tagline {
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.2 !important;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* AI Lead Gen welcome — must load after Tailwind utilities so “Find Here!” stays 16px / title 34px */
+.dashboard-main-container .lead-generation-main-prompt-section[data-lead-gen-welcome="true"] .lead-generation-main-prompt-eyebrow {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  letter-spacing: normal !important;
+}
+
+.dashboard-main-container .lead-generation-main-prompt-section[data-lead-gen-welcome="true"] h2.lead-generation-main-prompt-title {
+  font-size: 34px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  font-family: 'Urbanist', sans-serif !important;
+  letter-spacing: normal !important;
+}
+
+/* Empty states — load after Tailwind; beats design-system [class] / table * when needed */
+.dashboard-main-container .dashboard-empty-state .dashboard-empty-state-title,
+.inbox-email-list-empty-state .dashboard-empty-state .dashboard-empty-state-title {
+  font-size: 30px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  letter-spacing: normal !important;
+  color: #030011 !important;
+  margin: 0 0 8px 0 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.dashboard-main-container .dashboard-empty-state .dashboard-empty-state-description,
+.inbox-email-list-empty-state .dashboard-empty-state .dashboard-empty-state-description {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  letter-spacing: normal !important;
+  color: #a198ce !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.dashboard-main-container .dashboard-empty-state .dashboard-empty-state-icon.dashboard-empty-state-icon-gradient,
+.inbox-email-list-empty-state .dashboard-empty-state .dashboard-empty-state-icon.dashboard-empty-state-icon-gradient {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  margin-bottom: 10px !important;
+}
+
+.dashboard-main-container .template-empty-state .dashboard-empty-state-title {
+  font-size: 30px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  letter-spacing: normal !important;
+  color: #030011 !important;
+  margin: 0 0 8px 0 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.dashboard-main-container .template-empty-state .dashboard-empty-state-description {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  letter-spacing: normal !important;
+  color: #6b7280 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.dashboard-main-container .template-empty-state .template-empty-state-icon {
+  width: 60px !important;
+  height: 60px !important;
+  margin-bottom: 10px !important;
+}
+
+.dashboard-main-container .email-accounts-empty-state .email-accounts-empty-state-title {
+  font-size: 30px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  letter-spacing: normal !important;
+  color: #030011 !important;
+  margin: 0 0 8px 0 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.dashboard-main-container .email-accounts-empty-state .email-accounts-empty-state-description {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  letter-spacing: normal !important;
+  color: #a198ce !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+/* Inbox main empty: description one line + brand muted purple */
+.inbox-email-list-empty-state .dashboard-empty-state .dashboard-empty-state-description.inbox-empty-state-description {
+  color: #a198ce !important;
+  white-space: nowrap !important;
+  max-width: none !important;
+}
+
+@media (max-width: 768px) {
+  .inbox-email-list-empty-state .dashboard-empty-state .dashboard-empty-state-description.inbox-empty-state-description {
+    white-space: normal !important;
+  }
+}
+
+/* Inbox thread detail header — dashboard * / [class] was overriding Back, title, meta */
+.dashboard-main-container .inbox-thread-detail-back {
+  font-size: 12.25px !important;
+  line-height: 17.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+  color: #07020d !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.dashboard-main-container .inbox-thread-detail-back svg {
+  color: #07020d !important;
+}
+
+.dashboard-main-container h1.inbox-thread-detail-title {
+  font-size: 15.75px !important;
+  line-height: 24.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+  color: #07020d !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.dashboard-main-container .inbox-thread-detail-desc {
+  font-size: 12.25px !important;
+  line-height: 17.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+  color: #6b7280 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.dashboard-main-container .inbox-thread-detail-meta-item {
+  font-size: 12.25px !important;
+  line-height: 17.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+  color: #6b7280 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.dashboard-main-container .inbox-thread-detail-meta-item svg {
+  color: #6b7280 !important;
+}
+
+/* Inbox thread session cards (lead replies below divider) */
+.dashboard-main-container .inbox-session-card-to {
+  font-size: 14px !important;
+  line-height: 1.35 !important;
+  font-weight: 500 !important;
+  color: #07020d !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.dashboard-main-container .inbox-session-card-subject {
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+  color: #07020d !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.dashboard-main-container .inbox-session-card-snippet {
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+  font-weight: 400 !important;
+  color: #a198ce !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.dashboard-main-container .inbox-session-card-date {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #a198ce !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.dashboard-main-container .inbox-session-card .inbox-session-avatar {
+  color: #07020d !important;
+  font-weight: 700 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+/* Lead conversation header avatar — same treatment as session rows */
+.dashboard-main-container .inbox-email-message-toolbar .inbox-email-message-avatar {
+  color: #07020d !important;
+  font-weight: 700 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  background: #f3f4f6 !important;
+}
+
+.dashboard-main-container h1.inbox-email-detail-subject {
+  font-size: 22px !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+  letter-spacing: normal !important;
+  color: #07020d !important;
+  font-family: 'Urbanist', sans-serif !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+

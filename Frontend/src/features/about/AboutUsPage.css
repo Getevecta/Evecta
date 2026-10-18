@@ -1,0 +1,2850 @@
+.about-us-page {
+  min-height: 100vh;
+  background-color: #F9FAFB;
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  border-left: none !important;
+}
+
+.about-us-page .about-page-content {
+  border-left: none !important;
+}
+
+/* Main content area only - background not in header/footer; only Privacy Policy.png */
+/* Same left/right spacing as Contact page content */
+.about-us-page .about-page-content {
+  position: relative;
+  background-image: url('/Privacy%20Policy.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent !important;
+  /* Top offset lives on the hero so Hero Section.png covers the header-clearance band (avoids two backgrounds) */
+  padding-top: 0;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .about-us-page .about-page-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .about-us-page .about-page-content {
+    padding-left: max(2rem, min(180px, calc((100vw - 1000px) / 2)));
+    padding-right: max(2rem, min(180px, calc((100vw - 1000px) / 2)));
+  }
+}
+@media (max-width: 768px) {
+  .about-us-page .about-page-content {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+}
+
+/* Remove all borders from footer */
+.about-us-page footer {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* Remove underlines from footer links */
+.about-us-page footer a {
+  text-decoration: none !important;
+}
+
+.about-us-page footer a:hover {
+  text-decoration: none !important;
+}
+
+/* Remove borders and gaps from footer list items */
+.about-us-page footer ul li {
+  border: none !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.about-us-page footer ul li::before,
+.about-us-page footer ul li::after {
+  display: none !important;
+  content: none !important;
+}
+
+.about-us-page footer ul li a {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  text-decoration-line: none !important;
+}
+
+/* Remove focus outline from all footer links */
+.about-us-page footer a,
+.about-us-page footer a:link,
+.about-us-page footer a:visited,
+.about-us-page footer a:hover,
+.about-us-page footer a:active,
+.about-us-page footer a:focus,
+.about-us-page footer a:focus-visible,
+.about-us-page footer a:focus-within {
+  outline: none !important;
+  outline-width: 0 !important;
+  outline-style: none !important;
+  outline-color: transparent !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-width: 0 !important;
+  border-style: none !important;
+  border-color: transparent !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
+}
+
+/* Remove focus outline from footer links specifically */
+.about-us-page footer a[href*="privacy-policy"],
+.about-us-page footer a[href*="terms-of-service"],
+.about-us-page footer a[href*="privacy-policy"]:link,
+.about-us-page footer a[href*="privacy-policy"]:visited,
+.about-us-page footer a[href*="privacy-policy"]:hover,
+.about-us-page footer a[href*="privacy-policy"]:active,
+.about-us-page footer a[href*="privacy-policy"]:focus,
+.about-us-page footer a[href*="privacy-policy"]:focus-visible,
+.about-us-page footer a[href*="privacy-policy"]:focus-within,
+.about-us-page footer a[href*="terms-of-service"]:link,
+.about-us-page footer a[href*="terms-of-service"]:visited,
+.about-us-page footer a[href*="terms-of-service"]:hover,
+.about-us-page footer a[href*="terms-of-service"]:active,
+.about-us-page footer a[href*="terms-of-service"]:focus,
+.about-us-page footer a[href*="terms-of-service"]:focus-visible,
+.about-us-page footer a[href*="terms-of-service"]:focus-within {
+  outline: none !important;
+  outline-width: 0 !important;
+  outline-style: none !important;
+  outline-color: transparent !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-width: 0 !important;
+  border-style: none !important;
+  border-color: transparent !important;
+  text-decoration: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
+}
+
+/* Remove focus ring for all browsers */
+.about-us-page footer a::-moz-focus-inner {
+  border: 0 !important;
+  outline: none !important;
+}
+
+/* Header – horizontal spacing from .about-page-content */
+.about-header {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 60px;
+  text-align: center;
+  width: 100%;
+  background: linear-gradient(to right, rgba(139, 92, 246, 0.05) 0%, rgba(173, 70, 255, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+  margin-top: 0;
+  margin-bottom: 60px;
+  overflow: visible;
+}
+
+/* Hero: Hero Section.png as background – same left/right gap as rest of page */
+/* Hero background full viewport width */
+.about-header.about-hero-contact-style {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 0 0 80px;
+  text-align: center;
+  background-image: url('/Hero%20Section.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
+
+/* Fixed-header clearance on the hero (not on .about-page-content) so Hero Section.png paints behind it — avoids a Privacy Policy strip above the hero */
+.about-us-page .about-header.about-hero-contact-style {
+  padding-top: var(--page-content-padding-top-mobile);
+  padding-bottom: 80px;
+  padding-left: 0;
+  padding-right: 0;
+}
+@media (min-width: 768px) {
+  .about-us-page .about-header.about-hero-contact-style {
+    padding-top: var(--page-content-padding-top-laptop);
+  }
+}
+
+/* Restore horizontal padding for hero content so text aligns with page */
+.about-header.about-hero-contact-style .about-header-content {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+@media (min-width: 768px) {
+  .about-header.about-hero-contact-style .about-header-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+/*
+ * Laptop hero inset: cap at 180px, but shrink on narrower viewports so the first
+ * desktop line can stay a single row (nowrap) without orphaning "lead".
+ */
+@media (min-width: 1024px) {
+  .about-header.about-hero-contact-style .about-header-content {
+    max-width: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: max(2rem, min(180px, calc((100vw - 1000px) / 2)));
+    padding-right: max(2rem, min(180px, calc((100vw - 1000px) / 2)));
+  }
+}
+@media (max-width: 768px) {
+  .about-header.about-hero-contact-style .about-header-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .about-header.about-hero-contact-style .about-header-content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.about-header-content {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+/* Same badge/heading/para as Contact page */
+.about-page-content .about-header.about-hero-contact-style .homepage-why-choose-badge {
+  background: linear-gradient(to right, rgba(212, 88, 255, 0.7), #6B21A8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-bottom: 10px;
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+@media (min-width: 768px) {
+  .about-page-content .about-header.about-hero-contact-style .homepage-why-choose-badge {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
+.about-page-content .about-header.about-hero-contact-style .homepage-why-choose-heading {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  color: #fff;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .about-page-content .about-header.about-hero-contact-style .homepage-why-choose-heading {
+    font-size: 64px;
+    line-height: 120%;
+  }
+}
+.about-page-content .about-header.about-hero-contact-style .homepage-why-choose-para {
+  font-size: 14px;
+  line-height: 145%;
+  color: #A198CE;
+  font-weight: 400;
+  margin: 0;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  .about-page-content .about-header.about-hero-contact-style .homepage-why-choose-para {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+.about-hero-para-desktop {
+  display: block;
+}
+/* Two explicit laptop lines: row2 always starts after row1 (no mid-sentence wrap before "and") */
+.about-hero-para-desk-row1,
+.about-hero-para-desk-row2 {
+  display: block;
+}
+/* Single visual line for row 1 once viewport + inset leave ~1000px+ for copy */
+@media (min-width: 1080px) {
+  .about-hero-para-desk-row1 {
+    white-space: nowrap;
+  }
+}
+.about-hero-para-mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  .about-hero-para-desktop {
+    display: none;
+  }
+  .about-hero-para-mobile {
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  .about-page-content .about-header.about-hero-contact-style .homepage-why-choose-para {
+    font-size: 18px;
+  }
+}
+
+.about-us-page .help-badge,
+.about-header .help-badge,
+.about-header-content .help-badge,
+.help-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background-color: rgba(139, 92, 246, 0.1) !important;
+  color: #8B5CF6 !important;
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  border: none !important;
+  border-top: 1px solid #8B5CF6 !important;
+  border-right: 1px solid #8B5CF6 !important;
+  border-bottom: 1px solid #8B5CF6 !important;
+  border-left: 1px solid #8B5CF6 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  width: fit-content !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  box-sizing: border-box !important;
+}
+
+.badge-icon {
+  width: 14px !important;
+  height: 14px !important;
+  color: #8B5CF6 !important;
+  stroke-width: 2 !important;
+}
+
+.about-title {
+  font-size: var(--typography-heading-xl-size);
+  line-height: var(--typography-heading-xl-line);
+  font-weight: var(--typography-heading-xl-weight);
+  letter-spacing: var(--typography-heading-xl-spacing);
+  margin: 0;
+  text-align: center;
+  color: #07020D;
+  overflow: visible;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #07020D 0%, #07020D 50%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  line-height: inherit;
+  overflow: visible;
+  vertical-align: baseline;
+}
+
+.about-subtitle {
+  color: #6B7280;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* ========== Our Story + Image + Our Values – spacing match design ========== */
+/* No extra background – uses page background (Privacy Policy.png) */
+.about-story-values-dark {
+  background-color: transparent;
+  background: none;
+  padding: 100px 0 0;
+  margin: 0;
+}
+
+.about-story-values-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Our Story label – gap to heading: 12px mobile, 20px laptop */
+.about-story-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #A04CD8;
+  margin: 0 0 12px 0;
+  display: block;
+}
+@media (min-width: 768px) {
+  .about-story-label {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Built from / Real Struggle – 20px mobile, 40px laptop, medium weight, 120% line-height */
+.about-story-title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 1rem 0;
+}
+@media (min-width: 768px) {
+  .about-story-title {
+    font-size: 40px;
+  }
+}
+
+.about-story-title br {
+  display: block;
+}
+
+.about-story-para {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #A198CE;
+  margin: 0 0 1.25rem 0;
+}
+@media (min-width: 768px) {
+  .about-story-para {
+    font-size: 18px;
+  }
+}
+
+.about-story-para:last-of-type {
+  margin-bottom: 1.25rem;
+}
+
+.about-story-mission {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #A198CE;
+  margin: 0 0 40px 0;
+}
+@media (min-width: 768px) {
+  .about-story-mission {
+    font-size: 18px;
+    margin-bottom: 60px;
+  }
+}
+
+/* Image block: full width of content column – same left/right as text */
+.about-story-image-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 50px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+@media (min-width: 768px) {
+  .about-story-image-wrap {
+    margin-bottom: 100px;
+  }
+}
+
+.about-story-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+/* Gap image → Our Values: 50px mobile, 100px laptop (no extra top padding on values block) */
+.about-us-page .values-section.values-section-dark.spacing-about-values-section-top {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* Our Values label: clear separation from image */
+.about-values-label {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #C4B5FD;
+  margin: 0;
+  padding-top: 1rem;
+  display: block;
+}
+
+/* Legacy story section (keep for any other refs) */
+.story-section {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.story-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.story-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.story-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background-color: rgba(139, 92, 246, 0.1) !important;
+  color: #8B5CF6 !important;
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  border: none !important;
+  border-top: 1px solid #8B5CF6 !important;
+  border-right: 1px solid #8B5CF6 !important;
+  border-bottom: 1px solid #8B5CF6 !important;
+  border-left: 1px solid #8B5CF6 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  width: fit-content !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  box-sizing: border-box !important;
+}
+
+.story-badge-icon {
+  width: 14px !important;
+  height: 14px !important;
+  color: #8B5CF6 !important;
+  stroke-width: 2 !important;
+}
+
+.story-title {
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.story-text-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-paragraph {
+  color: #374151;
+  line-height: 1.7;
+  margin: 0;
+  text-align: left;
+}
+
+.story-divider {
+  width: 100%;
+  height: 1px;
+  border: none;
+  background: repeating-linear-gradient(
+    to right,
+    #8B5CF6 0px,
+    #8B5CF6 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  margin: 8px 0;
+}
+
+.story-mission {
+  font-size: 14px;
+  color: #111827;
+  font-weight: 700;
+  line-height: 1.7;
+  margin: 0;
+  text-align: left;
+}
+
+.story-graphic-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding-top: 0;
+  margin-top: -40px;
+}
+
+.story-graphic {
+  width: 100%;
+  max-width: 511px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* What Drives Us Section – horizontal spacing from .about-page-content */
+.values-section {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+}
+
+/* Our Values – same gap and left/right space as Our Story section */
+.values-section-dark {
+  background-color: transparent;
+  background: none;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem 0 4rem;
+}
+
+/* Space after value cards → next section: 50px mobile, 100px laptop */
+.about-us-page .values-section.values-section-dark.spacing-about-values-section-top {
+  padding-bottom: 50px;
+}
+@media (min-width: 768px) {
+  .about-us-page .values-section.values-section-dark.spacing-about-values-section-top {
+    padding-bottom: 100px;
+  }
+}
+
+.values-section-dark .values-container {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* About mobile: label, headings, subtitle, and value cards share one full-width column edge */
+@media (max-width: 768px) {
+  .about-us-page .values-section-dark .values-container {
+    align-items: stretch;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Our Values: horizontal scroll + snap; card width leaves a peek of the next slide */
+  .about-us-page
+    .values-section.values-section-dark.spacing-about-values-section-top
+    .values-cards.about-values-cards-carousel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 1rem;
+    max-width: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .about-us-page
+    .values-section.values-section-dark.spacing-about-values-section-top
+    .values-cards.about-values-cards-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .about-us-page
+    .values-section.values-section-dark.spacing-about-values-section-top
+    .values-cards.about-values-cards-carousel
+    .value-card {
+    flex: 0 0 calc(100% - 2.5rem);
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+
+  .about-us-page .values-section-dark .values-subtitle {
+    max-width: none;
+  }
+
+  /* Flush with “Our Values” / heading — offset was horizontal padding + utility on cards */
+  .about-us-page .values-section-dark .values-subtitle.about-values-principles-subtitle {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    text-indent: 0 !important;
+  }
+
+  .about-us-page
+    .values-section-dark
+    .values-subtitle.about-values-principles-subtitle
+    .about-values-principles-subtitle-desktop,
+  .about-us-page
+    .values-section-dark
+    .values-subtitle.about-values-principles-subtitle
+    .about-values-principles-subtitle-mobile {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  /* Inner inset; title/description stay padding:0 so [class*="card"] doesn’t misalign icon vs text */
+  .about-us-page .values-section-dark .value-card {
+    padding: 1.75rem 1.25rem !important;
+  }
+
+  /* mobile-responsive [class*="card"] adds padding to class names containing "card"; icon uses .value-icon only */
+  .about-us-page .values-section-dark .value-card-title.heading-m,
+  .about-us-page .values-section-dark .value-card-description {
+    padding: 0 !important;
+  }
+
+  .about-us-page .discover-our-services.values-section-dark .values-subtitle.about-services-subtitle {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    text-indent: 0 !important;
+  }
+
+  /* Same pill dots as homepage How it works (8×8 inactive, 24×8 active) — long selectors so mobile global button rules don’t win */
+  .about-us-page .values-section-dark .values-container .about-values-cards-dots {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-top: 0;
+    padding: 0 0 2px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+  }
+
+  .about-us-page
+    .values-section-dark
+    .values-container
+    .about-values-cards-dots
+    button.about-values-cards-dot {
+    box-sizing: border-box;
+    width: 8px;
+    height: 8px;
+    min-width: 8px !important;
+    max-width: 8px !important;
+    min-height: 8px !important;
+    max-height: 8px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 9999px !important;
+    border: 1.5px solid rgba(111, 104, 146, 0.4) !important;
+    background: transparent !important;
+    cursor: pointer;
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    font-weight: 400 !important;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .about-us-page
+    .values-section-dark
+    .values-container
+    .about-values-cards-dots
+    button.about-values-cards-dot.is-active {
+    width: 24px !important;
+    min-width: 24px !important;
+    max-width: 24px !important;
+    height: 8px !important;
+    min-height: 8px !important;
+    max-height: 8px !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
+    background: linear-gradient(180deg, rgba(212, 88, 255, 0.7) 0%, #6b21a8 100%) !important;
+  }
+}
+
+/* Our Values carousel dots: desktop/tablet grid — no dots */
+.about-values-cards-dots {
+  display: none;
+}
+
+/* Our Values / Our Services label (dark sections) */
+.values-section-label {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #A04CD8;
+  margin: 0 0 1.25rem 0;
+  display: block;
+}
+
+.values-section-dark .values-section-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+@media (min-width: 768px) {
+  .values-section-dark .values-section-label {
+    font-size: 16px;
+  }
+}
+
+/* Our Values label → What Drives Us: 12px mobile, 20px laptop */
+.spacing-about-values-section-top .values-section-label {
+  margin-bottom: 12px;
+}
+@media (min-width: 768px) {
+  .spacing-about-values-section-top .values-section-label {
+    margin-bottom: 20px;
+  }
+}
+
+/* Our Services label → headline: 12px mobile, 20px laptop */
+.discover-our-services.spacing-about-services-section-top .values-section-label {
+  margin-bottom: 12px;
+}
+@media (min-width: 768px) {
+  .discover-our-services.spacing-about-services-section-top .values-section-label {
+    margin-bottom: 20px;
+  }
+}
+
+.values-section-dark .values-title {
+  color: #fff;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+}
+
+/* What / Drives Us – 20px mobile, 40px laptop, medium, 120% line-height */
+.values-section-dark .values-title.about-values-drives-heading {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 120%;
+}
+@media (min-width: 768px) {
+  .values-section-dark .values-title.about-values-drives-heading {
+    font-size: 40px;
+  }
+}
+
+/* Our Services: A more effective / way to Track Progress — 20px mobile, 40px laptop, medium, 120% */
+.discover-our-services.values-section-dark h2.values-title.about-services-title {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  letter-spacing: -0.02em;
+  margin-top: 0;
+  margin-bottom: 6px !important;
+}
+@media (min-width: 768px) {
+  .discover-our-services.values-section-dark h2.values-title.about-services-title {
+    font-size: 40px !important;
+    line-height: 120% !important;
+    margin-bottom: 16px !important;
+  }
+}
+
+/* Our Services intro paragraph */
+.discover-our-services.values-section-dark .values-subtitle.about-services-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #A198CE;
+  margin: 0 0 40px 0;
+}
+.discover-our-services.values-section-dark .values-subtitle.about-services-subtitle.spacing-about-values-subtitle-to-cards {
+  margin-top: 0;
+}
+.discover-our-services.values-section-dark .about-services-subtitle-desktop {
+  display: none;
+}
+.discover-our-services.values-section-dark .about-services-subtitle-mobile {
+  display: inline;
+}
+@media (min-width: 768px) {
+  .discover-our-services.values-section-dark .values-subtitle.about-services-subtitle {
+    font-size: 18px;
+    margin-bottom: 60px;
+  }
+  .discover-our-services.values-section-dark .about-services-subtitle-desktop {
+    display: inline;
+  }
+  .discover-our-services.values-section-dark .about-services-subtitle-mobile {
+    display: none;
+  }
+}
+
+.values-section-dark .values-title br {
+  display: block;
+}
+
+.values-section-dark .values-subtitle {
+  color: #A198CE;
+  margin: 0 0 2rem 0;
+  max-width: 640px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Our Values principles line: mobile 14px / two lines; laptop 18px / single line */
+.values-section-dark .values-subtitle.about-values-principles-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #A198CE;
+  margin-bottom: 40px;
+}
+.values-section-dark .about-values-principles-subtitle-desktop {
+  display: none;
+}
+.values-section-dark .about-values-principles-subtitle-mobile {
+  display: inline;
+}
+@media (min-width: 768px) {
+  .values-section-dark .values-subtitle.about-values-principles-subtitle {
+    font-size: 18px;
+    line-height: 145%;
+    margin-bottom: 60px;
+  }
+  .values-section-dark .about-values-principles-subtitle-desktop {
+    display: inline;
+  }
+  .values-section-dark .about-values-principles-subtitle-mobile {
+    display: none;
+  }
+}
+
+.values-section-dark .values-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+  width: 100%;
+}
+
+.values-section-dark .value-card {
+  background-image: url('/background-border-shadow.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(26, 15, 51, 0.85);
+  border: none !important;
+  border-left: none !important;
+  border-radius: 1.25rem;
+  padding: 1.75rem 1.25rem;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.values-section-dark .value-icon {
+  color: #A855F7;
+  width: 18px;
+  height: 18px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+@media (min-width: 768px) {
+  .values-section-dark .value-icon {
+    margin-bottom: 20px;
+  }
+}
+
+.values-section-dark .value-icon.spacing-about-value-icon-to-title {
+  margin-top: 0;
+}
+
+/* Card titles (Mission-Driven, etc.): medium weight, 16→22px, line-height 28px; 10px gap to description */
+.values-section-dark .value-card-title.heading-m {
+  color: #fff;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 28px !important;
+  letter-spacing: -0.01em;
+  margin: 0 0 10px 0;
+}
+@media (min-width: 768px) {
+  .values-section-dark .value-card-title.heading-m {
+    font-size: 22px !important;
+    line-height: 28px !important;
+  }
+}
+
+.values-section-dark .value-card-description {
+  color: #A198CE;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .values-section-dark .value-card-description {
+    font-size: 16px;
+  }
+}
+
+.values-section-dark .value-card-title.heading-m.spacing-about-value-title-to-description {
+  margin-top: 0;
+}
+
+@media (max-width: 1024px) {
+  .values-section-dark .values-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .values-section-dark .values-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.values-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.values-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background-color: rgba(139, 92, 246, 0.1) !important;
+  color: #8B5CF6 !important;
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  border: none !important;
+  border-top: 1px solid #8B5CF6 !important;
+  border-right: 1px solid #8B5CF6 !important;
+  border-bottom: 1px solid #8B5CF6 !important;
+  border-left: 1px solid #8B5CF6 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  width: fit-content !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  box-sizing: border-box !important;
+}
+
+.values-badge-icon {
+  width: 14px !important;
+  height: 14px !important;
+  color: #8B5CF6 !important;
+  stroke-width: 2 !important;
+}
+
+.values-title {
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.values-subtitle {
+  color: #6B7280;
+  margin: 0;
+  margin-bottom: 18px;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.values-divider {
+  width: 50px;
+  height: 2px;
+  background-color: #EC4899;
+  margin: 0 auto 32px;
+  border-radius: 2px;
+}
+
+.values-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  max-width: 1200px;
+}
+
+.value-card {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  border: 1px solid #E5E7EB;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.value-icon {
+  width: 36px;
+  height: 36px;
+  color: #8B5CF6;
+  margin-bottom: 0;
+  stroke-width: 1.5;
+}
+
+.value-card-title {
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.value-card-description {
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Our Services Section – horizontal spacing from .about-page-content */
+.discover-our-services {
+  background: #ffffff;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Our Services uses Values styling: same classes = same look */
+.discover-our-services.values-section-dark {
+  background: transparent;
+  padding: 3rem 0 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.discover-our-services-content {
+  max-width: 900px;
+  text-align: center;
+  width: 100%;
+}
+
+.discover-our-services-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background-color: rgba(139, 92, 246, 0.1) !important;
+  color: #8B5CF6 !important;
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  border: none !important;
+  border-top: 1px solid #8B5CF6 !important;
+  border-right: 1px solid #8B5CF6 !important;
+  border-bottom: 1px solid #8B5CF6 !important;
+  border-left: 1px solid #8B5CF6 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  width: fit-content !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  box-sizing: border-box !important;
+}
+
+.discover-our-services-badge-icon {
+  width: 14px !important;
+  height: 14px !important;
+  color: #8B5CF6 !important;
+  stroke-width: 2 !important;
+}
+
+.discover-our-services-headline {
+  line-height: 1.2;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
+.discover-our-services-description {
+  line-height: 1.6;
+  color: #6B7280;
+  margin: 0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Urbanist', sans-serif !important;
+  font-weight: 400;
+}
+
+
+@media (max-width: 768px) {
+  .discover-our-services {
+    padding: 40px 20px 80px;
+  }
+}
+
+/* Lead Generation Section – horizontal spacing from .about-page-content */
+.discover-lead-generation {
+  background: #ffffff;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.discover-lead-generation-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.discover-lead-generation-design {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discover-lead-generation-svg {
+  width: 500px;
+  max-width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+.discover-lead-generation-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.discover-lead-generation-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 0;
+}
+
+.discover-lead-generation-badge span {
+  font-weight: 600;
+  color: #9855FF;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.discover-lead-generation-headline {
+  line-height: 1.2;
+  font-weight: 700;
+  color: #07020D;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
+.discover-lead-generation-description {
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 600;
+  color: #6B7280;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+@media (min-width: 768px) {
+  .discover-lead-generation-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .discover-lead-generation-description {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
+
+.discover-lead-generation-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+
+.discover-lead-generation-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  font-weight: 500;
+  color: #9855FF;
+  font-family: 'Urbanist', sans-serif;
+}
+
+@media (max-width: 968px) {
+  .discover-lead-generation-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+    
+  .discover-lead-generation-design {
+    order: 1;
+  }
+    
+  .discover-lead-generation-content {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .discover-lead-generation {
+    padding: 40px 20px 80px;
+  }
+
+  .discover-lead-generation-svg {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 583 / 446;
+  }
+}
+
+/* Lead Generation – dark card: same horizontal space as Our Services (900px) */
+.discover-lead-generation-dark {
+  background: transparent;
+  padding: 0 0 3rem 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* First Our Services block: dark section bg + two columns (chat frame left, copy right) */
+.discover-lead-generation-services-wrap {
+  max-width: 100%;
+  padding: 3rem 0 4rem;
+  margin-left: 0;
+  margin-right: 0;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* Outer frame – same look as Frame 2121457612.svg, frame color #9164FF 20% */
+.discover-lead-generation-services-wrap .discover-services-frame {
+  width: 100%;
+  max-width: 900px;
+  min-height: 320px;
+  background-color: transparent;
+  border: 2px solid rgba(145, 100, 255, 0.2);
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-radius: 59px;
+  padding: 2.5rem;
+  box-shadow: none;
+  box-sizing: border-box;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.discover-lead-generation-services-wrap .discover-services-frame .discover-lead-generation-container.discover-lead-generation-layout {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+  gap: 2rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.discover-lead-generation-services-wrap .discover-lead-generation-container.discover-lead-generation-layout,
+.discover-service-same-layout .discover-lead-generation-container.discover-lead-generation-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Shared: service block with transparent background (all three services) */
+.discover-service-same-layout {
+  background: transparent;
+  padding: 0 0 3rem 0;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  box-sizing: border-box;
+}
+
+.discover-service-same-layout.discover-ai-outreach-dark,
+.discover-service-same-layout.discover-lead-generation-2-dark {
+  max-width: 100%;
+}
+
+/* Outer frame for 2nd & 3rd services – same as first (Frame 2121457612 style, #9164FF 20% border) */
+.discover-service-same-layout .discover-services-frame {
+  width: 100%;
+  max-width: 900px;
+  min-height: 320px;
+  background-color: transparent;
+  border: 2px solid rgba(145, 100, 255, 0.2);
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-radius: 59px;
+  padding: 2.5rem;
+  box-shadow: none;
+  box-sizing: border-box;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.discover-service-same-layout .discover-services-frame .discover-lead-generation-container.discover-lead-generation-layout {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+  gap: 2rem;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Inner image frame for 2nd & 3rd services – same as first inner frame (#9164FF 20%) */
+.discover-service-same-layout .discover-service-frame {
+  background: rgba(145, 100, 255, 0.2);
+  border: 1px solid rgba(145, 100, 255, 0.2);
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.discover-service-same-layout .discover-lead-generation-content {
+  min-width: 0;
+}
+
+.discover-service-same-layout .discover-lead-generation-headline-dark {
+  color: #fff !important;
+}
+
+.discover-service-same-layout .discover-lead-generation-tag-dark {
+  background: #fff;
+  color: #9164FF;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* Left column: rounded frame for image (AI Outreach & Data Analytics) */
+.discover-service-frame-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.discover-service-frame {
+  width: 100%;
+  max-width: 320px;
+  background: rgba(145, 100, 255, 0.2);
+  border-radius: 25px;
+  border: 1px solid rgba(145, 100, 255, 0.2);
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.discover-service-frame-img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  display: block;
+  object-fit: contain;
+  object-position: top center;
+  border-radius: 24px;
+}
+
+/* Left: wrapper for chat frame + floating icon */
+/* Inner frame (chat) – uses same horizontal space as outer frame (left column) */
+.discover-lead-generation-chat-frame-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.discover-lead-generation-services-wrap .discover-lead-generation-chat-frame-wrap {
+  width: 100%;
+}
+
+/* Rounded frame containing all chat content – frame color #9164FF 20% (not white) */
+.discover-lead-generation-chat-frame {
+  width: 100%;
+  max-width: 100%;
+  min-height: 200px;
+  background: rgba(145, 100, 255, 0.2);
+  border-radius: 25px;
+  border: 1px solid rgba(145, 100, 255, 0.2);
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  padding: 2rem 1.5rem 1.5rem;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  isolation: isolate;
+}
+
+.discover-lead-generation-chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.discover-chat-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.discover-chat-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discover-chat-icon-check {
+  background: #6366f1;
+  color: #fff;
+}
+
+.discover-chat-icon-bubble {
+  background: #5b21b6;
+  color: #fff;
+}
+
+.discover-chat-bubble {
+  background: #e5e7eb;
+  color: #374151;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  padding: 0.6rem 0.875rem;
+  border-radius: 12px;
+  max-width: 85%;
+}
+
+.discover-chat-bubble-long {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.discover-chat-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.discover-chat-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;
+  color: #60a5fa;
+  cursor: default;
+  font-family: inherit;
+}
+
+.discover-chat-input-wrap {
+  margin-top: 1rem;
+}
+
+.discover-chat-input {
+  width: 100%;
+  padding: 0.65rem 0.875rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.discover-chat-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Floating chat bubble icon – top-left of frame so top-right corner stays clean */
+.discover-lead-generation-floating-icon {
+  position: absolute;
+  top: -28px;
+  left: 1.5rem;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #5b21b6;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 8px 24px rgba(91, 33, 182, 0.45);
+}
+
+/* Right column content in services wrap – white text on dark */
+.discover-lead-generation-services-wrap .discover-lead-generation-content {
+  min-width: 0;
+}
+
+.discover-lead-generation-card {
+  background: transparent;
+  background-image: url('/Frame 2121457612.svg');
+  background-size: 85% 85%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 59px;
+  padding: 2rem;
+  box-shadow: none;
+  min-height: 280px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.discover-lead-generation-card .discover-lead-generation-container {
+  display: grid;
+  grid-template-columns: minmax(0, 430px) 1fr;
+  align-items: center;
+  gap: 2rem;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.discover-lead-generation-card .discover-lead-generation-design {
+  min-width: 0;
+  max-width: 430px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discover-lead-generation-card .discover-lead-generation-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 440px;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+}
+
+.discover-lead-generation-card .discover-lead-generation-content {
+  min-width: 0;
+}
+
+.discover-lead-generation-card .discover-lead-generation-description-dark {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Card frame: same as Lead Generation – text gets more width, illustration capped so nothing overflows */
+.discover-lead-generation-card .discover-ai-outreach-container {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 430px);
+  align-items: center;
+  gap: 2rem;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.discover-lead-generation-card .discover-ai-outreach-design {
+  min-width: 0;
+  max-width: 430px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discover-lead-generation-card .discover-ai-outreach-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 440px;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+}
+
+.discover-lead-generation-card .discover-ai-outreach-content {
+  min-width: 0;
+}
+
+.discover-lead-generation-card .discover-ai-outreach-description {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.discover-lead-generation-card .discover-ai-outreach-tags {
+  margin-top: 1.5rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Card frame: same as Lead Generation – illustration capped, text gets more width */
+.discover-lead-generation-card .discover-lead-generation-2-container {
+  display: grid;
+  grid-template-columns: minmax(0, 430px) 1fr;
+  align-items: center;
+  gap: 2rem;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.discover-lead-generation-card .discover-lead-generation-2-design {
+  min-width: 0;
+  max-width: 430px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discover-lead-generation-card .discover-lead-generation-2-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 440px;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+}
+
+.discover-lead-generation-card .discover-lead-generation-2-content {
+  min-width: 0;
+}
+
+.discover-lead-generation-card .discover-lead-generation-2-tags {
+  margin-top: 1.5rem;
+  gap: 0.5rem;
+}
+
+.discover-lead-generation-badge-text {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #A04CD8;
+  margin: 0 0 0.75rem 0;
+  display: block;
+}
+
+.discover-lead-generation-headline-dark {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin: 0 0 0.75rem 0 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* About: three service strips — badge 14/16 & 145%; headline 18/30 & 120%; badge→headline 6px / 16px */
+.discover-lead-generation-services-wrap .discover-lead-generation-badge-text,
+.discover-ai-outreach.discover-ai-outreach-dark .discover-lead-generation-badge-text,
+.discover-lead-generation-2.discover-lead-generation-2-dark .discover-lead-generation-badge-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #A04CD8;
+  margin: 0 0 6px 0;
+}
+@media (min-width: 768px) {
+  .discover-lead-generation-services-wrap .discover-lead-generation-badge-text,
+  .discover-ai-outreach.discover-ai-outreach-dark .discover-lead-generation-badge-text,
+  .discover-lead-generation-2.discover-lead-generation-2-dark .discover-lead-generation-badge-text {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+.discover-lead-generation-services-wrap .discover-lead-generation-headline.discover-lead-generation-headline-dark,
+.discover-ai-outreach.discover-ai-outreach-dark .discover-lead-generation-headline.discover-lead-generation-headline-dark,
+.discover-lead-generation-2.discover-lead-generation-2-dark .discover-lead-generation-headline.discover-lead-generation-headline-dark {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  margin: 0 0 6px 0 !important;
+}
+@media (min-width: 768px) {
+  .discover-lead-generation-services-wrap .discover-lead-generation-headline.discover-lead-generation-headline-dark,
+  .discover-ai-outreach.discover-ai-outreach-dark .discover-lead-generation-headline.discover-lead-generation-headline-dark,
+  .discover-lead-generation-2.discover-lead-generation-2-dark .discover-lead-generation-headline.discover-lead-generation-headline-dark {
+    font-size: 30px !important;
+    line-height: 120% !important;
+    margin-bottom: 16px !important;
+  }
+}
+
+/* About: three service strips — description 12/16 & 145%, regular; body copy #A198CE */
+.discover-lead-generation-services-wrap .discover-lead-generation-description.discover-lead-generation-description-dark,
+.discover-ai-outreach.discover-ai-outreach-dark .discover-lead-generation-description.discover-lead-generation-description-dark,
+.discover-lead-generation-2.discover-lead-generation-2-dark .discover-lead-generation-description.discover-lead-generation-description-dark {
+  color: #a198ce !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+}
+@media (min-width: 768px) {
+  .discover-lead-generation-services-wrap .discover-lead-generation-description.discover-lead-generation-description-dark,
+  .discover-ai-outreach.discover-ai-outreach-dark .discover-lead-generation-description.discover-lead-generation-description-dark,
+  .discover-lead-generation-2.discover-lead-generation-2-dark .discover-lead-generation-description.discover-lead-generation-description-dark {
+    font-size: 16px !important;
+  }
+}
+
+/* About: three service strips — description→tags 30px; tag gap 8 / 10 */
+.discover-lead-generation-services-wrap .discover-lead-generation-tags.spacing-about-hashtag-to-hashtag,
+.discover-ai-outreach.discover-ai-outreach-dark .discover-lead-generation-tags.spacing-about-hashtag-to-hashtag,
+.discover-lead-generation-2.discover-lead-generation-2-dark .discover-lead-generation-tags.spacing-about-hashtag-to-hashtag {
+  margin-top: 30px;
+  gap: 8px;
+}
+@media (min-width: 768px) {
+  .discover-lead-generation-services-wrap .discover-lead-generation-tags.spacing-about-hashtag-to-hashtag,
+  .discover-ai-outreach.discover-ai-outreach-dark .discover-lead-generation-tags.spacing-about-hashtag-to-hashtag,
+  .discover-lead-generation-2.discover-lead-generation-2-dark .discover-lead-generation-tags.spacing-about-hashtag-to-hashtag {
+    gap: 10px;
+  }
+
+  /* Lead Gen: three tags on one row; AI Assistant & Data Analytics: two rows (2 + 1) */
+  .discover-lead-generation-services-wrap .discover-lead-generation-tags.spacing-about-hashtag-to-hashtag {
+    flex-wrap: nowrap;
+  }
+
+  .discover-ai-outreach.discover-ai-outreach-dark .discover-lead-generation-tags.spacing-about-hashtag-to-hashtag,
+  .discover-lead-generation-2.discover-lead-generation-2-dark .discover-lead-generation-tags.spacing-about-hashtag-to-hashtag {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    align-content: start;
+    justify-content: start;
+  }
+}
+
+.discover-lead-generation-description-dark {
+  color: #A198CE !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+
+.discover-lead-generation-card .discover-lead-generation-tags {
+  margin-top: 1.5rem;
+  gap: 0.5rem;
+}
+
+.discover-lead-generation-tag-dark {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.875rem;
+  background: #fff;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: #A04CD8;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* About: three service strips — tag pill text 14 semibold */
+.discover-lead-generation-services-wrap .discover-lead-generation-tag-dark,
+.discover-ai-outreach.discover-ai-outreach-dark .discover-lead-generation-tag-dark,
+.discover-lead-generation-2.discover-lead-generation-2-dark .discover-lead-generation-tag-dark {
+  background: #fff;
+  color: #9164FF;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .discover-lead-generation-card .discover-lead-generation-container,
+  .discover-lead-generation-card .discover-ai-outreach-container,
+  .discover-lead-generation-card .discover-lead-generation-2-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .discover-lead-generation-services-wrap .discover-lead-generation-container.discover-lead-generation-layout,
+  .discover-service-same-layout .discover-lead-generation-container.discover-lead-generation-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0;
+  }
+
+  /* Match Our Values / Our Services text edge — no extra horizontal inset inside frame */
+  .discover-lead-generation-services-wrap .discover-services-frame,
+  .discover-service-same-layout .discover-services-frame {
+    padding: 1.5rem 0;
+    border-radius: 32px;
+  }
+
+  .discover-lead-generation-services-wrap .discover-lead-generation-chat-frame-wrap,
+  .discover-service-same-layout:not(.discover-service-image-right) .discover-service-frame-wrap {
+    order: 1;
+  }
+
+  .discover-lead-generation-services-wrap .discover-lead-generation-content,
+  .discover-service-same-layout:not(.discover-service-image-right) .discover-lead-generation-content {
+    order: 2;
+  }
+
+  /* Image-right section: on mobile show content first, then image */
+  .discover-service-image-right .discover-lead-generation-content {
+    order: 1;
+  }
+
+  .discover-service-image-right .discover-service-frame-wrap {
+    order: 2;
+  }
+
+  .discover-service-frame {
+    max-width: 100%;
+  }
+
+  .discover-lead-generation-chat-frame {
+    max-width: 100%;
+  }
+
+  .discover-lead-generation-floating-icon {
+    top: -24px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .discover-lead-generation-floating-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* About mobile: image + copy sized to content — no extra empty band below tags */
+@media (max-width: 768px) {
+  .about-us-page .discover-lead-generation-services-wrap .discover-services-frame,
+  .about-us-page .discover-service-same-layout .discover-services-frame {
+    min-height: 0;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+
+  .about-us-page .discover-lead-generation-services-wrap .discover-lead-generation-container.discover-lead-generation-layout,
+  .about-us-page .discover-service-same-layout .discover-lead-generation-container.discover-lead-generation-layout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+  }
+
+  /* Match Lead Gen stack: image on top, copy below (overrides default “content first” for image-right) */
+  .about-us-page .discover-service-image-right .discover-service-frame-wrap {
+    order: 1;
+  }
+
+  .about-us-page .discover-service-image-right .discover-lead-generation-content {
+    order: 2;
+  }
+
+  .about-us-page .discover-service-frame-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .about-us-page .discover-service-frame {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .about-us-page .discover-service-frame-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: top center;
+  }
+
+  .about-us-page .discover-lead-generation-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+/* AI Outreach Section – horizontal spacing from .about-page-content */
+.discover-ai-outreach {
+  background: #ffffff;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* AI Outreach – same frame and space as Lead Generation card */
+.discover-ai-outreach-dark {
+  background: transparent;
+  padding: 0 0 3rem 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.discover-ai-outreach-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.discover-ai-outreach-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.discover-ai-outreach-design {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discover-ai-outreach-svg {
+  width: 500px;
+  max-width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+.discover-ai-outreach-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 0;
+}
+
+.discover-ai-outreach-badge span {
+  font-weight: 600;
+  color: #9855FF;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.discover-ai-outreach-headline {
+  line-height: 1.2;
+  font-weight: 700;
+  color: #07020D;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
+.discover-ai-outreach-description {
+  line-height: 1.6;
+  font-weight: 400;
+  color: #07020D;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.discover-ai-outreach-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+
+.discover-ai-outreach-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  font-weight: 500;
+  color: #9855FF;
+  font-family: 'Urbanist', sans-serif;
+}
+
+@media (max-width: 968px) {
+  .discover-ai-outreach-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+    
+  .discover-ai-outreach-design {
+    order: 1;
+  }
+    
+  .discover-ai-outreach-content {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .discover-ai-outreach {
+    padding: 40px 20px 80px;
+  }
+
+  .discover-ai-outreach-svg {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 583 / 446;
+  }
+}
+
+/* Lead Generation Section 2 – horizontal spacing from .about-page-content */
+.discover-lead-generation-2 {
+  background: #ffffff;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Lead Gen 2 – same frame and space as Lead Generation card */
+.discover-lead-generation-2-dark {
+  background: transparent;
+  padding: 0 0 3rem 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.discover-lead-generation-2-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.discover-lead-generation-2-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.discover-lead-generation-2-design {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discover-lead-generation-2-svg {
+  width: 500px;
+  max-width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+.discover-lead-generation-2-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 0;
+}
+
+.discover-lead-generation-2-badge span {
+  font-weight: 600;
+  color: #9855FF;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.discover-lead-generation-2-headline {
+  line-height: 1.2;
+  font-weight: 700;
+  color: #07020D;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
+.discover-lead-generation-2-description {
+  line-height: 1.6;
+  font-weight: 400;
+  color: #6B7280;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.discover-lead-generation-2-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+
+.discover-lead-generation-2-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  font-weight: 500;
+  color: #9855FF;
+  font-family: 'Urbanist', sans-serif;
+}
+
+@media (max-width: 968px) {
+  .discover-lead-generation-2-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .discover-lead-generation-2-design {
+    order: 1;
+  }
+  
+  .discover-lead-generation-2-content {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .discover-lead-generation-2 {
+    padding: 40px 20px 80px;
+  }
+
+  .discover-lead-generation-2-svg {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 583 / 446;
+  }
+}
+
+/* CTA Section – horizontal spacing from .about-page-content */
+.about-cta-section {
+  background: linear-gradient(to right, rgba(139, 92, 246, 0.05) 0%, rgba(173, 70, 255, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: auto;
+}
+
+.about-cta-container {
+  max-width: 900px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-cta-badge-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background-color: rgba(139, 92, 246, 0.1) !important;
+  color: #8B5CF6 !important;
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  border: none !important;
+  border-top: 1px solid #8B5CF6 !important;
+  border-right: 1px solid #8B5CF6 !important;
+  border-bottom: 1px solid #8B5CF6 !important;
+  border-left: 1px solid #8B5CF6 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  margin-bottom: 20px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  vertical-align: baseline !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  outline: none !important;
+  width: fit-content !important;
+}
+
+.about-cta-badge-button:hover {
+  background-color: rgba(139, 92, 246, 0.15) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.about-cta-badge-icon {
+  width: 14px !important;
+  height: 14px !important;
+  stroke-width: 2 !important;
+  color: #8B5CF6 !important;
+}
+
+.about-cta-headline {
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  line-height: 1.2;
+  font-family: 'Urbanist', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.about-cta-description {
+  color: #374151;
+  margin: 0;
+  line-height: 1.6;
+  font-family: 'Urbanist', sans-serif;
+  max-width: 600px;
+}
+
+.about-cta-primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+  border: none !important;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  color: #8B5CF6;
+  border-radius: 8px;
+}
+
+.about-cta-primary-button:hover {
+  transform: translateY(-2px);
+  background: transparent !important;
+  color: #8B5CF6;
+}
+
+.about-cta-primary-button:active {
+  background: transparent !important;
+  outline: none;
+}
+
+/* Main Content – horizontal spacing from .about-page-content */
+.about-main {
+  padding: 0 0 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 0;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 80px;
+  align-items: stretch;
+  justify-items: stretch;
+}
+
+.about-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  margin-left: 0;
+  margin-right: 0;
+  padding-right: 0;
+  justify-self: end;
+}
+
+.about-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  height: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  justify-self: start;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 6px 0;
+}
+
+.section-description {
+  font-size: 12px;
+  color: #6B7280;
+  margin: 0 0 10px 0;
+}
+
+.about-content-section {
+  background-color: #F9FAFB;
+  border: 1px solid rgba(139, 92, 246, 0.2) !important; /* #8B5CF6 at 20% opacity */
+  border-color: rgba(139, 92, 246, 0.2) !important; /* Ensure border color is applied */
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-paragraph {
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* About Info Section */
+.about-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 450px;
+  height: 100%;
+}
+
+.about-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.info-card {
+  background-color: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.guarantee-card {
+  background-color: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.info-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  background-color: rgba(139, 92, 246, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8B5CF6;
+  flex-shrink: 0;
+}
+
+.info-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.info-content {
+  flex: 1;
+}
+
+.info-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 6px 0;
+}
+
+.info-text {
+  font-size: 13px;
+  color: #374151;
+  margin: 2px 0;
+  line-height: 1.5;
+}
+
+.info-text-secondary {
+  font-size: 13px;
+  color: #6B7280;
+  margin: 2px 0;
+}
+
+.response-features {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.response-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 8px 12px;
+  width: fit-content;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.response-badge-icon {
+  width: 16px;
+  height: 16px;
+  color: #111827;
+  flex-shrink: 0;
+}
+
+.response-badge-text {
+  font-size: 12px;
+  color: #111827;
+  font-weight: 500;
+}
+
+.social-section-card {
+  background-color: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 0;
+}
+
+.social-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 10px 0;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.social-button {
+  display: inline-block;
+  font-size: 13px;
+  color: #111827;
+  text-decoration: none;
+  background-color: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 8px 12px;
+  text-align: center;
+  transition: background-color 0.2s;
+  font-weight: 600;
+  flex: 1;
+  min-width: 0;
+}
+
+.social-button:hover {
+  background-color: #F9FAFB;
+}
+
+/* FAQ Section */
+.discover-faq-section {
+  position: relative;
+  padding: 6rem 2rem;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.discover-faq-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.discover-faq-bg-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.discover-faq-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.discover-faq-title {
+  font-size: var(--typography-heading-main-size-s);
+  line-height: var(--typography-heading-main-line-s);
+  font-weight: var(--typography-heading-main-weight);
+  color: #000000;
+  text-align: center;
+  margin: 0 0 4rem 0;
+  font-family: 'Urbanist', sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
+.discover-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.discover-faq-item {
+  border-bottom: none !important;
+  border-top: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.discover-faq-item:first-child {
+  border-top: none !important;
+}
+
+.discover-faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  font-size: var(--typography-body-text-size-s);
+  line-height: var(--typography-body-text-line-s);
+  font-weight: 700;
+  color: #000000;
+  font-family: 'Urbanist', sans-serif !important;
+  transition: color 0.3s ease;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.discover-faq-item:hover .discover-faq-question {
+  color: #6B21A8;
+}
+
+.discover-faq-icon {
+  font-size: 24px;
+  font-weight: 300;
+  color: #000000;
+  transition: transform 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
+  line-height: 1;
+  width: 24px;
+  text-align: center;
+}
+
+.discover-faq-item.open .discover-faq-icon {
+  transform: rotate(45deg);
+  color: #6B21A8;
+}
+
+.discover-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  font-size: var(--typography-body-text-size-s);
+  line-height: var(--typography-body-text-line-s);
+  font-weight: 600;
+  color: #4B5563;
+  font-family: 'Urbanist', sans-serif !important;
+  padding: 0 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.discover-faq-item.open .discover-faq-answer {
+  max-height: 500px;
+  padding: 0 0 1.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .discover-faq-title {
+    font-size: var(--typography-heading-main-size-m);
+    line-height: var(--typography-heading-main-line-m);
+  }
+
+  .discover-faq-question {
+    font-size: var(--typography-body-text-size-m);
+    line-height: var(--typography-body-text-line-m);
+  }
+
+  .discover-faq-answer {
+    font-size: var(--typography-body-text-size-m);
+    line-height: var(--typography-body-text-line-m);
+  }
+}
+
+@media (min-width: 1024px) {
+  .discover-faq-title {
+    font-size: var(--typography-heading-main-size-l);
+    line-height: var(--typography-heading-main-line-l);
+  }
+
+  .discover-faq-question {
+    font-size: var(--typography-body-text-size-l);
+    line-height: var(--typography-body-text-line-l);
+  }
+
+  .discover-faq-answer {
+    font-size: var(--typography-body-text-size-l);
+    line-height: var(--typography-body-text-line-l);
+  }
+}
+
+@media (max-width: 768px) {
+  .discover-faq-section {
+    padding: 4rem 1.5rem;
+    min-height: auto;
+  }
+
+  .discover-faq-title {
+    margin-bottom: 3rem;
+  }
+
+  .discover-faq-question {
+    padding: 1.25rem 0;
+  }
+
+  .discover-faq-item.open .discover-faq-answer {
+    padding: 0 0 1.25rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .discover-faq-section {
+    padding: 3rem 1rem;
+  }
+
+  .discover-faq-title {
+    margin-bottom: 2rem;
+  }
+
+  .discover-faq-question {
+    padding: 1rem 0;
+  }
+
+  .discover-faq-icon {
+    font-size: 20px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+}
+

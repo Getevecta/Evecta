@@ -1,0 +1,2044 @@
+/* Campaign Component Styles */
+
+.campaign-card {
+  transition: box-shadow 0.2s ease;
+}
+
+.campaign-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove circular border from hamburger menu button */
+.campaign-menu-button {
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-menu-button:hover,
+.campaign-menu-button:focus,
+.campaign-menu-button:active {
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Create Campaign button uses lead-log-create-campaign-btn from LeadLog.css - no overrides */
+
+/* Remove border from Create Campaign button (base) */
+.create-campaign-button {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.create-campaign-button:hover,
+.create-campaign-button:focus,
+.create-campaign-button:active,
+.create-campaign-button:focus-visible {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Add hover and active effects to Create Campaign button */
+.create-campaign-button-with-effects {
+  transition: all 0.2s ease !important;
+}
+
+.create-campaign-button-with-effects:hover:not(:disabled) {
+  transform: translateY(-1px) scale(1.02);
+  opacity: 0.9;
+}
+
+.create-campaign-button-with-effects:active:not(:disabled) {
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
+.create-campaign-button-with-effects:disabled {
+  opacity: 0.6;
+  cursor: not-allowed !important;
+}
+
+/* Remove purple border from filter button */
+.campaign-filter-button:focus,
+.campaign-filter-button:focus-visible,
+.campaign-filter-button:active,
+.campaign-filter-button:hover,
+button[data-slot="button"]:has(img[src="/Filters Button.svg"]):focus,
+button[data-slot="button"]:has(img[src="/Filters Button.svg"]):focus-visible,
+button[data-slot="button"]:has(img[src="/Filters Button.svg"]):active,
+button[data-slot="button"]:has(img[src="/Filters Button.svg"]):hover {
+  outline: none !important;
+  outline-offset: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  ring: none !important;
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  --tw-ring-offset-width: 0 !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-opacity: 0 !important;
+}
+
+/* Override Tailwind focus-visible ring classes for filter button */
+.campaign-filter-button.focus-visible\:ring-ring\/50,
+.campaign-filter-button.focus-visible\:ring-\[3px\] {
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Remove purple border from pagination arrow buttons */
+button[style*="background: transparent"][style*="border: none"]:focus,
+button[style*="background: transparent"][style*="border: none"]:focus-visible,
+button[style*="background: transparent"][style*="border: none"]:active,
+button[style*="background: transparent"][style*="border: none"]:hover {
+  outline: none !important;
+  outline-offset: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  ring: none !important;
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  --tw-ring-offset-width: 0 !important;
+}
+
+/* Remove purple border from pagination dropdown/select */
+select[style*="border: 1px solid rgba(107, 33, 168, 0.3)"]:focus,
+select[style*="border: 1px solid rgba(107, 33, 168, 0.3)"]:focus-visible,
+select[style*="border: 1px solid rgba(107, 33, 168, 0.3)"]:active,
+select[style*="border: 1px solid rgba(107, 33, 168, 0.3)"]:hover {
+  outline: none !important;
+  outline-offset: 0 !important;
+  border: 1px solid rgba(107, 33, 168, 0.3) !important;
+  box-shadow: none !important;
+  ring: none !important;
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  --tw-ring-offset-width: 0 !important;
+}
+
+/* General override for all buttons and selects in campaign page */
+button:focus,
+button:focus-visible,
+button:active,
+select:focus,
+select:focus-visible,
+select:active {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  ring: none !important;
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  --tw-ring-offset-width: 0 !important;
+}
+
+/* Specific override for Button component focus states */
+[data-slot="button"]:focus,
+[data-slot="button"]:focus-visible,
+[data-slot="button"]:active {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  ring: none !important;
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  --tw-ring-offset-width: 0 !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-opacity: 0 !important;
+}
+
+/* Override Tailwind focus-visible ring classes */
+[data-slot="button"].focus-visible\:ring-ring\/50,
+[data-slot="button"].focus-visible\:ring-\[3px\] {
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Target Tailwind classes directly - override computed box-shadow */
+[data-slot="button"]:focus-visible {
+  box-shadow: none !important;
+  --tw-ring-shadow: 0 0 0 0 transparent !important;
+  --tw-ring-width: 0px !important;
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-color: transparent !important;
+}
+
+/* Override for filter button specifically */
+.campaign-filter-button:focus-visible {
+  box-shadow: none !important;
+  --tw-ring-shadow: 0 0 0 0 transparent !important;
+  --tw-ring-width: 0px !important;
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-color: transparent !important;
+  border-color: transparent !important;
+}
+
+/* Campaign grid layout responsive styles */
+.campaign-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .campaign-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .campaign-grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile View Styles (max-width: 767px) */
+@media (max-width: 767px) {
+  /* Header container - keep white panel, reduce margins */
+  .campaign-header-container-mobile {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 10px 12px !important;
+    margin: 12px 12px 24px !important;
+  }
+  
+  .campaign-header-mobile {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 0 !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    flex-wrap: wrap !important;
+  }
+  
+  /* Tabs in header on mobile */
+  .campaign-header-mobile .campaign-tabs-mobile {
+    flex-shrink: 0 !important;
+    order: 1 !important;
+  }
+  
+  .campaign-header-mobile .campaign-tabs-list-mobile {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  
+  .campaign-header-mobile .campaign-tabs-list-mobile [data-slot="tabs-trigger"] {
+    font-size: 12px !important;
+    padding: 6px 12px !important;
+    line-height: 19.5px !important;
+    border-radius: 6px !important;
+    min-height: 28px !important;
+  }
+  
+  /* Buttons container on mobile */
+  .campaign-header-mobile .campaign-header-buttons-container {
+    flex-shrink: 0 !important;
+    margin-left: auto !important;
+    order: 2 !important;
+  }
+  
+  .campaign-header-title-section {
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    justify-content: center !important;
+    z-index: 1 !important;
+    pointer-events: auto !important;
+    order: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  .campaign-header-title {
+    text-align: center !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #111827 !important;
+    font-family: 'Urbanist', sans-serif !important;
+    width: 100% !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+  }
+  
+  /* Header buttons container */
+  .campaign-header-mobile .campaign-header-buttons-container {
+    flex-shrink: 0 !important;
+    justify-content: flex-end !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    margin-left: auto !important;
+    z-index: 2 !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    width: auto !important;
+    order: 2 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Ensure buttons don't overlap */
+  .campaign-header-mobile .campaign-header-buttons-container button {
+    flex-shrink: 0 !important;
+    padding: 2px !important;
+    margin: 0 !important;
+  }
+  
+  .campaign-header-mobile .campaign-header-buttons-container button img {
+    height: 22px !important;
+  }
+
+  /* Make action buttons bigger when campaigns are selected */
+  .campaign-header-mobile .campaign-header-buttons-container button img[src="/Select All Campaign Button.svg"],
+  .campaign-header-mobile .campaign-header-buttons-container button img[src="/Remove Campaign Button.svg"],
+  .campaign-header-mobile .campaign-header-buttons-container button img[src="/Remove All Draft Campaign Button.svg"],
+  .campaign-header-mobile .campaign-header-buttons-container button img[src="/Unselect Campaign Button.svg"],
+  .campaign-header-mobile .campaign-header-buttons-container button img[src="/Create Campaign Button.svg"] {
+    height: 22px !important;
+    width: auto !important;
+  }
+  
+  /* Tabs Container - Below Header */
+  .campaign-tabs-container {
+    padding: 8px 12px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+  }
+  
+  /* Search in tabs container */
+  .campaign-tabs-container .campaign-search-wrapper-mobile {
+    flex-shrink: 0 !important;
+    margin-left: auto !important;
+  }
+  
+  /* Tabs and Search - Keep on same line */
+  .campaign-tabs-search-container {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    padding: 8px 12px !important;
+    align-items: center !important;
+  }
+  
+  .campaign-tabs-mobile {
+    flex-shrink: 0 !important;
+  }
+  
+  .campaign-tabs-list-mobile,
+  .campaign-header-mobile [data-slot="tabs-list"].campaign-tabs-list-mobile {
+    flex-shrink: 0 !important;
+    height: auto !important;
+    border-radius: 8px !important;
+  }
+  
+  .campaign-tabs-list-mobile [data-slot="tabs-trigger"] {
+    font-size: 12px !important;
+    padding: 6px 12px !important;
+    line-height: 19.5px !important;
+    border-radius: 6px !important;
+    min-height: 28px !important;
+    white-space: nowrap !important;
+  }
+  
+  /* Search Bar in Header */
+  .campaign-header-mobile .campaign-search-wrapper-mobile {
+    flex-shrink: 0 !important;
+    min-width: 0 !important;
+    justify-content: flex-end !important;
+    margin-left: auto !important;
+    margin-right: 8px !important;
+  }
+  
+  .campaign-search-input-container-mobile {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  
+  .campaign-search-input-mobile {
+    min-width: 120px !important;
+    width: 120px !important;
+    padding: 0 8px !important;
+    flex: 0 0 auto !important;
+  }
+  
+  .campaign-search-input-container-mobile input {
+    min-width: 120px !important;
+    width: 120px !important;
+    padding: 0 8px !important;
+    flex: 0 0 auto !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    outline-offset: 0 !important;
+    --tw-ring-shadow: none !important;
+    --tw-ring-width: 0 !important;
+    --tw-ring-offset-width: 0 !important;
+    --tw-ring-color: transparent !important;
+    --tw-ring-opacity: 0 !important;
+  }
+  
+  .campaign-search-input-container-mobile input:focus,
+  .campaign-search-input-container-mobile input:focus-visible,
+  .campaign-search-input-container-mobile input:focus-within {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    outline-offset: 0 !important;
+    ring: none !important;
+    --tw-ring-shadow: 0 0 0 0 transparent !important;
+    --tw-ring-width: 0px !important;
+    --tw-ring-offset-width: 0px !important;
+    --tw-ring-color: transparent !important;
+    --tw-ring-opacity: 0 !important;
+  }
+
+  .campaign-search-input-container-mobile input::placeholder {
+    color: transparent !important;
+    opacity: 0 !important;
+  }
+
+  /* Make search container fit icon and input */
+  .campaign-search-input-container-mobile {
+    width: auto !important;
+    min-width: auto !important;
+    padding: 0 12px !important;
+    gap: 8px !important;
+  }
+  
+  /* Pagination - Keep on same line */
+  .campaign-pagination-mobile {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 4px !important;
+    font-size: 9px !important;
+    padding: 8px 12px !important;
+  }
+  
+  .campaign-pagination-mobile > span:first-child {
+    font-size: 9px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .campaign-pagination-mobile > div {
+    flex-wrap: nowrap !important;
+    gap: 4px !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .campaign-pagination-mobile span {
+    font-size: 9px !important;
+    white-space: nowrap !important;
+  }
+  
+  .campaign-pagination-mobile select {
+    font-size: 9px !important;
+  }
+
+  /* Campaign card: Increase spacing between checkbox and draft badge, make draft badge larger */
+  .campaign-grid-container > div {
+    position: relative;
+  }
+
+  /* Target checkbox container - increase size and spacing */
+  .campaign-grid-container > div > div:first-child {
+    top: 12px !important;
+    right: 12px !important;
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .campaign-grid-container > div > div:first-child img {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Target title/status container - increase padding to create more space from checkbox */
+  .campaign-grid-container > div > div:nth-child(2) {
+    padding-right: 42px !important;
+  }
+
+  /* Increase draft/ongoing badge size */
+  .campaign-grid-container > div > div:nth-child(2) img[alt="Draft"],
+  .campaign-grid-container > div > div:nth-child(2) img[alt="Ongoing"] {
+    height: 28px !important;
+    width: auto !important;
+  }
+}
+
+/* Campaign Component - Inline Styles Extracted */
+
+/* Main Container - white background; content area stays white */
+.campaign-main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  min-height: 0;
+  position: relative;
+}
+
+/* Header Container — match Inbox toolbar (.inbox-search-filters): padding, border, no extra min-height */
+.campaign-header-container-mobile {
+  flex-shrink: 0;
+  margin: 6px 16px 24px;
+  padding: 10px 14px;
+  min-height: 0;
+  height: auto;
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ced4da;
+  box-shadow: none;
+}
+
+.campaign-header-mobile {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+/* Tabs in header - left side */
+.campaign-header-mobile .campaign-tabs-mobile {
+  flex-shrink: 0;
+}
+
+/* Track + triggers match Inbox (.inbox-tabs / .inbox-tab) — overrides global [data-slot="tabs-list"] from dashboard.css */
+.campaign-tabs-mobile [data-slot="tabs-list"].campaign-tabs-list-mobile,
+.campaign-header-mobile [data-slot="tabs-list"].campaign-tabs-list-mobile {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  padding: 4px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  background-color: rgba(208, 213, 221, 0.3) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+  width: fit-content !important;
+  box-sizing: border-box !important;
+}
+
+.campaign-tabs-mobile [data-slot="tabs-trigger"],
+.campaign-tabs-list-mobile [data-slot="tabs-trigger"],
+.campaign-header-mobile .campaign-tabs-list-mobile [data-slot="tabs-trigger"] {
+  flex: none !important;
+  padding: 6px 14px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  line-height: 19.5px !important;
+  border-radius: 6px !important;
+  border: none !important;
+  min-height: 28px !important;
+  height: auto !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.campaign-tabs-mobile [data-slot="tabs-trigger"][data-state="active"],
+.campaign-tabs-list-mobile [data-slot="tabs-trigger"][data-state="active"],
+.campaign-header-mobile .campaign-tabs-list-mobile [data-slot="tabs-trigger"][data-state="active"] {
+  background-color: #ffffff !important;
+  color: #030011 !important;
+  font-weight: 500 !important;
+  box-shadow: 0 1px 2px rgba(3, 0, 17, 0.06) !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.campaign-tabs-mobile [data-slot="tabs-trigger"][data-state="active"]:focus-visible,
+.campaign-tabs-list-mobile [data-slot="tabs-trigger"][data-state="active"]:focus-visible,
+.campaign-header-mobile .campaign-tabs-list-mobile [data-slot="tabs-trigger"][data-state="active"]:focus-visible {
+  box-shadow: none !important;
+}
+
+.campaign-tabs-mobile [data-slot="tabs-trigger"]:not([data-state="active"]),
+.campaign-tabs-list-mobile [data-slot="tabs-trigger"]:not([data-state="active"]),
+.campaign-header-mobile .campaign-tabs-list-mobile [data-slot="tabs-trigger"]:not([data-state="active"]) {
+  color: #a198ce !important;
+  font-weight: 500 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.campaign-tabs-mobile [data-slot="tabs-trigger"]:not([data-state="active"]):hover,
+.campaign-tabs-list-mobile [data-slot="tabs-trigger"]:not([data-state="active"]):hover,
+.campaign-header-mobile .campaign-tabs-list-mobile [data-slot="tabs-trigger"]:not([data-state="active"]):hover {
+  color: #a198ce !important;
+  background-color: transparent !important;
+}
+
+.campaign-header-title-section {
+  display: flex;
+  align-items: center;
+}
+
+.campaign-header-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  font-family: Urbanist;
+  line-height: 1.2;
+}
+
+.campaign-header-buttons-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* Search Bar in Header */
+.campaign-header-mobile .campaign-search-wrapper-mobile {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+
+/* Button Styles */
+.campaign-unselect-button {
+  padding: 0;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-unselect-button:hover,
+.campaign-unselect-button:focus,
+.campaign-unselect-button:active,
+.campaign-unselect-button:focus-visible {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  ring: none !important;
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  --tw-ring-offset-width: 0 !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-opacity: 0 !important;
+}
+
+.campaign-unselect-button-img {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+/* Unselect Campaign & Remove All Draft Campaign – same look as Generate New Leads button (white bg, gray border, dark text), no hover effect.
+   Specificity must beat button.campaign-unselect-button / button.campaign-delete-button { border: none !important } */
+button.campaign-unselect-button.dashboard-header-btn-style,
+button.campaign-delete-button.dashboard-header-btn-style {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 0 12px !important;
+  min-width: 126px !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  box-sizing: border-box !important;
+  background-color: white !important;
+  background: white !important;
+  color: #030011 !important;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  border-radius: 8px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 19.5px !important;
+  box-shadow: none !important;
+}
+
+button.campaign-unselect-button.dashboard-header-btn-style:hover:not(:disabled),
+button.campaign-unselect-button.dashboard-header-btn-style:focus-visible:not(:disabled),
+button.campaign-delete-button.dashboard-header-btn-style:hover:not(:disabled),
+button.campaign-delete-button.dashboard-header-btn-style:focus-visible:not(:disabled) {
+  background-color: #f9fafb !important;
+  background: #f9fafb !important;
+  color: #030011 !important;
+  border: 1px solid #9ca3af !important;
+  border-color: #9ca3af !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+button.campaign-unselect-button.dashboard-header-btn-style:focus:not(:disabled),
+button.campaign-unselect-button.dashboard-header-btn-style:active:not(:disabled),
+button.campaign-delete-button.dashboard-header-btn-style:focus:not(:disabled),
+button.campaign-delete-button.dashboard-header-btn-style:active:not(:disabled) {
+  background-color: white !important;
+  background: white !important;
+  color: #030011 !important;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  border-color: rgba(208, 213, 221, 0.3) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+button.campaign-unselect-button.campaign-btn-watch-demo-style,
+button.campaign-delete-button.campaign-btn-watch-demo-style {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: white !important;
+  color: #111827 !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 8px !important;
+  padding: 8px 20px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  font-family: Urbanist, sans-serif !important;
+  cursor: pointer !important;
+  transition: none !important;
+  height: 36px !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+button.campaign-unselect-button.campaign-btn-watch-demo-style:hover,
+button.campaign-unselect-button.campaign-btn-watch-demo-style:focus,
+button.campaign-unselect-button.campaign-btn-watch-demo-style:active,
+button.campaign-unselect-button.campaign-btn-watch-demo-style:focus-visible,
+button.campaign-delete-button.campaign-btn-watch-demo-style:hover,
+button.campaign-delete-button.campaign-btn-watch-demo-style:focus,
+button.campaign-delete-button.campaign-btn-watch-demo-style:active,
+button.campaign-delete-button.campaign-btn-watch-demo-style:focus-visible {
+  background-color: white !important;
+  color: #111827 !important;
+  border: 1px solid #E5E7EB !important;
+  outline: none !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.campaign-delete-button {
+  padding: 0;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-delete-button:hover,
+.campaign-delete-button:focus,
+.campaign-delete-button:active,
+.campaign-delete-button:focus-visible {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  ring: none !important;
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  --tw-ring-offset-width: 0 !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-opacity: 0 !important;
+}
+
+/* Override Button component default styles for campaign buttons */
+button.campaign-unselect-button,
+button.campaign-delete-button {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button.campaign-unselect-button:hover,
+button.campaign-unselect-button:focus,
+button.campaign-unselect-button:active,
+button.campaign-unselect-button:focus-visible,
+button.campaign-delete-button:hover,
+button.campaign-delete-button:focus,
+button.campaign-delete-button:active,
+button.campaign-delete-button:focus-visible {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  --tw-ring-shadow: 0 0 0 0 transparent !important;
+  --tw-ring-width: 0px !important;
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-color: transparent !important;
+}
+
+/* Override Tailwind focus-visible ring classes for campaign buttons */
+button.campaign-unselect-button.focus-visible\:ring-ring\/50,
+button.campaign-unselect-button.focus-visible\:ring-\[3px\],
+button.campaign-delete-button.focus-visible\:ring-ring\/50,
+button.campaign-delete-button.focus-visible\:ring-\[3px\] {
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  box-shadow: none !important;
+}
+
+.campaign-delete-button-img {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+.campaign-launch-button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.campaign-launch-button-img {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+.campaign-create-button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.campaign-create-button-img {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+/* Tabs and Search Container */
+.campaign-tabs-search-container {
+  padding: 12px 16px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* TabsList base: inbox track (details above .campaign-header-mobile block supersede legacy transparent list) */
+.campaign-tabs-list-mobile,
+[data-slot="tabs-list"].campaign-tabs-list-mobile {
+  border: none;
+}
+
+/* Class hooks on TabsTrigger — mirror inbox tab weights/colors (Radix data-state drives primary styling above) */
+.campaign-tab-trigger.active {
+  font-weight: 500 !important;
+  color: #030011 !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 2px rgba(3, 0, 17, 0.06) !important;
+}
+
+.campaign-tab-trigger.inactive {
+  font-weight: 500 !important;
+  color: #a198ce !important;
+  background-color: transparent !important;
+}
+
+.campaign-header-container-mobile .campaign-tab-trigger.inactive:hover,
+.campaign-tab-trigger.inactive:hover {
+  color: #a198ce !important;
+}
+
+/* Filter Tabs Container - Below Header */
+.campaign-tabs-container {
+  padding: 12px 16px;
+  border-bottom: 1px solid #E5E7EB;
+  flex-shrink: 0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Search Bar */
+.campaign-search-wrapper-mobile {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.campaign-search-input-container-mobile {
+  display: flex;
+  align-items: center;
+  background-color: #F9FAFB;
+  border: 0.8px solid #6B7280;
+  border-radius: 6.75px;
+  padding: 0 16px;
+  height: 31.5px;
+  gap: 10px;
+  width: fit-content;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.campaign-search-icon {
+  width: 16px;
+  height: 16px;
+  color: #6B7280;
+  flex-shrink: 0;
+}
+
+.campaign-search-input-mobile {
+  border: none !important;
+  background-color: transparent;
+  outline: none !important;
+  outline-offset: 0 !important;
+  font-size: 12px;
+  font-weight: 600;
+  color: #111827;
+  font-family: Urbanist, sans-serif;
+  padding: 0;
+  height: 100%;
+  box-shadow: none !important;
+  width: auto;
+  min-width: 420px;
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  --tw-ring-offset-width: 0 !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-opacity: 0 !important;
+}
+
+.campaign-search-input-mobile:focus,
+.campaign-search-input-mobile:focus-visible,
+.campaign-search-input-mobile:focus-within {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  outline-offset: 0 !important;
+  ring: none !important;
+  --tw-ring-shadow: 0 0 0 0 transparent !important;
+  --tw-ring-width: 0px !important;
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-opacity: 0 !important;
+}
+
+/* Override Tailwind ring classes for search input */
+.campaign-search-input-mobile.focus-visible\:ring-ring\/50,
+.campaign-search-input-mobile.focus-visible\:ring-\[3px\] {
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+}
+
+/* Target input element directly within search container */
+.campaign-search-input-container-mobile input[data-slot="input"],
+.campaign-search-input-container-mobile input[type="text"],
+.campaign-search-input-container-mobile input {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  outline-offset: 0 !important;
+  --tw-ring-shadow: none !important;
+  --tw-ring-width: 0 !important;
+  --tw-ring-offset-width: 0 !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-opacity: 0 !important;
+}
+
+.campaign-search-input-container-mobile input[data-slot="input"]:focus,
+.campaign-search-input-container-mobile input[data-slot="input"]:focus-visible,
+.campaign-search-input-container-mobile input[type="text"]:focus,
+.campaign-search-input-container-mobile input[type="text"]:focus-visible {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  outline-offset: 0 !important;
+  --tw-ring-shadow: 0 0 0 0 transparent !important;
+  --tw-ring-width: 0px !important;
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-opacity: 0 !important;
+}
+
+/* Pagination */
+.campaign-pagination-mobile {
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #6B7280;
+  font-family: Urbanist;
+  flex-shrink: 0;
+}
+
+.campaign-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 26px;
+  line-height: 26px;
+}
+
+.campaign-pagination-arrows {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 26px;
+  line-height: 26px;
+}
+
+.campaign-pagination-arrow-button {
+  background: transparent !important;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 26px;
+  vertical-align: middle;
+  outline: none;
+  box-shadow: none;
+}
+
+.campaign-pagination-arrow-button:hover,
+.campaign-pagination-arrow-button:focus,
+.campaign-pagination-arrow-button:active {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-pagination-arrow-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background: transparent !important;
+}
+
+.campaign-pagination-arrow-img {
+  width: 28px;
+  height: 26px;
+  display: block;
+  vertical-align: middle;
+}
+
+.campaign-pagination-page-info {
+  font-size: 10px;
+  font-weight: 500;
+  color: #1F2937;
+  font-family: Urbanist, sans-serif;
+  white-space: nowrap;
+  height: 26px;
+  line-height: 26px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.campaign-pagination-items-per-page {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 26px;
+  line-height: 26px;
+}
+
+.campaign-pagination-items-per-page-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #6B7280;
+  font-family: Urbanist, sans-serif;
+  white-space: nowrap;
+  height: 28px;
+  line-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.campaign-pagination-select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  margin-left: 4px;
+}
+
+.campaign-pagination-select {
+  padding: 4px 24px 4px 8px;
+  border: 0.8px solid #D1D5DB;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: Urbanist, sans-serif;
+  background-color: #FFFFFF;
+  color: #111827;
+  cursor: pointer;
+  appearance: none;
+  height: 28px;
+  min-height: 28px;
+  max-height: 28px;
+  margin: 0;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  min-width: 50px;
+  transition: border-color 0.2s ease;
+}
+
+.campaign-pagination-select:hover {
+  border-color: #9CA3AF;
+}
+
+.campaign-pagination-select:focus {
+  border-color: #6B7280;
+  outline: none;
+}
+
+.campaign-pagination-select-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  color: #6B7280;
+  pointer-events: none;
+}
+
+/* Campaigns List */
+.campaign-list-container {
+  flex: 1 1 0%;
+  overflow-y: auto;
+  padding: 16px;
+  min-height: 0;
+  margin-top: 0;
+}
+
+.campaign-loading-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #6B7280;
+  font-family: Urbanist;
+}
+
+.campaign-empty-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  padding: 24px 16px;
+  text-align: center;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.campaign-empty-state-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+/* Empty state icon: finger-cricle.svg with header gradient (same as dashboard header) */
+.campaign-empty-state-icon-gradient {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #d458ff 0%, #6b21a8 100%);
+  -webkit-mask-image: url(/finger-cricle.svg);
+  mask-image: url(/finger-cricle.svg);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.campaign-empty-state .campaign-empty-state-title,
+.campaign-empty-state-title {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 120%;
+  margin: 0 0 8px 0;
+  color: #030011;
+}
+
+.campaign-empty-state-description {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 145%;
+  margin: 0;
+  color: #a198ce;
+  max-width: 560px;
+}
+
+/* Campaign Card */
+.campaign-card-base {
+  border: 1px solid rgba(145, 100, 255, 0.2); /* #9164FF 20% opacity */
+  border-radius: 12px;
+  padding: 20px;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* New card design: Ongoing & Draft (image-style with SVG header) */
+.campaign-card-base.campaign-card-ongoing,
+.campaign-card-base.campaign-card-draft {
+  padding: 0;
+  overflow: hidden;
+  gap: 0;
+}
+
+.campaign-card-base.campaign-card-ongoing {
+  background-color: #ffffff;
+}
+
+.campaign-card-header-banner {
+  width: 100%;
+  min-height: 118px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.campaign-card-header-ongoing {
+  background-image: url('/Ongoing_Container.svg');
+}
+
+.campaign-card-header-draft {
+  background-image: url("/Draft _Container.svg");
+}
+
+.campaign-card-header-banner-inner {
+  position: relative;
+  padding: 16px 44px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+/* Ongoing header: 12×4 grid on purple hero (SVG); title & description #F4F4F6 on gradient */
+.campaign-card-header-ongoing .campaign-card-header-banner-inner {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0, auto));
+  align-content: start;
+  gap: 0;
+  row-gap: 4px;
+  column-gap: 0;
+  box-sizing: border-box;
+  padding: 12px 44px 12px 12px;
+}
+
+.campaign-card-header-ongoing .campaign-card-header-banner-inner::after {
+  content: '';
+  grid-column: 1 / -1;
+  grid-row: 4;
+  min-height: 4px;
+}
+
+.campaign-card-header-ongoing .campaign-card-status-pill.ongoing {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: start;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.campaign-card-header-ongoing .campaign-card-banner-title {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  align-self: end;
+}
+
+.campaign-card-header-ongoing .campaign-card-banner-description {
+  grid-column: 1 / -1;
+  grid-row: 3;
+}
+
+.campaign-card-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  font-family: Urbanist, sans-serif;
+}
+
+.campaign-card-status-pill.ongoing {
+  background-color: rgba(107, 33, 168, 0.9);
+}
+
+/* Ongoing card: pill like reference — deeper purple, white label & dot; hug content (not full grid width) */
+.campaign-card-ongoing .campaign-card-status-pill.ongoing {
+  background-color: rgba(55, 24, 112, 0.92);
+  color: #ffffff;
+  font-family: 'Urbanist', ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  padding: 4px 10px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.campaign-card-ongoing .campaign-card-status-pill.ongoing .campaign-card-status-dot {
+  background-color: #ffffff;
+  opacity: 1;
+}
+
+.campaign-card-status-pill.draft {
+  background-color: rgba(71, 85, 105, 0.95);
+}
+
+.campaign-card-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+  opacity: 0.9;
+}
+
+.campaign-card-banner-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  font-family: Urbanist, sans-serif;
+  line-height: 1.2;
+}
+
+.campaign-card-banner-description {
+  font-size: 13px;
+  color: #A198CE;
+  margin: 0;
+  font-family: Urbanist, sans-serif;
+  line-height: 1.35;
+}
+
+/* !important: Tailwind @layer base styles h3/p when no text-* class; force design tokens */
+.campaign-card-ongoing .campaign-card-header-banner h3.campaign-card-banner-title {
+  font-family: 'Urbanist', ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  color: #f4f4f6 !important;
+  margin: 0 !important;
+}
+
+.campaign-card-ongoing .campaign-card-header-banner p.campaign-card-banner-description {
+  font-family: 'Urbanist', ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  color: #f4f4f6 !important;
+  margin: 0 !important;
+}
+
+.campaign-card-draft .campaign-card-header-banner p.campaign-card-banner-description {
+  font-family: Urbanist, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 1.35 !important;
+  color: #2e2640 !important;
+  margin: 0 !important;
+}
+
+.campaign-card-body {
+  padding: 20px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Footer row (Created On + View Campaign) aligned to bottom so Ongoing and Draft cards line up */
+.campaign-card-footer-row {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 4px;
+}
+
+.campaign-card-stats-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 14px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid rgba(145, 100, 255, 0.65);
+  box-sizing: border-box;
+}
+
+.campaign-card-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.campaign-card-stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Urbanist, sans-serif;
+  line-height: 1.2;
+}
+
+/* Match insights graph colors: Sent, Open Rate, Reply Rate, Bounce/blue for Queued */
+.campaign-card-stat-sent .campaign-card-stat-value {
+  color: #FE4E4E;
+}
+
+.campaign-card-stat-opened .campaign-card-stat-value {
+  color: #FFB441;
+}
+
+.campaign-card-stat-queued .campaign-card-stat-value {
+  color: #3B82F6;
+}
+
+.campaign-card-stat-replied .campaign-card-stat-value {
+  color: #00DE67;
+}
+
+.campaign-card-stat-label {
+  font-size: 12px;
+  color: #A198CE;
+  font-family: Urbanist, sans-serif;
+  margin-top: 4px;
+}
+
+/* Ongoing: full metrics block — D0D5DD @ 30%, bordered; values 22.41/22.4 semibold; labels 12/14 #030011 */
+.campaign-card-ongoing .campaign-card-stats-row {
+  background-color: rgba(208, 213, 221, 0.3);
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-sizing: border-box;
+}
+
+.campaign-card-ongoing .campaign-card-stat-value {
+  font-family: 'Urbanist', ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 22.41px !important;
+  line-height: 22.4px !important;
+  font-weight: 600 !important;
+}
+
+.campaign-card-ongoing .campaign-card-stat .campaign-card-stat-label {
+  font-family: 'Urbanist', ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 14px !important;
+  color: #030011 !important;
+  margin-top: 4px;
+}
+
+/* System Email / Custom Email: plain text display (no dropdown) */
+/* Beat dashboard.css `.dashboard-main-container * { border-color: #E5E7EB !important }` */
+.campaign-card-email-field {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  background-color: rgba(161, 152, 206, 0.2); /* #A198CE at 20% */
+  border-radius: 12px;
+  border: 1px solid #a198ce !important;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+.dashboard-main-container .campaign-card-email-field {
+  border-color: #a198ce !important;
+}
+
+.campaign-card-email-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+}
+
+.campaign-card-email-mode {
+  font-family: 'Urbanist', ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #a198ce;
+}
+
+.campaign-card-email-address,
+.campaign-card-email-value.campaign-card-email-address {
+  font-family: 'Urbanist', ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #a198ce;
+}
+
+.campaign-card-not-launched {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background: #F3F4F6;
+  border-radius: 8px;
+  border: 1px solid rgba(145, 100, 255, 0.65);
+}
+
+.campaign-card-not-launched-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #4B5563;
+  font-family: Urbanist, sans-serif;
+}
+
+.campaign-card-not-launched-sub {
+  font-size: 12px;
+  color: #A198CE;
+  font-family: Urbanist, sans-serif;
+  margin-top: 2px;
+}
+
+.campaign-card-created {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  font-size: 12px;
+  font-family: Urbanist, sans-serif;
+  background: transparent;
+  box-sizing: border-box;
+  border: none;
+}
+
+.campaign-card-created-icon {
+  color: #A198CE;
+  flex-shrink: 0;
+}
+
+.campaign-card-created-label {
+  color: #A198CE;
+}
+
+.campaign-card-created-date {
+  color: #374151;
+}
+
+/* View Campaign: same as Create campaign button, no hover effect */
+.campaign-view-button-solid,
+.campaign-view-button.campaign-view-button-solid {
+  width: 100% !important;
+  padding: 8px 20px !important;
+  border-radius: 8px !important;
+  border: none !important;
+  background-color: #9164FF !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  font-family: Urbanist, sans-serif !important;
+  cursor: pointer !important;
+  height: 36px !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+  margin-top: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: none !important;
+}
+
+.campaign-view-button-solid:hover,
+.campaign-view-button-solid:focus,
+.campaign-view-button.campaign-view-button-solid:hover,
+.campaign-view-button.campaign-view-button-solid:focus {
+  background-color: #9164FF !important;
+  color: #ffffff !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.campaign-card-checkbox-wrapper {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 20;
+}
+
+.campaign-card-checkbox {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background: transparent !important;
+  background-color: transparent !important;
+  padding: 0;
+  border: none;
+  display: block;
+}
+
+.campaign-card-ongoing .campaign-card-checkbox-wrapper,
+.campaign-card-draft .campaign-card-checkbox-wrapper {
+  top: 16px;
+  right: 16px;
+}
+
+.campaign-card-checkbox-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 6px;
+  min-width: 200px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #E5E7EB;
+  padding: 6px 0;
+  z-index: 100;
+}
+
+.campaign-card-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: Urbanist, sans-serif;
+  color: #111827;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.campaign-card-menu-item:hover {
+  background: #F3F4F6;
+}
+
+.campaign-card-menu-item-delete {
+  color: #ff0004;
+}
+
+.campaign-card-menu-item-delete .campaign-card-menu-icon {
+  color: #ff0004;
+}
+
+.campaign-card-menu-icon {
+  flex-shrink: 0;
+  color: #111827;
+}
+
+.campaign-card-menu-divider {
+  height: 1px;
+  background: #E5E7EB;
+  margin: 4px 0;
+}
+
+.campaign-card-checkbox:hover,
+.campaign-card-checkbox:focus,
+.campaign-card-checkbox:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.campaign-card-checkbox-img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.campaign-card-header {
+  padding-right: 32px;
+}
+
+.campaign-card-header-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.campaign-card-icon-container {
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  background-color: rgba(139, 92, 246, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.campaign-card-title-row-wrapper {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.campaign-card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.campaign-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  font-family: Urbanist;
+  line-height: 1.2;
+}
+
+.campaign-card-status-badge {
+  padding: 4px 12px;
+  border-radius: 6px;
+  color: white;
+  font-size: 10px;
+  font-weight: 500;
+  font-family: Urbanist;
+}
+
+.campaign-card-status-badge.ongoing {
+  background-color: #3B82F6;
+}
+
+.campaign-card-status-badge.draft {
+  background-color: #F97316;
+}
+
+.campaign-card-category-tag {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 6.75px;
+  border: 0.8px solid #D1D1D6;
+  background-color: white;
+  font-size: 10px;
+  font-weight: 500;
+  color: #111827;
+  font-family: Urbanist;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1;
+  width: fit-content;
+}
+
+.campaign-card-description {
+  font-size: 12px;
+  color: #6B7280;
+  margin: 4px 0 0 0;
+  font-family: Urbanist;
+  line-height: 1.4;
+}
+
+/* Outreach Stats */
+.campaign-outreach-stats {
+  display: flex;
+  gap: 10px;
+}
+
+.campaign-outreach-stat-box {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.campaign-outreach-stat-box.sent {
+  background-color: #EFF6FF;
+  border: 1px solid #DBEAFE;
+}
+
+.campaign-outreach-stat-box.remaining {
+  background-color: #F0FDF4;
+  border: 1px solid #D1FAE5;
+}
+
+.campaign-outreach-stat-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.campaign-outreach-stat-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: #374151;
+  font-family: Urbanist;
+}
+
+.campaign-outreach-stat-value {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: Urbanist;
+  margin-bottom: 1px;
+}
+
+.campaign-outreach-stat-value.sent {
+  color: #2563EB;
+}
+
+.campaign-outreach-stat-value.remaining {
+  color: #10B981;
+}
+
+.campaign-outreach-stat-description {
+  font-size: 9px;
+  color: #6B7280;
+  font-family: Urbanist;
+}
+
+/* Email Provider Section */
+.campaign-email-provider-section {
+  padding: 8px;
+  border-radius: 6px;
+  background-color: #F3F4F6;
+  border: 1px solid #E5E7EB;
+}
+
+.campaign-email-provider-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.campaign-email-provider-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: #374151;
+  font-family: Urbanist;
+}
+
+.campaign-email-provider-value {
+  font-size: 12px;
+  color: #6B7280;
+  font-family: Urbanist;
+}
+
+.campaign-outreach-progress-label {
+  font-size: 10px;
+  color: #6B7280;
+  font-family: Urbanist;
+  margin-bottom: 6px;
+}
+
+/* Progress Bar */
+.campaign-progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background-color: #E5E7EB;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  display: flex;
+}
+
+.campaign-progress-bar-segment {
+  height: 100%;
+}
+
+.campaign-progress-bar-segment.replied {
+  background-color: #10B981;
+  width: var(--progress-replied-width, 0%);
+}
+
+.campaign-progress-bar-segment.opened {
+  background-color: #3B82F6;
+  width: var(--progress-opened-width, 0%);
+}
+
+.campaign-progress-bar-segment.pending {
+  background-color: #E5E7EB;
+  flex: 1;
+}
+
+.campaign-progress-labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.campaign-progress-label-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.campaign-progress-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.campaign-progress-indicator.replied {
+  background-color: #10B981;
+}
+
+.campaign-progress-indicator.opened {
+  background-color: #3B82F6;
+  margin-left: 8px;
+}
+
+.campaign-progress-label-text {
+  font-size: 11px;
+  color: #374151;
+  font-family: Urbanist;
+}
+
+.campaign-progress-summary {
+  font-size: 10px;
+  color: #6B7280;
+  font-family: Urbanist;
+}
+
+/* Created Date and Tags */
+.campaign-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.campaign-created-label {
+  font-size: 11px;
+  color: #6B7280;
+  font-family: Urbanist;
+}
+
+.campaign-created-date {
+  font-size: 11px;
+  color: #111827;
+  font-family: Urbanist;
+  font-weight: 500;
+}
+
+.campaign-tags-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.campaign-tag {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: #F3F4F6;
+  border: 1px solid #E5E7EB;
+  font-size: 10px;
+  font-weight: 500;
+  color: #374151;
+  font-family: Urbanist;
+}
+
+/* View Campaign Button */
+.campaign-view-button {
+  width: 100%;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #E5E7EB;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  font-family: Urbanist;
+  font-size: 10px;
+  font-weight: 500;
+  color: #374151;
+  margin-top: 8px;
+  transition: all 0.2s;
+}
+
+.campaign-view-button:hover {
+  background-color: #F9FAFB;
+}
+
+/* Delete draft campaign — blur + stacking; panel/type/buttons → EvectaDialog.css */
+.campaign-delete-dialog-overlay {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 10000;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

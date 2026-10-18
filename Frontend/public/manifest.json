@@ -1,0 +1,28 @@
+{
+  "short_name": "Sales Lead Management",
+  "name": "Sales Lead Management System",
+  "icons": [
+    {
+      "src": "Icon.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "Icon.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "Icon.png",
+      "sizes": "16x16 24x24 32x32 64x64 96x96 128x128 144x144 152x152 180x180 192x192 256x256 512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#030011",
+  "background_color": "#030011"
+}

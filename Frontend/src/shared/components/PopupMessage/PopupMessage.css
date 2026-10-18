@@ -1,0 +1,65 @@
+/* Popup Message - same design as "Processing your leads" notification */
+.popup-message {
+  position: fixed;
+  top: 80px;
+  right: 0;
+  z-index: 100001;
+  max-width: 380px;
+}
+
+.popup-message-lead-gen-style {
+  background: linear-gradient(135deg, #D458FF 0%, #6B21A8 100%);
+  color: #FFFFFF;
+  padding: 12px 20px;
+  box-shadow: 0 4px 20px rgba(107, 33, 168, 0.35);
+  border-radius: 12px 0 0 12px;
+  animation: popup-message-slide-in 0.3s ease-out;
+}
+
+@keyframes popup-message-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.popup-message-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.popup-message-icon {
+  flex-shrink: 0;
+  color: #FFFFFF;
+}
+
+.popup-message-text {
+  flex: 1;
+  font-size: 14px;
+  font-family: Urbanist, sans-serif;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #FFFFFF;
+}
+
+.popup-message-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.popup-message-close:hover {
+  opacity: 0.7;
+}

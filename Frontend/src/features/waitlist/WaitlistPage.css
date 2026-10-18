@@ -1,0 +1,248 @@
+/* Full page: Verification OTP.jpg background */
+.waitlist-page {
+  min-height: 100vh;
+  background: url('/Verification%20OTP.jpg') center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Two-column layout, no extra background – only page bg shows */
+.waitlist-card {
+  display: flex;
+  width: 100%;
+  max-width: 960px;
+  min-height: 520px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Left column: logo + hot air balloon */
+.waitlist-left {
+  flex: 0 0 42%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 2.5rem 2rem;
+  box-sizing: border-box;
+}
+
+.waitlist-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  text-decoration: none;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.waitlist-logo:hover {
+  color: #111827;
+}
+
+.waitlist-logo:focus,
+.waitlist-logo:focus-visible,
+.waitlist-logo:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* Logo uses shared evecta-logo from EvectaLogo.css */
+
+.waitlist-illustration-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+.waitlist-balloon {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Right column: content */
+.waitlist-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 2.5rem 2.5rem 1.5rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* Eyebrow — medium 16 */
+.waitlist-eyebrow {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+  background: linear-gradient(90deg, #c080f0 0%, #6c30a0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Main headline — medium 30, line-height 120%; 12px gap to body copy */
+.waitlist-title {
+  font-size: 30px;
+  font-weight: 500;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+  line-height: 120%;
+}
+
+/* Body — regular 18, line-height 145% */
+.waitlist-paragraph {
+  font-size: 18px;
+  font-weight: 400;
+  color: #a198ce;
+  line-height: 145%;
+  margin: 0 0 12px 0;
+}
+
+.waitlist-paragraph:last-of-type {
+  margin-bottom: 0;
+}
+
+/* While You Wait! — medium 16; 60px above after body, 20px below to intro */
+.waitlist-while-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 60px 0 20px 0;
+  background: linear-gradient(90deg, #c080f0 0%, #6c30a0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* We'll keep you… — medium 30, line-height 120% */
+.waitlist-while-intro {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 120%;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+}
+
+.waitlist-benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.waitlist-benefits-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 18px;
+  font-weight: 400;
+  color: #a198ce;
+  line-height: 145%;
+}
+
+.waitlist-benefit-text-nowrap {
+  white-space: nowrap;
+}
+
+/* Design: larger circle (light gray outline) + solid purple tick (#A198CE) inside */
+.waitlist-check-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35em;
+  height: 1.35em;
+  min-width: 1.35em;
+  border: 1px solid #A198CE!important;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.15em;
+  font-size: inherit;
+}
+
+.waitlist-check {
+  flex-shrink: 0;
+  width: 0.2em!important;
+  height: 0.2em!important;
+  color: #A198CE;
+}
+
+/* Let's Explore — semi-bold 16 */
+.waitlist-explore-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 44px;
+  height: 44px;
+  padding: 0 1rem;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #7C3AED;
+  transition: background 0.2s, transform 0.15s;
+  box-sizing: border-box;
+}
+
+.waitlist-explore-button:hover {
+  background: #7C3AED;
+  color: #ffffff;
+}
+
+.waitlist-explore-button:active {
+  background: #5B21B6;
+  transform: translateY(0);
+}
+
+.waitlist-explore-button:focus {
+  outline: none;
+}
+
+.waitlist-explore-arrow {
+  flex-shrink: 0;
+}
+
+/* Responsive: stack columns on small screens */
+@media (max-width: 768px) {
+  .waitlist-page {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .waitlist-card {
+    flex-direction: column;
+    max-width: 480px;
+    min-height: auto;
+  }
+
+  .waitlist-left {
+    flex: none;
+    padding: 1.5rem 1.5rem 1rem;
+    min-height: 200px;
+  }
+
+  .waitlist-balloon {
+    max-width: 220px;
+  }
+
+  .waitlist-right {
+    padding: 1.5rem 1.5rem 2rem;
+  }
+}

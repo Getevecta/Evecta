@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+Disallow: /dashboard/
+Disallow: /auth
+Disallow: /otp-verification
+Disallow: /forgot-password
+Disallow: /verify-reset-otp
+Disallow: /reset-password
+Disallow: /billing/
+Disallow: /waitlist
+Disallow: /no-internet
+Disallow: /404
+
+Sitemap: https://evecta.io/sitemap.xml

@@ -1,0 +1,70 @@
+/* Evecta Logo - Single source of truth matching 404 page exactly. Use everywhere. */
+
+.evecta-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  text-decoration: none;
+  color: #000;
+}
+
+.evecta-logo:hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.evecta-logo:focus,
+.evecta-logo:focus-visible,
+.evecta-logo:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.evecta-logo-text {
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.evecta-logo-tagline {
+  font-size: 10px !important;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Centered variant (e.g. collapsed sidebar) */
+.evecta-logo.evecta-logo-centered {
+  align-items: center;
+}
+
+/* Light variant - for dark backgrounds (e.g. homepage header dark, footer) */
+.evecta-logo.evecta-logo-light {
+  color: #fff;
+}
+
+.evecta-logo.evecta-logo-light:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.evecta-logo.evecta-logo-light .evecta-logo-text {
+  color: inherit;
+}
+
+.evecta-logo.evecta-logo-light .evecta-logo-tagline {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Force logo styling in sidebars - override any typography resets */
+.sidebar .evecta-logo-text,
+aside .evecta-logo-text {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.sidebar .evecta-logo-tagline,
+aside .evecta-logo-tagline {
+  font-size: 10px !important;
+}

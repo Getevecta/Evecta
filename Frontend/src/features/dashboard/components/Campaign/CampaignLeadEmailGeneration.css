@@ -1,0 +1,648 @@
+.campaign-lead-email-generation {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 600;
+  color: #111827;
+  box-sizing: border-box;
+  container-type: inline-size;
+  container-name: cle-gen;
+}
+
+.cle-gen-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #ECEAFF !important;
+  border: 1px solid #B9B1F5 !important;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cle-gen-banner-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side, #ECEAFF 82%, transparent 83% 100%),
+    conic-gradient(#7660f0 var(--progress, 0%), #cfc9f7 0);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.cle-gen-banner-icon::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: #ECEAFF;
+}
+
+.cle-gen-banner-main {
+  flex: 1 1 200px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+
+@container cle-gen (min-width: 1001px) {
+  .cle-gen-banner-main {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .cle-gen-progress-track {
+    max-width: 360px;
+  }
+}
+
+.cle-gen-banner-text {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.cle-gen-banner-title {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #27272a;
+  line-height: 1.25;
+  letter-spacing: normal;
+}
+
+.cle-gen-banner-meta {
+  margin: 0;
+  font-size: clamp(13px, 1.2vw, 15px);
+  color: #71717a;
+  font-weight: 400;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.cle-gen-prompt {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cle-gen-prompt-label {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #030011;
+  letter-spacing: normal;
+}
+
+.cle-gen-prompt-field {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  min-height: 48px;
+  border-radius: 12px;
+  border: 1px solid rgba(145, 100, 255, 0.2);
+  background: #ffffff;
+}
+
+.cle-gen-prompt-value {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #030011;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.cle-gen-prompt-value--empty {
+  color: #71717a;
+  font-style: italic;
+}
+
+.cle-gen-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+}
+
+.cle-gen-progress-track {
+  flex: 1 1 auto;
+  height: 7px;
+  border-radius: 999px;
+  background: #dedeee;
+  overflow: hidden;
+  min-width: 60px;
+}
+
+.cle-gen-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: #7660f0;
+  transition: width 0.3s ease;
+}
+
+.cle-gen-progress-count {
+  font-size: clamp(12px, 1.1vw, 14px);
+  font-weight: 600;
+  color: #5c49d6;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-left: 2px;
+}
+
+.cle-gen-banner-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-left: auto;
+  align-self: center;
+}
+
+.cle-gen-banner-actions .evecta-secondary-btn {
+  border-color: #cfcfd6 !important;
+  background: #ffffff !important;
+  color: #3f3f46 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  padding: 6px 12px;
+  border-radius: 9px;
+  min-height: auto;
+  line-height: 1.2 !important;
+  white-space: nowrap;
+}
+
+.cle-gen-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.cle-gen-search-wrap {
+  position: relative;
+  flex: 1 1 200px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.cle-gen-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a1a1aa;
+  pointer-events: none;
+}
+
+.cle-gen-search {
+  width: 100%;
+  padding: 9px 12px 9px 36px;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+.cle-gen-toolbar-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.cle-gen-regenerate-all,
+.cle-gen-regenerate-failed {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #B9B1F5 !important;
+  background: #ECEAFF !important;
+  color: #6D5EF0;
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.cle-gen-regenerate-failed {
+  border-color: #FECACA !important;
+  background: #FEF2F2 !important;
+  color: #DC2626;
+}
+
+.cle-gen-regenerate-all svg {
+  color: #6D5EF0;
+  stroke: #6D5EF0;
+  flex-shrink: 0;
+}
+
+.cle-gen-regenerate-failed svg {
+  color: #DC2626;
+  stroke: #DC2626;
+  flex-shrink: 0;
+}
+
+.cle-gen-regenerate-all:hover:not(:disabled) {
+  background: #E6E2FF !important;
+  color: #6D5EF0;
+  border-color: #B9B1F5 !important;
+}
+
+.cle-gen-regenerate-failed:hover:not(:disabled) {
+  background: #FEE2E2 !important;
+  color: #B91C1C;
+  border-color: #FCA5A5 !important;
+}
+
+.cle-gen-regenerate-all:disabled,
+.cle-gen-regenerate-failed:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cle-gen-spin {
+  animation: cle-gen-spin 0.8s linear infinite;
+}
+
+@keyframes cle-gen-spin {
+  to { transform: rotate(360deg); }
+}
+
+.cle-gen-table-wrap {
+  border: 1px solid #e4e4e7;
+  border-radius: 10px;
+  overflow-x: auto;
+  overflow-y: visible;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cle-gen-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 600;
+  min-width: 640px;
+}
+
+.cle-gen-col-name {
+  width: 24%;
+}
+
+.cle-gen-col-location {
+  width: 28%;
+}
+
+.cle-gen-col-score {
+  width: 10%;
+}
+
+.cle-gen-col-status {
+  width: 26%;
+}
+
+.cle-gen-col-actions {
+  width: 12%;
+  min-width: 80px;
+}
+
+.cle-gen-table thead {
+  background: #fafafa;
+  border-bottom: 1px solid #e4e4e7;
+}
+
+.cle-gen-table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: clamp(12px, 1.1vw, 13px);
+  font-weight: 600;
+  color: #52525b;
+  letter-spacing: 0.03em;
+}
+
+.cle-gen-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e4e4e7 !important;
+  color: #111827;
+  vertical-align: middle;
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 400;
+}
+
+.cle-gen-table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.cle-gen-td-name {
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.35;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.cle-gen-td-location {
+  color: #71717a;
+  font-weight: 500;
+  line-height: 1.35;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.cle-gen-td-score {
+  white-space: nowrap;
+}
+
+.cle-gen-score-pill {
+  font-weight: 700;
+  font-size: inherit;
+  color: #111827;
+}
+
+.cle-gen-score-info {
+  color: #a1a1aa;
+}
+
+.cle-gen-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: inherit;
+  font-weight: 600;
+  min-width: 0;
+  flex-wrap: wrap;
+  row-gap: 6px;
+}
+
+.cle-gen-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cle-gen-status--ready .cle-gen-status-dot {
+  background: #22c55e;
+}
+
+.cle-gen-status--generating .cle-gen-status-dot {
+  background: #6d5ef0;
+}
+
+.cle-gen-status--starting .cle-gen-status-dot {
+  background: #a78bfa;
+}
+
+.cle-gen-status--queued .cle-gen-status-dot {
+  background: transparent;
+  border: 2px solid #d4d4d8;
+  box-sizing: border-box;
+}
+
+.cle-gen-status--failed .cle-gen-status-dot {
+  background: #ef4444;
+}
+
+.cle-gen-status-text {
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.cle-gen-status-progress {
+  width: 56px;
+  height: 6px;
+  border-radius: 999px;
+  background: #e4e4e7;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.cle-gen-status-progress-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: #7660f0;
+}
+
+.cle-gen-status--failed .cle-gen-status-progress-fill {
+  background: #ef4444;
+}
+
+.cle-gen-status--ready .cle-gen-status-progress-fill {
+  background: #22c55e;
+}
+
+.cle-gen-status--spam-needed .cle-gen-status-dot {
+  background: #f59e0b;
+}
+
+.cle-gen-status--spam-needed .cle-gen-status-progress-fill {
+  background: #f59e0b;
+}
+
+.cle-gen-status--spam-failed .cle-gen-status-dot {
+  background: #ef4444;
+}
+
+.cle-gen-status--spam-failed .cle-gen-status-progress-fill {
+  background: #ef4444;
+}
+
+.cle-gen-row-attention {
+  background: #fffbeb;
+}
+
+.cle-gen-row-attention:hover {
+  background: #fef3c7;
+}
+
+.cle-gen-spam-hint {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #fcd34d;
+  background: #fffbeb;
+  color: #92400e;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.cle-gen-preview-link {
+  border: none;
+  background: none;
+  padding: 0;
+  color: #6d5ef0;
+  font-weight: 600;
+  font-size: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cle-gen-preview-link:hover {
+  text-decoration: underline;
+}
+
+.cle-gen-td-actions {
+  padding-left: 12px;
+  white-space: nowrap;
+}
+
+.cle-gen-drafting {
+  color: #6d5ef0;
+  font-size: inherit;
+  font-weight: 600;
+  display: inline-block;
+  padding-left: 4px;
+}
+
+.cle-gen-dash {
+  color: #a1a1aa;
+}
+
+.cle-gen-empty {
+  text-align: center;
+  color: #71717a;
+  padding: 32px 16px !important;
+}
+
+.cle-gen-table-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+.cle-gen-table-footer .dashboard-pagination {
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  row-gap: 10px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.cle-gen-table-footer .dashboard-pagination-left,
+.cle-gen-table-footer .dashboard-pagination-controls {
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.cle-gen-summary {
+  font-size: clamp(13px, 1.2vw, 15px);
+  color: #71717a;
+  font-weight: 600;
+}
+
+/* Stack banner when panel is narrow — layout only, all text kept */
+@container cle-gen (max-width: 1000px) {
+  .cle-gen-banner-main {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .cle-gen-progress-track {
+    max-width: none;
+  }
+}
+
+@container cle-gen (max-width: 640px) {
+  .cle-gen-banner-actions {
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-end;
+    align-self: stretch;
+  }
+
+  .cle-gen-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cle-gen-search-wrap {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .cle-gen-regenerate-all,
+  .cle-gen-regenerate-failed,
+  .cle-gen-toolbar-actions {
+    width: 100%;
+  }
+
+  .cle-gen-toolbar-actions {
+    flex-direction: column;
+  }
+}
+
+/* Fallback without container queries */
+@supports not (container-type: inline-size) {
+  @media (max-width: 1200px) {
+    .cle-gen-banner-main {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .cle-gen-toolbar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .cle-gen-regenerate-all,
+    .cle-gen-regenerate-failed,
+    .cle-gen-toolbar-actions {
+      width: 100%;
+    }
+
+    .cle-gen-toolbar-actions {
+      flex-direction: column;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .cle-gen-banner {
+    padding: 10px 12px;
+  }
+
+  .cle-gen-banner-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .cle-gen-table th,
+  .cle-gen-table td {
+    padding: 8px 10px;
+  }
+
+  .cle-gen-td-actions {
+    padding-left: 8px;
+  }
+}

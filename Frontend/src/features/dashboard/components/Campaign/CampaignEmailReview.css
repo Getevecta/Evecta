@@ -1,0 +1,272 @@
+.campaign-email-review {
+  width: 100%;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.campaign-email-review--empty {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.campaign-email-review--empty p {
+  margin: 0;
+}
+
+.campaign-email-review-table-wrap {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header stays fixed; only the body scrolls — avoids sticky-thead bleed */
+.campaign-email-review-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 120px 110px 72px;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #fafafa;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.campaign-email-review-header-action {
+  display: block;
+}
+
+.campaign-email-review-body {
+  max-height: min(420px, 50vh);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+}
+
+.campaign-email-review-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 120px 110px 72px;
+  gap: 12px;
+  padding: 14px;
+  align-items: center;
+  border-bottom: 1px solid #f3f4f6;
+  background: #fff;
+}
+
+.campaign-email-review-row:last-child {
+  border-bottom: none;
+}
+
+.campaign-email-review-row:hover {
+  background: #fafafa;
+}
+
+.campaign-email-review-td-lead {
+  min-width: 0;
+}
+
+.campaign-email-review-td-tone,
+.campaign-email-review-td-status,
+.campaign-email-review-td-action {
+  min-width: 0;
+}
+
+.campaign-email-review-td-action {
+  text-align: left;
+}
+
+.campaign-email-review-company {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.campaign-email-review-subject {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.campaign-email-review-tone-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4b5563;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.campaign-email-review-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.campaign-email-review-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.campaign-email-review-status--approved {
+  color: #15803d;
+}
+
+.campaign-email-review-status--approved .campaign-email-review-status-dot {
+  background: #22c55e;
+}
+
+.campaign-email-review-status--review {
+  color: #c2410c;
+}
+
+.campaign-email-review-status--review .campaign-email-review-status-dot {
+  background: #f97316;
+}
+
+.campaign-email-review-status--editing {
+  color: #6b7280;
+}
+
+.campaign-email-review-status--editing .campaign-email-review-status-dot {
+  background: transparent;
+  border: 2px solid #d1d5db;
+  width: 8px;
+  height: 8px;
+  box-sizing: border-box;
+}
+
+.campaign-email-review-status--rejected,
+.campaign-email-review-status--failed {
+  color: #b91c1c;
+}
+
+.campaign-email-review-status--rejected .campaign-email-review-status-dot,
+.campaign-email-review-status--failed .campaign-email-review-status-dot {
+  background: #ef4444;
+}
+
+.campaign-email-review-open {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7c3aed;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.campaign-email-review-open:hover {
+  color: #6d28d9;
+  text-decoration: underline;
+}
+
+.campaign-email-review-open-disabled {
+  color: #d1d5db;
+  font-size: 13px;
+}
+
+.campaign-email-review-table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 0 2px;
+}
+
+.campaign-email-review-showing {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.campaign-email-review-hint {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: #9a3412;
+}
+
+/* Launch confirm modal (shared with preview step) */
+.preview-launch-confirm-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  transform: none !important;
+  background: rgba(17, 24, 39, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10040;
+  padding: 16px;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.preview-launch-confirm-card {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  max-width: 420px;
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.preview-launch-confirm-card p {
+  margin: 8px 0 16px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.preview-launch-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+@media (max-width: 1200px) {
+  .campaign-email-review-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .campaign-email-review-header,
+  .campaign-email-review-row {
+    min-width: 520px;
+  }
+}

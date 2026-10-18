@@ -1,0 +1,408 @@
+name: CI/CD Pipeline - Deploy Staging Evecta
+
+on:
+  push:
+    branches:
+      - dev
+
+concurrency:
+  group: evecta-staging-deploy
+  # Deploys must never be cancelled mid-run — a cancelled job leaves the server
+  # half-swapped and does not trigger the rollback path. Queue instead.
+  cancel-in-progress: false
+
+jobs:
+  # ── JOB 1: Validate code before touching the server ──────────────────────
+  ci:
+    name: CI Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # ── Frontend Check ──
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: Frontend/package-lock.json
+
+      - name: Install frontend dependencies
+        working-directory: Frontend
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: Frontend
+        env:
+          VITE_ENABLE_BANNER_PREVIEW: 'true'
+        run: npm run build
+
+      - name: Verify frontend build output
+        working-directory: Frontend
+        run: |
+          # Must match vite.config.ts build.outDir (currently 'build', not default 'dist')
+          if [ ! -d "build" ] || [ -z "$(ls -A build)" ]; then
+            echo "❌ Frontend build directory missing or empty — aborting"
+            exit 1
+          fi
+          echo "✅ Frontend build verified"
+
+      # ── Backend Check ──
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install backend dependencies
+        working-directory: backend
+        run: pip install -r requirements.txt
+
+      - name: FastAPI syntax check
+        working-directory: backend
+        run: python -m py_compile app/main.py && echo "✅ Backend syntax OK"
+
+  # ── JOB 2: Deploy to server (only runs if CI passes) ─────────────────────
+  deploy:
+    name: Deploy
+    needs: ci
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/lightsail_key.pem
+          chmod 600 ~/.ssh/lightsail_key.pem
+          ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy Staging to AWS
+        run: |
+          ssh -i ~/.ssh/lightsail_key.pem ${{ secrets.USERNAME }}@${{ secrets.HOST }} 'bash -se' << 'EOF'
+          set -e
+
+          REPO=/home/ubuntu/Evecta/backend-staging
+          MARKER=/home/ubuntu/evecta_staging_prev_commit
+
+          # Clear the stale marker BEFORE any command that can fail — including the node/npm
+          # checks below. The marker survives a successful deploy (pointing at the commit
+          # before it), so if the job dies while an old marker is still on disk, the rollback
+          # job would use it and revert a deployment that was fine. Its absence is the signal
+          # that this run changed nothing and there is nothing to undo.
+          rm -f "$MARKER"
+
+          echo "🚀 Deploying Staging Environment"
+
+          # ✅ Git safe directory (prevents dubious ownership error)
+          git config --global --add safe.directory '*'
+
+          # ✅ Verify Node & npm are available on server
+          node -v || { echo "❌ Node not installed"; exit 1; }
+          npm -v  || { echo "❌ npm not installed"; exit 1; }
+
+          # ---------- Checkout (ONE repo — Frontend/ and backend/ are subdirs of it) ----------
+          # `git reset` is repo-wide, so there is exactly one commit to record and one to
+          # restore. Recording a marker per-subdir would capture the POST-reset commit for
+          # whichever subdir came second, and rollback would then restore the failed commit.
+          cd "$REPO"
+          # Fail loudly if the deploy path is not actually the repo root.
+          if [ "$(git rev-parse --show-toplevel)" != "$REPO" ]; then
+            echo "❌ $REPO is not the git root — refusing to deploy"
+            exit 1
+          fi
+
+          git fetch origin dev
+          git rev-parse HEAD > "$MARKER"
+          echo "📌 Rollback point recorded: $(cat "$MARKER")"
+          git reset --hard origin/dev
+
+          # ---------- Frontend ----------
+          cd "$REPO/Frontend"
+
+          npm ci
+          VITE_ENABLE_BANNER_PREVIEW=true npm run build
+
+          # ✅ Verify build before touching live files (vite outDir is build)
+          if [ ! -d "build" ] || [ -z "$(ls -A build)" ]; then
+            echo "❌ build directory missing or empty — aborting"
+            exit 1
+          fi
+
+          # ✅ Atomic swap — zero downtime, no partial deploy risk
+          # `cp -a build/.` not `cp -r build/*` — the glob silently drops dotfiles and
+          # fails outright on an empty dir.
+          sudo rm -rf /var/www/html-staging_new
+          sudo mkdir -p /var/www/html-staging_new
+          sudo cp -a build/. /var/www/html-staging_new/
+          sudo rm -rf /var/www/html-staging_old
+          sudo mv /var/www/html-staging /var/www/html-staging_old
+          sudo mv /var/www/html-staging_new /var/www/html-staging
+
+          # Validate nginx config before reloading
+          sudo nginx -t && sudo systemctl reload nginx || {
+            echo "❌ Nginx failed — restoring old version"
+            sudo rm -rf /var/www/html-staging
+            sudo mv /var/www/html-staging_old /var/www/html-staging
+            sudo systemctl reload nginx
+            exit 1
+          }
+
+          # ---------- Backend ----------
+          # No fetch/reset here — the single repo-root reset above already moved backend/.
+          cd "$REPO/backend"
+          source ../venv-staging/bin/activate
+          # ✅ Upgrade pip packages
+          pip install --upgrade -r requirements.txt
+          # ✅ Run database migrations
+          alembic upgrade head
+
+          # ✅ Restart FastAPI — restart itself must not trigger set -e; is-active check decides success/failure
+          sudo systemctl reload-or-restart fastapi-staging.service || true
+          sleep 1
+          if systemctl is-active --quiet fastapi-staging.service; then
+            echo "✅ FastAPI staging is active"
+          else
+            echo "❌ FastAPI staging failed to restart"
+            exit 1
+          fi
+
+          # ---------- Celery ----------
+          # Explicit list, NOT runtime discovery. `systemctl list-units` only reports units
+          # currently loaded in memory, so a worker that was stopped by hand can be unloaded
+          # and vanish — discovery would then restart the survivors, report success, and
+          # leave that worker down forever. Naming this list makes a missing unit an error.
+          # Production units (celery-main, celery-beat-main) live on this same box and must
+          # never be touched here. Adding a worker means adding it here too.
+          CELERY_SERVICES=(
+            celery-staging.service
+            celery-staging@1.service
+            celery-staging@2.service
+            celery-beat-staging.service
+          )
+
+          echo "Restarting Celery services..."
+          CELERY_FAILED=0
+          for svc in "${CELERY_SERVICES[@]}"; do
+            # A unit that no longer exists on the server is a real failure, not something to skip.
+            if ! systemctl cat "${svc}" >/dev/null 2>&1; then
+              echo "❌ ${svc} has no unit on this server — expected it to exist"
+              CELERY_FAILED=1
+              continue
+            fi
+
+            echo "Restarting ${svc}..."
+            # restart itself must not trigger set -e; is-active check below decides success/failure
+            sudo systemctl restart "${svc}" || true
+            sleep 1
+            if systemctl is-active --quiet "${svc}"; then
+              echo "✅ ${svc} is active"
+            else
+              echo "❌ ${svc} failed to restart"
+              CELERY_FAILED=1
+            fi
+          done
+
+          if [ "$CELERY_FAILED" -eq 1 ]; then
+            exit 1
+          fi
+
+          echo "✅ Staging deployment completed successfully"
+          EOF
+
+      - name: Cleanup SSH
+        if: always()
+        run: rm -f ~/.ssh/lightsail_key.pem
+
+  # ── JOB 3: Health check + rollback ───────────────────────────────────────
+  health_check:
+    name: Health Check
+    needs: deploy
+    # Run ONLY when deploy actually ran. With a bare `always()`, a CI failure skips deploy
+    # but still runs this job — and an unrelated blip on staging would then make failure()
+    # true and roll back a deployment this run never made.
+    if: always() && (needs.deploy.result == 'success' || needs.deploy.result == 'failure')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check site is up
+        run: |
+          echo "🔍 Checking site health..."
+
+          # Retry loop — up to 5 attempts, 10s apart (max 50s wait)
+          for i in {1..5}; do
+            # The `|| HTTP_STATUS=000` is load-bearing. GitHub runs steps under
+            # `bash -eo pipefail`, so an unguarded curl exit (DNS failure, connection
+            # refused, timeout) aborts the step on attempt 1 and skips the retries
+            # entirely — turning a transient blip into a rollback. Guarding the
+            # assignment rather than piping `|| echo 000` into the substitution: on a
+            # connection error curl writes "000" to stdout AND exits non-zero, so the
+            # echo would append a second one and the log would read "000000".
+            HTTP_STATUS=$(curl -s -L --max-time 5 -o /dev/null -w "%{http_code}" https://staging.evecta.io/) || HTTP_STATUS="000"
+            echo "Attempt $i — HTTP Status: $HTTP_STATUS"
+
+            if [ "$HTTP_STATUS" == "200" ]; then
+              echo "✅ Site is healthy"
+              exit 0
+            fi
+
+            echo "⏳ Retrying in 10 seconds..."
+            sleep 10
+          done
+
+          echo "❌ Health check failed after 5 attempts"
+          exit 1
+
+      - name: Setup SSH for rollback
+        if: failure() || needs.deploy.result == 'failure'
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/lightsail_key.pem
+          chmod 600 ~/.ssh/lightsail_key.pem
+          ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+
+      - name: Rollback to previous commit
+        if: failure() || needs.deploy.result == 'failure'
+        run: |
+          ssh -i ~/.ssh/lightsail_key.pem ${{ secrets.USERNAME }}@${{ secrets.HOST }} 'bash -se' << 'EOF'
+          set -e
+          echo "⏪ Rolling back Evecta staging..."
+
+          REPO=/home/ubuntu/Evecta/backend-staging
+          MARKER=/home/ubuntu/evecta_staging_prev_commit
+          ROLLBACK_FAILED=0
+
+          # The deploy job clears this marker before it touches anything and rewrites it
+          # only once the repo is about to move. No marker => the deploy never changed the
+          # server, so there is nothing to undo and rolling back would be actively harmful.
+          if [ ! -f "$MARKER" ]; then
+            echo "ℹ️ No rollback marker — deploy failed before changing anything. Nothing to undo."
+            exit 0
+          fi
+
+          PREV=$(cat "$MARKER")
+          echo "⏪ Restoring repo to $PREV"
+
+          # ---------- ONE reset, at the repo root ----------
+          # Frontend/ and backend/ are subdirs of a single repo, so this restores both.
+          # Resetting per-subdir would have the backend reset undo the frontend one.
+          # This one IS fatal: if the code cannot be restored there is nothing to recover to.
+          cd "$REPO"
+          git reset --hard "$PREV"
+
+          # Frontend and backend recovery must be INDEPENDENT. Under `set -e` a failing
+          # `npm ci` in the frontend rebuild would kill the script before the backend is
+          # restarted — exactly backwards, since a deploy that broke FastAPI is the case
+          # where backend recovery matters most.
+          #
+          # Every fallible command below is guarded with `|| return 1` rather than relying
+          # on `set -e`: bash DISABLES `set -e` inside a function invoked in a condition
+          # context (`if ! rollback_frontend`), so an unguarded failure would fall through
+          # to the next command and swap a half-built directory into /var/www.
+          rollback_frontend() {
+            echo "📦 Rebuilding Frontend at $PREV..."
+            cd "$REPO/Frontend"                          || return 1
+            npm ci                                       || return 1
+            VITE_ENABLE_BANNER_PREVIEW=true npm run build || return 1
+
+            # ✅ Verify build before touching live files
+            if [ ! -d "build" ] || [ -z "$(ls -A build)" ]; then
+              echo "❌ Rollback build directory missing or empty"
+              return 1
+            fi
+
+            # `cp -a build/.` not `cp -r build/*` — the glob silently drops dotfiles and
+            # fails outright on an empty dir.
+            sudo rm -rf /var/www/html-staging_new        || return 1
+            sudo mkdir -p /var/www/html-staging_new      || return 1
+            sudo cp -a build/. /var/www/html-staging_new/ || return 1
+            sudo rm -rf /var/www/html-staging_old        || return 1
+            sudo mv /var/www/html-staging /var/www/html-staging_old || return 1
+            sudo mv /var/www/html-staging_new /var/www/html-staging || return 1
+
+            if ! sudo nginx -t || ! sudo systemctl reload nginx; then
+              echo "❌ Nginx failed during rollback — restoring previous version"
+              sudo rm -rf /var/www/html-staging
+              sudo mv /var/www/html-staging_old /var/www/html-staging
+              sudo systemctl reload nginx || true
+              return 1
+            fi
+
+            echo "✅ Frontend rolled back"
+          }
+
+          if ! rollback_frontend; then
+            echo "❌ Frontend rollback failed — continuing so the backend can still recover"
+            ROLLBACK_FAILED=1
+          fi
+
+          # ---------- Backend ----------
+          # Runs regardless of the frontend outcome. No git reset here — the repo-root reset
+          # above already restored backend/.
+          echo "⚙️ Rolling back Backend..."
+          cd "$REPO/backend"
+          source ../venv-staging/bin/activate
+          pip install -r requirements.txt || ROLLBACK_FAILED=1
+
+          # NOTE: the database is NOT downgraded. `alembic upgrade head` may have already
+          # applied migrations that the restored code does not expect. Auto-downgrading a
+          # partially-applied migration risks data loss, so this is left deliberate/manual.
+          # Check `alembic current` against $PREV if the app misbehaves after a rollback.
+
+          # ✅ restart itself must not trigger set -e; is-active check below decides success/failure
+          sudo systemctl reload-or-restart fastapi-staging.service || true
+          sleep 1
+          if systemctl is-active --quiet fastapi-staging.service; then
+            echo "✅ FastAPI staging is active"
+          else
+            echo "❌ FastAPI staging failed to restart after rollback"
+            ROLLBACK_FAILED=1
+          fi
+
+          # ---------- Celery ----------
+          # Same explicit list as the deploy path — keep the two in sync.
+          CELERY_SERVICES=(
+            celery-staging.service
+            celery-staging@1.service
+            celery-staging@2.service
+            celery-beat-staging.service
+          )
+
+          echo "Restarting Celery services after rollback..."
+          for svc in "${CELERY_SERVICES[@]}"; do
+            if ! systemctl cat "${svc}" >/dev/null 2>&1; then
+              echo "❌ ${svc} has no unit on this server — expected it to exist"
+              ROLLBACK_FAILED=1
+              continue
+            fi
+
+            echo "Restarting ${svc}..."
+            # restart itself must not trigger set -e; is-active check below decides success/failure
+            sudo systemctl restart "${svc}" || true
+            sleep 1
+            if systemctl is-active --quiet "${svc}"; then
+              echo "✅ ${svc} is active"
+            else
+              echo "❌ ${svc} failed to restart after rollback"
+              ROLLBACK_FAILED=1
+            fi
+          done
+
+          # A rollback that could not restore the services must not report success.
+          if [ "$ROLLBACK_FAILED" -eq 1 ]; then
+            echo "❌ Rollback completed with errors — staging needs manual attention"
+            exit 1
+          fi
+
+          echo "✅ Rollback completed — repo restored to $PREV"
+          EOF
+
+      - name: Notify on failure
+        if: failure() || needs.deploy.result == 'failure'
+        run: |
+          echo "❌ Evecta staging deploy failed on branch dev"
+          # Replace with your Slack/Discord webhook:
+          # curl -X POST -H 'Content-type: application/json' \
+          #   --data '{"text":"❌ Evecta staging deploy failed on dev!"}' \
+          #   ${{ secrets.SLACK_WEBHOOK_URL }}

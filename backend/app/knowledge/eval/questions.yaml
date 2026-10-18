@@ -1,0 +1,267 @@
+# Retrieval evaluation set for the product knowledge corpus.
+#
+#   env/Scripts/python.exe scripts/eval_knowledge_retrieval.py
+#   env/Scripts/python.exe scripts/eval_knowledge_retrieval.py --sweep
+#
+# `questions` are real product questions, each labelled with the corpus document
+# title(s) that answer it. Phrasing is deliberately mixed: some formal, some the way
+# a user actually types — lowercase, misspelled, partial. Retrieval that only works
+# on well-formed questions is not working.
+#
+# `controls` are plausible questions the corpus does NOT answer. They must retrieve
+# nothing, so the assistant falls back to "I don't have that documented" instead of
+# improvising. A control that starts matching is a regression.
+
+questions:
+  # --- product overview -------------------------------------------------------
+  - q: what is evecta
+    documents: [What Evecta is and who it is for]
+  - q: who are you and what can you help me with?
+    documents: [What Evecta is and who it is for]
+  - q: is this just a lead gen tool or does it send emails too
+    documents: [What Evecta is and who it is for]
+
+  # --- lead generation --------------------------------------------------------
+  - q: how do i find leads
+    documents: [Generating leads]
+  - q: can I search for businesses in a specific city?
+    documents: [Generating leads]
+  - q: my leads came back irrelevant, what do i do
+    documents: [Generating leads, Troubleshooting lead search and saving]
+  - q: why does it say N/A for the email address on some leads
+    documents: [Generating leads]
+  - q: why is my search returning hardly any results
+    documents: [Troubleshooting lead search and saving]
+
+  # --- search history & lead database ----------------------------------------
+  - q: can i delete my search history
+    documents: [Search History]
+  - q: i discarded a lead by mistake can i get it back
+    documents: [Search History]
+  - q: whats the difference between search history and the lead database
+    documents: [The Lead Database, Search History]
+  - q: if i delete a lead does it disappear from search history too
+    documents: [Search History, The Lead Database]
+
+  # --- excel import -----------------------------------------------------------
+  - q: how do i upload my leads from a spreadsheet
+    documents: [Importing leads from Excel]
+  - q: can i import a csv file
+    documents: [Importing leads from Excel]
+  - q: what columns does the excel import need
+    documents: [Importing leads from Excel]
+  - q: my excel upload imported 0 rows
+    documents: [Importing leads from Excel]
+
+  # --- AI emails --------------------------------------------------------------
+  - q: does everyone get the same email or is it personalised
+    documents: [AI-personalized emails]
+  - q: can i edit the email the ai wrote
+    documents: [AI-personalized emails, Creating and managing campaigns]
+  - q: what should i put in the campaign intent
+    documents: [AI-personalized emails]
+  - q: whats the difference between discard and regenerate
+    documents: [AI-personalized emails]
+
+  # --- campaigns --------------------------------------------------------------
+  - q: how do i create a campaign
+    documents: [Creating and managing campaigns]
+  - q: i launched a campaign with the wrong offer how do i pause it
+    documents: [Creating and managing campaigns]
+  - q: can i add more leads after launching
+    documents: [Creating and managing campaigns]
+  - q: what ready made email templates do you have
+    documents: [Creating and managing campaigns]
+  - q: can i send myself a test email first
+    documents: [Creating and managing campaigns]
+  - q: what do draft ongoing and completed mean
+    documents: [Creating and managing campaigns]
+  - q: why is my campaign still showing as draft
+    documents: [Campaign and email generation troubleshooting, Creating and managing campaigns]
+  - q: why did the email generation stop halfway
+    documents: [Campaign and email generation troubleshooting]
+
+  # --- spam check -------------------------------------------------------------
+  - q: i edited the email after the spam check do i need to run it again
+    documents: [Spam Check]
+  - q: if it passes the spam check will it definitely reach the inbox
+    documents: [Spam Check]
+  - q: my emails keep landing in spam why
+    documents: [Spam Check]
+
+  # --- mailbox ----------------------------------------------------------------
+  - q: how do i connect my gmail
+    documents: [Mailbox setup and connection troubleshooting, Connecting your mailbox]
+  - q: do i need an app password
+    documents: [Mailbox setup and connection troubleshooting]
+  - q: i can send but replies arent showing up
+    documents: [Mailbox setup and connection troubleshooting]
+  - q: i can see incoming mail but nothing sends
+    documents: [Mailbox setup and connection troubleshooting]
+  - q: how many mailboxes can i connect
+    documents: [Connecting your mailbox]
+  - q: whats the difference between imap and smtp
+    documents: [Connecting your mailbox, Mailbox setup and connection troubleshooting]
+
+  # --- warmed mailboxes -------------------------------------------------------
+  - q: what are warmed email addresses
+    documents: [Warmed email addresses]
+  - q: should i use my own mailbox or yours
+    documents: [Warmed email addresses]
+  - q: are warmed addresses included in my plan
+    documents: [Warmed email addresses]
+
+  # --- pricing ----------------------------------------------------------------
+  - q: how much does it cost
+    documents: [Plans and pricing]
+  - q: whats in the growth plan
+    documents: [Plans and pricing]
+  - q: i need 800 leads a month and want to send 2000 emails which plan
+    documents: [Plans and pricing]
+  - q: which tones can i use on the free plan
+    documents: [Plans and pricing, Creating and managing campaigns]
+
+  # --- credits ----------------------------------------------------------------
+  - q: how do credits work
+    documents: [Credits and billing]
+  - q: does the ai writing the email cost me credits
+    documents: [Credits and billing]
+  - q: do my leftover topup credits expire at the end of the month
+    documents: [Credits and billing]
+  - q: it says insufficient credits but i still have credits left
+    documents: [Credits and billing]
+  - q: where do i see how many credits i have left
+    documents: [Credits and billing]
+  - q: i paid but my plan hasnt updated
+    documents: [Credits and billing]
+  - q: how do i cancel my subscription
+    documents: [Credits and billing]
+
+  # --- sending limits ---------------------------------------------------------
+  - q: how many emails can i send per day
+    documents: [Sending limits and campaign delivery pace]
+  - q: why is my campaign taking days to finish
+    documents: [Sending limits and campaign delivery pace]
+  - q: why did my emails get pushed to tomorrow
+    documents: [Sending limits and campaign delivery pace]
+
+  # --- inbox ------------------------------------------------------------------
+  - q: where do i see replies
+    documents: [Unified Inbox and replies]
+  - q: do you send automatic follow ups
+    documents: [Unified Inbox and replies]
+  - q: my inbox is empty
+    documents: [Unified Inbox and replies]
+  - q: can my teammate manage the replies too
+    documents: [Unified Inbox and replies]
+
+  # --- insights ---------------------------------------------------------------
+  - q: how do i see who opened my email
+    documents: [Campaign Insights]
+  - q: is open tracking accurate
+    documents: [Campaign Insights]
+  - q: can i export my campaign results
+    documents: [Campaign Insights]
+  - q: someone opened but didnt reply what now
+    documents: [Campaign Insights]
+
+  # --- bounces & unsubscribes -------------------------------------------------
+  - q: what does bounced mean
+    documents: [Bounces and unsubscribes]
+  - q: do you add an unsubscribe link
+    documents: [Bounces and unsubscribes]
+  - q: someone unsubscribed can i email them again
+    documents: [Bounces and unsubscribes]
+
+  # --- account ----------------------------------------------------------------
+  - q: my otp code isnt working
+    documents: ["Account access, onboarding and profile"]
+  - q: i forgot my password
+    documents: ["Account access, onboarding and profile"]
+  - q: why do i keep getting logged out
+    documents: ["Account access, onboarding and profile"]
+
+  # --- security ---------------------------------------------------------------
+  - q: do you sell my data
+    documents: [Security and privacy]
+  - q: do you store my email password
+    documents: [Security and privacy]
+  - q: can i delete my account
+    documents: [Security and privacy]
+
+  # --- best practices ---------------------------------------------------------
+  - q: how do i write a good prompt for finding leads
+    documents: [Best practices for outreach]
+  - q: should i send more emails to get more replies
+    documents: [Best practices for outreach]
+
+  # --- short forms, observed in live testing 2026-08-14 -----------------------
+  # The set above is written in fuller sentences than users actually type. Every
+  # entry here is a terse or abbreviated phrasing of a question the corpus does
+  # answer; two of them ("who are u ?", "what is included in the Growth plan")
+  # were rejected in live testing at threshold 0.71 despite ranking the correct
+  # chunk first. Short queries carry less distinctive signal, so they land lower
+  # than their long-form equivalents — the set has to contain them or the sweep
+  # calibrates against phrasing no real user produces.
+  - q: who are u
+    documents: [What Evecta is and who it is for]
+  - q: what can u do
+    documents: [What Evecta is and who it is for]
+  - q: what is included in the growth plan
+    documents: [Plans and pricing]
+  - q: growth plan
+    documents: [Plans and pricing]
+  - q: price
+    documents: [Plans and pricing]
+  - q: find leads
+    documents: [Generating leads]
+  - q: how 2 find leads
+    documents: [Generating leads]
+  # Regression: the credits chunk "Is one lead equal to one credit?" outranks the
+  # right answer on this phrasing (0.7207 vs 0.7077), so the per-chunk floor passed
+  # the wrong passage alone and dropped the correct one 0.003 below it. The reply
+  # was a refusal built from a passage about credit accounting.
+  - q: How do u find the leads
+    documents: [Generating leads]
+  - q: connect gmail
+    documents: [Mailbox setup and connection troubleshooting, Connecting your mailbox]
+  - q: gmail not connecting
+    documents: [Mailbox setup and connection troubleshooting]
+  - q: where r my replies
+    documents: [Unified Inbox and replies]
+  - q: daily limit
+    documents: [Sending limits and campaign delivery pace]
+  - q: credits left
+    documents: [Credits and billing]
+  - q: spam check
+    documents: [Spam Check]
+  - q: warmed emails
+    documents: [Warmed email addresses]
+
+controls:
+  # Plausible, adjacent to real documents, but genuinely not covered.
+  - q: are you SOC 2 certified
+  - q: what is your uptime SLA
+  - q: which region is my data stored in
+  - q: are you GDPR compliant
+  - q: can I export my leads straight to Salesforce
+  - q: do you integrate with HubSpot
+  - q: is there an API I can call
+  - q: do you have a mobile app
+  - q: can I send outreach on LinkedIn
+  - q: can I A/B test two subject lines
+  - q: what is your refund policy
+  - q: can I white label Evecta for my clients
+  - q: do you support SMS or cold calling
+  - q: how do I set up a custom tracking domain
+
+  # Short forms of uncovered topics. These balance the short-form questions
+  # above: without them the sweep only sees terse phrasing on the positive side
+  # and would lower the threshold to catch it, with no counterweight measuring
+  # what that costs in false matches.
+  - q: hubspot
+  - q: salesforce
+  - q: api
+  - q: mobile app
+  - q: refund
+  - q: linkedin outreach

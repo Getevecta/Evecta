@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s --max-time 35 -X POST http://127.0.0.1:8000/chat -H \"Content-Type: application/json\" -d '{\"message\":\"whats in the growth plan?\"}')",
+      "Bash(python -c \"import json,sys; print\\(json.load\\(sys.stdin\\)['data']['message'][:200]\\)\")",
+      "Bash(curl -s --max-time 35 -X POST http://127.0.0.1:8000/chat -H \"Content-Type: application/json\" -d '{\"message\":\"and the one above it?\"}')",
+      "Bash(python -c \"import json,sys; print\\(json.load\\(sys.stdin\\)['data']['message'][:250]\\)\")",
+      "Bash(curl -s -o /dev/null -w \"backend  -> %{http_code}\\\\n\" --max-time 5 http://127.0.0.1:8000/docs)",
+      "Bash(curl -s -o /dev/null -w \"frontend -> %{http_code}\\\\n\" --max-time 5 http://127.0.0.1:5173)",
+      "Bash(npm install *)",
+      "Bash(curl -s -o /dev/null http://127.0.0.1:5173)",
+      "Bash(curl -s -o /dev/null -w \"backend  -> %{http_code}\\\\n\" --max-time 6 http://127.0.0.1:8000/docs)",
+      "Bash(curl -s -o /dev/null -w \"frontend -> %{http_code}\\\\n\" --max-time 6 http://127.0.0.1:5173)",
+      "Bash(curl -s --max-time 35 -X POST http://127.0.0.1:8000/chat -H \"Content-Type: application/json\" -d '{\"message\":\"What are the services u provide ?\"}')",
+      "Bash(python -c \"import json,sys; print\\(json.load\\(sys.stdin\\)['data']['message']\\)\")",
+      "Bash(env/Scripts/python.exe -m pytest tests/unit/ -q --collect-only)"
+    ]
+  }
+}

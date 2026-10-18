@@ -1,0 +1,4745 @@
+/* HomePage.css - Minimal styles since most styling is done with Tailwind CSS */
+
+/* Ensure smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero gradient text - "Fully Automated." radial gradient, hotspot at 'u' in Fully, left light to right dark */
+.homepage.theme-dark .hero-gradient-text {
+  background: radial-gradient(ellipse 140% 120% at 12% 8%, #F297EA 0%, #F297EA 5%, #E9ABF5 18%, #C084FC 45%, #7C35DF 85%, #7C35DF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.homepage.theme-light .hero-gradient-text {
+  background: radial-gradient(ellipse 140% 120% at 12% 8%, #F297EA 0%, #F297EA 5%, #E9ABF5 18%, #C084FC 45%, #7C35DF 85%, #7C35DF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Homepage base - prevent horizontal overflow on mobile */
+.homepage {
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+/* Sections inherit full line box; clip long nowrap children (Android / Chrome WebView quirk) */
+.homepage > section {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-x: clip;
+  min-width: 0;
+}
+
+/* Dark theme: #030011 background, no grid pattern */
+.homepage.theme-dark.homepage-gradient-bg,
+.homepage.theme-dark .homepage-gradient-bg {
+  background-color: #030011;
+}
+/* Dashboard section inside hero-to-graph wrap: transparent so Hero Section.svg shows */
+.homepage-hero-to-graph-wrap .homepage-gradient-bg {
+  background-color: transparent !important;
+}
+.homepage.theme-dark::before {
+  content: none;
+}
+
+/* Light theme: original gradient background */
+.homepage.theme-light.homepage-gradient-bg,
+.homepage.theme-light .homepage-gradient-bg {
+  background: linear-gradient(to bottom, rgba(250, 245, 255, 0.8) 0%, rgba(243, 232, 255, 0.5) 30%, rgba(255, 255, 255, 0.3) 60%, rgba(249, 250, 251, 1) 100%);
+}
+.homepage.theme-light::before {
+  content: none;
+}
+
+/* Anchor targets: fixed header is 80px — scroll-margin keeps section titles visible */
+.homepage section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Exclude fixed header wrapper — position:relative breaks fixed/sticky behavior.
+   Also exclude mobile nav overlay/drawer — they must stay position:fixed (see .homepage-mobile-menu). */
+.homepage > *:not(.homepage-header-wrapper):not(.homepage-mobile-menu-overlay):not(.homepage-mobile-menu) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero Section - dark: no image; light: hero background image */
+/* Padding-top clears fixed header + gap after header */
+.homepage section.spacing-hero-section-top {
+  position: relative;
+  padding-top: calc(80px + 12px + 1px + 2rem) !important; /* header height 80px + 2rem gap */
+  margin-top: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.homepage section.spacing-hero-section-top > .homepage-content-inner {
+  padding-top: 0;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.homepage section.spacing-hero-section-top .homepage-content-inner > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.homepage section.spacing-hero-section-top .homepage-content-inner .text-center {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+/* Hero + Graph area: Hero Section.svg – from top till graph card */
+.homepage-hero-to-graph-wrap {
+  position: relative;
+  background-image: url('/Hero%20Section.svg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.homepage.theme-dark .homepage-hero-to-graph-wrap {
+  background-color: #030011;
+}
+.homepage.theme-light .homepage-hero-to-graph-wrap {
+  background-color: #030011;
+}
+.homepage-hero-to-graph-wrap > * {
+  position: relative;
+  z-index: 1;
+}
+/* Hero section: no background pattern */
+.homepage.theme-dark section.spacing-hero-section-top::before,
+.homepage.theme-light section.spacing-hero-section-top::before {
+  content: none;
+  display: none;
+}
+.homepage section.spacing-hero-section-top > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero trust line: #D458FF @ 70% opacity → #6B21A8 @ 100%; 12px mobile, 18px laptop */
+.homepage section.spacing-hero-section-top .hero-trust-line {
+  margin: 0;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+  background: linear-gradient(to right, rgba(212, 88, 255, 0.7) 0%, #6b21a8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  .homepage section.spacing-hero-section-top .hero-trust-line {
+    font-size: 18px;
+  }
+}
+.homepage.theme-light section.spacing-hero-section-top .hero-trust-line {
+  background: linear-gradient(to right, rgba(212, 88, 255, 0.7) 0%, #6b21a8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Hero heading: white, 60px bold on laptop, 26px bold on mobile - centered; wraps with viewport */
+.homepage section.spacing-hero-section-top .hero-heading {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+@media (max-width: 1023px) {
+  .homepage section.spacing-hero-section-top .hero-heading {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+  }
+  /* mobile-responsive.css sets span { font-size: 0.875rem !important } — reset hero lines to 26px */
+  .homepage section.spacing-hero-section-top .hero-heading .hero-heading-line,
+  .homepage section.spacing-hero-section-top .hero-heading .hero-gradient-text {
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+  }
+  /* Keep "Outreach, Fully Automated." on one line (avoid 3rd line break before "Automated.") */
+  .homepage section.spacing-hero-section-top .hero-heading .hero-heading-line--second {
+    white-space: nowrap;
+    letter-spacing: -0.035em;
+    overflow-wrap: normal;
+  }
+}
+/* Slightly smaller hero on narrow phones so line 2 fits without wrapping (still 2 lines total) */
+@media (max-width: 520px) {
+  .homepage section.spacing-hero-section-top .hero-heading {
+    font-size: 25px !important;
+  }
+}
+@media (max-width: 480px) {
+  .homepage section.spacing-hero-section-top .hero-heading {
+    font-size: 24px !important;
+  }
+  .homepage section.spacing-hero-section-top .hero-heading .hero-heading-line--second {
+    letter-spacing: -0.04em;
+  }
+}
+@media (max-width: 400px) {
+  .homepage section.spacing-hero-section-top .hero-heading {
+    font-size: 22px !important;
+  }
+  .homepage section.spacing-hero-section-top .hero-heading .hero-heading-line--second {
+    letter-spacing: -0.045em;
+  }
+}
+@media (max-width: 360px) {
+  .homepage section.spacing-hero-section-top .hero-heading {
+    font-size: 20px !important;
+  }
+  .homepage section.spacing-hero-section-top .hero-heading .hero-heading-line--second {
+    letter-spacing: -0.05em;
+  }
+}
+@media (max-width: 320px) {
+  .homepage section.spacing-hero-section-top .hero-heading {
+    font-size: 19px !important;
+  }
+  .homepage section.spacing-hero-section-top .hero-heading .hero-heading-line--second {
+    letter-spacing: -0.055em;
+  }
+}
+.homepage.theme-dark section.spacing-hero-section-top .hero-heading {
+  color: #fff;
+}
+.homepage.theme-light section.spacing-hero-section-top .hero-heading {
+  color: #fff;
+}
+.homepage section.spacing-hero-section-top .hero-heading .hero-gradient-text {
+  background: radial-gradient(ellipse 140% 120% at 12% 8%, #F297EA 0%, #F297EA 5%, #E9ABF5 18%, #C084FC 45%, #7C35DF 85%, #7C35DF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Hero title: always two lines — "Lead Generation and" / "Outreach, Fully Automated." */
+.homepage section.spacing-hero-section-top .hero-heading .hero-heading-line {
+  display: block;
+}
+
+/* Hero subtitle – laptop 18px / mobile 14px; wraps naturally */
+.homepage section.spacing-hero-section-top .hero-subtitle {
+  color: #A198CE;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.45;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+@media (max-width: 1023px) {
+  .homepage section.spacing-hero-section-top .hero-subtitle {
+    font-size: 14px !important;
+  }
+  .homepage section.spacing-hero-section-top .hero-patterned-block {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media (max-width: 400px) {
+  .homepage section.spacing-hero-section-top .hero-subtitle {
+    font-size: 13px !important;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+/* Gap: Heading → Subtitle - mobile 16px, laptop 20px */
+.homepage section.spacing-hero-section-top .hero-subtitle.spacing-hero-heading-to-subtitle {
+  margin-top: 16px; /* mobile */
+}
+@media (min-width: 1024px) {
+  .homepage section.spacing-hero-section-top .hero-subtitle.spacing-hero-heading-to-subtitle {
+    margin-top: 20px !important; /* laptop: 20px gap to subtitle */
+  }
+}
+.homepage.theme-dark section.spacing-hero-section-top .hero-subtitle {
+  color: #A198CE;
+}
+.homepage.theme-light section.spacing-hero-section-top .hero-subtitle {
+  color: #A198CE;
+}
+
+/* Significant vertical gap between trust line and heading (Figma) */
+/* Gap: Trust line → Heading - mobile 10px, laptop 16px */
+.homepage section.spacing-hero-section-top .spacing-hero-badge-to-heading {
+  margin-top: 10px;
+}
+@media (min-width: 1024px) {
+  .homepage section.spacing-hero-section-top .spacing-hero-badge-to-heading {
+    margin-top: 16px !important; /* laptop: 16px */
+  }
+}
+
+/* Gap: Subtitle → Get Started button - mobile 20px, laptop 40px */
+.homepage section.spacing-hero-section-top .spacing-hero-subtitle-to-cta {
+  margin-top: 20px; /* mobile */
+}
+@media (min-width: 1024px) {
+  .homepage section.spacing-hero-section-top .spacing-hero-subtitle-to-cta {
+    margin-top: 40px !important; /* laptop */
+  }
+}
+
+/* Gap: Get Started button → Setup in 2 min / No hidden fees / Encrypted - mobile 35px, laptop 60px */
+.homepage section.spacing-hero-section-top .hero-reassurance.spacing-hero-cta-to-reassurance {
+  margin-top: 35px; /* mobile */
+}
+@media (min-width: 1024px) {
+  .homepage section.spacing-hero-section-top .hero-reassurance.spacing-hero-cta-to-reassurance {
+    margin-top: 60px !important; /* laptop */
+  }
+}
+
+/* Gap: reassurance section → graph: mobile 30px, laptop 60px */
+.homepage section.spacing-hero-text-to-dashboard {
+  margin-top: 30px !important; /* mobile */
+}
+@media (min-width: 1024px) {
+  .homepage section.spacing-hero-text-to-dashboard {
+    margin-top: 60px !important; /* laptop */
+  }
+}
+
+/* Dashboard/Graph section: no ambient glow background */
+.homepage .homepage-graph-only-bg {
+  position: relative;
+  padding-bottom: 0;
+}
+
+/* Graph uses more horizontal space on mobile - extends into parent padding */
+@media (max-width: 767px) {
+  .homepage .homepage-graph-inner .homepage-graph-wider {
+    margin-left: -1.3rem !important;
+    margin-right: -1.3rem !important;
+    width: calc(100% + 2.6rem) !important;
+  }
+}
+
+/* Mobile: graph full width, ensure it displays */
+@media (max-width: 639px) {
+  .homepage .homepage-graph-card-inner [data-slot="card-content"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+.homepage .homepage-graph-only-bg::before {
+  content: none;
+  display: none;
+}
+.homepage .homepage-graph-only-bg > div {
+  position: relative;
+  z-index: 1;
+}
+/* Graph card: no border at bottom, rounded bottom corners, no ambient glow */
+.homepage .homepage-graph-card {
+  border-bottom: none !important;
+  border-radius: 0.75rem 0.75rem 0.75rem 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+@media (min-width: 640px) {
+  .homepage .homepage-graph-card {
+    border-radius: 1rem 1rem 1rem 1rem;
+  }
+}
+/* New section below graph: dark cards with glowing purple border, left-aligned content */
+.homepage .homepage-stats-below-graph {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, auto);
+  gap: 1rem 1.25rem;
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 50px;
+  padding: 0;
+  min-height: 0;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-stats-below-graph {
+    margin-top: 100px;
+  }
+  .homepage .homepage-stats-below-graph-item {
+    gap: 10px;
+  }
+}
+@media (min-width: 640px) {
+  .homepage .homepage-stats-below-graph {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: auto;
+    gap: 1.25rem 1.25rem;
+  }
+}
+.homepage .homepage-stats-below-graph-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  /* metric row (e.g. No) → label (e.g. Data Selling) */
+  gap: 4px;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1.25rem;
+  min-width: 0;
+  min-height: 0;
+  overflow: visible;
+  background-color: transparent;
+  background-image: linear-gradient(
+    to right,
+    rgba(103, 109, 255, 0) 0%,
+    rgba(103, 109, 255, 0.13) 100%,
+    rgba(103, 109, 255, 1) 85%
+  );
+  border: 2px solid rgba(145, 100, 255, 0.4) !important;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
+}
+.homepage .homepage-stats-below-graph-item:hover,
+.homepage .homepage-stats-below-graph-item:focus,
+.homepage .homepage-stats-below-graph-item:focus-visible {
+  border-color: rgba(145, 100, 255, 0.55) !important;
+}
+.homepage .homepage-stats-below-graph-top-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.875rem;
+  min-width: 0;
+  overflow: visible;
+  width: 100%;
+}
+.homepage .homepage-stats-below-graph-label {
+  margin-left: calc(18px + 0.875rem);
+  margin-top: 0;
+  line-height: 1.2;
+  font-size: 14px;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-stats-below-graph-label {
+    font-size: 16px;
+  }
+}
+.homepage .homepage-stats-below-graph-icon-wrap {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.homepage .homepage-stats-below-graph-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.homepage .homepage-stats-below-graph-metric {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.homepage.theme-dark .homepage-stats-below-graph-metric {
+  color: #FFFFFF;
+  white-space: nowrap;
+  min-width: min-content;
+  flex: 0 1 auto;
+}
+.homepage.theme-dark .homepage-stats-below-graph-label {
+  color: rgba(196, 181, 253, 0.85);
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: nowrap;
+  min-width: 0;
+  width: 100%;
+}
+.homepage.theme-light .homepage-stats-below-graph-item {
+  background-color: transparent;
+  background-image: none;
+  border: 2px solid rgba(145, 100, 255, 0.4) !important;
+  box-shadow: none;
+}
+.homepage.theme-light .homepage-stats-below-graph-item:hover,
+.homepage.theme-light .homepage-stats-below-graph-item:focus,
+.homepage.theme-light .homepage-stats-below-graph-item:focus-visible {
+  border-color: rgba(145, 100, 255, 0.55) !important;
+}
+.homepage.theme-light .homepage-stats-below-graph-metric {
+  color: #1f2937;
+  white-space: nowrap;
+  min-width: min-content;
+  flex: 0 1 auto;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-stats-below-graph-metric {
+    font-size: 22px;
+  }
+}
+.homepage.theme-light .homepage-stats-below-graph-label {
+  color: #6b7280;
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: nowrap;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Mobile: 2×2 grid fits viewport (no min column width); compact padding & wrapping text */
+@media (max-width: 639px) {
+  .homepage .homepage-stats-below-graph {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 0.5rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .homepage .homepage-stats-below-graph-item {
+    padding: 0.75rem 0.5rem;
+    min-width: 0;
+  }
+  .homepage .homepage-stats-below-graph-top-row {
+    gap: 0.375rem;
+    min-width: 0;
+  }
+  .homepage .homepage-stats-below-graph-label {
+    margin-left: calc(18px + 0.375rem);
+    font-size: 12px;
+  }
+  .homepage .homepage-stats-below-graph-metric {
+    font-size: 13px;
+  }
+  .homepage.theme-dark .homepage-stats-below-graph-metric,
+  .homepage.theme-light .homepage-stats-below-graph-metric {
+    white-space: normal;
+    word-break: break-word;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .homepage.theme-dark .homepage-stats-below-graph-label,
+  .homepage.theme-light .homepage-stats-below-graph-label {
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+/* Stats: keep metric and label on one line */
+
+/* The Difference section - no fill background; color only inside the card below */
+/* About Us.svg only outside the box (section background) */
+.homepage .homepage-the-difference-section {
+  background-color: #030011;
+  background-image: url('/About%20Us.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* top: match Features / How It Works (50 mobile / 100 laptop); bottom before Before VS After */
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-the-difference-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+/* Line breaks only at laptop+; mobile keeps natural wrapping */
+.homepage .homepage-br-laptop-only {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-br-laptop-only {
+    display: inline;
+  }
+}
+
+/* Why Choose Evecta - The Difference section - all align to same left edge */
+.homepage .homepage-the-difference-section .homepage-why-choose-text-block {
+  margin-bottom: 40px;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-the-difference-section .homepage-why-choose-text-block {
+    margin-bottom: 60px;
+  }
+}
+.homepage .homepage-why-choose-text-block {
+  padding-left: 0 !important;
+}
+.homepage .homepage-why-choose-text-block .homepage-why-choose-badge,
+.homepage .homepage-why-choose-text-block .homepage-why-choose-heading,
+.homepage .homepage-why-choose-text-block .homepage-why-choose-para {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+/* Same gradient + weight as hero "Trusted by Sales Team Globally"; 14px mobile, 16px laptop */
+.homepage .homepage-why-choose-badge {
+  background: linear-gradient(to right, #d458ffb3 70%, #6b21a8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-bottom: 0.75rem;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.homepage.theme-light .homepage-why-choose-badge {
+  background: linear-gradient(to right, #d458ffb3 70%, #6b21a8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-why-choose-badge {
+    font-size: 16px;
+  }
+}
+.homepage .homepage-why-choose-heading {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-why-choose-heading {
+    font-size: 40px;
+  }
+}
+.homepage .homepage-why-choose-para {
+  font-size: 14px;
+  line-height: 145%;
+  color: #A198CE;
+  font-weight: 400;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-why-choose-para {
+    font-size: 18px;
+  }
+  .homepage .homepage-why-choose-text-block .homepage-why-choose-para {
+    max-width: none;
+  }
+}
+/* Why Choose — mobile/tablet: exactly 4 lines (tailor- / made split); desktop: spans flow inline */
+@media (max-width: 1023px) {
+  .homepage .homepage-why-choose-para .homepage-why-choose-para-line,
+  .homepage .homepage-why-choose-card-para .homepage-why-choose-para-line {
+    display: block;
+    white-space: nowrap;
+    letter-spacing: -0.04em;
+    overflow-wrap: normal;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+  }
+}
+@media (max-width: 380px) {
+  .homepage .homepage-why-choose-card-para {
+    font-size: 11px !important;
+  }
+  .homepage .homepage-why-choose-text-block .homepage-why-choose-para {
+    font-size: 13px !important;
+  }
+}
+/* Card box: solid background only (no SVG inside), curved border */
+.homepage .homepage-why-choose-card {
+  background-color: #030011;
+  background-image: linear-gradient(rgba(103, 109, 255, 0.07), rgba(103, 109, 255, 0.07));
+  border: 2px solid rgba(145, 100, 255, 0.2) !important;
+  border-radius: 1.75rem;
+  box-shadow:
+    0 0 0 1px rgba(145, 100, 255, 0.08),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.02);
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding: 30px 26px;
+}
+@media (min-width: 768px) {
+  .homepage .homepage-why-choose-card {
+    border-radius: 2rem;
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  }
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-why-choose-card {
+    padding: 50px;
+  }
+}
+.homepage .homepage-why-choose-right {
+  background: transparent;
+  width: 100%;
+  min-width: 0;
+  gap: 6px;
+  justify-content: flex-start;
+}
+@media (min-width: 768px) {
+  .homepage .homepage-why-choose-right {
+    justify-content: center;
+  }
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-why-choose-right {
+    gap: 16px;
+  }
+}
+.homepage .homepage-why-choose-right .homepage-hero-secondary-btn {
+  align-self: flex-start;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+.homepage .homepage-why-choose-card-heading {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-why-choose-card-heading {
+    font-size: 30px;
+  }
+}
+.homepage .homepage-why-choose-card-para {
+  font-size: 12px;
+  line-height: 145%;
+  color: #a198ce;
+  font-weight: 400;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  margin-top: 0;
+  margin-left: 0;
+  padding-left: 0;
+  text-indent: 0;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-why-choose-card-para {
+    font-size: 16px;
+  }
+}
+/* Chat mockup: left panel */
+.homepage .homepage-why-choose-chat-wrap {
+  overflow: visible;
+  min-width: 0;
+}
+/* Two-column layout: PNG includes art that bleeds right; clip so it can’t cover the heading */
+@media (min-width: 768px) {
+  .homepage .homepage-why-choose-chat-wrap {
+    overflow: hidden;
+  }
+  .homepage .homepage-why-choose-right {
+    position: relative;
+    z-index: 1;
+  }
+}
+.homepage .homepage-why-choose-left-image {
+  display: block;
+  max-width: 100%;
+}
+.homepage .homepage-why-choose-floating-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  top: -0.5rem;
+  left: 1rem;
+}
+.homepage .homepage-why-choose-chat-card {
+  margin-left: -0.5rem;
+  margin-right: 0.5rem;
+  background: #FAFAFC;
+  box-shadow:
+    -6px 0 20px -6px rgba(161, 152, 206, 0.22),
+    0 -6px 20px -6px rgba(161, 152, 206, 0.22),
+    0 4px 24px -4px rgba(0, 0, 0, 0.08);
+}
+@media (min-width: 768px) {
+  .homepage .homepage-why-choose-chat-card {
+    margin-right: 1rem;
+    margin-left: 1.5rem;
+  }
+  .homepage .homepage-why-choose-floating-icon {
+    left: 2rem;
+    top: -0.75rem;
+  }
+}
+.homepage .homepage-chat-bubble {
+  display: inline-block;
+  max-width: 100%;
+}
+.homepage .homepage-chat-bubble-white {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.homepage .homepage-chat-bubble-purple {
+  background: rgba(161, 152, 206, 0.18);
+  border: 1px solid rgba(161, 152, 206, 0.25);
+}
+
+/* Before VS After section: dark page, two identical cards with purple glow */
+.homepage .homepage-beforeafter-section {
+  position: relative;
+  background-color: #030011;
+  padding-bottom: 100px;
+}
+.homepage .homepage-beforeafter-inner {
+  position: relative;
+  z-index: 1;
+  border: none;
+  border-radius: 2rem;
+  padding: 2.5rem 1.5rem;
+  background-color: transparent;
+  background-image: url('/Frame%202121457617.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+@media (min-width: 768px) {
+  .homepage .homepage-beforeafter-inner {
+    padding: 3rem 2rem;
+  }
+}
+.homepage .homepage-beforeafter-header {
+  margin-bottom: 40px;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-beforeafter-header {
+    margin-bottom: 60px;
+  }
+}
+.homepage .homepage-beforeafter-main-title {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 0.25rem 0;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-beforeafter-main-title {
+    font-size: 60px;
+  }
+}
+/* Same font + metrics as main title; gradient only on inner span (avoids WebKit shrinking clipped text) */
+.homepage .homepage-beforeafter-subtitle {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem 0;
+  color: inherit;
+}
+.homepage .homepage-beforeafter-subtitle-gradient {
+  background: radial-gradient(circle, #F297ea 0%, #7c35df 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-beforeafter-subtitle {
+    font-size: 60px;
+  }
+}
+.homepage .homepage-beforeafter-desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #a198ce;
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+  white-space: normal;
+  overflow-x: visible;
+}
+@media (max-width: 1023px) {
+  .homepage .homepage-beforeafter-desc .homepage-beforeafter-desc-line {
+    display: block;
+    white-space: nowrap;
+    letter-spacing: -0.03em;
+    overflow-wrap: normal;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+  }
+}
+@media (max-width: 400px) {
+  .homepage .homepage-beforeafter-desc {
+    font-size: 13px !important;
+  }
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-beforeafter-desc {
+    font-size: 18px;
+  }
+}
+.homepage .homepage-beforeafter-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  border: none;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  background-image: url('/Frame%202121457614.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 1.5rem;
+}
+@media (min-width: 768px) {
+  .homepage .homepage-beforeafter-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+}
+/* Two blocks inside the single frame – no per-card border */
+.homepage .homepage-beforeafter-card {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-radius: 1.25rem;
+  padding: 1.75rem 1.5rem;
+  background-color: rgba(13, 8, 28, 0.98);
+}
+.homepage .homepage-beforeafter-card-before {
+  background-color: transparent;
+  background-image: none;
+}
+.homepage .homepage-beforeafter-card-after {
+  background-color: transparent;
+  background-image: url('/Frame%202121457620.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+@media (min-width: 768px) {
+  .homepage .homepage-beforeafter-card {
+    padding: 2rem 1.75rem;
+    border-radius: 1.5rem;
+  }
+}
+/*
+ * Mobile: Frame 2121457698.svg — viewBox 291×687, inner panel ~42px inset from sides/top.
+ * % padding uses width as base (CSS); keeps Before + After text inside the frame art.
+ */
+@media (max-width: 767px) {
+  .homepage .homepage-beforeafter-inner {
+    border-radius: 0;
+  }
+  .homepage .homepage-beforeafter-cards {
+    border-radius: 0;
+    gap: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-image: url('/Frame%202121457698.svg');
+    /* 100% 100% stretches the SVG (291×687) to the box and squeezes it; cover keeps aspect ratio and fills H+V */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* ~42/291 horizontal; top matches; bottom ~43/687 of height → ~6.3% height; use width-based ~9% */
+    padding: calc(100% * 42 / 291) calc(100% * 42 / 291) calc(100% * 50 / 291);
+  }
+  .homepage .homepage-beforeafter-card {
+    padding: 0.5rem 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .homepage .homepage-beforeafter-card-before {
+    padding-bottom: 0.35rem;
+  }
+  .homepage .homepage-beforeafter-card-after {
+    background-image: none !important;
+    padding-top: 0.5rem;
+    border-top: none;
+  }
+}
+.homepage .homepage-beforeafter-card-title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 120%;
+  color: #fff;
+  margin: 0 0 8px 0;
+}
+/* Tablet/mobile: tight stack — title → subtitle (no gap under short h3 from global line-height) */
+@media (max-width: 1023px) {
+  .homepage .homepage-beforeafter-card-title {
+    line-height: 1.05 !important;
+    margin: 0 !important;
+  }
+  .homepage .homepage-beforeafter-card-subtitle {
+    margin: 0 0 0.75rem 0 !important;
+    line-height: 1.3 !important;
+  }
+}
+/* Phone: small gap between “Before” / “After” and “Manual prospecting” */
+@media (max-width: 767px) {
+  .homepage .homepage-beforeafter-card-title {
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .homepage .homepage-beforeafter-card-subtitle {
+    margin: 0.5rem 0 0.75rem 0 !important;
+    line-height: 1.2 !important;
+    padding: 0 !important;
+  }
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-beforeafter-card-title {
+    font-size: 30px;
+    margin: 0 0 6px 0;
+  }
+  .homepage .homepage-beforeafter-card-subtitle {
+    margin-top: 0;
+  }
+}
+.homepage .homepage-beforeafter-card-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #a198ce;
+  margin: 0 0 1rem 0;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-beforeafter-card-subtitle {
+    font-size: 20px;
+  }
+}
+.homepage .homepage-beforeafter-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-beforeafter-metrics {
+    gap: 12px;
+  }
+}
+.homepage .homepage-beforeafter-metric-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  row-gap: 0;
+  padding: 0;
+  border-bottom: none;
+}
+/* Full-width divider under each metric row — #9164FF @ 20% (explicit so Tailwind currentColor doesn’t read as white) */
+.homepage .homepage-beforeafter-metric-row:not(:last-child)::after {
+  content: '';
+  flex-basis: 100%;
+  width: 100%;
+  min-height: 1px;
+  height: 1px;
+  flex-shrink: 0;
+  margin: 14px 0 0;
+  border: none !important;
+  background: rgba(145, 100, 255, 0.2) !important; /* #9164FF 20% */
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-beforeafter-metric-row:not(:last-child)::after {
+    margin-top: 10px;
+  }
+}
+.homepage .homepage-beforeafter-metric-label {
+  font-size: 12px;
+  line-height: 145%;
+  color: #9ca3af;
+  font-weight: 400;
+  flex: 1;
+  min-width: 0;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-beforeafter-metric-label {
+    font-size: 16px;
+  }
+}
+.homepage .homepage-beforeafter-card-before .homepage-beforeafter-metric-label {
+  color: #a198ce;
+}
+.homepage .homepage-beforeafter-card-after .homepage-beforeafter-metric-label {
+  color: #fff;
+}
+.homepage .homepage-beforeafter-metric-value {
+  font-size: 12px;
+  line-height: 24px;
+  font-weight: 500;
+  flex-shrink: 0;
+  background: radial-gradient(circle, #f297ea 0%, #7c35df 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-beforeafter-metric-value {
+    font-size: 16px;
+  }
+}
+@media (max-width: 767px) {
+  /*
+   * One row: label left, value right. ::after divider uses flex-basis:100% and only works with wrap —
+   * with nowrap it sat on the same line and broke space-between. Hide it; use border on the row.
+   */
+  .homepage .homepage-beforeafter-metric-row:not(:last-child)::after {
+    display: none;
+  }
+  .homepage .homepage-beforeafter-metric-row:not(:last-child) {
+    padding-bottom: 12px;
+    margin-bottom: 2px;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(145, 100, 255, 0.2) !important; /* #9164FF 20% */
+  }
+  .homepage .homepage-beforeafter-metric-row {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .homepage .homepage-beforeafter-metric-label {
+    white-space: nowrap;
+    font-size: 10.5px !important;
+    letter-spacing: -0.035em;
+    line-height: 1.25;
+    flex: 0 1 auto;
+    min-width: 0;
+    text-align: left;
+  }
+  .homepage .homepage-beforeafter-metric-value {
+    font-size: 10.5px !important;
+    line-height: 1.25;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    text-align: right;
+  }
+}
+
+/* No-credit section: font 12px mobile / 16px laptop, icon 11.67px mobile / 15px laptop */
+.homepage .hero-reassurance-check-icon {
+  width: 11.67px;
+  height: 11.67px;
+  min-width: 11.67px;
+  min-height: 11.67px;
+  flex-shrink: 0;
+  color: #A198CE;
+}
+.homepage .hero-reassurance-check-icon rect,
+.homepage .hero-reassurance-check-icon path {
+  stroke: #A198CE;
+}
+.homepage .hero-reassurance-text {
+  font-size: 12px;
+  font-weight: 400;
+  color: #A198CE;
+  line-height: 1.4;
+}
+@media (min-width: 1024px) {
+  .homepage .hero-reassurance-check-icon {
+    width: 15px !important;
+    height: 15px !important;
+    min-width: 15px !important;
+    min-height: 15px !important;
+  }
+  .homepage .hero-reassurance-text {
+    font-size: 16px !important;
+  }
+}
+/* Override theme-dark so reassurance stays #A198CE (not forced to white) */
+.homepage.theme-dark .spacing-hero-section-top .hero-reassurance .hero-reassurance-text,
+.homepage.theme-dark .spacing-hero-section-top .hero-reassurance .hero-reassurance-check-icon {
+  color: #A198CE !important;
+}
+.homepage.theme-dark .spacing-hero-section-top .hero-reassurance .hero-reassurance-check-icon rect,
+.homepage.theme-dark .spacing-hero-section-top .hero-reassurance .hero-reassurance-check-icon path {
+  stroke: #A198CE !important;
+}
+.homepage .hero-reassurance-item {
+  gap: 0.5rem;
+}
+/* Gap between reassurance items: mobile 10px, laptop 30px */
+.homepage .hero-reassurance {
+  gap: 10px;
+}
+@media (min-width: 1024px) {
+  .homepage .hero-reassurance {
+    gap: 30px;
+  }
+}
+
+/* Mobile: Row 1 = Setup in 2 min + No hidden fees, Row 2 = Encrypted end-to-end (centered) */
+@media (max-width: 639px) {
+  .homepage .hero-reassurance {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+    justify-items: center;
+  }
+  .homepage .hero-reassurance .hero-reassurance-item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .homepage .hero-reassurance .hero-reassurance-item:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .homepage .hero-reassurance .hero-reassurance-item:nth-child(3) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: center;
+  }
+  /* Smaller font so long reassurance lines fit on one line */
+  .homepage .hero-reassurance .hero-reassurance-text {
+    font-size: 12px !important;
+    white-space: nowrap;
+  }
+  .homepage section.spacing-hero-section-top .hero-reassurance .hero-reassurance-check-icon {
+    width: 11.67px !important;
+    min-width: 11.67px !important;
+    height: 11.67px !important;
+    min-height: 11.67px !important;
+  }
+}
+.homepage.theme-light .hero-reassurance-check-icon {
+  color: rgba(100, 80, 140, 0.85);
+}
+.homepage.theme-light .hero-reassurance-text {
+  color: #4b5563;
+}
+
+/* Remove focus outlines/borders on homepage (keep How It Works step borders — #6F6892 @ 100%) */
+/* Exclude mobile How it works frame — its border must stay #9164FF @ 20% */
+.homepage *:focus:not(.how-it-works-homepage-preview-steps-bundle),
+.homepage *:focus-visible:not(.how-it-works-homepage-preview-steps-bundle) {
+  outline: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+.homepage .how-it-works-homepage-step:not(.how-it-works-homepage-step-active):focus-visible,
+.homepage .how-it-works-homepage-step:not(.how-it-works-homepage-step-active):focus {
+  border-color: #6f6892 !important;
+  box-shadow: none !important;
+}
+.homepage .how-it-works-homepage-step-active:focus-visible,
+.homepage .how-it-works-homepage-step-active:focus {
+  border-color: #6f6892 !important;
+  box-shadow: none !important;
+}
+
+.homepage button:focus,
+.homepage a:focus,
+.homepage button:focus-visible,
+.homepage a:focus-visible {
+  outline: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Mobile How it works outer frame: keep #9164FF @ 20% when this div is focused (e.g. tabindex) */
+.homepage .how-it-works-homepage-preview-steps-bundle:focus,
+.homepage .how-it-works-homepage-preview-steps-bundle:focus-visible {
+  outline: none !important;
+  border: 2px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  box-shadow: none !important;
+}
+
+/* Keep border visible for chat input field */
+.homepage .chat-input-field:focus,
+.homepage .chat-input-field:focus-visible {
+  border-color: rgb(139, 92, 246) !important;
+  border-width: 1px !important;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2) !important;
+}
+
+/* Remove grey background from chat close button */
+.homepage .chat-close-button,
+.homepage .chat-close-button:hover,
+.homepage .chat-close-button:active,
+.homepage .chat-close-button:focus {
+  background-color: transparent !important;
+  background: transparent !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+.homepage .chat-close-button:hover svg {
+  transform: none !important;
+}
+
+/* Custom container max-width if needed */
+.homepage-container {
+  max-width: 1400px;
+}
+
+/* Header wrapper: fixed, slides up when scrolling down, slides back when scrolling up */
+/* !important beats .homepage > * { position: relative } and stray global transforms */
+.homepage .homepage-header-wrapper,
+.homepage-header-wrapper {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: transform 0.25s ease-out;
+  max-width: 100vw;
+  overflow-x: hidden;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+.homepage .homepage-header-wrapper--hidden,
+.homepage-header-wrapper.homepage-header-wrapper--hidden {
+  transform: translate3d(0, -100%, 0) !important;
+  pointer-events: none;
+}
+.homepage .homepage-header-spacer {
+  height: 0;
+  flex-shrink: 0;
+}
+
+/* Header - dark purple bar (design match) */
+.homepage .homepage-header {
+  border: none !important;
+  box-shadow: none !important;
+  background: #1A0A33 !important;
+}
+.homepage .homepage-header-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  min-height: 80px !important;
+  height: 80px !important;
+}
+/* Nav links: 14px, medium */
+.homepage .homepage-header-nav .homepage-nav-link,
+.homepage .homepage-header-nav a.homepage-nav-link {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+/* Get Started Free button: 16px, semi-bold */
+.homepage .homepage-header-cta-link {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+.homepage .homepage-header-nav {
+  justify-self: center;
+}
+.homepage .homepage-header-cta-wrap {
+  justify-self: end;
+}
+
+/* Logo uses shared evecta-logo from EvectaLogo.css */
+
+/* Header CTA - text link with vertical separator, no button background */
+.homepage .homepage-header-cta-wrap {
+  position: relative;
+  padding-left: 1rem;
+}
+.homepage .homepage-header-cta-wrap::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 2rem;
+  background: rgba(208, 213, 221, 0.3);
+}
+.homepage .homepage-header-cta-link {
+  background: none !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+.homepage .homepage-header-cta-link:hover {
+  color: #fff !important;
+  background: transparent !important;
+}
+
+/* Distinct line after header */
+.homepage .homepage-header-line {
+  width: 100%;
+  height: 1px;
+  flex-shrink: 0;
+}
+.homepage.theme-dark .homepage-header-line {
+  background: rgba(255, 255, 255, 0.3);
+}
+.homepage.theme-light .homepage-header-line {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Header inner: 60px left, 100px right */
+.homepage .homepage-header-inner {
+  padding-left: 60px;
+  padding-right: 100px;
+}
+
+/* ========== MOBILE / TABLET / IPAD - Prevent horizontal overflow (≤1366 content widths) ========== */
+@media (max-width: 1366px) {
+  .homepage section,
+  .homepage .homepage-content-inner,
+  .homepage .homepage-cta-footer-section {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  /* CTA subtext: nowrap lines wider than viewport were clipped by .homepage > section { overflow-x: clip } */
+  .homepage > section.homepage-cta-footer-section {
+    overflow-x: visible;
+  }
+}
+
+/* ========== MOBILE HEADER (max-width: 768px only - desktop/laptop unchanged) ========== */
+@media (max-width: 768px) {
+  .homepage .homepage-header {
+    background: linear-gradient(to bottom, #1A0A33 0%, #0D0618 50%, #030011 100%) !important;
+    min-height: 80px;
+  }
+  .homepage .homepage-header-inner {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    grid-template-columns: unset !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    gap: 0;
+  }
+  .homepage .homepage-header-logo {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .homepage .homepage-header-logo .evecta-logo-text {
+    font-family: Georgia, 'Times New Roman', serif !important;
+    font-weight: 700 !important;
+    font-size: 1.125rem !important;
+    color: #fff !important;
+  }
+  .homepage .homepage-header-logo .evecta-logo-tagline {
+    font-family: system-ui, -apple-system, sans-serif !important;
+    font-size: 10px !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+  }
+  .homepage .homepage-header-mobile-right {
+    display: flex !important;
+    align-items: center;
+    gap: 0;
+  }
+  .homepage .homepage-mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    min-height: unset !important;
+    min-width: unset !important;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    -webkit-tap-highlight-color: transparent;
+    transform: none !important;
+  }
+  .homepage .homepage-mobile-menu-btn:hover,
+  .homepage .homepage-mobile-menu-btn:active,
+  .homepage .homepage-mobile-menu-btn:focus {
+    padding: 0 !important;
+    transform: none !important;
+  }
+  .homepage .homepage-mobile-menu-btn:hover .homepage-mobile-menu-icon,
+  .homepage .homepage-mobile-menu-btn:active .homepage-mobile-menu-icon,
+  .homepage .homepage-mobile-menu-btn:focus .homepage-mobile-menu-icon {
+    transform: none !important;
+  }
+  .homepage .homepage-mobile-menu-icon {
+    width: 14px;
+    height: 14px;
+    color: #fff;
+  }
+  .homepage .homepage-mobile-separator {
+    width: 1px;
+    height: 1.25rem;
+    background: rgba(255, 255, 255, 0.35);
+    flex-shrink: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .homepage .homepage-header-mobile-right .homepage-header-cta-link,
+  .homepage .homepage-mobile-cta {
+    color: #fff !important;
+    background: none !important;
+    padding-left: 0 !important;
+    font-size: 12px !important;
+  }
+  .homepage .homepage-header-mobile-right .homepage-header-cta-link:hover,
+  .homepage .homepage-mobile-cta:hover {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+}
+
+/* Mobile menu slide-in from right - nav links only (no Get Started) */
+.homepage-mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 60;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.homepage-mobile-menu-overlay--open {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+.homepage-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  max-width: 85vw;
+  background: linear-gradient(to bottom, #1A0A33 0%, #0D0618 50%, #030011 100%);
+  z-index: 70;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+}
+.homepage-mobile-menu--open {
+  display: flex;
+  transform: translateX(0);
+}
+.homepage-mobile-menu-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 3rem 1.5rem 1.5rem;
+}
+.homepage-mobile-menu-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.homepage-mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.homepage-mobile-menu-link,
+.homepage-mobile-menu-nav .homepage-nav-link {
+  color: #fff !important;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+}
+.homepage-mobile-menu-link:hover,
+.homepage-mobile-menu-nav .homepage-nav-link:hover {
+  color: #A855F7 !important;
+}
+
+/* Mobile: drawer must slide from the RIGHT — global mobile-responsive.css targets `aside` for dashboard sidebar (left). */
+@media screen and (max-width: 767px) {
+  .homepage aside.homepage-mobile-menu {
+    position: fixed !important;
+    left: auto !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    margin: 0 !important;
+    width: min(280px, 85vw) !important;
+    min-width: unset !important;
+    max-width: 85vw !important;
+    transform: translateX(100%) !important;
+    -webkit-transform: translateX(100%) !important;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3) !important;
+  }
+  .homepage aside.homepage-mobile-menu.homepage-mobile-menu--open {
+    display: flex !important;
+    transform: translateX(0) !important;
+    -webkit-transform: translateX(0) !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .homepage-mobile-menu-overlay,
+  .homepage-mobile-menu {
+    display: none !important;
+  }
+}
+
+/* Whole homepage content: symmetric horizontal inset — 26px <1024px, 180px laptop+ */
+.homepage .homepage-content-inner {
+  padding: 0 26px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-content-inner {
+    padding: 0 180px;
+  }
+}
+
+/* ========== DARK THEME ========== */
+.homepage.theme-dark header {
+  background: #030011 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.homepage.theme-dark header .homepage-nav-link,
+.homepage.theme-dark header a,
+.homepage.theme-dark header button:not([data-slot="button"]) {
+  color: #fff !important;
+}
+.homepage.theme-dark header nav a {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+.homepage.theme-dark header nav a:hover {
+  color: #A855F7 !important;
+}
+.homepage.theme-dark header .homepage-header-cta-link {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+.homepage.theme-dark header .homepage-header-cta-link:hover {
+  color: #fff !important;
+}
+.homepage.theme-dark header .header-get-started-btn {
+  background: #7C3AED !important;
+  color: #fff !important;
+  border: none !important;
+}
+.homepage.theme-dark header .header-get-started-btn:hover {
+  background: #6D28D9 !important;
+  color: #fff !important;
+}
+.homepage.theme-dark .spacing-hero-section-top .heading-xl,
+.homepage.theme-dark .spacing-hero-section-top h1 {
+  color: #fff !important;
+}
+.homepage.theme-dark .spacing-hero-section-top .text-muted-foreground,
+.homepage.theme-dark .spacing-hero-section-top .text-l {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.homepage.theme-dark .spacing-hero-section-top .hero-gradient-text {
+  background: radial-gradient(ellipse 140% 120% at 12% 8%, #F297EA 0%, #F297EA 5%, #E9ABF5 18%, #C084FC 45%, #7C35DF 85%, #7C35DF 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+.homepage.theme-dark .spacing-hero-section-top .spacing-hero-cta-to-reassurance .text-muted-foreground,
+.homepage.theme-dark .spacing-hero-section-top .spacing-hero-cta-to-reassurance span {
+  color: #fff !important;
+}
+.homepage.theme-dark .spacing-hero-section-top .spacing-hero-cta-to-reassurance .text-green-600,
+.homepage.theme-dark .spacing-hero-section-top .spacing-hero-cta-to-reassurance svg {
+  color: #fff !important;
+  stroke: #fff !important;
+}
+.homepage.theme-dark section > div > div.text-center .heading-l,
+.homepage.theme-dark section > div > div.text-center h2,
+.homepage.theme-dark section > div > div.text-center .heading-m {
+  color: #fff !important;
+}
+.homepage.theme-dark section > div > div.text-center .text-muted-foreground,
+.homepage.theme-dark section > div > div.text-center .text-m {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+.homepage.theme-dark .difference-badge-homepage,
+.homepage.theme-dark .how-it-works-badge-homepage,
+.homepage.theme-dark .features-badge-homepage,
+.homepage.theme-dark .blog-badge-homepage {
+  color: #C084FC !important;
+  border-color: rgba(168, 85, 247, 0.4) !important;
+}
+.homepage.theme-dark #blog .text-center .heading-l,
+.homepage.theme-dark #blog .text-center h2 {
+  color: #fff !important;
+}
+.homepage.theme-dark #blog .text-center .text-m,
+.homepage.theme-dark #blog .text-center p.text-m {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+.homepage.theme-dark .spacing-hero-reassurance-to-stats .heading-s,
+.homepage.theme-dark .spacing-hero-reassurance-to-stats .text-foreground {
+  color: #fff !important;
+}
+.homepage.theme-dark .spacing-hero-reassurance-to-stats .text-muted-foreground,
+.homepage.theme-dark .spacing-hero-reassurance-to-stats .label-xs {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+.homepage.theme-dark .spacing-hero-reassurance-to-stats [class*="text-primary"] {
+  color: #A855F7 !important;
+}
+.homepage.theme-dark footer {
+  background: rgba(3, 0, 17, 0.98) !important;
+  border: none !important;
+  /* #6F6892 @ 20% — not white (was rgba(255,255,255,0.08)) */
+  border-top: 1px solid rgba(111, 104, 146, 0.2) !important;
+}
+.homepage.theme-dark footer .heading-m,
+.homepage.theme-dark footer h4 {
+  color: #fff !important;
+}
+.homepage.theme-dark footer .text-m,
+.homepage.theme-dark footer .text-gray-600,
+.homepage.theme-dark footer p,
+.homepage.theme-dark footer ul li a {
+  color: #A198CE !important;
+}
+.homepage.theme-dark footer .text-gray-500,
+.homepage.theme-dark footer .label-xs {
+  color: #A198CE !important;
+}
+.homepage.theme-dark footer a:hover {
+  color: #A855F7 !important;
+}
+.homepage.theme-dark .homepage-theme-toggle {
+  color: #fff;
+}
+
+/* Theme toggle: no position change or box on hover */
+.homepage .homepage-theme-toggle,
+.homepage .homepage-theme-toggle:hover,
+.homepage .homepage-theme-toggle:active,
+.homepage .homepage-theme-toggle:focus {
+  transform: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.homepage .homepage-theme-toggle:hover {
+  opacity: 0.85;
+}
+.homepage .homepage-theme-toggle:hover svg {
+  transform: none !important;
+}
+
+/* ========== LIGHT THEME ========== */
+/* Header: same dark purple bar with light text in both themes (design match) */
+.homepage.theme-light header {
+  background: #1A0A33 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.homepage.theme-light header .homepage-header-logo,
+.homepage.theme-light header .homepage-header-logo span,
+.homepage.theme-light header .homepage-nav-link {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+.homepage.theme-light header .homepage-header-logo .text-muted-foreground {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+.homepage.theme-light header .homepage-nav-link:hover {
+  color: #A855F7 !important;
+}
+.homepage.theme-light header .homepage-header-cta-link {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+.homepage.theme-light header .homepage-header-cta-link:hover {
+  color: #fff !important;
+}
+.homepage.theme-light header .homepage-header-cta-wrap::before {
+  background: rgba(255, 255, 255, 0.35);
+}
+.homepage.theme-light header .header-get-started-btn {
+  background: #7C3AED !important;
+  color: #fff !important;
+}
+.homepage.theme-light header .header-get-started-btn:hover {
+  background: #6D28D9 !important;
+  color: #fff !important;
+}
+.homepage.theme-light .homepage-theme-toggle {
+  color: var(--foreground);
+}
+.homepage.theme-light footer {
+  background: #f3f4f6 !important;
+  border-top: 1px solid #e5e7eb !important;
+}
+.homepage.theme-light footer .heading-m,
+.homepage.theme-light footer h4 {
+  color: #111827 !important;
+}
+.homepage.theme-light footer .text-m,
+.homepage.theme-light footer .text-gray-600,
+.homepage.theme-light footer p,
+.homepage.theme-light footer ul li a {
+  color: #4b5563 !important;
+}
+.homepage.theme-light footer .text-gray-500,
+.homepage.theme-light footer .label-xs {
+  color: #6b7280 !important;
+}
+.homepage.theme-light footer a:hover {
+  color: rgb(139, 92, 246) !important;
+}
+/* Light theme: Watch Demo button - dark border and purple text */
+.homepage.theme-light .hero-watch-demo-btn,
+.homepage.theme-light .hero-cta-watch-demo {
+  border-color: rgb(139, 92, 246) !important;
+  color: rgb(139, 92, 246) !important;
+  background: transparent !important;
+}
+.homepage.theme-light .hero-watch-demo-btn:hover,
+.homepage.theme-light .hero-cta-watch-demo:hover {
+  background: rgba(139, 92, 246, 0.1) !important;
+  color: rgb(126, 34, 237) !important;
+  border-color: rgb(139, 92, 246) !important;
+}
+.homepage.theme-light .hero-cta-watch-demo span {
+  border-color: rgb(139, 92, 246) !important;
+}
+.homepage.theme-light .hero-cta-watch-demo .fill-white {
+  fill: rgb(139, 92, 246) !important;
+}
+/* Light theme: trusted badge - purple on light bg */
+.homepage.theme-light .trusted-badge-homepage {
+  color: #7C3AED !important;
+  border-color: rgba(124, 58, 237, 0.5) !important;
+  background-color: rgba(139, 92, 246, 0.1) !important;
+}
+.homepage.theme-light .trusted-badge-homepage-icon {
+  color: #7C3AED !important;
+}
+.homepage.theme-light .spacing-hero-cta-to-reassurance span,
+.homepage.theme-light .spacing-hero-cta-to-reassurance .text-muted-foreground {
+  color: var(--muted-foreground) !important;
+}
+.homepage.theme-light .spacing-hero-cta-to-reassurance svg {
+  color: rgb(34, 197, 94) !important;
+  stroke: rgb(34, 197, 94) !important;
+}
+
+/* Animation for chart bars */
+@keyframes chartGrow {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--target-height);
+  }
+}
+
+/* Ensure backdrop blur works on older browsers */
+@supports not (backdrop-filter: blur(10px)) {
+  .backdrop-blur {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* Hover animations for all buttons on homepage (except primary hero Get Started) */
+.homepage button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.homepage button:hover {
+  transform: translateY(-2px) !important;
+}
+
+/* Hero Primary/Secondary: shared CTA shell; hover darkens primary / tints secondary */
+.homepage .homepage-hero-primary-btn,
+.homepage .homepage-hero-primary-btn:focus,
+.homepage .homepage-hero-primary-btn:active {
+  transform: none !important;
+  min-width: 126px !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  padding: 0 12px !important;
+  border-radius: 8px !important;
+  gap: 6px !important;
+  background-color: #9164ff !important;
+  background: #9164ff !important;
+  color: #fff !important;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  border-color: rgba(208, 213, 221, 0.3) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 19.5px !important;
+  box-shadow: none !important;
+}
+.homepage .homepage-hero-primary-btn:hover:not(:disabled),
+.homepage .homepage-hero-primary-btn:focus-visible:not(:disabled) {
+  transform: none !important;
+  background-color: #8058f0 !important;
+  background: #8058f0 !important;
+}
+.homepage .homepage-hero-secondary-btn:hover:not(:disabled),
+.homepage .homepage-hero-secondary-btn:focus-visible:not(:disabled) {
+  background-color: #f9fafb !important;
+  background: #f9fafb !important;
+  border-color: #9ca3af !important;
+}
+.homepage .homepage-hero-primary-btn svg,
+.homepage .homepage-hero-primary-btn:hover svg,
+.homepage .homepage-hero-primary-btn:focus svg {
+  color: #fff !important;
+  stroke: #fff !important;
+  transform: none !important;
+}
+.homepage .homepage-hero-secondary-btn,
+.homepage .homepage-hero-secondary-btn:hover,
+.homepage .homepage-hero-secondary-btn:focus,
+.homepage .homepage-hero-secondary-btn:active {
+  transform: none !important;
+  min-width: 126px !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  padding: 0 12px !important;
+  border-radius: 8px !important;
+  gap: 6px !important;
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #030011 !important;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  border-color: rgba(208, 213, 221, 0.3) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 19.5px !important;
+  box-shadow: none !important;
+}
+.homepage .homepage-hero-secondary-btn:hover svg,
+.homepage .homepage-hero-secondary-btn:focus svg {
+  transform: none !important;
+  color: #030011 !important;
+  stroke: #030011 !important;
+}
+
+/* Floating chat + send — darker purple on hover */
+.homepage .floating-chat-button:hover:not(:disabled) {
+  transform: none !important;
+  background-color: #7c4dff !important;
+  background: #7c4dff !important;
+}
+
+.homepage .chat-sign-in-button:hover:not(:disabled) {
+  background-color: rgba(145, 100, 255, 0.08) !important;
+  transform: none !important;
+}
+
+/* Remove blue hover effect from header Sign In button */
+.homepage header button[data-slot="button"]:hover:not(:disabled),
+.homepage header button.variant-ghost:hover:not(:disabled) {
+  background-color: rgba(145, 100, 255, 0.08) !important;
+  color: #7c3aed !important;
+  transform: none !important;
+}
+
+/* More specific targeting for header Sign In button */
+.homepage header > div > div:last-child > button[data-slot="button"]:first-child:hover {
+  background-color: transparent !important;
+  background: transparent !important;
+  color: rgb(139, 92, 246) !important;
+  transform: none !important;
+}
+
+/* Prevent transform on header Sign In button to match navigation links */
+.homepage header > div > div:last-child > button[data-slot="button"]:first-child,
+.homepage header > div > div:last-child > button[data-slot="button"]:first-child:hover {
+  transform: none !important;
+  transition: color 0.2s ease !important;
+}
+
+/* Remove hover effect from chat send button */
+.homepage .chat-send-button {
+  transition: none !important;
+}
+
+.homepage .chat-send-button,
+.homepage .chat-send-button:hover,
+.homepage .chat-send-button:active,
+.homepage .chat-send-button:focus {
+  background-color: rgb(139, 92, 246) !important;
+  background: rgb(139, 92, 246) !important;
+  transform: none !important;
+}
+
+.homepage .chat-send-button:hover:not(:disabled) {
+  background-color: #7c4dff !important;
+  background: #7c4dff !important;
+  opacity: 1 !important;
+}
+
+.homepage .chat-send-button svg,
+.homepage .chat-send-button:hover svg,
+.homepage .chat-send-button:active svg,
+.homepage .chat-send-button:focus svg {
+  transform: none !important;
+  color: white !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.homepage button:active {
+  transform: translateY(0) !important;
+}
+
+/* Arrow icon animation on hover for buttons with arrows */
+.homepage button:hover svg {
+  transition: transform 0.2s ease !important;
+  transform: translateX(4px) !important;
+}
+
+/* Remove icon animation from floating chat button */
+.homepage .floating-chat-button:hover svg {
+  transform: none !important;
+}
+
+/* Keep robot icon white on hover */
+.homepage .floating-chat-button,
+.homepage .floating-chat-button:hover,
+.homepage .floating-chat-button:active,
+.homepage .floating-chat-button:focus {
+  color: white !important;
+}
+
+.homepage .floating-chat-button svg,
+.homepage .floating-chat-button:hover svg,
+.homepage .floating-chat-button:active svg,
+.homepage .floating-chat-button:focus svg {
+  color: white !important;
+  fill: none !important;
+  stroke: currentColor !important;
+}
+
+/* Hover animations for image buttons (Start Free 14-Day Trial, etc.) */
+.homepage img[src*="Button.svg"] {
+  transition: transform 0.2s ease !important;
+}
+
+.homepage img[src*="Button.svg"]:hover {
+  transform: translateY(-2px) !important;
+}
+
+.homepage img[src*="Button.svg"]:active {
+  transform: translateY(0) !important;
+}
+
+/* Header Get Started button - keep transparent background but add animation */
+.homepage .header-get-started-button:hover,
+.homepage .header-get-started-button:active,
+.homepage .header-get-started-button:focus,
+.homepage button.header-get-started-button:hover,
+.homepage button.header-get-started-button:active,
+.homepage button.header-get-started-button:focus {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Hero / final CTA — visible hover darken */
+.homepage .hero-cta-button[data-slot="button"]:hover:not(:disabled),
+.homepage .hero-cta-button:hover:not(:disabled),
+.homepage button.hero-cta-button:hover:not(:disabled),
+.homepage [data-slot="button"].hero-cta-button:hover:not(:disabled) {
+  background-color: #8058f0 !important;
+  background: #8058f0 !important;
+  opacity: 1 !important;
+}
+
+.homepage .cta-final-button[data-slot="button"]:hover:not(:disabled),
+.homepage .cta-final-button:hover:not(:disabled),
+.homepage button.cta-final-button:hover:not(:disabled),
+.homepage [data-slot="button"].cta-final-button:hover:not(:disabled) {
+  background-color: #e85c2e !important;
+  background: #e85c2e !important;
+  color: #ffffff !important;
+  border-color: #e85c2e !important;
+  opacity: 1 !important;
+}
+
+/* Remove underlines from footer links */
+.homepage footer a {
+  text-decoration: none !important;
+}
+
+/* Remove borders and gaps from footer list items */
+.homepage footer ul li {
+  border: none !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.homepage footer ul li::before,
+.homepage footer ul li::after {
+  display: none !important;
+  content: none !important;
+}
+
+.homepage footer ul li a {
+  border: none !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.homepage footer ul li a::before,
+.homepage footer ul li a::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Chart responsive improvements */
+.homepage svg[viewBox="0 0 600 200"] {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+}
+
+/* Ensure chart uses full container on mobile */
+@media (max-width: 640px) {
+  .homepage svg[viewBox="0 0 600 200"] {
+    min-height: 160px !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .homepage {
+    background: white;
+  }
+  
+  .homepage header,
+  .homepage footer {
+    display: none;
+  }
+}
+
+/* Chart Container Styles */
+.homepage-chart-container {
+  min-height: 160px;
+}
+.homepage .homepage-chart-container.spacing-dashboard-helper-to-chart {
+  margin-top: 0;
+}
+
+.homepage-chart-background {
+  background: #F9FAFB;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+/* Button Image Styles */
+.homepage-button-image {
+  height: 30px;
+}
+
+/* Feature Icon Gradient Styles */
+.homepage-feature-icon-gradient {
+  background: linear-gradient(to right, #ec4899, #a855f7);
+}
+
+.homepage-feature-icon-gradient.pink-purple {
+  background: linear-gradient(to right, #ec4899, #a855f7);
+}
+
+.homepage-feature-icon-gradient.blue-cyan {
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+}
+
+.homepage-feature-icon-gradient.green-emerald {
+  background: linear-gradient(to right, #10b981, #059669);
+}
+
+/* Final CTA Gradient Background */
+.homepage-cta-gradient-bg {
+  background: linear-gradient(to bottom right, #8B5CF6, #9333EA, #DB2777);
+}
+
+/* Final CTA: Ready.png background (legacy) */
+.homepage-cta-ready-bg {
+  background-image: url('/Ready.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.homepage-cta-ready-overlay {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.4));
+  pointer-events: none;
+}
+
+/* Ready to 10x + Footer: shared dark section (Ready.png) */
+.homepage-cta-footer-section {
+  background-image: url('/Ready.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 3rem 0 2rem;
+}
+@media (min-width: 768px) {
+  .homepage-cta-footer-section {
+    padding: 4rem 0 2.5rem;
+  }
+}
+/* Features: breathing room above heading inside section bg (was flush with top); bottom before footer CTA */
+.homepage .features-homepage-section {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+@media (max-width: 1023px) {
+  /* Match How It Works vertical rhythm on phones/tablets — was overly tall on mobile */
+  .homepage .features-homepage-section {
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+}
+@media (min-width: 1024px) {
+  .homepage .features-homepage-section {
+    padding-top: 100px;
+  }
+}
+/* Home: match Features / How It Works top inset above “Ready to 10x…” */
+.homepage-cta-footer-section.homepage-cta-footer-section--home-after-features {
+  padding-top: 50px;
+}
+@media (min-width: 1024px) {
+  .homepage-cta-footer-section.homepage-cta-footer-section--home-after-features {
+    padding-top: 100px;
+  }
+}
+.homepage-cta-footer-section.homepage-cta-footer-section--home-after-features .homepage-cta-block {
+  padding-top: 0;
+}
+
+/* CTA block */
+.homepage-cta-block {
+  text-align: center;
+  padding: 2rem 1rem 2.5rem;
+}
+.homepage-cta-heading {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.75rem;
+  line-height: 120%;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+@media (min-width: 1024px) {
+  .homepage-cta-heading {
+    font-size: 60px;
+  }
+}
+.homepage-cta-heading-accent {
+  color: #a855f7;
+}
+/* mobile-responsive.css (≤767px): global h2→20px & span→14px !important — keep CTA title 26px, both lines same size */
+@media screen and (max-width: 767px) {
+  .homepage .homepage-cta-heading {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+  }
+  .homepage .homepage-cta-heading .homepage-cta-heading-accent {
+    font-size: inherit !important;
+    line-height: inherit !important;
+  }
+}
+.homepage-cta-description {
+  font-size: 14px;
+  line-height: 145%;
+  color: #a198ce;
+  max-width: 36rem;
+  margin: 0 auto 20px;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+/* Mobile ≤1023: four stacked lines (no nowrap — avoids clipping); laptop: br + inline = 2 rows */
+.homepage-cta-description-line--part1,
+.homepage-cta-description-line--part2,
+.homepage-cta-description-line--part3,
+.homepage-cta-description-line--part4 {
+  display: inline;
+}
+.homepage-cta-description-desktop-break {
+  display: none;
+}
+@media (max-width: 1023px) {
+  /*
+   * Part1 is long: nowrap + ancestor overflow-x:clip cut off text. Part1 may wrap to 2 lines; parts 2–4 stay one line.
+   */
+  .homepage .homepage-cta-block .homepage-cta-description {
+    font-size: 14px;
+    line-height: 1.45;
+    overflow-wrap: break-word;
+    word-break: normal;
+    padding-inline: 0.5rem;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: visible;
+  }
+  .homepage-cta-description-line--part1 {
+    display: block;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+  }
+  .homepage-cta-description-line--part2,
+  .homepage-cta-description-line--part3,
+  .homepage-cta-description-line--part4 {
+    display: block;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* mobile-responsive: p uses 14px — lock CTA description to 14px */
+  .homepage .homepage-cta-block .homepage-cta-description {
+    font-size: 14px !important;
+    overflow-wrap: break-word !important;
+  }
+  .homepage .homepage-cta-description .homepage-cta-description-line--part1 {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    white-space: normal !important;
+  }
+  .homepage .homepage-cta-description .homepage-cta-description-line--part2,
+  .homepage .homepage-cta-description .homepage-cta-description-line--part3,
+  .homepage .homepage-cta-description .homepage-cta-description-line--part4 {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    white-space: nowrap !important;
+  }
+}
+@media (min-width: 1024px) {
+  /* Row1: part1 + part2 | Row2: part3 + part4 (br is between part2 and part3) */
+  .homepage-cta-block .homepage-cta-description {
+    text-align: center;
+    font-size: 18px;
+    margin: 0 auto 60px;
+    max-width: min(60rem, 100%);
+  }
+  .homepage-cta-description-desktop-break {
+    display: block;
+  }
+  .homepage-cta-description-line--part1,
+  .homepage-cta-description-line--part2,
+  .homepage-cta-description-line--part3,
+  .homepage-cta-description-line--part4 {
+    display: inline;
+  }
+  .homepage-cta-description-line--part1::after {
+    content: ' ';
+  }
+  .homepage-cta-description-line--part4::before {
+    content: ' ';
+  }
+}
+@media (min-width: 1280px) {
+  .homepage-cta-description-line--part1,
+  .homepage-cta-description-line--part2,
+  .homepage-cta-description-line--part3,
+  .homepage-cta-description-line--part4 {
+    white-space: nowrap;
+  }
+}
+.homepage-cta-button-wrap {
+  display: flex;
+  justify-content: center;
+}
+/* CTA Get Started: primary button style (matches hero); padding from .evecta-primary-btn in dashboard.css */
+.homepage-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #9164FF !important;
+  color: #fff !important;
+  /* font-size / font-weight: .evecta-primary-btn (dashboard.css) */
+  border-radius: 1rem;
+  border: 0;
+  text-decoration: none;
+  transition: none;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+.homepage-cta-button:hover {
+  background: #9164FF !important;
+  color: #fff !important;
+}
+.homepage-cta-button:focus-visible {
+  outline: 2px solid #9164FF;
+  outline-offset: 2px;
+}
+
+/* Footer card: Frame 2121457644.svg — cover keeps uniform scale (no skewed corners vs CSS radius); border is one edge; SVG inner grid frame rect removed */
+.homepage .homepage-footer-card,
+.homepage.theme-dark .homepage-footer-card,
+.homepage.theme-light .homepage-footer-card {
+  background-image: url('/Frame%202121457644.svg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-color: #030011 !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(145, 100, 255, 0.12) !important;
+}
+.homepage-footer-card {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  /* Match SVG artboard rx=60 at typical desktop widths */
+  border-radius: 60px;
+  padding: 6.25rem 6.25rem 1.875rem 6.25rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+@media (max-width: 768px) {
+  .homepage-footer-card {
+    border-radius: 24px;
+  }
+}
+.homepage-footer-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  flex: 0 0 auto;
+}
+@media (min-width: 768px) {
+  .homepage-footer-card {
+    padding: 6.25rem 6.25rem 1.875rem 6.25rem;
+    min-height: 380px;
+    margin-bottom: 2.5rem;
+  }
+  .homepage-footer-inner {
+    gap: 3.5rem;
+  }
+}
+
+/* Top row: brand (left) + description (right) */
+.homepage-footer-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .homepage-footer-top {
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+}
+.homepage-footer-brand {
+  max-width: 20rem;
+}
+.homepage-footer-logo-link {
+  text-decoration: none;
+  display: inline-flex;
+}
+/* Footer wordmark: no hover/focus purple from .homepage footer a:hover; static colors */
+.homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo,
+.homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo:hover,
+.homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo:focus,
+.homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo:focus-visible,
+.homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo:active {
+  color: #fff !important;
+  transition: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+.homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo .evecta-logo-text,
+.homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo:hover .evecta-logo-text,
+.homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo:focus .evecta-logo-text {
+  color: #fff !important;
+}
+.homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo .evecta-logo-tagline,
+.homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo:hover .evecta-logo-tagline,
+.homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo:focus .evecta-logo-tagline {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+/* Footer logo uses shared evecta-logo evecta-logo-light from EvectaLogo.css */
+/* Block stays on the right (margin-left: auto); lines are left-aligned inside the block */
+.homepage-footer-desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #A198CE;
+  margin: 0;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: 0;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+@media (max-width: 767px) {
+  .homepage-footer-desc {
+    margin-left: 0;
+    text-align: left;
+  }
+}
+
+/*
+ * Full-width rule under brand + description — #6F6892 @ 20% (same as footer column borders).
+ * Use background (not border-top): Tailwind preflight sets hr { color: inherit } so border picks up
+ * white currentColor from the dark footer context and looks white.
+ */
+.homepage .homepage-footer-card .homepage-footer-brand-divider {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0 !important;
+  height: 1px !important;
+  min-height: 1px;
+  background-color: rgba(111, 104, 146, 0.2) !important;
+  color: transparent;
+  box-sizing: border-box;
+}
+
+/* Laptop/desktop: no rule between logo row and link columns (mobile keeps it below) */
+@media (min-width: 769px) {
+  .homepage .homepage-footer-card .homepage-footer-brand-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Stack: prominent wordmark, bold subtitle, body, then divider */
+  .homepage .homepage-footer-card .homepage-footer-inner {
+    gap: 2rem;
+  }
+  .homepage-footer-top {
+    gap: 1rem;
+  }
+  .homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo .evecta-logo-text {
+    font-size: 32px !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.02em;
+  }
+  .homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo .evecta-logo-tagline {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    margin-top: 0.5rem;
+  }
+  .homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo:hover .evecta-logo-tagline,
+  .homepage .homepage-footer-card .homepage-footer-logo-link.evecta-logo:focus .evecta-logo-tagline {
+    color: #fff !important;
+  }
+  .homepage-footer-desc {
+    margin-top: 0.25rem;
+  }
+}
+
+/* Mid row: link columns in middle, social on right */
+.homepage-footer-mid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+/* Laptop: bottom-align social with the links row so icons sit on the same horizontal band as the Contact link (Company column is tallest) */
+@media (min-width: 769px) {
+  .homepage-footer-mid {
+    align-items: flex-end;
+  }
+}
+@media (max-width: 768px) {
+  .homepage-footer-mid {
+    margin-top: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+}
+.homepage-footer-links {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  justify-content: flex-start;
+  min-width: 0;
+  /* No extra horizontal inset on laptop/desktop (avoids misalignment vs logo row) */
+  margin-left: 0;
+}
+/* Equal-height columns (laptop): borders sit on stretched boxes so every vertical rule matches Company column height */
+@media (min-width: 769px) {
+  .homepage-footer-links {
+    align-items: stretch;
+  }
+}
+@media (max-width: 768px) {
+  .homepage-footer-links {
+    margin-left: 0;
+    /* Mobile: Company | Product on row 1; Legal full width on row 2 (matches design reference) */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    column-gap: 1rem;
+    row-gap: 1.5rem;
+    width: 100%;
+    padding-bottom: 1.25rem;
+    border-bottom: none !important;
+    position: relative;
+  }
+  /* Bottom line: ::after avoids border-color/currentColor from parent footer context reading as white */
+  .homepage .homepage-footer-card .homepage-footer-links::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: rgba(111, 104, 146, 0.2);
+    pointer-events: none;
+  }
+  .homepage .homepage-footer-card .homepage-footer-links > .homepage-footer-col:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+  /* Legal: stack Privacy / Terms vertically on mobile (not inline row) */
+  .homepage .homepage-footer-card .homepage-footer-links > .homepage-footer-col:nth-child(3) .homepage-footer-col-stack .homepage-footer-list--inline {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .homepage .homepage-footer-card .homepage-footer-links > .homepage-footer-col:nth-child(3) .homepage-footer-col-stack .homepage-footer-list--inline li {
+    white-space: normal;
+  }
+}
+.homepage-footer-col {
+  min-width: 7rem;
+  padding: 0;
+}
+/* Vertical rules: before Company | between cols | after Legal — #6F6892 @ 20%, 1px
+   (longhand + !important beats Tailwind preflight border-width:0 / border-color: currentColor) */
+@media (min-width: 769px) {
+  .homepage .homepage-footer-card .homepage-footer-links > .homepage-footer-col {
+    border-left-width: 1px !important;
+    border-left-style: solid !important;
+    /* #6F6892 at 20% opacity */
+    border-left-color: rgba(111, 104, 146, 0.2) !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-right-width: 0 !important;
+    border-right-style: solid !important;
+    border-right-color: transparent !important;
+  }
+  .homepage .homepage-footer-card .homepage-footer-links > .homepage-footer-col:last-child {
+    border-right-width: 1px !important;
+    border-right-style: solid !important;
+    border-right-color: rgba(111, 104, 146, 0.2) !important;
+  }
+}
+@media (max-width: 768px) {
+  .homepage-footer-col {
+    min-width: 0;
+    padding: 0;
+    border-left-width: 0 !important;
+    border-right-width: 0 !important;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+  }
+}
+/* Footer nav: inner stack = title→first link + list gaps; outer col stretches for equal-height vertical rules */
+.homepage-footer-col-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  line-height: 1.25;
+  flex-shrink: 0;
+}
+.homepage-footer-col-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  min-height: 0;
+}
+.homepage-footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.homepage-footer-list li {
+  margin: 0;
+}
+@media (min-width: 769px) {
+  /* Outer column: one flex child (.homepage-footer-col-stack) so title/list never space-apart when column is stretch-tall */
+  .homepage-footer-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: stretch;
+    align-content: flex-start;
+    gap: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .homepage-footer-col-stack {
+    gap: 12px;
+  }
+  .homepage-footer-list {
+    gap: 12px;
+  }
+  .homepage-footer-list--inline {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .homepage-footer-list--inline li {
+    white-space: nowrap;
+  }
+}
+@media (max-width: 768px) {
+  .homepage-footer-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    gap: 0;
+  }
+  .homepage-footer-col-stack {
+    gap: 4px;
+  }
+  .homepage-footer-list {
+    gap: 4px;
+  }
+}
+.homepage-footer-list--inline {
+  display: flex;
+}
+@media (max-width: 768px) {
+  .homepage-footer-list--inline {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+}
+.homepage-footer-list--inline li {
+  margin-bottom: 0;
+}
+.homepage-footer-link {
+  font-size: 14px;
+  font-weight: 400;
+  color: #A198CE;
+  text-decoration: none;
+  transition: color 0.2s, opacity 0.2s;
+}
+.homepage-footer-link:hover {
+  color: #fff;
+  opacity: 0.85;
+}
+
+/* Social: #A198CE icons on #FFFFFF @ 4% (laptop + mobile) */
+.homepage-footer-social {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+/* Mobile: icons between two #6F6892 @ 20% rules (under links ::after, above copyright) */
+@media (max-width: 768px) {
+  .homepage .homepage-footer-card .homepage-footer-social {
+    position: relative;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1.25rem 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .homepage .homepage-footer-card .homepage-footer-social::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: rgba(111, 104, 146, 0.2);
+    pointer-events: none;
+  }
+  .homepage .homepage-footer-card .homepage-footer-copyright {
+    padding-top: 1.25rem;
+    text-align: left;
+  }
+}
+.homepage-footer-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: #a198ce;
+  border-radius: 0.75rem;
+  border: none;
+  transition: background 0.2s, color 0.2s;
+}
+.homepage-footer-social-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #a198ce;
+}
+.homepage-footer-social-btn svg {
+  fill: currentColor;
+}
+
+/* Only this line sits lower: flex eats extra min-height above it; inner content stays top-aligned */
+.homepage-footer-copyright {
+  font-size: 12px;
+  font-weight: 400;
+  color: #A198CE;
+  text-align: center;
+  margin: 0;
+  margin-top: auto;
+  padding-top: 3rem;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+/* Laptop: 60px below nav row; 30px padding above copyright text */
+@media (min-width: 769px) {
+  .homepage-footer-copyright {
+    margin-top: 60px;
+    padding-top: 30px;
+  }
+}
+@media (min-width: 1024px) {
+  .homepage-footer-copyright {
+    font-size: 14px;
+  }
+}
+
+/* Recharts Tooltip Styles */
+.homepage-chart-tooltip {
+  background-color: white !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 6px !important;
+  font-size: var(--typography-text-s-size) !important;
+  line-height: var(--typography-text-s-line) !important;
+}
+
+/* Target Recharts tooltip globally if contentClassName doesn't work */
+.recharts-tooltip-wrapper {
+  background-color: white !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 6px !important;
+}
+
+.recharts-tooltip-wrapper .recharts-tooltip-content {
+  background-color: white !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 6px !important;
+  font-size: var(--typography-text-s-size) !important;
+  line-height: var(--typography-text-s-line) !important;
+}
+
+/* Trusted Badge Homepage - lighter purple on dark */
+.trusted-badge-homepage {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background-color: rgba(139, 92, 246, 0.15) !important;
+  color: #C084FC !important;
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(168, 85, 247, 0.4) !important;
+  font-size: var(--typography-label-xs-size) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+  width: fit-content !important;
+  margin-bottom: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.trusted-badge-homepage-icon {
+  width: 14px !important;
+  height: 14px !important;
+  color: #8B5CF6 !important;
+  stroke-width: 2 !important;
+}
+
+/* Difference Badge Homepage */
+.difference-badge-homepage {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background-color: rgba(139, 92, 246, 0.1) !important;
+  color: #8B5CF6 !important;
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  border: none !important;
+  border-top: 1px solid #8B5CF6 !important;
+  border-right: 1px solid #8B5CF6 !important;
+  border-bottom: 1px solid #8B5CF6 !important;
+  border-left: 1px solid #8B5CF6 !important;
+  font-size: var(--typography-label-xs-size) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+  width: fit-content !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  box-sizing: border-box !important;
+}
+
+.difference-badge-homepage-icon {
+  width: 14px !important;
+  height: 14px !important;
+  color: #8B5CF6 !important;
+  stroke-width: 2 !important;
+}
+
+/* How It Works Badge Homepage */
+.how-it-works-badge-homepage {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background-color: rgba(139, 92, 246, 0.1) !important;
+  color: #8B5CF6 !important;
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  border: none !important;
+  border-top: 1px solid #8B5CF6 !important;
+  border-right: 1px solid #8B5CF6 !important;
+  border-bottom: 1px solid #8B5CF6 !important;
+  border-left: 1px solid #8B5CF6 !important;
+  font-size: var(--typography-label-xs-size) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+  width: fit-content !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  box-sizing: border-box !important;
+}
+
+.how-it-works-badge-homepage-icon {
+  width: 14px !important;
+  height: 14px !important;
+  color: #8B5CF6 !important;
+  stroke-width: 2 !important;
+}
+
+/*
+ * How it works — stacked vs laptop grid:
+ * max-width 1023px = stacked frame, dots, single-column steps (phones, tablets, small laptops).
+ * min-width 1024px = two-column grid (steps left, framed preview right) — matches common laptop widths.
+ */
+/* How It Works – About Us.svg section background */
+.homepage .how-it-works-homepage {
+  background-image: url('/About%20Us.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* top: match Features (50 mobile-tablet-iPad / 100 wide desktop); bottom before Features */
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+@media (max-width: 1023px) {
+  .homepage .how-it-works-homepage {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .homepage .how-it-works-homepage {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+/* How It Works – left: vertical steps, right: design preview (updates per step) */
+.how-it-works-homepage-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* row-gap 0: subtitle→steps spacing is margin-top on .how-it-works-homepage-steps-wrap (40px / 60px) */
+  gap: 0 2.5rem;
+  align-items: start;
+  margin-top: 0;
+}
+/* Spacing subtitle → preview+steps row: bundle replaces standalone steps-wrap margin */
+.how-it-works-homepage-preview-steps-bundle {
+  margin-top: 40px;
+}
+.how-it-works-homepage-steps-wrap {
+  margin-top: 0;
+}
+/* Mobile / tablet / iPad: preview + steps + progress in one column; frame wraps full bundle */
+@media (max-width: 1023px) {
+  .homepage .how-it-works-homepage {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+    overflow-x: clip;
+  }
+  .how-it-works-homepage-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    align-items: stretch;
+  }
+  .how-it-works-homepage-heading,
+  .how-it-works-homepage-subtitle-row,
+  .how-it-works-homepage-preview-steps-bundle,
+  .how-it-works-homepage-steps-wrap,
+  .how-it-works-homepage-right {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .how-it-works-homepage-heading {
+    order: 1;
+  }
+  .how-it-works-homepage-subtitle-row {
+    order: 2;
+  }
+  /*
+   * Mobile frame: pure CSS (border + fill) so it always matches the bundle’s box.
+   * SVG background + ::before was unreliable (stretch/aspect); border hugs content height exactly.
+   */
+  .how-it-works-homepage-preview-steps-bundle {
+    order: 3;
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 2.625rem;
+    overflow: hidden;
+    /* isolation without contain — Chromium Android can still paint overflow with contain:paint */
+    isolation: isolate;
+    /* Same rounding as border-radius — hard clip on Chrome/Android where overflow:hidden misses subpixels */
+    clip-path: inset(0 round 2.625rem);
+    /* Tighter insets on small screens — was visually “bloated” on phones */
+    padding: clamp(0.75rem, 3vw, 1.25rem) clamp(0.75rem, 3.5vw, 1.25rem) clamp(1rem, 4vw, 1.75rem);
+    border: 2px solid rgba(145, 100, 255, 0.2) !important; /* #9164FF @ 20% */
+    border-color: rgba(145, 100, 255, 0.2) !important;
+    background: linear-gradient(180deg, rgba(103, 109, 255, 0.07) 0%, rgba(103, 109, 255, 0.12) 100%);
+    /* no white inset — it read as a white border on dark bg */
+    box-shadow: none;
+  }
+  .homepage .how-it-works-homepage-preview-steps-bundle > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+  /* Pill row: flex gap handles spacing; no extra margin that sat outside the frame */
+  .homepage .how-it-works-homepage-preview-steps-bundle > .how-it-works-homepage-mobile-progress {
+    margin-top: 0 !important;
+    flex-shrink: 0;
+  }
+  /* Beat later .how-it-works-homepage-right { margin-top: 2rem } — keep preview flush inside bundle */
+  .how-it-works-homepage-preview-steps-bundle > .how-it-works-homepage-right {
+    margin-top: 0 !important;
+  }
+  .how-it-works-homepage-right {
+    margin-top: 0;
+  }
+  .how-it-works-homepage-steps-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 0;
+  }
+  .how-it-works-homepage-heading-line2 {
+    white-space: normal;
+  }
+  /* One step at a time */
+  .homepage .how-it-works-homepage-steps .how-it-works-homepage-step:not(.how-it-works-homepage-step-active) {
+    display: none !important;
+  }
+  .how-it-works-homepage-steps {
+    gap: 0;
+  }
+}
+.how-it-works-homepage-mobile-progress {
+  display: none;
+}
+@media (max-width: 1023px) {
+  .how-it-works-homepage-mobile-progress {
+    /* Fluid dots: one track height, active pill = 3× track (same on all handsets) */
+    --home-dot-track: clamp(6px, 1.9vw, 9px);
+    --home-dot-active-w: calc(var(--home-dot-track) * 3);
+    --home-dot-border: clamp(1px, 0.32vw, 1.5px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    gap: clamp(4px, 2vw, 8px);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+}
+/* iOS Safari: native <button> chrome can render as large rounded squares; remove so 8×8 / 24×8 rules apply */
+.homepage .how-it-works-homepage-mobile-progress .how-it-works-homepage-progress-segment,
+.homepage .features-homepage-mobile-dots button.features-homepage-mobile-dot {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+/* Mobile step dots: inactive = hollow ring; active = pill + gradient.
+   - mobile-responsive.css: global button min-size + padding + radius
+   - .homepage button:focus { border-color: transparent !important } — must override on focus
+   Use .homepage + !important so colors survive focus and global button rules. */
+.homepage .how-it-works-homepage-mobile-progress .how-it-works-homepage-progress-segment {
+  box-sizing: border-box;
+  width: var(--home-dot-track, 8px);
+  height: var(--home-dot-track, 8px);
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border-radius: 9999px !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  font-weight: 400 !important;
+  border: var(--home-dot-border, 1.5px) solid rgba(111, 104, 146, 0.4) !important; /* #6F6892 @ 40% */
+  cursor: pointer;
+  flex-shrink: 0;
+  align-self: center;
+  background: transparent !important;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    width 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.homepage .how-it-works-homepage-mobile-progress .how-it-works-homepage-progress-segment-active {
+  width: var(--home-dot-active-w, 24px);
+  height: var(--home-dot-track, 8px);
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border-radius: 9999px !important;
+  border: var(--home-dot-border, 1.5px) solid rgba(255, 255, 255, 0.6) !important; /* #FFFFFF @ 60% */
+  background: linear-gradient(180deg, rgba(212, 88, 255, 0.7) 0%, #6b21a8 100%) !important; /* #D458FF @ 70% → #6B21A8 */
+}
+.homepage.theme-light .how-it-works-homepage-mobile-progress .how-it-works-homepage-progress-segment {
+  background: transparent !important;
+  border: var(--home-dot-border, 1.5px) solid rgba(111, 104, 146, 0.4) !important;
+}
+.homepage.theme-light .how-it-works-homepage-mobile-progress .how-it-works-homepage-progress-segment-active {
+  border: var(--home-dot-border, 1.5px) solid rgba(255, 255, 255, 0.6) !important;
+  background: linear-gradient(180deg, rgba(212, 88, 255, 0.7) 0%, #6b21a8 100%) !important;
+}
+/* Focus: global rules clear button borders — restore indicator styling */
+.homepage .how-it-works-homepage-mobile-progress .how-it-works-homepage-progress-segment:focus,
+.homepage .how-it-works-homepage-mobile-progress .how-it-works-homepage-progress-segment:focus-visible {
+  outline: none !important;
+  border: var(--home-dot-border, 1.5px) solid rgba(111, 104, 146, 0.4) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.homepage .how-it-works-homepage-mobile-progress .how-it-works-homepage-progress-segment-active:focus,
+.homepage .how-it-works-homepage-mobile-progress .how-it-works-homepage-progress-segment-active:focus-visible {
+  border: var(--home-dot-border, 1.5px) solid rgba(255, 255, 255, 0.6) !important;
+  background: linear-gradient(180deg, rgba(212, 88, 255, 0.7) 0%, #6b21a8 100%) !important;
+  box-shadow: none !important;
+}
+
+/*
+ * Pill dots: mobile-responsive.css (max-width 767px) sets all button { min-width/min-height 44px; padding … }.
+ * These rules must win on real phones so dots stay inside the frame.
+ */
+@media (max-width: 1023px) {
+  /* Inactive only: 8px ring. Do not set width 8 on active — some Android WebViews mis-resolve
+     competing !important width/max-width on the same element (e.g. Oppo), leaving a solid 8×8 "dot". */
+  .homepage
+    .how-it-works-homepage
+    .how-it-works-homepage-preview-steps-bundle
+    .how-it-works-homepage-mobile-progress
+    button.how-it-works-homepage-progress-segment:not(.how-it-works-homepage-progress-segment-active) {
+    flex: 0 0 auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-self: center;
+    min-width: var(--home-dot-track, 8px) !important;
+    min-height: var(--home-dot-track, 8px) !important;
+    max-height: var(--home-dot-track, 8px) !important;
+    width: var(--home-dot-track, 8px) !important;
+    max-width: var(--home-dot-track, 8px) !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    border-radius: 9999px !important;
+  }
+  .homepage
+    .how-it-works-homepage
+    .how-it-works-homepage-preview-steps-bundle
+    .how-it-works-homepage-mobile-progress
+    button.how-it-works-homepage-progress-segment.how-it-works-homepage-progress-segment-active {
+    align-self: center;
+    width: var(--home-dot-active-w, 24px) !important;
+    min-width: var(--home-dot-active-w, 24px) !important;
+    max-width: var(--home-dot-active-w, 24px) !important;
+    height: var(--home-dot-track, 8px) !important;
+    min-height: var(--home-dot-track, 8px) !important;
+    max-height: var(--home-dot-track, 8px) !important;
+  }
+}
+.how-it-works-homepage-step-next-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.25rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 0.375rem;
+  flex-shrink: 0;
+  color: inherit;
+}
+.how-it-works-homepage-step-next-btn:focus-visible {
+  outline: 2px solid #9164ff;
+  outline-offset: 2px;
+}
+@media (min-width: 1024px) {
+  .how-it-works-homepage-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); /* right column ends where left ends (equal width) */
+    grid-template-rows: auto auto auto;
+    gap: 0 3rem;
+    /* stretch last row so preview column matches steps column height */
+    align-items: stretch;
+  }
+  .how-it-works-homepage-heading {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .how-it-works-homepage-right-spacer {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 0;
+  }
+  .how-it-works-homepage-subtitle-row {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    min-width: 0;
+  }
+  /* Wide desktop: two columns inside bundle — steps left, preview right (DOM order is preview first, then steps) */
+  .how-it-works-homepage-preview-steps-bundle {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0 3rem;
+    align-items: stretch;
+    margin-top: 60px;
+  }
+  .how-it-works-homepage-preview-steps-bundle > .how-it-works-homepage-steps-wrap {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 0;
+  }
+  .how-it-works-homepage-preview-steps-bundle > .how-it-works-homepage-right {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+  }
+}
+.how-it-works-homepage-right-spacer {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .how-it-works-homepage-right-spacer {
+    display: block;
+  }
+}
+.how-it-works-homepage-left {
+  text-align: left;
+}
+.how-it-works-homepage-left .homepage-why-choose-badge {
+  margin-bottom: 0.5rem;
+}
+/* How It Works: heading + subtitle (does not affect Difference / Features) */
+.homepage .how-it-works-homepage-heading .homepage-why-choose-heading {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+@media (min-width: 1024px) {
+  .homepage .how-it-works-homepage-heading .homepage-why-choose-heading {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+}
+/* mobile-responsive.css: h2 + span use !important — span was 14px, h2 forced 1.25rem; match full title */
+@media (max-width: 767px) {
+  .homepage .how-it-works-homepage-heading .homepage-why-choose-heading {
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+  }
+  .homepage .how-it-works-homepage-heading .homepage-why-choose-heading .how-it-works-homepage-heading-line2 {
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+  }
+}
+.how-it-works-homepage-subtitle {
+  max-width: none;
+}
+.homepage .how-it-works-homepage-subtitle-row .homepage-why-choose-para.how-it-works-homepage-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@media (min-width: 1024px) {
+  .homepage .how-it-works-homepage-subtitle-row .homepage-why-choose-para.how-it-works-homepage-subtitle {
+    font-size: 18px;
+    white-space: nowrap;
+  }
+}
+.how-it-works-homepage-heading-line2 {
+  white-space: nowrap;
+}
+.how-it-works-homepage-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem; /* ~14px between cards — design */
+}
+.how-it-works-homepage-step {
+  cursor: pointer;
+  /* Square-ish cards with a slight corner round */
+  border-radius: 10px;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+@media (min-width: 1024px) {
+  .how-it-works-homepage-step {
+    border-radius: 12px;
+  }
+}
+/* Collapsed: transparent fill; border #6F6892 @ 100% */
+.homepage .how-it-works-homepage .how-it-works-homepage-step:not(.how-it-works-homepage-step-active) {
+  border: 1px solid #6f6892 !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+/* Active: same border #6F6892 @ 100%; fill #6F6892 @ 20% */
+.homepage .how-it-works-homepage .how-it-works-homepage-step-active {
+  border: 1px solid #6f6892 !important;
+  background-color: rgba(111, 104, 146, 0.2) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+/* Inactive: transparent; hover only strengthens border */
+.homepage.theme-dark .how-it-works-homepage-step:not(.how-it-works-homepage-step-active) {
+  background-color: transparent !important;
+}
+.homepage.theme-dark .how-it-works-homepage-step:not(.how-it-works-homepage-step-active):hover {
+  background-color: transparent !important;
+  border-color: #6f6892 !important;
+}
+.homepage.theme-light .how-it-works-homepage-step:not(.how-it-works-homepage-step-active) {
+  background-color: transparent !important;
+}
+.homepage.theme-light .how-it-works-homepage-step:not(.how-it-works-homepage-step-active):hover {
+  background-color: transparent !important;
+  border-color: #6f6892 !important;
+}
+/* Mobile / tablet / iPad: no card border (wide desktop keeps 1px #6F6892) */
+@media (max-width: 1023px) {
+  .homepage .how-it-works-homepage .how-it-works-homepage-step:not(.how-it-works-homepage-step-active) {
+    border: none !important;
+  }
+  .homepage .how-it-works-homepage .how-it-works-homepage-step-active {
+    border: none !important;
+    background-color: transparent !important;
+  }
+  .homepage.theme-dark .how-it-works-homepage-step:not(.how-it-works-homepage-step-active):hover,
+  .homepage.theme-light .how-it-works-homepage-step:not(.how-it-works-homepage-step-active):hover {
+    border-color: transparent !important;
+  }
+  .homepage .how-it-works-homepage-step:not(.how-it-works-homepage-step-active):focus-visible,
+  .homepage .how-it-works-homepage-step:not(.how-it-works-homepage-step-active):focus,
+  .homepage .how-it-works-homepage-step-active:focus-visible,
+  .homepage .how-it-works-homepage-step-active:focus {
+    border: none !important;
+  }
+}
+/* Collapsed inner: single line, title #A198CE, generous left padding — design */
+.how-it-works-homepage-step-inner-collapsed {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.25rem 1rem 2rem;
+  text-align: left;
+}
+@media (min-width: 1024px) {
+  .how-it-works-homepage-step-inner-collapsed {
+    padding-left: 2.25rem; /* ~36px */
+  }
+}
+.how-it-works-homepage-step-title-only {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #a198ce;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.homepage.theme-light .how-it-works-homepage-step-title-only {
+  color: #5b4d8a;
+}
+/* Expanded inner: column — icon → Step-N → title + ArrowRight → description */
+.how-it-works-homepage-step-inner-expanded {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.25rem 1rem 1.25rem 20px;
+  text-align: left;
+}
+.how-it-works-homepage-step-title-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-width: 0;
+}
+.how-it-works-homepage-step-title-row .how-it-works-homepage-step-title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.how-it-works-homepage-step-icon-wrap {
+  flex-shrink: 0;
+  width: auto;
+  height: auto;
+  min-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.homepage.theme-dark .how-it-works-homepage-step-icon-wrap,
+.homepage.theme-dark .how-it-works-homepage-step-icon-wrap-active {
+  background-color: transparent !important;
+  color: transparent;
+}
+.homepage.theme-light .how-it-works-homepage-step-icon-wrap,
+.homepage.theme-light .how-it-works-homepage-step-icon-wrap-active {
+  background-color: transparent !important;
+  color: transparent;
+}
+.how-it-works-homepage-step-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+/* Stroke gradient via url(#how-it-works-step-icon-gradient); no fill */
+.homepage .how-it-works-homepage-step-icon {
+  fill: none;
+}
+.how-it-works-homepage-step-label {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 120%;
+  margin: 0;
+  color: #fff;
+}
+.how-it-works-homepage-step-title {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0;
+}
+.homepage.theme-dark .how-it-works-homepage-step-title {
+  color: #fff;
+}
+.how-it-works-homepage-step-desc {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 145%;
+  margin: 0;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+@media (min-width: 1024px) {
+  .how-it-works-homepage-step-desc {
+    font-size: 16px;
+  }
+}
+.homepage.theme-dark .how-it-works-homepage-step-desc {
+  color: rgba(196, 181, 253, 0.85);
+}
+.homepage.theme-light .how-it-works-homepage-step-label,
+.homepage.theme-light .how-it-works-homepage-step-title {
+  color: #1f2937;
+}
+.homepage.theme-light .how-it-works-homepage-step-desc {
+  color: #6b7280;
+}
+/* Title-row arrow: same as header “Get Started Free” (ArrowRight h-4 w-4) */
+.how-it-works-homepage-step-title-arrow {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.95);
+}
+.homepage.theme-dark .how-it-works-homepage-step-active .how-it-works-homepage-step-title-arrow {
+  color: rgba(255, 255, 255, 0.95);
+}
+.homepage.theme-light .how-it-works-homepage-step-active .how-it-works-homepage-step-title-arrow {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+/* Light theme + active fill (#6F6892 @ 20%): light text on the card */
+.homepage.theme-light .how-it-works-homepage-step-active .how-it-works-homepage-step-label,
+.homepage.theme-light .how-it-works-homepage-step-active .how-it-works-homepage-step-title {
+  color: #fff !important;
+}
+.homepage.theme-light .how-it-works-homepage-step-active .how-it-works-homepage-step-desc {
+  color: #a198ce !important;
+}
+/* Right column: mobile stacks below steps; laptop fills grid row height to match steps */
+.how-it-works-homepage-right {
+  position: relative;
+  align-self: start;
+  /* preserve former row-gap (2rem) between steps stack and preview on single-column layout */
+  margin-top: 2rem;
+}
+@media (min-width: 1024px) {
+  /* Anchor for absolutely positioned preview — row height comes from steps column only */
+  .how-it-works-homepage-right {
+    margin-top: 0;
+    align-self: stretch;
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 0;
+  }
+}
+/* Right preview: frame image as background; ≤1023px capped height; ≥1024 laptop fills column */
+.how-it-works-homepage-preview {
+  background-color: transparent;
+  background-image: url('/Frame%202121457632.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 1.25rem;
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
+  min-height: 280px;
+  max-height: 380px;
+  padding: 1.75rem;
+  box-sizing: border-box;
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .how-it-works-homepage-preview {
+    min-height: 300px;
+    max-height: 400px;
+  }
+}
+@media (min-width: 1024px) {
+  /* Out of flow so intrinsic image height does not stretch the grid row — height matches left tabs */
+  .how-it-works-homepage-preview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    flex: none;
+    min-height: 0;
+    max-height: none;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+}
+.homepage.theme-dark .how-it-works-homepage-preview {
+  background-color: transparent;
+  box-shadow: none;
+}
+.how-it-works-homepage-preview-inner {
+  background: #fff;
+  border-radius: 1.875rem;
+  padding: 1.5rem;
+  min-height: 240px;
+  max-height: calc(380px - 3.5rem);
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.how-it-works-homepage-preview-scroll {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+}
+.how-it-works-homepage-preview-img-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+}
+.how-it-works-homepage-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  transform: scale(1.05);
+  transform-origin: center center;
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .how-it-works-homepage-preview-inner {
+    padding: 2rem;
+    min-height: 260px;
+    max-height: calc(400px - 3.5rem);
+  }
+}
+@media (min-width: 1024px) {
+  .how-it-works-homepage-preview-inner {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+    padding: 2rem;
+  }
+}
+
+/* How it works: scroll wrapper — wide desktop uses display:contents so layout matches pre-wrapper DOM */
+@media (min-width: 1024px) {
+  .how-it-works-homepage-preview-scroll {
+    display: contents;
+  }
+}
+
+/* Features Badge Homepage */
+.features-badge-homepage {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background-color: rgba(139, 92, 246, 0.1) !important;
+  color: #8B5CF6 !important;
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  border: none !important;
+  border-top: 1px solid #8B5CF6 !important;
+  border-right: 1px solid #8B5CF6 !important;
+  border-bottom: 1px solid #8B5CF6 !important;
+  border-left: 1px solid #8B5CF6 !important;
+  font-size: var(--typography-label-xs-size) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+  width: fit-content !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  box-sizing: border-box !important;
+}
+
+.features-badge-homepage-icon {
+  width: 14px !important;
+  height: 14px !important;
+  color: #8B5CF6 !important;
+  stroke-width: 2 !important;
+}
+
+/* Features Section – frame image container; left content inside frame, right 3-panel carousel */
+.features-homepage-heading .homepage-why-choose-badge,
+.homepage-pricing-heading .homepage-why-choose-badge {
+  margin-bottom: 0.5rem;
+}
+/* Features + Pricing block title + subtitle (same scale as How It Works heading row) */
+.homepage .features-homepage-heading .homepage-why-choose-heading,
+.homepage .homepage-pricing-heading .homepage-why-choose-heading {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+@media (min-width: 1024px) {
+  .homepage .features-homepage-heading .homepage-why-choose-heading,
+  .homepage .homepage-pricing-heading .homepage-why-choose-heading {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+}
+.features-homepage-subtitle {
+  margin-bottom: 0;
+  max-width: none;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+.homepage .features-homepage-heading .homepage-why-choose-para.features-homepage-subtitle,
+.homepage .homepage-pricing-heading .homepage-why-choose-para.features-homepage-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 145%;
+  margin-top: 0;
+}
+@media (min-width: 1024px) {
+  .homepage .features-homepage-heading .homepage-why-choose-para.features-homepage-subtitle,
+  .homepage .homepage-pricing-heading .homepage-why-choose-para.features-homepage-subtitle {
+    font-size: 18px;
+  }
+}
+/* Frame: full-bleed BG on ::before (padding no longer shrinks the image canvas); text flex-layered above */
+/* Border/stroke comes from the frame SVG/PNG asset — no extra CSS border */
+.features-homepage-frame {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 1.5rem;
+  /* SVG viewBox 1080×472: inner purple stroke ~x=40 from left */
+  padding-left: max(1.5rem, calc(100% * 40 / 1080));
+  border-radius: 1.25rem;
+  overflow: hidden;
+  min-height: 280px;
+  isolation: isolate;
+}
+/* Default (tablet/smaller laptop widths that still use this layer): show full art — cover crops top/bottom */
+.features-homepage-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background-image: var(--features-frame-bg);
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+/* Title + body: flex gap replaces stacked margins (fixes oversized gap title → description on mobile) */
+.features-homepage-frame-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+  min-width: 0;
+  width: 100%;
+}
+.features-homepage-frame-copy .features-homepage-title-row {
+  margin-bottom: 0;
+}
+.features-homepage-frame-copy .features-homepage-card-title {
+  margin: 0;
+}
+.features-homepage-frame-copy .features-homepage-card-desc {
+  margin: 0;
+}
+@media (min-width: 1024px) {
+  .features-homepage-frame-copy .features-homepage-card-desc {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Mobile: PNGs use <img> in TSX — no CSS var overrides needed here */
+
+/* Mobile: image block on top, title + description + dots below (not overlaid on artwork) */
+@media (max-width: 1023px) {
+  .homepage .features-homepage-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+    min-height: 0;
+    /* dots sit below copy; section/.homepage clip-x handles horizontal overflow */
+    overflow: visible;
+  }
+  /* Background layer is for laptop SVG only — mobile uses <img> so height follows art (no letterbox gaps) */
+  .homepage .features-homepage-frame::before {
+    display: none !important;
+  }
+  .homepage .features-homepage-frame-mobile-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    flex: 0 0 auto;
+    border-radius: 1.25rem;
+    object-fit: contain;
+  }
+  .homepage .features-homepage-frame > * {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .homepage .features-homepage-frame > .features-homepage-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.375rem;
+    padding: 0.5rem 0 0.125rem;
+  }
+  /* Beat later .features-homepage-title-row / .card-title rules + mobile-responsive h3 !important line-height */
+  .homepage .features-homepage-frame .features-homepage-frame-copy {
+    gap: 0.5rem;
+    row-gap: 0.5rem;
+  }
+  .homepage .features-homepage-frame .features-homepage-frame-copy .features-homepage-title-row {
+    margin: 0 !important;
+    min-height: 0;
+  }
+  .homepage .features-homepage-frame .features-homepage-frame-copy h3.features-homepage-card-title {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.25 !important;
+  }
+  .homepage .features-homepage-frame .features-homepage-frame-copy .features-homepage-card-desc {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .homepage .features-homepage-content-with-arrow {
+    max-width: 100% !important;
+  }
+  .homepage .features-homepage-arrow-btn-desktop {
+    display: none !important;
+  }
+  /* Horizontal swipe (handled in JS); allow vertical page scroll */
+  .homepage .features-homepage-frame--swipeable {
+    touch-action: pan-y;
+  }
+}
+
+.features-homepage-mobile-dots {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .features-homepage-mobile-dots {
+    /* Same token names as How it works so both sections match at every width */
+    --home-dot-track: clamp(6px, 1.9vw, 9px);
+    --home-dot-active-w: calc(var(--home-dot-track) * 3);
+    --home-dot-border: clamp(1px, 0.32vw, 1.5px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(4px, 2vw, 8px);
+    margin-top: 0;
+    padding: 0 0 2px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  /* Match How it works: fluid track ×3 active — long selector beats global 44px button rule */
+  .homepage
+    .features-homepage-section
+    .features-homepage-frame
+    .features-homepage-content
+    .features-homepage-mobile-dots
+    button.features-homepage-mobile-dot:not(.features-homepage-mobile-dot-active) {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    align-self: center;
+    width: var(--home-dot-track, 8px) !important;
+    height: var(--home-dot-track, 8px) !important;
+    min-width: var(--home-dot-track, 8px) !important;
+    min-height: var(--home-dot-track, 8px) !important;
+    max-width: var(--home-dot-track, 8px) !important;
+    max-height: var(--home-dot-track, 8px) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 9999px !important;
+    border: var(--home-dot-border, 1.5px) solid rgba(111, 104, 146, 0.4) !important;
+    background: transparent !important;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    font-weight: 400 !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .homepage
+    .features-homepage-section
+    .features-homepage-frame
+    .features-homepage-content
+    .features-homepage-mobile-dots
+    button.features-homepage-mobile-dot.features-homepage-mobile-dot-active {
+    align-self: center;
+    width: var(--home-dot-active-w, 24px) !important;
+    min-width: var(--home-dot-active-w, 24px) !important;
+    max-width: var(--home-dot-active-w, 24px) !important;
+    height: var(--home-dot-track, 8px) !important;
+    min-height: var(--home-dot-track, 8px) !important;
+    max-height: var(--home-dot-track, 8px) !important;
+    border: var(--home-dot-border, 1.5px) solid rgba(255, 255, 255, 0.6) !important;
+    background: linear-gradient(180deg, rgba(212, 88, 255, 0.7) 0%, #6b21a8 100%) !important;
+  }
+}
+
+.features-homepage-frame > * {
+  position: relative;
+  z-index: 1;
+}
+.homepage.theme-light .features-homepage-frame {
+  background-color: transparent;
+}
+@media (min-width: 1024px) {
+  .features-homepage-frame {
+    min-height: 400px;
+    /* Match SVG safe inset (~40px in 1080 art); keep copy inside the left/main pane */
+    padding: 1.5rem 2rem 1.75rem;
+    padding-left: max(1.5rem, calc(100% * 40 / 1080));
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    /* Clip to rounded card — visible overflow was letting text sit outside the artwork */
+    overflow: hidden;
+  }
+  /* contain = full triptych + frame stroke visible; cover was zooming and cropping top/bottom */
+  .features-homepage-frame::before {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: unset;
+    flex: unset;
+    display: block;
+    border-radius: inherit;
+    background-size: contain;
+    background-position: left center;
+  }
+  /* Laptop: real <img> layer (eager) — backgrounds paint late; images get normal fetch priority. */
+  .features-homepage-frame--desktop-art::before {
+    display: none !important;
+  }
+  .features-homepage-frame > .features-homepage-frame-desktop-art {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    overflow: hidden;
+  }
+  /* Full 1080×472 asset (incl. borders); left = align with main column + text block */
+  .features-homepage-frame-desktop-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .features-homepage-frame-desktop-img--active {
+    opacity: 1;
+  }
+  .features-homepage-frame > * {
+    padding: 0;
+  }
+  /* ~600/1080 of art = main cell — keep all copy inside that band */
+  .features-homepage-frame > .features-homepage-content.features-homepage-content-with-arrow {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+    max-width: min(50%, 32rem);
+    width: 100%;
+    flex-shrink: 1;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .features-homepage-frame .features-homepage-frame-copy {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .features-homepage-frame .features-homepage-card-desc {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    overflow-x: hidden;
+    max-width: 100%;
+    font-size: 14px;
+  }
+  .features-homepage-arrow-btn-desktop {
+    display: flex !important;
+  }
+}
+.features-homepage-content {
+  position: relative;
+  width: 100%;
+  max-width: 26rem;
+}
+/* Laptop: width capped in @media (min-width: 1024px) to first triptych column */
+.features-homepage-content-with-arrow {
+  max-width: 55%;
+  width: 100%;
+}
+/* Title and arrow on same line; arrow at complete right — vertical rhythm from .features-homepage-frame-copy gap only */
+.features-homepage-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 0;
+  min-width: 0;
+}
+.features-homepage-title-row .features-homepage-card-title {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+@media (min-width: 1024px) {
+  .features-homepage-frame .features-homepage-title-row {
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    overflow: hidden;
+    min-width: 0;
+  }
+  .features-homepage-frame .features-homepage-title-row .features-homepage-card-title {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow-x: hidden;
+  }
+  .features-homepage-frame .features-homepage-content-with-arrow .features-homepage-arrow-btn-desktop {
+    flex-shrink: 0;
+    margin-left: 0;
+    margin-right: 0.25rem;
+  }
+}
+.features-homepage-content-with-arrow .features-homepage-arrow-btn {
+  flex-shrink: 0;
+  margin-left: auto;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.features-homepage-content-with-arrow .features-homepage-arrow-btn:hover,
+.features-homepage-content-with-arrow .features-homepage-arrow-btn:focus,
+.features-homepage-content-with-arrow .features-homepage-arrow-btn:active {
+  outline: none;
+  box-shadow: none;
+  transform: none !important;
+}
+.features-homepage-content-with-arrow .features-homepage-arrow-btn:hover svg,
+.features-homepage-content-with-arrow .features-homepage-arrow-btn:focus svg,
+.features-homepage-content-with-arrow .features-homepage-arrow-btn:active svg {
+  transform: none !important;
+}
+.homepage.theme-dark .features-homepage-content-with-arrow .features-homepage-arrow-btn {
+  color: #fff;
+}
+.homepage.theme-light .features-homepage-content-with-arrow .features-homepage-arrow-btn {
+  color: #1f2937;
+}
+.homepage.theme-dark .features-homepage-content {
+  color: #fff;
+}
+.homepage.theme-light .features-homepage-content {
+  color: #1f2937;
+}
+.features-homepage-content .features-homepage-card-title {
+  margin-top: 0;
+}
+.features-homepage-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 120%;
+  margin: 0;
+  overflow-wrap: break-word;
+}
+.homepage.theme-dark .features-homepage-card-title {
+  color: #fff;
+}
+.homepage.theme-light .features-homepage-card-title {
+  color: #1f2937;
+}
+/* Single paragraph per slide — avoids stacked block spans + global mobile span rules */
+p.features-homepage-card-desc,
+.features-homepage-card-desc {
+  font-size: 12px;
+  line-height: 145%;
+  margin: 0 0 1rem 0;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+@media (min-width: 1024px) {
+  .features-homepage-card-desc {
+    font-size: 14px;
+  }
+}
+.homepage.theme-dark .features-homepage-card-desc {
+  color: rgba(196, 181, 253, 0.9);
+}
+.homepage.theme-light .features-homepage-card-desc {
+  color: #6b7280;
+}
+
+/* Blog Badge Homepage */
+.blog-badge-homepage {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background-color: rgba(139, 92, 246, 0.1) !important;
+  color: #8B5CF6 !important;
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  border: none !important;
+  border-top: 1px solid #8B5CF6 !important;
+  border-right: 1px solid #8B5CF6 !important;
+  border-bottom: 1px solid #8B5CF6 !important;
+  border-left: 1px solid #8B5CF6 !important;
+  font-size: var(--typography-label-xs-size) !important;
+  font-weight: var(--typography-label-xs-weight) !important;
+  line-height: var(--typography-label-xs-line) !important;
+  letter-spacing: var(--typography-label-xs-spacing) !important;
+  width: fit-content !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  box-sizing: border-box !important;
+}
+
+.blog-badge-homepage-icon {
+  width: 14px !important;
+  height: 14px !important;
+  color: #8B5CF6 !important;
+  stroke-width: 2 !important;
+}
+
+/* Blog Section Cards */
+#blog .card,
+#blog [data-slot="card"] {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid #E5E7EB !important;
+}
+
+#blog .card:hover,
+#blog [data-slot="card"]:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Ensure blog card images are properly aligned */
+#blog .card img {
+  display: block !important;
+  width: 100% !important;
+}
+
+/* Blog card content alignment */
+#blog .card [data-slot="content"] {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+}
+
+/* How it works — mobile / tablet / iPad: frame bundle (late rules; must follow global .how-it-works-homepage-preview / -inner) */
+@media (max-width: 1023px) {
+  /* Same preview footprint as step 5 on every step: fixed panel + scroll if content is taller */
+  .homepage .how-it-works-homepage .how-it-works-homepage-preview-steps-bundle .how-it-works-homepage-right {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden;
+  }
+  .homepage .how-it-works-homepage .how-it-works-homepage-preview-steps-bundle .how-it-works-homepage-preview {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    /* Inner panel height + 0.5rem top/bottom padding */
+    min-height: calc(12rem + 1rem) !important;
+    max-height: none !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background-image: none !important;
+    background-color: transparent !important;
+    border-radius: 1.125rem !important;
+    padding: 0.5rem !important;
+    overflow: hidden !important;
+    flex-shrink: 0;
+    box-sizing: border-box !important;
+    isolation: isolate;
+  }
+  .homepage .how-it-works-homepage .how-it-works-homepage-preview-steps-bundle .how-it-works-homepage-preview-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    /* Compact preview panel on mobile/tablet */
+    height: 12rem !important;
+    min-height: 12rem !important;
+    max-height: 12rem !important;
+    /* Do not mix overflow-x and overflow-y on one box — WebKit can leak horizontal overflow; scroll lives on .how-it-works-homepage-preview-scroll */
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0.875rem !important;
+    border-radius: 1.875rem !important;
+    /* Chromium Android: overflow:hidden + border-radius can fail to clip composited children; clip-path forces the mask */
+    clip-path: inset(0 round 0.75rem);
+  }
+  .homepage .how-it-works-homepage .how-it-works-homepage-preview-steps-bundle .how-it-works-homepage-preview-scroll {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
+    /* Android Chrome: font boost can widen “CTO • TechCorp” past the card */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overflow-wrap: anywhere;
+  }
+  .homepage .how-it-works-homepage .how-it-works-homepage-preview-steps-bundle .how-it-works-homepage-preview-inner > .how-it-works-homepage-preview-scroll > * {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .homepage .how-it-works-homepage .how-it-works-homepage-preview-steps-bundle .how-it-works-homepage-mobile-progress {
+    margin-top: 0 !important;
+    flex-shrink: 0;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    overflow-x: hidden !important;
+  }
+  .homepage .how-it-works-homepage .how-it-works-homepage-preview-steps-bundle .how-it-works-homepage-steps-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    align-self: stretch !important;
+  }
+  .homepage .how-it-works-homepage .how-it-works-homepage-preview-steps-bundle .how-it-works-homepage-step {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .homepage .how-it-works-homepage .how-it-works-homepage-preview-steps-bundle .how-it-works-homepage-step-inner-expanded {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding-left: 20px !important;
+    padding-right: 1rem !important;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    gap: 0.5rem !important;
+  }
+  .homepage .how-it-works-homepage .how-it-works-homepage-preview-steps-bundle .how-it-works-homepage-step-desc {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    width: 100%;
+    max-width: 100%;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+  }
+}
+
+/* Features body copy — mobile + tablet: single <p> + tight line-height (see mobile-responsive p override) */
+@media (max-width: 1023px) {
+  .homepage .features-homepage-heading,
+  .homepage .homepage-pricing-heading {
+    margin-bottom: 0.75rem !important;
+  }
+  .homepage .features-homepage-frame p.features-homepage-card-desc {
+    margin: 0 !important;
+    line-height: 1.45 !important;
+    font-size: 0.8125rem !important;
+  }
+  .homepage .features-homepage-frame .features-homepage-frame-mobile-img {
+    max-height: min(42vh, 220px);
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+/* Pricing — same page background as How It Works (homepage-gradient-bg); cards stay #171717 */
+.homepage .homepage-pricing-section--claude {
+  padding-top: 50px;
+  padding-bottom: 100px;
+  color: #fff;
+}
+@media (max-width: 1023px) {
+  .homepage .homepage-pricing-section--claude {
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-pricing-section--claude {
+    padding-top: 100px;
+  }
+}
+/* Mobile/tablet: same in-card type scale + padding as laptop (avoid 12px body / loose gaps) */
+@media (max-width: 1023px) {
+  .homepage .homepage-pricing-section--claude .homepage-pricing-card-claude {
+    padding: 1.75rem 1.5rem;
+    border-radius: 1.125rem;
+  }
+  .homepage .homepage-pricing-section--claude .homepage-pricing-plan-icon {
+    margin-bottom: 0.85rem;
+  }
+  .homepage .homepage-pricing-section--claude .homepage-pricing-tagline {
+    font-size: 16px;
+    margin-bottom: 1rem;
+  }
+  .homepage .homepage-pricing-section--claude .homepage-pricing-price-block-claude {
+    margin-bottom: 1rem;
+  }
+  .homepage .homepage-pricing-section--claude .homepage-pricing-price-suffix {
+    font-size: 14px;
+  }
+  .homepage .homepage-pricing-section--claude .homepage-pricing-billing-note-slot {
+    font-size: 14px;
+  }
+  .homepage .homepage-pricing-section--claude .homepage-pricing-features-intro-claude {
+    font-size: 15px;
+  }
+  .homepage .homepage-pricing-section--claude .homepage-pricing-feature-claude {
+    font-size: 14px;
+  }
+  .homepage .homepage-pricing-section--claude .homepage-pricing-features-claude {
+    gap: 0.4rem;
+  }
+  .homepage .homepage-pricing-section--claude .homepage-pricing-card-claude-bottom {
+    gap: 0.5rem;
+  }
+  .homepage .homepage-pricing-section--claude .homepage-pricing-divider-claude {
+    margin-bottom: 0.85rem;
+  }
+  .homepage .homepage-pricing-section--claude .homepage-pricing-footnote-claude {
+    font-size: 14px;
+    margin-top: 1.5rem;
+  }
+}
+/* Single-column only: hide flex spacer so price → CTA stays tight (three-col rows keep spacer for alignment). */
+@media (max-width: 639px) {
+  .homepage .homepage-pricing-section--claude .homepage-pricing-grid .homepage-pricing-card-claude {
+    height: auto;
+    min-height: 0;
+  }
+  .homepage .homepage-pricing-section--claude .homepage-pricing-card-claude-spacer {
+    display: none;
+  }
+}
+/* Paid plans grid: three columns from ~sm up (no horizontal scroll); stack on very small phones */
+.homepage .homepage-pricing-grid-wrap {
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 1rem;
+}
+.homepage .homepage-pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 3vw, 1.5rem);
+  width: 100%;
+  min-width: 0;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+@media (min-width: 640px) {
+  .homepage .homepage-pricing-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.homepage .homepage-pricing-grid .homepage-pricing-card-claude {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+}
+.homepage .homepage-pricing-card-claude {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  padding: 1.5rem 1.35rem;
+  background-color: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+@media (min-width: 768px) {
+  .homepage .homepage-pricing-card-claude {
+    padding: 1.75rem 1.5rem;
+    border-radius: 1.125rem;
+  }
+}
+.homepage .homepage-pricing-card-head {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-shrink: 0;
+}
+.homepage .homepage-pricing-plan-icon {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+/* Plan name — same scale as Features card title */
+.homepage .homepage-pricing-plan-title-serif {
+  margin: 0 0 0.5rem 0;
+  font-family: 'Urbanist', system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+/* Description — homepage-why-choose-card-para / features desc rhythm */
+.homepage .homepage-pricing-tagline {
+  margin: 0 0 1.25rem 0;
+  font-family: 'Urbanist', system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 145%;
+  font-weight: 400;
+  color: #a198ce;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-pricing-tagline {
+    font-size: 16px;
+  }
+}
+.homepage .homepage-pricing-price-block-claude {
+  margin-bottom: 1.25rem;
+}
+.homepage .homepage-pricing-price-main-row-claude {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.5rem;
+}
+.homepage .homepage-pricing-price-sans {
+  font-family: 'Urbanist', system-ui, sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+.homepage .homepage-pricing-price-suffix {
+  font-family: 'Urbanist', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #a198ce;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-pricing-price-suffix {
+    font-size: 14px;
+  }
+}
+/* Reserves the same vertical space as paid plans’ annual line (often 2 lines when wrapped) */
+.homepage .homepage-pricing-billing-note-slot {
+  padding-top: 0.4rem;
+  min-height: calc(0.4rem + 2 * 1.45em);
+  font-size: 12px;
+  box-sizing: border-box;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-pricing-billing-note-slot {
+    font-size: 14px;
+  }
+}
+.homepage .homepage-pricing-billing-note {
+  margin: 0;
+  font-family: 'Urbanist', system-ui, sans-serif;
+  font-size: inherit;
+  line-height: 145%;
+  font-weight: 400;
+  color: #ffffff;
+  max-width: 16rem;
+}
+.homepage .homepage-pricing-billing-note-slot .homepage-pricing-billing-note {
+  margin: 0;
+}
+/* Cream pill — no hover / color shift */
+.homepage a.homepage-pricing-cta-claude {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.7rem 1.25rem;
+  border-radius: 9999px;
+  font-family: 'Urbanist', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-decoration: none !important;
+  color: #171717 !important;
+  background-color: #f5f5f0 !important;
+  background: #f5f5f0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+.homepage a.homepage-pricing-cta-claude:hover,
+.homepage a.homepage-pricing-cta-claude:focus,
+.homepage a.homepage-pricing-cta-claude:focus-visible,
+.homepage a.homepage-pricing-cta-claude:active {
+  color: #171717 !important;
+  background-color: #f5f5f0 !important;
+  background: #f5f5f0 !important;
+  text-decoration: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+/* Fills space when header (icon → price) is shorter — aligns CTA row across equal-height cards */
+.homepage .homepage-pricing-card-claude-spacer {
+  flex: 1 1 auto;
+  min-height: 4px;
+  width: 100%;
+}
+.homepage .homepage-pricing-card-claude-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  flex-shrink: 0;
+}
+.homepage .homepage-pricing-card-claude-cta .homepage-pricing-cta-claude {
+  margin-bottom: 0 !important;
+}
+.homepage .homepage-pricing-divider-claude {
+  height: 1px;
+  width: 100%;
+  margin: 0 0 1.1rem 0;
+  background: rgba(161, 152, 206, 0.22);
+  border: none;
+  flex-shrink: 0;
+}
+.homepage .homepage-pricing-card-claude-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+.homepage .homepage-pricing-features-intro-claude {
+  margin: 0;
+  font-family: 'Urbanist', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 120%;
+  color: #ffffff;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-pricing-features-intro-claude {
+    font-size: 15px;
+  }
+}
+.homepage .homepage-pricing-features-claude {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+/* Feature lines — match features-homepage-card-desc / body purple */
+.homepage .homepage-pricing-feature-claude {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-family: 'Urbanist', system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 145%;
+  font-weight: 400;
+  color: rgba(196, 181, 253, 0.92);
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-pricing-feature-claude {
+    font-size: 14px;
+  }
+}
+.homepage .homepage-pricing-check-claude {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: #c4b5fd;
+}
+.homepage .homepage-pricing-footnote-claude {
+  margin: 2rem 0 0 0;
+  font-family: 'Urbanist', system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 145%;
+  font-weight: 400;
+  color: #a198ce;
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  .homepage .homepage-pricing-footnote-claude {
+    margin-top: 2.5rem;
+    font-size: 14px;
+  }
+}

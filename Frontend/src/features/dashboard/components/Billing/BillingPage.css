@@ -1,0 +1,605 @@
+/* Full width of dashboard main — avoid max-width + margin:auto centering the whole page */
+.billing-page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 8px 24px 48px;
+  box-sizing: border-box;
+  font-family: Urbanist, system-ui, sans-serif;
+}
+
+@media (min-width: 768px) {
+  .billing-page {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.billing-page-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 36px;
+  gap: 8px;
+  text-align: left;
+  overflow: visible;
+}
+
+/* Usage page: less space between hero subtitle and credit usage card */
+.billing-page--usage .billing-page-intro {
+  margin-bottom: 12px;
+}
+
+.billing-page-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: left;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  overflow: visible;
+}
+
+/* Pricing: 30 / medium (500) / line-height 120% of font size */
+.billing-page-title {
+  margin: 0 0 4px;
+  padding: 0;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #111827;
+  letter-spacing: -0.02em;
+}
+
+/* Hero subtitle: 18 regular — wrap in narrow main column; room for descenders */
+.billing-page-subtitle {
+  margin: 0;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.55;
+  white-space: normal;
+  overflow-wrap: break-word;
+  color: #a198ce;
+}
+
+/* !important: design-system uses aggressive dashboard * / [class] rules with !important */
+.dashboard-main-container h1.billing-page-title {
+  font-size: 30px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.dashboard-main-container p.billing-page-subtitle {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0 !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  max-width: 100% !important;
+  color: #a198ce !important;
+}
+
+/* Usage hero — same type scale + gap as Additional Credits (SpendingSection) */
+.billing-page--usage .billing-page-hero {
+  gap: 0;
+}
+
+.billing-page--usage .billing-page-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 120%;
+  color: #030011;
+  letter-spacing: 0;
+}
+
+.billing-page--usage .billing-page-subtitle {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #a198ce;
+}
+
+.dashboard-main-container .billing-page--usage h3.billing-page-title {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  color: #030011 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+}
+
+.dashboard-main-container .billing-page--usage p.billing-page-subtitle {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  margin: 4px 0 0 0 !important;
+}
+
+.billing-page-credits-note {
+  margin: 28px auto 0;
+  max-width: 720px;
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #4b5563;
+}
+
+.dashboard-main-container p.billing-page-credits-note {
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0 !important;
+  color: #4b5563 !important;
+}
+
+.billing-card-name-star {
+  font-size: 1.1em;
+  opacity: 0.95;
+}
+
+.billing-card-save {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #059669;
+}
+
+.billing-page-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+@media (min-width: 640px) {
+  .billing-page-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* One row of three cards; fourth plan wraps to the next row */
+@media (min-width: 1024px) {
+  .billing-page-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+.billing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+.billing-card.billing-card--active {
+  border: 2px solid #9164ff !important;
+  box-shadow: 0 0 0 2px rgba(145, 100, 255, 0.12), 0 10px 24px -16px rgba(79, 70, 229, 0.55);
+}
+
+.billing-card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #fff;
+  color: #6b21a8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.billing-card-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d458ff, #4f46e5);
+}
+
+.billing-card-header {
+  padding: 22px 18px 20px;
+  min-height: 108px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.billing-card-header--neutral {
+  background: linear-gradient(180deg, #9ca3af 0%, #6b7280 100%);
+  color: #fff;
+}
+
+.billing-card-header--gradient {
+  background: linear-gradient(135deg, #d458ff 0%, #6366f1 45%, #4f46e5 100%);
+  color: #fff;
+}
+
+.billing-card-name {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Laptop medium: plan titles (Starter, Free, Growth, Scale) — 22.54px */
+@media (min-width: 768px) {
+  .billing-card-name {
+    font-size: 22.54px;
+  }
+
+  .dashboard-main-container h2.billing-card-name {
+    font-size: 22.54px !important;
+  }
+}
+
+.billing-card-desc {
+  margin: 0;
+  font-size: 12.52px;
+  font-weight: 500;
+  line-height: 21px;
+  opacity: 0.95;
+}
+
+.dashboard-main-container p.billing-card-desc {
+  font-size: 12.52px !important;
+  font-weight: 500 !important;
+  line-height: 21px !important;
+  letter-spacing: 0 !important;
+}
+
+.billing-card-body {
+  padding: 20px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 18px;
+}
+
+/* Pill price bar — #D0D5DD @ 30% */
+.billing-card-price-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: rgba(208, 213, 221, 0.3);
+  border-radius: 9999px;
+  padding: 12px 20px 12px 22px;
+  box-sizing: border-box;
+  min-height: 56px;
+}
+
+.billing-card-price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 0;
+}
+
+/* 28.06 semi-bold, line-height 28.1px (spec 28.1% — use px so text isn’t clipped) */
+.billing-card-price {
+  font-size: 28.06px;
+  font-weight: 600;
+  line-height: 28.1px;
+  color: #7c3aed;
+}
+
+/* 15.03 medium, line-height 17.5px */
+.billing-card-price-suffix {
+  font-size: 15.03px;
+  font-weight: 500;
+  line-height: 17.5px;
+  color: #111827;
+}
+
+.billing-card-toggle {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.billing-card-toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.billing-card-toggle-ui {
+  width: 40px;
+  height: 24px;
+  border-radius: 999px;
+  background: #d1d5db;
+  position: relative;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.billing-card-toggle-ui::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.billing-card-toggle:has(input:checked) .billing-card-toggle-ui {
+  background: #111827;
+}
+
+.billing-card-toggle:has(input:checked) .billing-card-toggle-ui::after {
+  transform: translateX(16px);
+}
+
+.billing-card-toggle-label {
+  font-size: 15.03px;
+  font-weight: 500;
+  line-height: 17.5px;
+  color: #111827;
+}
+
+.dashboard-main-container .billing-card-price {
+  font-size: 28.06px !important;
+  font-weight: 600 !important;
+  line-height: 28.1px !important;
+  color: #7c3aed !important;
+  letter-spacing: 0 !important;
+}
+
+.dashboard-main-container .billing-card-price-suffix {
+  font-size: 15.03px !important;
+  font-weight: 500 !important;
+  line-height: 17.5px !important;
+  color: #111827 !important;
+  letter-spacing: 0 !important;
+}
+
+.dashboard-main-container .billing-card-toggle-label {
+  font-size: 15.03px !important;
+  font-weight: 500 !important;
+  line-height: 17.5px !important;
+  color: #111827 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Same fill as price bar: #D0D5DD @ 30% */
+.billing-card-features {
+  background: rgba(208, 213, 221, 0.3);
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+  border: none;
+  flex: 1;
+}
+
+.dashboard-main-container .billing-card-features {
+  border: none !important;
+  background: rgba(208, 213, 221, 0.3) !important;
+}
+
+.billing-card-features-title {
+  margin: 0 0 10px;
+  font-size: 15.03px;
+  font-weight: 500;
+  line-height: 24.4px;
+  color: #111827;
+}
+
+.billing-card-features-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.billing-card-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.billing-card-feature-text {
+  font-size: 15.03px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #a198ce;
+}
+
+.billing-card-check {
+  flex-shrink: 0;
+  color: #a198ce;
+  margin-top: 1px;
+}
+
+.billing-card-check svg {
+  stroke: currentColor;
+}
+
+.dashboard-main-container h3.billing-card-features-title {
+  font-size: 15.03px !important;
+  font-weight: 500 !important;
+  line-height: 24.4px !important;
+  letter-spacing: 0 !important;
+  color: #111827 !important;
+}
+
+.dashboard-main-container .billing-card-feature-item .billing-card-feature-text {
+  font-size: 15.03px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  letter-spacing: 0 !important;
+}
+
+.dashboard-main-container .billing-card-check {
+  color: #a198ce !important;
+  stroke: #a198ce !important;
+}
+
+/* Footer: preserves card height when empty (e.g. Free tier for paid users) */
+.billing-card-footer-slot {
+  margin-top: auto;
+  min-height: 48px;
+}
+
+/* Active subscription tier — same shell as .billing-card-cta--outline (border only, no fill) */
+.billing-card-current-plan {
+  box-sizing: border-box;
+  margin: 0;
+  margin-top: auto;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e9d5ff;
+  border-radius: 10px;
+  background: #faf5ff;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #6b21a8;
+  text-align: center;
+  font-family: inherit;
+}
+
+.dashboard-main-container p.billing-card-current-plan {
+  font-size: 0.9375rem !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  color: #6b21a8 !important;
+  border: 1px solid #e9d5ff !important;
+  border-radius: 10px !important;
+  background: #faf5ff !important;
+}
+
+.billing-card-cta .billing-card-cta-spinner {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+  animation: billing-card-cta-spin 0.9s linear infinite;
+}
+
+@keyframes billing-card-cta-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.billing-card-cta {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  min-height: 36px;
+  height: 36px;
+  max-height: 36px;
+  padding: 0 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19.5px;
+  font-family: 'Urbanist', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: none;
+}
+
+.billing-card-cta:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.billing-card-cta--outline {
+  background: #ffffff !important;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  color: #030011;
+}
+
+.billing-card-cta--outline:hover,
+.billing-card-cta--outline:active {
+  background: #ffffff !important;
+  border-color: rgba(208, 213, 221, 0.3) !important;
+  color: #030011;
+  opacity: 1;
+}
+
+/* Looks like the outline CTA but is not interactive (e.g. Free plan exhausted credits). */
+.billing-card-cta.billing-card-cta--display-only {
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+
+.billing-card-cta--solid {
+  background: #9164ff !important;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.billing-card-cta--solid:hover,
+.billing-card-cta--solid:active {
+  background: #9164ff !important;
+  border-color: rgba(208, 213, 221, 0.3) !important;
+  color: #ffffff;
+  opacity: 1;
+  box-shadow: none;
+}
+
+/* Dashboard globals change button border on :focus — keep billing CTAs static */
+.dashboard-main-container .billing-card-cta--outline:focus,
+.dashboard-main-container .billing-card-cta--outline:focus-visible {
+  background: #ffffff !important;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  color: #030011;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.dashboard-main-container .billing-card-cta--solid:focus,
+.dashboard-main-container .billing-card-cta--solid:focus-visible {
+  background: #9164ff !important;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  color: #ffffff !important;
+  outline: none !important;
+  box-shadow: none !important;
+}

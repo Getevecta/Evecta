@@ -1,0 +1,3427 @@
+.email-accounts-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #FFFFFF;
+  padding: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-header {
+  height: auto;
+  min-height: auto;
+  margin-bottom: 0;
+  border-bottom: 0.8px solid #6B7280;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 16px 24px;
+  justify-content: space-between;
+}
+
+.email-accounts-header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .email-accounts-header {
+    padding: 0 24px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .email-accounts-header {
+    padding: 0 24px;
+  }
+}
+
+.email-accounts-title {
+  /* S: Small screens */
+  font-size: var(--typography-heading-card-size-s);
+  line-height: var(--typography-heading-card-line-s);
+  font-weight: var(--typography-heading-card-weight);
+  color: #111827;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .email-accounts-title {
+    font-size: var(--typography-heading-card-size-m);
+    line-height: var(--typography-heading-card-line-m);
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .email-accounts-title {
+    font-size: var(--typography-heading-card-size-l);
+    line-height: var(--typography-heading-card-line-l);
+  }
+}
+
+.email-accounts-subtitle {
+  /* S: Small screens */
+  font-size: var(--typography-helper-text-size-s);
+  line-height: var(--typography-helper-text-line-s);
+  font-weight: var(--typography-helper-text-weight);
+  color: #6B7280;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  padding-left: 0;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .email-accounts-subtitle {
+    font-size: var(--typography-helper-text-size-m);
+    line-height: var(--typography-helper-text-line-m);
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .email-accounts-subtitle {
+    font-size: var(--typography-helper-text-size-l);
+    line-height: var(--typography-helper-text-line-l);
+  }
+}
+
+.email-accounts-content {
+  padding: 16px 24px 8px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.email-accounts-title-container {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+.email-accounts-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.email-accounts-title-row > .email-accounts-title {
+  margin: 0 !important;
+  display: inline-block !important;
+}
+
+.email-accounts-title-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Choose Your Email Setup Option + icon-only back (same row; Connect Accounts drill-in only) */
+.email-accounts-title-container-with-back {
+  max-width: 900px;
+}
+
+.email-accounts-setup-option-title-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.email-accounts-setup-option-title-row .email-setup-option-page-title {
+  margin: 0 !important;
+  flex: 1;
+  min-width: 0;
+}
+
+.email-accounts-setup-back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #030011;
+  -webkit-font-smoothing: antialiased;
+}
+
+.email-accounts-setup-back-button:hover {
+  color: #9164ff;
+  background: rgba(145, 100, 255, 0.08);
+}
+
+.email-accounts-setup-back-button:focus-visible {
+  outline: 2px solid rgba(145, 100, 255, 0.45);
+  outline-offset: 2px;
+}
+
+#root .dashboard-main-container .email-accounts-setup-back-button {
+  color: #030011 !important;
+}
+
+.email-accounts-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .email-accounts-content {
+    padding: 16px 24px 8px 24px;
+  }
+  
+  .email-accounts-title-container {
+    max-width: 600px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  
+  .email-accounts-cards {
+    gap: 10px;
+    max-width: 600px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .email-accounts-content {
+    padding: 16px 24px 8px 24px;
+  }
+  
+  .email-accounts-title-container {
+    max-width: 850px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .email-accounts-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 900px;
+  }
+}
+
+.email-account-card {
+  background-color: white;
+  /* Use box-shadow for border - bypasses dashboard border-color override */
+  border: 1px solid transparent;
+  box-shadow: inset 0 0 0 1px rgba(145, 100, 255, 0.4);
+  border-radius: 12px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease;
+  max-width: 100%;
+  position: relative;
+}
+
+.email-account-card:hover {
+  box-shadow: inset 0 0 0 1px rgba(145, 100, 255, 0.55), 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.email-account-card-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  flex-shrink: 0;
+}
+
+.email-account-card-header-wrapper-horizontal .email-account-card-icon {
+  margin-bottom: 0;
+  margin-top: 2px;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .email-account-card {
+    padding: 34px;
+  }
+  
+  .email-account-card-icon {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .email-account-card {
+    padding: 34px;
+  }
+  
+  .email-account-card-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 6px;
+  }
+}
+
+.pre-warmed-icon {
+  background-color: #F3E8FF;
+}
+
+.pre-warmed-icon .icon {
+  width: 10px;
+  height: 10px;
+  color: #6B21A8;
+}
+
+.existing-icon {
+  background-color: #F3F4F6;
+}
+
+.existing-icon .icon {
+  width: 10px;
+  height: 10px;
+  color: #6B7280;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .pre-warmed-icon .icon,
+  .existing-icon .icon {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .pre-warmed-icon .icon,
+  .existing-icon .icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.email-account-card-header-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-account-card-header-wrapper-horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.email-account-card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.email-account-card-header-column {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 0;
+}
+
+.email-account-card-title {
+  /* S: Small screens */
+  font-size: var(--typography-heading-card-size-s);
+  line-height: var(--typography-heading-card-line-s);
+  font-weight: var(--typography-heading-card-weight);
+  color: #111827;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .email-account-card-title {
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 500;
+    gap: 8px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .email-account-card-title {
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 500;
+    gap: 10px;
+  }
+}
+
+/* Popular badge - ribbon style at top-right corner of card */
+.pre-warmed-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.pre-warmed-card .email-account-card-header {
+  margin-bottom: 0;
+}
+
+/* System / Connect card titles — 18px medium #030011 */
+.dashboard-main-container .email-accounts-cards .email-account-card-title,
+.email-accounts-cards .email-account-card-title {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
+  color: #030011 !important;
+}
+
+.pre-warmed-card .email-account-card-description {
+  margin-top: 0;
+}
+
+/* Card hero blurbs — System Email + Connect-your-own (16px / medium / 145% / #a198ce; beats generic description breakpoints) */
+.pre-warmed-card > .email-account-card-description,
+.email-account-card.pre-warmed-card > .email-account-card-description,
+.email-accounts-cards .existing-card .email-accounts-connect-card-blurb {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.email-accounts-cards .existing-card .email-accounts-connect-card-blurb {
+  margin: 0 0 8px 0 !important;
+}
+
+#root .dashboard-main-container .pre-warmed-card > .email-account-card-description,
+#root .dashboard-main-container .email-account-card.pre-warmed-card > .email-account-card-description,
+#root .dashboard-main-container .email-accounts-cards .existing-card .email-accounts-connect-card-blurb {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  letter-spacing: normal !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+@media (min-width: 768px) {
+  .pre-warmed-card > .email-account-card-description,
+  .email-account-card.pre-warmed-card > .email-account-card-description,
+  .email-accounts-cards .existing-card .email-accounts-connect-card-blurb {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    line-height: 145% !important;
+    color: #a198ce !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pre-warmed-card > .email-account-card-description,
+  .email-account-card.pre-warmed-card > .email-account-card-description,
+  .email-accounts-cards .existing-card .email-accounts-connect-card-blurb {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    line-height: 145% !important;
+    color: #a198ce !important;
+  }
+}
+
+/* Feature rows in System Email card — title 14 regular #030011, subtitle 14 regular #A198CE; icons 18×18 #A198CE */
+.pre-warmed-card .email-account-features .feature-title {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #030011 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.pre-warmed-card .email-account-features .feature-subtitle {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.pre-warmed-card .email-account-features .feature-icon,
+.pre-warmed-card .email-account-features .feature-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  color: #a198ce !important;
+}
+
+/* Choose Your Email Setup Option — 16 medium #030011 */
+h1.email-setup-option-page-title,
+.email-setup-option-page-title.email-accounts-title {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
+  color: #030011 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+/* Connect Email (Early Access) — 16 semibold #A198CE */
+.connect-button.pre-warmed-button {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  color: #a198ce !important;
+}
+
+/* Google / Gmail row — label 14 medium 145% #030011, sub 14 medium 145% #A198CE */
+.connection-option .connection-option-label {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 145% !important;
+  color: #030011 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.connection-option .connection-option-sublabel {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.popular-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 7px 16px 7px 18px;
+  min-width: 72px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E53935;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Urbanist', sans-serif;
+  letter-spacing: 0.02em;
+  /* Straight left edge, rounded top-right corner only (bottom-right sharp) */
+  border-radius: 0 12px 0 0;
+  z-index: 1;
+}
+
+
+
+.email-account-card-description {
+  /* S: Small screens */
+  font-size: var(--typography-body-text-size-s);
+  line-height: var(--typography-body-text-line-s);
+  font-weight: var(--typography-body-text-weight);
+  color: #A198CE;
+  margin: 0 0 6px 0;
+  font-family: 'Urbanist', sans-serif;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .email-account-card-description {
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .email-account-card-description {
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+}
+
+.email-account-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 6px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.email-account-features li {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+.email-account-features li::before,
+.email-account-features li::after {
+  display: none !important;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .email-account-features {
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .email-account-features {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.email-account-features .feature-item + .feature-item {
+  border-top: none !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .feature-item {
+    gap: 6px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .feature-item {
+    gap: 8px;
+  }
+}
+
+.feature-icon {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  color: #A198CE;
+  background-color: transparent;
+  border: none;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .feature-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .feature-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .feature-text {
+    gap: 2px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .feature-text {
+    gap: 3px;
+  }
+}
+
+.feature-title {
+  /* S: Small screens */
+  font-size: var(--typography-body-large-size-s);
+  line-height: var(--typography-body-large-line-s);
+  font-weight: 500;
+  color: #111827;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .feature-title {
+    font-size: 12.25px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .feature-title {
+    font-size: 12.25px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+}
+
+.feature-subtitle {
+  /* S: Small screens */
+  font-size: var(--typography-body-text-size-s);
+  line-height: var(--typography-body-text-line-s);
+  font-weight: var(--typography-body-text-weight);
+  color: #A198CE;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .feature-subtitle {
+    font-size: 10.5px;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .feature-subtitle {
+    font-size: 10.5px;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+}
+
+.connect-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Urbanist', sans-serif;
+  color: white;
+}
+
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .connect-button {
+    padding: 0;
+  }
+  
+  .connect-button-icon {
+    height: 32px;
+    width: auto;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .connect-button {
+    padding: 0;
+  }
+  
+  .connect-button-icon {
+    height: 32px;
+    width: auto;
+  }
+}
+
+.pre-warmed-button {
+  background-color: rgba(145, 100, 255, 0.1) !important;
+  color: #A198CE !important;
+  width: 100%;
+  padding: 10px 20px !important;
+  border-radius: 8px !important;
+}
+
+.pre-warmed-button:hover {
+  background-color: rgba(145, 100, 255, 0.15) !important;
+  color: #A198CE !important;
+}
+
+.pre-warmed-button:active {
+  background-color: rgba(145, 100, 255, 0.2) !important;
+  color: #A198CE !important;
+}
+
+/* Email Accounts — System Email card: primary fill; no hover/focus/active visual change */
+.pre-warmed-card .connect-button.pre-warmed-button:not(.select-email-connect-button),
+.pre-warmed-card .connect-button.pre-warmed-button:not(.select-email-connect-button):hover,
+.pre-warmed-card .connect-button.pre-warmed-button:not(.select-email-connect-button):focus,
+.pre-warmed-card .connect-button.pre-warmed-button:not(.select-email-connect-button):focus-visible,
+.pre-warmed-card .connect-button.pre-warmed-button:not(.select-email-connect-button):active {
+  background-color: #9164ff !important;
+  background: #9164ff !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  border-color: rgba(208, 213, 221, 0.3) !important;
+  opacity: 1 !important;
+  filter: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: none !important;
+  outline: none !important;
+}
+
+.connection-options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .connection-options {
+    gap: 4px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .connection-options {
+    gap: 6px;
+  }
+}
+
+.connection-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  box-shadow: inset 0 0 0 1px rgba(145, 100, 255, 0.2);
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.connection-option:hover {
+  box-shadow: inset 0 0 0 1px #9164FF;
+}
+
+/* Primary row — same solid fill as create-campaign-style-button (#9164FF) */
+.connection-option.connection-option-primary {
+  background-color: #9164ff !important;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.connection-option.connection-option-primary:hover {
+  background-color: #9164ff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.connection-option.connection-option-primary .connection-option-label,
+.connection-option.connection-option-primary .connection-option-sublabel {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 145% !important;
+  letter-spacing: normal !important;
+  font-family: 'Urbanist', sans-serif !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+.connection-option.connection-option-primary .connection-option-sublabel {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.connection-option.connection-option-primary .connection-option-arrow {
+  color: #ffffff;
+  opacity: 0.95;
+}
+
+.connection-option.connection-option-primary .google-icon {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+/* IMAP row — secondary (outlined) */
+.connection-option.connection-option-secondary {
+  background-color: #ffffff;
+  border: 1px solid rgba(161, 152, 206, 0.65);
+  box-shadow: none;
+  box-sizing: border-box;
+  /* Same minimum footprint as sibling row (Google + IMAP) so heights match stacked or in a row */
+  min-height: 52px;
+}
+
+.connection-option.connection-option-secondary:hover {
+  background-color: #faf5ff;
+  border-color: #9164ff;
+  box-shadow: inset 0 0 0 1px rgba(145, 100, 255, 0.35);
+}
+
+.connection-option.connection-option-secondary .connection-option-arrow {
+  color: #9164ff;
+}
+
+.connection-option-text-single-line {
+  justify-content: center;
+}
+
+.connection-option-text-single-line .connection-option-label {
+  line-height: 145% !important;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .connection-option {
+    padding: 8px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .connection-option {
+    padding: 8px;
+  }
+
+  .connection-option.connection-option-secondary {
+    min-height: 56px;
+  }
+}
+
+.connection-option-content {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .connection-option-content {
+    gap: 6px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .connection-option-content {
+    gap: 8px;
+  }
+}
+
+.connection-option-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .connection-option-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .connection-option-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.google-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.connection-option-icon-imap img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .google-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .connection-option-icon-imap img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .google-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .connection-option-icon-imap img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.icon-gray {
+  width: 20px;
+  height: 20px;
+  color: #6B7280;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .icon-gray {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .icon-gray {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.connection-option-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.connection-option-label {
+  /* S: Small screens */
+  font-size: var(--typography-body-text-size-s);
+  line-height: var(--typography-body-text-line-s);
+  font-weight: 500;
+  color: #A198CE;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .connection-option-label {
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .connection-option-label {
+    font-size: 10px;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+}
+
+.connection-option-sublabel {
+  /* S: Small screens */
+  font-size: var(--typography-helper-text-size-s);
+  line-height: var(--typography-helper-text-line-s);
+  font-weight: var(--typography-helper-text-weight);
+  color: #A198CE;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .connection-option-sublabel {
+    font-size: 8px;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .connection-option-sublabel {
+    font-size: 10px;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+}
+
+.connection-option-arrow {
+  width: 10px;
+  height: 10px;
+  color: #9CA3AF;
+  flex-shrink: 0;
+}
+
+/* M: Medium screens */
+@media (min-width: 768px) {
+  .connection-option-arrow {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* L: Large screens */
+@media (min-width: 1024px) {
+  .connection-option-arrow {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Password visibility toggle button - prevent any movement */
+.password-toggle-button {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  right: 10px !important;
+  left: auto !important;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  transform: none !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #6B7280 !important;
+  z-index: 10 !important;
+  outline: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  pointer-events: auto !important;
+  vertical-align: middle !important;
+  line-height: 1 !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  min-height: 26px !important;
+  max-width: 26px !important;
+  max-height: 26px !important;
+  box-sizing: content-box !important;
+  font-size: 0 !important;
+}
+
+.password-toggle-button:hover,
+.password-toggle-button:active,
+.password-toggle-button:focus,
+.password-toggle-button:focus-visible {
+  transform: none !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  right: 10px !important;
+  left: auto !important;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 0 !important;
+}
+
+/* Ensure Select dropdown appears above modal */
+.email-provider-select-content {
+  z-index: 1001 !important;
+}
+
+/* Target the Portal container as well */
+[data-slot="select-content"] {
+  z-index: 1001 !important;
+}
+
+/* Gmail badge border color */
+.gmail-badge {
+  border: 0.8px solid #BEDBFF !important;
+  border-color: #BEDBFF !important;
+  border-radius: 6.75px !important;
+}
+
+/* Healthy badge styling */
+.healthy-badge {
+  border: 0.8px solid #B9F8CF !important;
+  border-color: #B9F8CF !important;
+  border-radius: 6.75px !important;
+}
+
+/* Active badge styling */
+.active-badge {
+  border: 0.8px solid #D1D1D6 !important;
+  border-color: #D1D1D6 !important;
+  border-radius: 6.75px !important;
+}
+
+/* Inactive badge styling */
+.inactive-badge {
+  border: 0.8px solid #D1D1D6 !important;
+  border-color: #D1D1D6 !important;
+  border-radius: 6.75px !important;
+}
+
+/* IMAP/SMTP badge styling */
+.imap-badge {
+  border: 0.8px solid #E5E7EB !important;
+  border-color: #E5E7EB !important;
+  border-radius: 6.75px !important;
+}
+
+/* EmailAccounts Management View Styles */
+
+/* Header Styles */
+.email-accounts-header-management {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+  min-height: auto;
+  padding: 6px 24px;
+  border-bottom: none;
+}
+
+.email-accounts-content-management {
+  padding-top: 12px;
+}
+
+/* Management tabs: same markup + Campaign.css as Campaign list (All / Draft / Ongoing). */
+
+/* Statistics Cards Grid */
+.email-accounts-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* Statistics Card Base */
+.email-accounts-stat-card {
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 16px;
+  position: relative;
+}
+
+/* Existing Emails stats cards - full card background tints */
+.email-accounts-stats-grid .email-accounts-stat-card:nth-child(1),
+.email-accounts-stats-grid .email-accounts-stat-card:nth-child(3) {
+  /* 9164FF at ~10% */
+  background-color: #F0EBFF;
+  border-color: #F0EBFF;
+}
+
+.email-accounts-stats-grid .email-accounts-stat-card:nth-child(2),
+.email-accounts-stats-grid .email-accounts-stat-card:nth-child(4) {
+  /* A198CE at ~20% */
+  background-color: #E4DFFC;
+  border-color: #E4DFFC;
+}
+
+.email-accounts-stat-card-icon-container {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Make existing-emails stat icons larger */
+.email-accounts-stat-card-icon-container svg {
+  width: 20px;
+  height: 20px;
+}
+
+.email-accounts-stat-card-icon-container.purple {
+  /* Visual equivalent of 9164FF at ~10% */
+  background-color: #F0EBFF !important;
+}
+
+.email-accounts-stat-card-icon-container.blue {
+  /* Visual equivalent of A198CE at ~20% */
+  background-color: #E4DFFC !important;
+}
+
+.email-accounts-stat-card-icon-container.green {
+  /* Same pastel as first card (9164FF 10%) */
+  background-color: #F0EBFF !important;
+}
+
+/* Same pastel as second card (A198CE 20%) */
+.email-accounts-stat-card-icon-container.secondary {
+  background-color: #E4DFFC !important;
+}
+
+.email-accounts-stat-card-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #07020D;
+  margin: 0 0 8px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-stat-card-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #A198CE;
+  margin: 0 0 4px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-stat-card-description {
+  font-size: 12px;
+  font-weight: 400;
+  color: #9164FF;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Managed Pool Styles */
+.email-accounts-managed-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.email-accounts-managed-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.email-accounts-managed-stat-card {
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 12px 16px;
+  position: relative;
+}
+
+/* Total Emails Sent — #9164FF at 10% */
+.email-accounts-managed-stats-grid .email-accounts-managed-stat-card:nth-child(1) {
+  background-color: rgba(145, 100, 255, 0.1);
+  border-color: rgba(145, 100, 255, 0.12);
+}
+
+/* System Emails (managed pool) — Delivery Rate card tint */
+.email-accounts-managed-stats-grid .email-accounts-managed-stat-card:nth-child(3) {
+  background-color: #F0EBFF;
+  border-color: #F0EBFF;
+}
+
+.email-accounts-managed-stats-grid .email-accounts-managed-stat-card:nth-child(2),
+.email-accounts-managed-stats-grid .email-accounts-bounce-rate-card {
+  /* A198CE at ~20% */
+  background-color: #E4DFFC;
+  border-color: #E4DFFC;
+}
+
+.email-accounts-managed-stat-card.full-padding {
+  padding: 16px;
+}
+
+.email-accounts-managed-stat-card-icon-container {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-accounts-managed-stat-card-icon-container.blue {
+  /* Visual equivalent of 9164FF at ~10% */
+  background-color: #F0EBFF !important;
+}
+
+.email-accounts-managed-stat-card-icon-container.green {
+  /* Visual equivalent of A198CE at ~20% */
+  background-color: #E4DFFC !important;
+}
+
+.email-accounts-managed-stat-card-icon-container.purple {
+  /* Same pastel as first card (9164FF 10%) */
+  background-color: #F0EBFF !important;
+}
+
+.email-accounts-managed-stat-card-icon-container.yellow {
+  background-color: #FEF3C7;
+}
+
+.email-accounts-managed-stat-card-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #07020D;
+  margin: 0 0 8px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-stat-card-label.small-margin {
+  margin: 0 0 6px 0;
+}
+
+.email-accounts-managed-stat-card-label.email-accounts-managed-total-emails-label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19.5px;
+  color: #030011;
+  margin: 0 0 8px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-stat-card-value.email-accounts-managed-total-emails-value {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19.5px;
+  color: #A198CE;
+  margin: 0 0 4px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-stat-card-description.email-accounts-managed-total-emails-meta {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19.5px;
+  color: #A198CE;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-stat-card-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #A198CE;
+  margin: 0 0 4px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-stat-card-value.no-bottom-margin {
+  margin: 0 0 2px 0;
+}
+
+.email-accounts-managed-stat-card-value.no-margin {
+  margin: 0;
+}
+
+.email-accounts-managed-stat-card-description {
+  font-size: 12px;
+  font-weight: 400;
+  color: #9164FF;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-stat-card-description.green {
+  color: #9164FF;
+}
+
+.email-accounts-progress-bar-container {
+  margin-top: 12px;
+  height: 4px;
+  background-color: #E5E7EB;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.email-accounts-progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #8B5CF6;
+  border-radius: 2px;
+}
+
+/* Managed Pool Overview Card */
+.email-accounts-managed-overview-card {
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 12px;
+  position: relative;
+}
+
+.email-accounts-managed-overview-badge-container {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.email-accounts-managed-overview-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  background-color: #9164FF;
+  color: #ffffff;
+  border: none;
+  border-radius: 6.75px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-overview-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.email-accounts-managed-overview-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background-color: #EDE9FE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-accounts-managed-overview-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #030011;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  line-height: 1.25 !important;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-overview-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #a198ce;
+  margin: 0 !important;
+  margin-top: 4px !important;
+  line-height: 1.45 !important;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-overview-header > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.email-accounts-managed-overview-quota-section {
+  margin-bottom: 12px;
+}
+
+.email-accounts-managed-overview-quota-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.email-accounts-managed-overview-quota-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #A198CE;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-overview-quota-value {
+  font-size: 11px;
+  font-weight: 500;
+  color: #07020D;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-overview-quota-bar-container {
+  height: 4px;
+  background-color: #E5E7EB;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.email-accounts-managed-overview-quota-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #8B5CF6;
+  border-radius: 2px;
+}
+
+.email-accounts-managed-overview-quota-text {
+  font-size: 10px;
+  color: #A198CE;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-overview-stats-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding-top: 12px;
+  border-top: 1px solid #E5E7EB;
+}
+
+.email-accounts-managed-overview-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  flex: 1;
+}
+
+.email-accounts-managed-overview-stat-item + .email-accounts-managed-overview-stat-item {
+  border-left: 1px solid #E5E7EB;
+  padding-left: 24px;
+}
+
+.email-accounts-managed-overview-stat-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: #A198CE;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-overview-stat-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #07020D;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-overview-metrics {
+  padding-top: 12px;
+  border-top: 1px solid #E5E7EB;
+  margin-top: 12px;
+}
+
+.email-accounts-managed-overview-metrics-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 12px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-overview-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.email-accounts-managed-overview-metric-card {
+  background-color: #F0FDF4;
+  border-radius: 12px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.email-accounts-managed-overview-metric-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #10B981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.email-accounts-managed-overview-metric-content {
+  flex: 1;
+}
+
+.email-accounts-managed-overview-metric-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: #374151;
+  margin: 0 0 2px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-managed-overview-metric-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Table Styles */
+.email-accounts-table-cell {
+  padding: 12px;
+  font-size: 12px;
+  color: #111827;
+  font-family: 'Urbanist', sans-serif;
+  text-align: left;
+}
+
+.email-accounts-provider-badge {
+  padding: 2px 10px;
+  border-radius: 6.75px;
+  font-size: 11px;
+  font-weight: 500;
+  display: inline-block;
+  box-sizing: border-box;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.2;
+}
+
+.email-accounts-provider-badge.gmail {
+  background-color: #EFF6FF;
+  color: #1447E6;
+  border: 0.8px solid #BEDBFF;
+}
+
+.email-accounts-provider-badge.imap {
+  background-color: #F9FAFB;
+  color: #6B7280;
+  border: 0.8px solid #E5E7EB;
+}
+
+.email-accounts-na-text {
+  color: #6B7280;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-healthy-badge {
+  padding: 2px 10px;
+  border-radius: 6.75px;
+  font-size: 11px;
+  font-weight: 500;
+  background-color: #F0FDF4;
+  color: #008236;
+  border: 0.8px solid #B9F8CF;
+  font-family: 'Urbanist', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+.email-accounts-healthy-badge-icon {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  min-width: 8px;
+  min-height: 8px;
+}
+
+.email-accounts-status-badge {
+  padding: 2px 10px;
+  border-radius: 6.75px;
+  font-size: 11px;
+  font-weight: 500;
+  background-color: #FFFFFF;
+  border: 0.8px solid #D1D1D6;
+  font-family: 'Urbanist', sans-serif;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 1.2;
+}
+
+.email-accounts-status-badge.active {
+  color: #00A63E;
+}
+
+.email-accounts-status-badge.inactive {
+  color: #F54900;
+}
+
+.email-accounts-delivery-rate {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 600;
+}
+
+.email-accounts-delivery-rate-na {
+  color: #6B7280;
+  font-weight: 400;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Empty State */
+.email-accounts-empty-state {
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.email-accounts-empty-state-icon {
+  margin-bottom: 10px;
+}
+
+.email-accounts-empty-state-icon-inner {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.email-accounts-empty-state-icon-inner img {
+  width: 60px !important;
+  height: 60px !important;
+  display: block;
+  object-fit: contain;
+}
+
+.email-accounts-empty-state-title {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 120%;
+  color: #030011;
+  margin: 0 0 8px 0 !important;
+  font-family: 'Urbanist', sans-serif;
+}
+
+#root .dashboard-main-container .email-accounts-empty-state-title {
+  font-size: 30px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  color: #030011 !important;
+  letter-spacing: normal !important;
+}
+
+.email-accounts-empty-state-description {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 145%;
+  color: #a198ce;
+  margin: 0 0 24px 0 !important;
+  font-family: 'Urbanist', sans-serif;
+  max-width: 560px;
+}
+
+#root .dashboard-main-container .email-accounts-empty-state-description {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  letter-spacing: normal !important;
+}
+
+.email-accounts-empty-state-button {
+  height: auto;
+  width: auto;
+  display: block;
+}
+
+/* Loading State */
+.email-accounts-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.email-accounts-loading-text {
+  color: #6B7280;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-imap-form-container {
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: '8px';
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.email-accounts-imap-form-section {
+  margin-bottom: 16px;
+}
+
+.email-accounts-imap-form-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 12px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-imap-form-description {
+  font-size: 12px;
+  color: #6B7280;
+  margin: 0 0 16px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.email-accounts-table-header-row {
+  border-bottom: 1px solid #E5E7EB;
+  background-color: var(--dashboard-table-header-bg) !important;
+}
+
+.email-accounts-table-row {
+  border-bottom: 1px solid #E5E7EB;
+}
+
+/* IMAP Form Help Section */
+.email-accounts-imap-help-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid #E5E7EB;
+}
+
+.email-accounts-imap-help-item:not(:first-child),
+.email-accounts-instructions-item:not(:first-child) {
+  margin-top: 8px;
+}
+
+.email-accounts-imap-help-item {
+  display: flex;
+  gap: 8px;
+}
+
+.email-accounts-imap-help-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.email-accounts-imap-help-icon.purple {
+  background-color: transparent;
+}
+
+.email-accounts-imap-help-icon.blue {
+  background-color: #DBEAFE;
+}
+
+.email-accounts-imap-help-icon.green {
+  background-color: #D1FAE5;
+}
+
+.email-accounts-imap-help-icon.yellow {
+  background-color: #FEF3C7;
+}
+
+.email-accounts-imap-help-content {
+  flex: 1;
+}
+
+.email-accounts-imap-help-title,
+.email-accounts-imap-help-title.heading-m,
+h4.email-accounts-imap-help-title.heading-m,
+.dashboard-main-container .email-accounts-imap-help-title,
+.dashboard-main-container .email-accounts-imap-help-title.heading-m,
+.dashboard-main-container h4.email-accounts-imap-help-title.heading-m {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #030011 !important;
+  margin-bottom: 0 !important;
+  line-height: 145% !important;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-imap-help-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #a198ce;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 145%;
+}
+
+#root .dashboard-main-container .email-accounts-imap-help-text {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  letter-spacing: normal !important;
+}
+
+#root .dashboard-main-container .email-accounts-imap-help-title {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #030011 !important;
+  letter-spacing: normal !important;
+}
+
+/* Bounce Rate Card */
+.email-accounts-bounce-rate-card {
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 12px 16px;
+  position: relative;
+}
+
+.email-accounts-bounce-rate-icon-container {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  /* Same pastel as second/ fourth cards (A198CE 20%) */
+  background-color: #E4DFFC !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Make stat card icons themselves larger */
+.email-accounts-managed-stat-card-icon-container svg,
+.email-accounts-bounce-rate-icon-container svg {
+  width: 20px;
+  height: 20px;
+}
+
+.email-accounts-bounce-rate-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6B7280;
+  margin: 0 0 6px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-bounce-rate-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 2px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-bounce-rate-description {
+  font-size: 12px;
+  font-weight: 400;
+  color: #9164FF;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Performance Metrics Cards */
+.email-accounts-performance-metric-card-delivery {
+  /* Full-width pill card, Delivery Rate – 9164FF at 10% */
+  background-color: rgba(145, 100, 255, 0.1);
+  border-radius: 16px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.email-accounts-performance-metric-card-bounce {
+  /* Full-width pill card, Bounce Rate – A198CE at 10% */
+  background-color: rgba(161, 152, 206, 0.1);
+  border-radius: 16px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.email-accounts-performance-metric-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.email-accounts-performance-metric-icon-delivery {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D458FF 0%, #6B21A8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.email-accounts-performance-metric-icon-bounce {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D458FF 0%, #6B21A8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.email-accounts-performance-metric-content {
+  flex: 1;
+}
+
+.email-accounts-performance-metric-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: #07020D;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-performance-metric-value-delivery {
+  font-size: 14px;
+  font-weight: 600;
+  color: #A198CE;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-performance-metric-value-bounce {
+  font-size: 14px;
+  font-weight: 600;
+  color: #A198CE;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Empty State - Managed Pool */
+.email-accounts-empty-managed-pool {
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.email-accounts-empty-managed-pool-icon {
+  margin-bottom: 0;
+}
+
+.email-accounts-empty-managed-pool-icon-inner {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.email-accounts-empty-managed-pool-icon-inner img {
+  width: 48px !important;
+  height: 48px !important;
+  display: block;
+}
+
+.email-accounts-empty-managed-pool-title {
+  font-size: 30px;
+  font-weight: 500;
+  color: #030011;
+  margin: 0 0 8px 0 !important;
+  line-height: 120% !important;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-empty-managed-pool-title.heading-l {
+  margin: 0 0 8px 0 !important;
+  line-height: 120% !important;
+}
+
+#root .dashboard-main-container .email-accounts-empty-managed-pool-title {
+  font-size: 30px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  color: #030011 !important;
+  letter-spacing: normal !important;
+}
+
+.email-accounts-empty-managed-pool-description {
+  font-size: 18px;
+  font-weight: 400;
+  color: #a198ce;
+  margin: 0 0 24px 0 !important;
+  line-height: 145% !important;
+  font-family: 'Urbanist', sans-serif;
+  max-width: 560px;
+}
+
+#root .dashboard-main-container .email-accounts-empty-managed-pool-description {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  letter-spacing: normal !important;
+}
+
+.email-accounts-empty-managed-pool-button {
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.email-accounts-empty-managed-pool-button:not(.create-campaign-style-button):hover,
+.email-accounts-empty-managed-pool-button:not(.create-campaign-style-button):active,
+.email-accounts-empty-managed-pool-button:not(.create-campaign-style-button):focus {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.email-accounts-empty-managed-pool-button-img {
+  height: auto;
+  width: auto;
+  display: block;
+}
+
+/* Configure Managed Pool — primary (solid #9164FF, same as evecta / Let’s Connect CTA; no gradient) */
+.email-accounts-empty-managed-pool-button.create-campaign-style-button {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 145% !important;
+  letter-spacing: normal !important;
+  font-family: 'Urbanist', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  background-color: #9164ff !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: none !important;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease;
+}
+
+.email-accounts-empty-managed-pool-button.create-campaign-style-button:hover:not(:disabled),
+.email-accounts-empty-managed-pool-button.create-campaign-style-button:active:not(:disabled) {
+  background-color: #9164ff !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.email-accounts-empty-managed-pool-button.create-campaign-style-button:focus-visible {
+  outline: 2px solid rgba(145, 100, 255, 0.55);
+  outline-offset: 2px;
+}
+
+#root .dashboard-main-container .email-accounts-empty-managed-pool-button.create-campaign-style-button {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 145% !important;
+  letter-spacing: normal !important;
+  font-family: 'Urbanist', sans-serif !important;
+  color: #ffffff !important;
+  background-color: #9164ff !important;
+  background-image: none !important;
+}
+
+.email-accounts-empty-managed-pool-button.create-campaign-style-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Loading State - Existing Accounts */
+.email-accounts-loading-existing {
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.email-accounts-loading-existing-text {
+  color: #6B7280;
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* First paint before we know dashboard vs connect cards — avoids flashing the wrong screen */
+.email-accounts-bootstrap-shell {
+  min-height: min(420px, 65vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Table Container */
+.email-accounts-table-container {
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 24px;
+  overflow-x: auto;
+}
+
+.email-accounts-table-header-section {
+  margin-bottom: 16px;
+}
+
+.email-accounts-table-header-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+  font-family: 'Urbanist', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.email-accounts-table-header-description {
+  font-size: 12px;
+  color: #6B7280;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-table-element {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.email-accounts-table-header-row {
+  border-bottom: 1px solid #E5E7EB;
+  background-color: var(--dashboard-table-header-bg) !important;
+}
+
+.email-accounts-table-header-cell {
+  padding: 12px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  font-family: 'Urbanist', sans-serif;
+  background-color: var(--dashboard-table-header-bg) !important;
+}
+
+/* Empty Existing Accounts State */
+.email-accounts-empty-existing {
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.email-accounts-empty-existing-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-empty-existing-description {
+  font-size: 12px;
+  color: #a198ce;
+  margin-bottom: 24px;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-empty-existing-button {
+  padding: 0;
+  margin: 0;
+  background: transparent !important;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: none;
+}
+
+.email-accounts-empty-existing-button:not(.create-campaign-style-button):hover,
+.email-accounts-empty-existing-button:not(.create-campaign-style-button):active,
+.email-accounts-empty-existing-button:not(.create-campaign-style-button):focus,
+.email-accounts-empty-existing-button:not(.create-campaign-style-button):focus-visible {
+  outline: none;
+  box-shadow: none;
+  border: none;
+  background: transparent !important;
+}
+
+.email-accounts-empty-existing-button-img {
+  max-width: 334px;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* "Let's Connect Your Email" — primary (solid #9164FF, same as other create-campaign-style-button) */
+.email-accounts-empty-existing-button.create-campaign-style-button {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 145% !important;
+  letter-spacing: normal !important;
+  font-family: 'Urbanist', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  background-color: #9164ff !important;
+  color: #ffffff !important;
+  border: none !important;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease;
+}
+
+.email-accounts-empty-existing-button.create-campaign-style-button:hover:not(:disabled),
+.email-accounts-empty-existing-button.create-campaign-style-button:active:not(:disabled) {
+  background-color: #9164ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.email-accounts-empty-existing-button.create-campaign-style-button:focus-visible {
+  outline: 2px solid rgba(145, 100, 255, 0.55);
+  outline-offset: 2px;
+}
+
+#root .dashboard-main-container .email-accounts-empty-existing-button.create-campaign-style-button {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 145% !important;
+  letter-spacing: normal !important;
+  font-family: 'Urbanist', sans-serif !important;
+  color: #ffffff !important;
+}
+
+.email-accounts-empty-existing-button.create-campaign-style-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Instructions Box */
+.email-accounts-instructions-box {
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 0;
+}
+
+.email-accounts-instructions-title,
+.email-accounts-instructions-title.heading-m,
+h3.email-accounts-instructions-title.heading-m,
+.dashboard-main-container .email-accounts-instructions-title,
+.dashboard-main-container .email-accounts-instructions-title.heading-m,
+.dashboard-main-container h3.email-accounts-instructions-title.heading-m,
+.dashboard-main-container h3.email-accounts-instructions-title:not(.heading-xl):not(.heading-l),
+.dashboard-main-container .email-accounts-instructions-box h3.email-accounts-instructions-title,
+.dashboard-main-container .email-accounts-instructions-box h3.email-accounts-instructions-title:not(.heading-xl):not(.heading-l) {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #030011 !important;
+  margin: 0 0 10px 0 !important;
+  line-height: 120% !important;
+  font-family: 'Urbanist', sans-serif;
+}
+
+#root .dashboard-main-container .email-accounts-instructions-box .email-accounts-instructions-title {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  color: #030011 !important;
+  letter-spacing: normal !important;
+}
+
+.email-accounts-instructions-item {
+  display: flex;
+  gap: 8px;
+}
+
+.email-accounts-instructions-icon-container {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: #D1FAE5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.email-accounts-instructions-content {
+  flex: 1;
+}
+
+.email-accounts-instructions-item-title,
+.email-accounts-instructions-item-title.heading-m,
+h4.email-accounts-instructions-item-title.heading-m,
+.dashboard-main-container .email-accounts-instructions-item-title,
+.dashboard-main-container .email-accounts-instructions-item-title.heading-m,
+.dashboard-main-container h4.email-accounts-instructions-item-title.heading-m {
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  color: #111827;
+  margin-bottom: 0 !important;
+  line-height: 1.4 !important;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-instructions-item-text {
+  font-size: 11px;
+  font-weight: 400;
+  color: #6B7280;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.4;
+}
+
+/* Title with conditional margin */
+.email-accounts-title-conditional {
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+/* Cards with conditional styles */
+.email-accounts-cards-conditional {
+  max-width: 700px;
+  grid-template-columns: 1fr;
+}
+
+.email-accounts-card-existing-conditional {
+  padding: 16px;
+  max-width: 100%;
+}
+
+.email-accounts-card-icon-existing-conditional {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 0;
+}
+
+.email-accounts-card-title-conditional {
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+.email-accounts-card-description-conditional {
+  white-space: normal;
+  margin: 0;
+  margin-top: 0;
+  margin-bottom: 16px;
+  max-width: 100%;
+  font-size: 12px;
+  line-height: 1.4;
+  display: block;
+}
+
+.email-accounts-card-description-margin {
+  margin-bottom: 16px;
+}
+
+.email-accounts-feature-flex-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.email-accounts-feature-content {
+  flex: 1;
+}
+
+.email-accounts-feature-title-conditional {
+  margin: 0 0 4px 0;
+}
+
+.existing-card .email-accounts-feature-title-conditional {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  color: #030011 !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+#root .dashboard-main-container .existing-card .email-accounts-feature-title-conditional {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  color: #030011 !important;
+  letter-spacing: normal !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.email-accounts-feature-subtitle-conditional {
+  margin: 0;
+}
+
+/* Connect-your-own helper copy — 14 regular 145% #a198ce */
+.existing-card .email-accounts-feature-subtitle-conditional {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+#root .dashboard-main-container .existing-card .email-accounts-feature-subtitle-conditional {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  letter-spacing: normal !important;
+  font-family: 'Urbanist', sans-serif !important;
+}
+
+.email-accounts-connection-options-conditional {
+  flex-direction: row;
+  align-items: stretch;
+  gap: 8px;
+  margin-top: 0;
+}
+
+.email-accounts-connection-option-conditional {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Connect Email Loader Modal */
+.connect-email-loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.consent-form-overlay {
+  overflow-y: auto;
+}
+
+/* Force left alignment of consent form content when shown as modal overlay */
+.consent-form-overlay .imap-consent-card.consent-form-card,
+.consent-form-overlay .google-consent-card.consent-form-card {
+  text-align: left !important;
+  align-items: flex-start !important;
+}
+
+.consent-form-overlay .imap-consent-title,
+.consent-form-overlay .google-consent-title,
+.consent-form-overlay .imap-consent-subtitle,
+.consent-form-overlay .google-consent-subtitle,
+.consent-form-overlay .consent-section-title,
+.consent-form-overlay .consent-section-text,
+.consent-form-overlay .consent-permission-title,
+.consent-form-overlay .consent-permission-description {
+  text-align: left !important;
+}
+
+/* Remove gap between title and subtitle on consent modals */
+.consent-form-overlay .google-consent-title,
+.consent-form-overlay .google-consent-card h1.google-consent-title {
+  margin: 0 !important;
+}
+.consent-form-overlay .google-consent-subtitle,
+.consent-form-overlay .google-consent-card .google-consent-subtitle {
+  margin-top: 0 !important;
+}
+.consent-form-overlay .imap-consent-title,
+.consent-form-overlay .imap-consent-card h1.imap-consent-title {
+  margin: 0 !important;
+}
+.consent-form-overlay .imap-consent-subtitle,
+.consent-form-overlay .imap-consent-card .imap-consent-subtitle {
+  margin-top: 0 !important;
+}
+
+/* Keep IMAP consent modal icon visible and inside the modal (same as on IMAP page) */
+.consent-form-overlay .imap-consent-card .consent-form-header,
+.consent-form-overlay .imap-consent-card .imap-logo-container {
+  flex-shrink: 0;
+}
+.consent-form-overlay .imap-consent-card .imap-logo-container {
+  min-width: 32px;
+  min-height: 32px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.connect-email-loader-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(145, 100, 255, 0.1);
+  padding: 24px;
+  max-width: 520px;
+  width: 100%;
+  position: relative;
+}
+
+.connect-email-loader-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.connect-email-loader-icon {
+  flex-shrink: 0;
+  animation: connect-email-loader-pulse 2s ease-in-out infinite;
+}
+
+@keyframes connect-email-loader-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+.connect-email-loader-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333333;
+}
+
+.connect-email-loader-close:hover {
+  opacity: 0.7;
+}
+
+.connect-email-loader-title {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  line-height: 120% !important;
+  color: #030011 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  margin: 0 0 8px 0 !important;
+  letter-spacing: normal !important;
+}
+
+.connect-email-loader-subtitle {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  font-family: 'Urbanist', sans-serif !important;
+  margin: 0 0 12px 0 !important;
+  letter-spacing: normal !important;
+}
+
+.connect-email-loader-how-it-works {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.connect-email-loader-check-icon {
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+.connect-email-loader-how-content {
+  flex: 1;
+}
+
+.connect-email-loader-how-title {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #030011 !important;
+  font-family: 'Urbanist', sans-serif !important;
+  margin: 0 0 4px 0 !important;
+  letter-spacing: normal !important;
+}
+
+.connect-email-loader-how-text {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 145% !important;
+  color: #a198ce !important;
+  font-family: 'Urbanist', sans-serif !important;
+  margin: 0 !important;
+  letter-spacing: normal !important;
+}
+
+/* IMAP Modal */
+.email-accounts-imap-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.email-accounts-imap-modal-content {
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 95vh;
+  overflow: auto;
+  position: relative;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.email-accounts-imap-modal-header-container {
+  /* Align IMAP title + subtitle with form fields below */
+  padding: 0 16px;
+}
+
+.email-accounts-imap-modal-close-row {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-right: 8px;
+}
+
+.email-accounts-imap-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: -4px;
+}
+
+.email-accounts-imap-modal-header-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.email-accounts-imap-modal-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.email-accounts-imap-modal-title-block .email-accounts-imap-modal-header-title {
+  margin-bottom: 0 !important;
+  line-height: 1 !important;
+  padding-bottom: 0 !important;
+}
+
+.email-accounts-imap-modal-title-block .email-accounts-imap-modal-subtitle {
+  margin: 0 !important;
+  margin-top: -2px !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+}
+
+.email-accounts-imap-modal-header-icon-container {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-accounts-imap-modal-header-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #111827;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-imap-modal-close-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: #6B7280;
+}
+
+.email-accounts-imap-modal-subtitle {
+  font-size: 9px;
+  color: #A198CE;
+  margin: 0;
+  padding-left: 0;
+  line-height: 1.2;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-imap-modal-body {
+  padding: 16px;
+}
+
+.email-accounts-imap-modal-section {
+  margin-bottom: 16px;
+}
+
+.email-accounts-imap-modal-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 10px;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-imap-modal-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.email-accounts-imap-modal-form-grid-full {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.email-accounts-imap-modal-label {
+  font-size: 9px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 4px;
+  display: block;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-imap-modal-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(145, 100, 255, 0.2);
+  border-radius: 12px;
+  font-size: 12px;
+  font-family: 'Urbanist', sans-serif;
+  color: #000000;
+  background-color: #FFFFFF;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+.email-accounts-imap-modal-input::placeholder {
+  color: #A198CE !important;
+}
+
+.email-accounts-imap-modal-input::-webkit-input-placeholder {
+  color: #A198CE !important;
+}
+
+.email-accounts-imap-modal-input::-moz-placeholder {
+  color: #A198CE !important;
+  opacity: 1;
+}
+
+.email-accounts-imap-modal-input:focus {
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  outline: none;
+  box-shadow: none;
+}
+
+.email-accounts-imap-modal-input-password {
+  width: 100%;
+  padding: 10px 12px;
+  padding-right: 3.5rem;
+  border: 1px solid rgba(145, 100, 255, 0.2);
+  border-radius: 12px;
+  font-size: 12px;
+  font-family: 'Urbanist', sans-serif;
+  color: #000000;
+  background-color: #FFFFFF;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+.email-accounts-imap-modal-input-password::placeholder {
+  color: #A198CE !important;
+}
+
+.email-accounts-imap-modal-input-password::-webkit-input-placeholder {
+  color: #A198CE !important;
+}
+
+.email-accounts-imap-modal-input-password::-moz-placeholder {
+  color: #A198CE !important;
+  opacity: 1;
+}
+
+.email-accounts-imap-modal-input-password:focus {
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Override dashboard global border-color so purple (#9164FF 20%) is visible */
+.email-accounts-imap-modal-content .email-accounts-imap-modal-input,
+.email-accounts-imap-modal-content .email-accounts-imap-modal-input-password {
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+}
+
+.email-accounts-imap-modal-content .email-accounts-imap-modal-input:focus,
+.email-accounts-imap-modal-content .email-accounts-imap-modal-input-password:focus {
+  border-color: rgba(145, 100, 255, 0.2) !important;
+}
+
+.email-accounts-imap-modal-password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* IMAP modal password toggle — fixed slot; no translateY (global button rules override it on hover) */
+.email-accounts-imap-modal-content .email-accounts-imap-modal-password-container .password-toggle-button,
+.email-accounts-imap-modal-content .email-accounts-imap-modal-password-container .password-toggle-button:hover,
+.email-accounts-imap-modal-content .email-accounts-imap-modal-password-container .password-toggle-button:focus,
+.email-accounts-imap-modal-content .email-accounts-imap-modal-password-container .password-toggle-button:focus-visible,
+.email-accounts-imap-modal-content .email-accounts-imap-modal-password-container .password-toggle-button:active {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  right: 1.25rem !important;
+  left: auto !important;
+  margin: auto 0 !important;
+  transform: none !important;
+  color: #a198ce !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  padding: 0 !important;
+  border: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  letter-spacing: 0 !important;
+  font-weight: 400 !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.15s ease !important;
+}
+
+.email-accounts-imap-modal-content .email-accounts-imap-modal-password-container .password-toggle-button:hover,
+.email-accounts-imap-modal-content .email-accounts-imap-modal-password-container .password-toggle-button:focus,
+.email-accounts-imap-modal-content .email-accounts-imap-modal-password-container .password-toggle-button:focus-visible {
+  color: #8b7fc9 !important;
+}
+
+.email-accounts-imap-modal-content .email-accounts-imap-modal-password-container .password-toggle-button svg,
+.email-accounts-imap-modal-content .email-accounts-imap-modal-password-container .password-toggle-button .email-accounts-eye-icon {
+  width: 18px !important;
+  height: 18px !important;
+  flex-shrink: 0 !important;
+  display: block !important;
+  transform: none !important;
+}
+
+.email-accounts-imap-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+/* Connect Account button - same style as Create Campaign button */
+.email-accounts-imap-modal-button.create-campaign-style-button {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Urbanist', sans-serif;
+  background-color: #9164FF !important;
+  color: white !important;
+  border: none !important;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.email-accounts-imap-modal-button.create-campaign-style-button:hover:not(:disabled),
+.email-accounts-imap-modal-button.create-campaign-style-button:active:not(:disabled) {
+  background-color: #9164FF !important;
+  color: white !important;
+}
+
+.email-accounts-imap-modal-button.create-campaign-style-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.email-accounts-imap-modal-security-note {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background-color: #F9FAFB;
+  border: 1px solid rgba(145, 100, 255, 0.2);
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+.email-accounts-imap-modal-security-note-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.email-accounts-imap-modal-security-note-content {
+  flex: 1;
+}
+
+.email-accounts-imap-modal-security-note-title {
+  font-size: 11px;
+  color: #07020D;
+  margin: 0;
+  margin-bottom: 4px;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.email-accounts-imap-modal-security-note-text {
+  font-size: 9px;
+  color: #A198CE;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* Override dashboard global border so Security Note shows #9164FF 20% */
+.email-accounts-imap-modal-content .email-accounts-imap-modal-security-note {
+  border: 1px solid rgba(145, 100, 255, 0.2) !important;
+  border-color: rgba(145, 100, 255, 0.2) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+}
+
+.email-accounts-imap-modal-help-text {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+}
+
+.email-accounts-imap-modal-help-text-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.email-accounts-imap-modal-help-text-content {
+  flex: 1;
+}
+
+.email-accounts-imap-modal-help-text-title {
+  font-size: 10px;
+  color: #07020D;
+  margin: 0;
+  margin-bottom: 4px;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.email-accounts-imap-modal-help-text-description {
+  font-size: 9px;
+  color: #6B7280;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* Error/Success Toast */
+.email-accounts-toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2147483647;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.email-accounts-toast-content {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 16px 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #D458FF 0%, #6B21A8 100%);
+  border: none;
+}
+
+.email-accounts-toast-content.success {
+  background: linear-gradient(135deg, #D458FF 0%, #6B21A8 100%);
+  border: none;
+}
+
+.email-accounts-toast-content.error {
+  background: linear-gradient(135deg, #D458FF 0%, #6B21A8 100%);
+  border: none;
+}
+
+.email-accounts-toast-icon-container {
+  display: none;
+}
+
+.email-accounts-toast-body {
+  flex: 1;
+}
+
+.email-accounts-toast-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-toast-title.success {
+  color: #FFFFFF;
+}
+
+.email-accounts-toast-title.error {
+  color: #FFFFFF;
+}
+
+.email-accounts-toast-message {
+  font-size: 10px;
+  margin: 0;
+  line-height: 1.5;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.email-accounts-toast-message.success {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.email-accounts-toast-message.error {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.email-accounts-toast-close-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  flex-shrink: 0;
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.email-accounts-toast-close-button.success {
+  color: #FFFFFF;
+}
+
+.email-accounts-toast-close-button.error {
+  color: #FFFFFF;
+}
+
+.email-accounts-toast-close-button:hover {
+  opacity: 1;
+}
+
+.email-accounts-toast-accent-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+}
+
+.email-accounts-toast-accent-bar.success {
+  background: #6B21A8;
+}
+
+.email-accounts-toast-accent-bar.error {
+  background: #6B21A8;
+}
+
+/* Eye icon styles */
+.email-accounts-eye-icon {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Connect IMAP — 14 semibold (Urbanist) */
+.email-accounts-imap-modal-content h2.email-accounts-imap-modal-header-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+

@@ -1,0 +1,187 @@
+/**
+ * Sitewide button hover — loaded after dashboard + EvectaDialog in index.tsx.
+ * Uses high specificity so route-level "no hover" rules do not silence feedback.
+ */
+
+/* Hover must not shift label position (no transform / font-size / weight jumps) */
+html body .dashboard-main-container button:not(:disabled):not(.no-button-effects):hover,
+html body .dashboard-main-container [data-slot="button"]:not(:disabled):not(.no-button-effects):hover {
+  transform: none !important;
+  letter-spacing: inherit !important;
+}
+
+/* Smooth transitions on interactive buttons */
+html body button:not(:disabled):not(.no-button-effects):not(.lead-generation-suggestion-tag):not(.lead-generation-recovery-action):not(.lead-generation-main-input-submit):not(.sidebar-credits-buy):not(.sidebar-nav-button-inactive):not(.sidebar-nav-active-gradient),
+html body [data-slot="button"]:not(:disabled):not(.no-button-effects):not(.lead-generation-main-input-submit):not(.sidebar-nav-button-inactive):not(.sidebar-nav-active-gradient),
+html body a.evecta-primary-btn:not(:disabled),
+html body a.evecta-secondary-btn:not(:disabled),
+html body .evecta-dialog-btn:not(:disabled),
+html body .evecta-destructive-btn:not(:disabled) {
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease !important;
+}
+
+/* --- Primary (purple fill) --- */
+html body .evecta-primary-btn:hover:not(:disabled),
+html body button.evecta-primary-btn:hover:not(:disabled),
+html body a.evecta-primary-btn:hover:not(:disabled),
+html body [data-slot="button"].evecta-primary-btn:hover:not(:disabled),
+html body .evecta-dialog-btn.evecta-dialog-btn--primary:hover:not(:disabled),
+html body .btn-primary:hover:not(:disabled),
+html body .homepage .homepage-hero-primary-btn:hover:not(:disabled),
+html body .homepage .hero-cta-button:hover:not(:disabled),
+html body .homepage .cta-final-button:hover:not(:disabled),
+html body .homepage .header-get-started-button:hover:not(:disabled),
+html body .contact-frame-submit:hover:not(:disabled),
+html body .cle-preview-approve-btn:hover:not(:disabled),
+html body .submit-button:hover:not(:disabled),
+html body .auth-card-right .submit-button:hover:not(:disabled),
+html body .lead-database-filter-clear-btn:hover:not(:disabled) {
+  background-color: #8058f0 !important;
+  background: #8058f0 !important;
+  border: 1px solid rgba(208, 213, 221, 0.3) !important;
+  border-color: rgba(208, 213, 221, 0.3) !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+html body .lead-database-filter-clear-btn:hover:not(:disabled) {
+  border: none !important;
+  font-size: 0.9375rem !important;
+  font-weight: 500 !important;
+  line-height: normal !important;
+}
+
+html body .evecta-primary-btn:hover:not(:disabled) svg,
+html body button.evecta-primary-btn:hover:not(:disabled) svg,
+html body .evecta-dialog-btn.evecta-dialog-btn--primary:hover:not(:disabled) svg,
+html body .cle-preview-approve-btn:hover:not(:disabled) svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* --- Secondary (outline) --- */
+html body .evecta-secondary-btn:hover:not(:disabled),
+html body button.evecta-secondary-btn:hover:not(:disabled),
+html body a.evecta-secondary-btn:hover:not(:disabled),
+html body [data-slot="button"].evecta-secondary-btn:hover:not(:disabled),
+html body .evecta-dialog-btn.evecta-dialog-btn--secondary:hover:not(:disabled),
+html body .btn-secondary:hover:not(:disabled),
+html body .homepage .homepage-hero-secondary-btn:hover:not(:disabled),
+html body .cle-preview-nav-btn:hover:not(:disabled),
+html body .cle-preview-close-btn:hover:not(:disabled),
+html body .cle-preview-edit-btn:hover:not(:disabled),
+html body .cle-preview-close:hover:not(:disabled) {
+  background-color: #f9fafb !important;
+  background: #f9fafb !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: #9ca3af !important;
+  color: #030011 !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+html body .evecta-secondary-btn:hover:not(:disabled) svg,
+html body button.evecta-secondary-btn:hover:not(:disabled) svg,
+html body .evecta-dialog-btn.evecta-dialog-btn--secondary:hover:not(:disabled) svg {
+  color: #030011 !important;
+  stroke: #030011 !important;
+}
+
+/* Dialog secondary keeps purple label text */
+html body .evecta-dialog-btn.evecta-dialog-btn--secondary:hover:not(:disabled) {
+  color: #9164ff !important;
+}
+
+/* --- Destructive (red outline) — reinforce shared token --- */
+html body .evecta-destructive-btn:hover:not(:disabled),
+html body button.evecta-destructive-btn:hover:not(:disabled),
+html body [data-slot="button"].evecta-destructive-btn:hover:not(:disabled),
+html body .evecta-dialog-btn.evecta-dialog-btn--destructive:hover:not(:disabled) {
+  background-color: #fef2f2 !important;
+  background: #fef2f2 !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: #fca5a5 !important;
+  color: #ff0004 !important;
+}
+
+/* --- Purple outline utility (regenerate, etc.) --- */
+html body .cle-gen-regenerate-all:hover:not(:disabled),
+html body .cle-preview-regenerate-btn:hover:not(:disabled) {
+  background-color: #e6e2ff !important;
+  background: #e6e2ff !important;
+  border-color: #b9b1f5 !important;
+  color: #6d5ef0 !important;
+}
+
+/* --- Marketing / homepage accents --- */
+html body .homepage .chat-send-button:hover:not(:disabled),
+html body .homepage .floating-chat-button:hover:not(:disabled) {
+  background-color: #7c4dff !important;
+  background: #7c4dff !important;
+}
+
+html body .homepage header button[data-slot="button"]:hover:not(:disabled),
+html body .homepage .chat-sign-in-button:hover:not(:disabled) {
+  background-color: rgba(145, 100, 255, 0.08) !important;
+  color: #7c3aed !important;
+}
+
+html body .lead-generation-suggestion-tag,
+html body .lead-generation-main-input-submit,
+html body .sidebar-credits-buy {
+  transition: none !important;
+}
+
+/* AI Lead Gen welcome — no hover tint on chips, send, or credits buy */
+html body .lead-generation-suggestion-tag:hover:not(:disabled),
+html body .lead-generation-suggestion-tag:focus-visible:not(:disabled),
+html body .lead-generation-suggestion-tag:active:not(:disabled) {
+  background-color: #9164ff !important;
+  background: #9164ff !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+html body .lead-generation-suggestion-tag:hover:not(:disabled) .lead-generation-tag-icon,
+html body .lead-generation-suggestion-tag:hover:not(:disabled) .lead-generation-tag-label,
+html body .lead-generation-suggestion-tag:hover:not(:disabled) .lead-generation-tag-chevron {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+html body button.lead-generation-main-input-submit:hover:not(:disabled),
+html body .lead-generation-main-input-submit:hover:not(:disabled) {
+  background-color: #c5b4f3 !important;
+  background: #c5b4f3 !important;
+  color: #ffffff !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+html body button.lead-generation-main-input-submit.lead-generation-main-input-submit-filled:hover:not(:disabled),
+html body .lead-generation-main-input-submit.lead-generation-main-input-submit-filled:hover:not(:disabled) {
+  background-color: #9164ff !important;
+  background: #9164ff !important;
+  box-shadow: 0 2px 16px rgba(145, 100, 255, 0.55) !important;
+}
+
+html body .sidebar-credits-buy:hover:not(:disabled),
+html body .sidebar-credits-buy:focus-visible:not(:disabled) {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+/* Intentionally no generic dashboard button hover — it caused border/font layout shifts on custom buttons (e.g. Clear Filters). */
