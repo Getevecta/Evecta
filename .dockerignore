@@ -1,0 +1,40 @@
+# Version control and CI
+.git
+.github
+.gitignore
+
+# Secrets — configuration is supplied as environment variables at runtime
+**/.env
+**/.env.*
+!backend/.env.example
+**/*.pem
+**/*.key
+
+# Python
+backend/env/
+backend/venv/
+backend/.venv/
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+backend/tests/
+backend/*.log
+backend/logs/
+
+# Frontend dependencies and build output (rebuilt inside the image)
+Frontend/node_modules/
+Frontend/build/
+Frontend/dist/
+
+# Docs and local tooling
+docs/
+source-docs/
+# Root-level notes only. Do NOT widen to **/*.md: backend/app/knowledge/corpus/*.md
+# and backend/app/email_engine/rules/**/*.md are loaded at runtime.
+*.md
+.vscode/
+.idea/
+.claude/
+**/.DS_Store
+**/Thumbs.db
