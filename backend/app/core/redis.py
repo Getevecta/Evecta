@@ -10,12 +10,7 @@ _redis: Redis | None = None
 
 async def init_redis() -> None:
     global _redis
-    _redis = Redis(
-        host=settings.REDIS_HOST,
-        port=settings.REDIS_PORT,
-        db=settings.REDIS_DB,
-        decode_responses=True,
-    )
+    _redis = Redis.from_url(settings.redis_cache_url, decode_responses=True)
     try:
         await _redis.ping()
     except Exception as e:

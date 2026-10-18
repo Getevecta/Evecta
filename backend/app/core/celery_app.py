@@ -3,6 +3,7 @@ from celery.schedules import crontab
 from app.core.config import get_settings
 from app.utils.log_redaction import redact_url_credentials
 import logging
+import ssl
 
 logger = logging.getLogger(__name__)
 
@@ -38,6 +39,14 @@ celery_app.conf.update(
     broker_connection_max_retries=3,
 
 )
+
+# rediss:// (e.g. Upstash): verify the server certificate. Without this kombu
+# silently falls back to CERT_NONE for the broker and the result backend refuses
+# to start. Applied only to TLS URLs — plain redis:// rejects ssl options.
+if (settings.REDIS_URL or "").startswith("rediss://"):
+    celery_app.conf.broker_use_ssl = {"ssl_cert_reqs": ssl.CERT_REQUIRED}
+if (settings.REDIS_RESULT_URL or "").startswith("rediss://"):
+    celery_app.conf.redis_backend_use_ssl = {"ssl_cert_reqs": ssl.CERT_REQUIRED}
 
 celery_app.conf.beat_schedule = {
     "dispatch-email-jobs-every-60s": {

@@ -2,6 +2,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import PostgresDsn
 from typing import Optional
 from functools import lru_cache
+from urllib.parse import quote
 import os
 
 # Canonical environment names. Every production/local decision must use these helpers.
@@ -122,6 +123,10 @@ class Settings(BaseSettings):
     REDIS_HOST: str = "localhost"
     REDIS_PORT: int = 6379
     REDIS_DB: int = 0
+    # Managed Redis (e.g. Upstash) needs AUTH and TLS; both default off so plain
+    # local / self-hosted Redis keeps connecting exactly as before.
+    REDIS_PASSWORD: Optional[str] = None
+    REDIS_SSL: bool = False
     REDIS_URL: Optional[str] = None
     REDIS_RESULT_URL: Optional[str] = None
 
@@ -285,9 +290,7 @@ class Settings(BaseSettings):
 
         # Auto-build Redis URL if not explicitly provided
         if not self.REDIS_URL:
-            self.REDIS_URL = (
-                f"redis://{self.REDIS_HOST}:{self.REDIS_PORT}/{self.REDIS_DB}"
-            )
+            self.REDIS_URL = self.redis_cache_url
 
         # Warn at startup about empty critical config values
         _critical = {
@@ -318,6 +321,15 @@ class Settings(BaseSettings):
         """
         if self.DATABASE_URL:
             return str(self.DATABASE_URL)
+        if self.POSTGRES_HOST.startswith("/"):
+            # Unix socket directory, e.g. Cloud Run's /cloudsql/PROJECT:REGION:INSTANCE.
+            # The path cannot sit in the netloc, so pass it as ?host=; asyncpg and
+            # libpq both connect to <dir>/.s.PGSQL.5432.
+            return (
+                f"postgresql+asyncpg://{quote(self.POSTGRES_USER, safe='')}"
+                f":{quote(self.POSTGRES_PASSWORD, safe='')}"
+                f"@/{self.POSTGRES_DB}?host={self.POSTGRES_HOST}"
+            )
         return (
             f"postgresql+asyncpg://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}"
             f"@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
@@ -332,6 +344,17 @@ class Settings(BaseSettings):
         Example: postgresql://user:password@localhost:5432/dbname
         """
         return self.async_database_url.replace("+asyncpg", "")
+
+    @property
+    def redis_cache_url(self) -> str:
+        """
+        Redis URL for the app's own clients (cache, auth state, rate limiter),
+        built from REDIS_HOST/PORT/DB plus optional REDIS_PASSWORD / REDIS_SSL.
+        Example: rediss://:password@host.upstash.io:6379/0
+        """
+        scheme = "rediss" if self.REDIS_SSL else "redis"
+        auth = f":{quote(self.REDIS_PASSWORD, safe='')}@" if self.REDIS_PASSWORD else ""
+        return f"{scheme}://{auth}{self.REDIS_HOST}:{self.REDIS_PORT}/{self.REDIS_DB}"
 
     def get_base_url(self) -> str:
         """

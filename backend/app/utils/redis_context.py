@@ -13,10 +13,8 @@ settings = get_settings()
 
 # Initialize Redis client
 try:
-    redis_client = redis.Redis(
-        host=settings.REDIS_HOST,
-        port=settings.REDIS_PORT,
-        db=settings.REDIS_DB,
+    redis_client = redis.Redis.from_url(
+        settings.redis_cache_url,
         decode_responses=True,
         socket_connect_timeout=5,
         socket_keepalive=True,
