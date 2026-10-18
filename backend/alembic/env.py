@@ -13,7 +13,8 @@ import app.models
 settings = get_settings()
 config = context.config
 fileConfig(config.config_file_name)
-config.set_main_option("sqlalchemy.url", settings.async_database_url)
+# ConfigParser treats "%" as interpolation; URL-encoded passwords contain it.
+config.set_main_option("sqlalchemy.url", settings.async_database_url.replace("%", "%%"))
 
 target_metadata = Base.metadata
 
