@@ -24,5 +24,6 @@ def get_user_or_ip(request: Request) -> str:
 
 limiter = Limiter(
     key_func=get_user_or_ip,
-    storage_uri=settings.redis_cache_url
+    storage_uri=settings.redis_cache_url,
+    storage_options=settings.redis_ssl_options,
 )

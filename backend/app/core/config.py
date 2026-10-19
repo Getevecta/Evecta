@@ -127,6 +127,12 @@ class Settings(BaseSettings):
     # local / self-hosted Redis keeps connecting exactly as before.
     REDIS_PASSWORD: Optional[str] = None
     REDIS_SSL: bool = False
+    # Mutual TLS (a self-hosted Redis that requires a client certificate): PEM file
+    # paths — on Cloud Run, Secret Manager secrets mounted as files. Unset means no
+    # client certificate (Upstash) and the system CA store verifies the server.
+    REDIS_SSL_CERTFILE: Optional[str] = None
+    REDIS_SSL_KEYFILE: Optional[str] = None
+    REDIS_SSL_CA_CERTS: Optional[str] = None
     REDIS_URL: Optional[str] = None
     REDIS_RESULT_URL: Optional[str] = None
 
@@ -288,6 +294,8 @@ class Settings(BaseSettings):
         import logging
         _logger = logging.getLogger(__name__)
 
+        self._validate_redis_tls_files()
+
         # Auto-build Redis URL if not explicitly provided
         if not self.REDIS_URL:
             self.REDIS_URL = self.redis_cache_url
@@ -355,6 +363,36 @@ class Settings(BaseSettings):
         scheme = "rediss" if self.REDIS_SSL else "redis"
         auth = f":{quote(self.REDIS_PASSWORD, safe='')}@" if self.REDIS_PASSWORD else ""
         return f"{scheme}://{auth}{self.REDIS_HOST}:{self.REDIS_PORT}/{self.REDIS_DB}"
+
+    @property
+    def redis_ssl_options(self) -> dict:
+        """
+        Client certificate / CA options shared by every Redis client: redis-py,
+        Kombu (broker), the Celery result backend and the rate limiter. Empty unless
+        mutual TLS is configured, so existing setups connect exactly as before.
+        """
+        options = {
+            "ssl_certfile": self.REDIS_SSL_CERTFILE,
+            "ssl_keyfile": self.REDIS_SSL_KEYFILE,
+            "ssl_ca_certs": self.REDIS_SSL_CA_CERTS,
+        }
+        return {k: v for k, v in options.items() if v}
+
+    def _validate_redis_tls_files(self) -> None:
+        """Fail at startup, with the variable name, instead of on the first Redis call."""
+        if bool(self.REDIS_SSL_CERTFILE) != bool(self.REDIS_SSL_KEYFILE):
+            raise ValueError("APP_REDIS_SSL_CERTFILE and APP_REDIS_SSL_KEYFILE must be set together")
+        files = {
+            "APP_REDIS_SSL_CERTFILE": self.REDIS_SSL_CERTFILE,
+            "APP_REDIS_SSL_KEYFILE": self.REDIS_SSL_KEYFILE,
+            "APP_REDIS_SSL_CA_CERTS": self.REDIS_SSL_CA_CERTS,
+        }
+        files = {name: path for name, path in files.items() if path}
+        if files and not self.REDIS_SSL:
+            raise ValueError(f"{', '.join(files)} set but APP_REDIS_SSL is false (TLS is required)")
+        for name, path in files.items():
+            if not os.path.isfile(path) or not os.access(path, os.R_OK):
+                raise ValueError(f"{name}={path} is not a readable file")
 
     def get_base_url(self) -> str:
         """

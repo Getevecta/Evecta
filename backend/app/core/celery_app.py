@@ -40,13 +40,25 @@ celery_app.conf.update(
 
 )
 
-# rediss:// (e.g. Upstash): verify the server certificate. Without this kombu
-# silently falls back to CERT_NONE for the broker and the result backend refuses
-# to start. Applied only to TLS URLs — plain redis:// rejects ssl options.
-if (settings.REDIS_URL or "").startswith("rediss://"):
-    celery_app.conf.broker_use_ssl = {"ssl_cert_reqs": ssl.CERT_REQUIRED}
-if (settings.REDIS_RESULT_URL or "").startswith("rediss://"):
-    celery_app.conf.redis_backend_use_ssl = {"ssl_cert_reqs": ssl.CERT_REQUIRED}
+def redis_tls_options(url, cfg=settings):
+    """TLS settings for a Celery Redis URL, or None for plain redis://.
+
+    Always verifies the server certificate — without this kombu silently falls back
+    to CERT_NONE for the broker and the result backend refuses to start — and adds
+    the client certificate when mutual TLS is configured. Plain redis:// rejects ssl
+    options, so they are only applied to rediss:// URLs.
+    """
+    if not (url or "").startswith("rediss://"):
+        return None
+    return {"ssl_cert_reqs": ssl.CERT_REQUIRED, **cfg.redis_ssl_options}
+
+
+_broker_tls = redis_tls_options(settings.REDIS_URL)
+if _broker_tls:
+    celery_app.conf.broker_use_ssl = _broker_tls
+_backend_tls = redis_tls_options(settings.REDIS_RESULT_URL)
+if _backend_tls:
+    celery_app.conf.redis_backend_use_ssl = _backend_tls
 
 celery_app.conf.beat_schedule = {
     "dispatch-email-jobs-every-60s": {

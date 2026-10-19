@@ -16,6 +16,7 @@ try:
     redis_client = redis.Redis.from_url(
         settings.redis_cache_url,
         decode_responses=True,
+        **settings.redis_ssl_options,
         socket_connect_timeout=5,
         socket_keepalive=True,
         health_check_interval=30,
