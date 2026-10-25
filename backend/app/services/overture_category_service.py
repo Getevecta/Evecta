@@ -8,9 +8,11 @@ Overture category taxonomy + alias resolution.
 - resolve_overture_categories(): the dynamic resolver (alias -> trigram -> LLM -> fallback).
 """
 
+import asyncio
 import csv
 import io
 import logging
+import weakref
 
 import httpx
 from sqlalchemy import text
@@ -145,27 +147,34 @@ async def seed_aliases_from_static_map(db: AsyncSession) -> int:
 # normalizes to "childcare" and hits the same alias.
 _ALIAS_NOISE_SUFFIXES = {"centre", "center", "centres", "centers", "co", "ltd", "inc", "llc"}
 
-_category_llm = None
-_category_llm_init = False
+# One client per event loop: the Gemini client binds its async channel to the loop of
+# its first call, and Celery tasks each run (and close) their own loop, so a single
+# process-wide client fails every task after the first.
+_category_llm_by_loop: "weakref.WeakKeyDictionary[asyncio.AbstractEventLoop, object]" = weakref.WeakKeyDictionary()
 
 
 def _get_category_llm():
-    """Lazily build a Gemini client for category mapping (None if no API key)."""
-    global _category_llm, _category_llm_init
-    if not _category_llm_init:
-        _category_llm_init = True
-        try:
-            from langchain_google_genai import ChatGoogleGenerativeAI
-            from app.core.config import get_settings
-            s = get_settings()
-            if s.GEMINI_API_KEY:
-                _category_llm = ChatGoogleGenerativeAI(
-                    model=s.GEMINI_MODEL, google_api_key=s.GEMINI_API_KEY, temperature=0,
-                )
-        except Exception:
-            logger.warning("[OVERTURE_CAT] Could not init category LLM", exc_info=True)
-            _category_llm = None
-    return _category_llm
+    """Gemini client for category mapping in the running event loop (None if no API key)."""
+    try:
+        loop = asyncio.get_running_loop()
+    except RuntimeError:
+        loop = None
+    if loop is not None and loop in _category_llm_by_loop:
+        return _category_llm_by_loop[loop]
+    llm = None
+    try:
+        from langchain_google_genai import ChatGoogleGenerativeAI
+        from app.core.config import get_settings
+        s = get_settings()
+        if s.GEMINI_API_KEY:
+            llm = ChatGoogleGenerativeAI(
+                model=s.GEMINI_MODEL, google_api_key=s.GEMINI_API_KEY, temperature=0,
+            )
+    except Exception:
+        logger.warning("[OVERTURE_CAT] Could not init category LLM", exc_info=True)
+    if loop is not None:
+        _category_llm_by_loop[loop] = llm
+    return llm
 
 
 def _alias_normalize(value: str | None) -> str:

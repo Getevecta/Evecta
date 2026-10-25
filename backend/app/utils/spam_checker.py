@@ -1,7 +1,9 @@
+import asyncio
 import json
 import logging
 import re
 import hashlib
+import weakref
 from typing import Dict, Any, Tuple, Optional
 from fastapi import HTTPException
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -13,21 +15,40 @@ logger = logging.getLogger(__name__)
 # Prefer APP_GEMINI_SPAM_CHECK_MODEL, else main APP_GEMINI_MODEL (2.0-flash is unavailable for many new API keys).
 _raw_spam = (getattr(settings, "GEMINI_SPAM_CHECK_MODEL", None) or "").strip()
 _spam_model = _raw_spam or (getattr(settings, "GEMINI_MODEL", None) or "").strip() or "gemini-2.5-flash"
-spam_check_llm = ChatGoogleGenerativeAI(
-    model=_spam_model,
-    google_api_key=settings.GEMINI_API_KEY,
-    temperature=0.1,
-    convert_system_message_to_human=True,
-    max_output_tokens=8192,
-)
-# Short JSON only (spam_score + risk_level); budget avoids truncated outputs on some models.
-spam_score_only_llm = ChatGoogleGenerativeAI(
-    model=_spam_model,
-    google_api_key=settings.GEMINI_API_KEY,
-    temperature=0.1,
-    convert_system_message_to_human=True,
-    max_output_tokens=1024,
-)
+def _build_spam_llm(max_output_tokens: int) -> ChatGoogleGenerativeAI:
+    return ChatGoogleGenerativeAI(
+        model=_spam_model,
+        google_api_key=settings.GEMINI_API_KEY,
+        temperature=0.1,
+        convert_system_message_to_human=True,
+        max_output_tokens=max_output_tokens,
+    )
+
+
+# The Gemini client binds its async gRPC channel to the event loop of its first call.
+# Celery tasks each run in a fresh event loop that is closed afterwards, so a client
+# shared across tasks fails every later call ("Spam check failed"). Keep one pair per
+# loop: the API's single loop reuses it; each Celery task gets its own.
+_spam_llms_by_loop: "weakref.WeakKeyDictionary[asyncio.AbstractEventLoop, tuple]" = weakref.WeakKeyDictionary()
+
+
+def _spam_llms() -> tuple[ChatGoogleGenerativeAI, ChatGoogleGenerativeAI]:
+    """(full spam-check client, short score-only client) for the running event loop."""
+    loop = asyncio.get_running_loop()
+    llms = _spam_llms_by_loop.get(loop)
+    if llms is None:
+        # Score-only: short JSON (spam_score + risk_level); budget avoids truncated outputs.
+        llms = (_build_spam_llm(8192), _build_spam_llm(1024))
+        _spam_llms_by_loop[loop] = llms
+    return llms
+
+
+def _spam_check_llm() -> ChatGoogleGenerativeAI:
+    return _spam_llms()[0]
+
+
+def _spam_score_only_llm() -> ChatGoogleGenerativeAI:
+    return _spam_llms()[1]
 
 _spam_check_cache: Dict[str, Dict[str, Any]] = {}
 
@@ -414,10 +435,10 @@ Make it a REAL, COMPLETE, PERFECT email that someone could send immediately with
         
         try:
             template_response = await tracked_ainvoke(
-                llm=spam_check_llm,
+                llm=_spam_check_llm(),
                 prompt=template_prompt,
                 provider="gemini",
-                model=llm_model_name(spam_check_llm, fallback=_spam_model),
+                model=llm_model_name(_spam_check_llm(), fallback=_spam_model),
                 feature="spam_rewrite",
                 user_id=user_id,
             )
@@ -471,10 +492,10 @@ Body: {body_llm}
 """
         try:
             response = await tracked_ainvoke(
-                llm=spam_score_only_llm,
+                llm=_spam_score_only_llm(),
                 prompt=prompt,
                 provider="gemini",
-                model=llm_model_name(spam_score_only_llm, fallback=_spam_model),
+                model=llm_model_name(_spam_score_only_llm(), fallback=_spam_model),
                 feature="spam_score",
                 user_id=user_id,
             )
@@ -639,10 +660,10 @@ Body: {body_llm}
 
     try:
         response = await tracked_ainvoke(
-            llm=spam_check_llm,
+            llm=_spam_check_llm(),
             prompt=prompt,
             provider="gemini",
-            model=llm_model_name(spam_check_llm, fallback=_spam_model),
+            model=llm_model_name(_spam_check_llm(), fallback=_spam_model),
             feature="spam_score",
             user_id=user_id,
         )
@@ -749,10 +770,10 @@ High scores (80-100) = High spam risk
     
     try:
         response = await tracked_ainvoke(
-            llm=spam_check_llm,
+            llm=_spam_check_llm(),
             prompt=validation_prompt,
             provider="gemini",
-            model=llm_model_name(spam_check_llm, fallback=_spam_model),
+            model=llm_model_name(_spam_check_llm(), fallback=_spam_model),
             feature="spam_score",
             user_id=user_id,
         )
@@ -835,10 +856,10 @@ Return ONLY JSON:
     
     try:
         response = await tracked_ainvoke(
-            llm=spam_check_llm,
+            llm=_spam_check_llm(),
             prompt=strict_prompt,
             provider="gemini",
-            model=llm_model_name(spam_check_llm, fallback=_spam_model),
+            model=llm_model_name(_spam_check_llm(), fallback=_spam_model),
             feature="spam_rewrite",
             user_id=user_id,
         )
