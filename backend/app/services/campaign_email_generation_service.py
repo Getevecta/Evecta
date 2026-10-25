@@ -1067,13 +1067,13 @@ async def _process_chunk_leads(
                 claimed = await _claim_email_row_for_generation(db, row.id)
                 if claimed is None:
                     return
-                campaign = await db.get(Campaign, campaign_id)
-                if campaign is None:
-                    return
-                user_profile, company_profile, user = await _load_profiles(db, user_id)
-                async with prior_lock:
-                    bodies = list(prior_bodies[-PRIOR_BODIES_MAX:])
                 try:
+                    campaign = await db.get(Campaign, campaign_id)
+                    if campaign is None:
+                        return
+                    user_profile, company_profile, user = await _load_profiles(db, user_id)
+                    async with prior_lock:
+                        bodies = list(prior_bodies[-PRIOR_BODIES_MAX:])
                     updated = await generate_lead_email_row(
                         campaign=campaign,
                         campaign_lead=cl,
@@ -1088,7 +1088,11 @@ async def _process_chunk_leads(
                     )
                 except HTTPException as exc:
                     if exc.status_code == 402:
+                        # Out of credits: generate_lead_email_row already put the row
+                        # back to PENDING for a post-top-up resume.
                         stop_chunk.set()
+                    else:
+                        await _mark_claimed_row_failed(session_factory, claimed.id, exc)
                     raise
                 except StaleDataError:
                     logger.warning(
@@ -1098,14 +1102,61 @@ async def _process_chunk_leads(
                     )
                     await db.rollback()
                     return
+                except Exception as exc:
+                    await _mark_claimed_row_failed(session_factory, claimed.id, exc)
+                    raise
                 if updated.body and updated.generation_status == GenerationStatus.READY:
                     async with prior_lock:
                         prior_bodies.append(strip_html_for_check(updated.body))
 
-    await asyncio.gather(
+    results = await asyncio.gather(
         *(_one(lead_index, cl_id, overture_id) for lead_index, cl_id, overture_id in jobs),
         return_exceptions=True,
     )
+    # return_exceptions keeps one lead's failure from cancelling the others, but it
+    # also discards the error — log every one with its traceback.
+    for (lead_index, cl_id, _overture_id), result in zip(jobs, results):
+        if isinstance(result, BaseException):
+            logger.error(
+                "[GEN] Email generation crashed for campaign=%s lead_index=%s campaign_lead=%s: %s",
+                campaign_id,
+                lead_index,
+                cl_id,
+                result,
+                exc_info=result,
+            )
+
+
+async def _mark_claimed_row_failed(
+    session_factory: Callable[..., Any],
+    row_id,
+    exc: BaseException,
+) -> None:
+    """Record a crash on a row this worker claimed.
+
+    Without this the row stays GENERATING; after STALE_GENERATING_SECONDS it is
+    re-queued and fails the same way again, forever, with no error shown. FAILED
+    rows are not auto-resumed, and "Regenerate failed" retries them. Uses a fresh
+    session because the generation session may be unusable after the error.
+    """
+    try:
+        async with session_factory() as fresh:
+            await fresh.execute(
+                update(CampaignLeadEmail)
+                .where(
+                    CampaignLeadEmail.id == row_id,
+                    CampaignLeadEmail.generation_status == GenerationStatus.GENERATING,
+                )
+                .values(
+                    generation_status=GenerationStatus.FAILED,
+                    compliance_status=ComplianceStatus.FAILED,
+                    last_error=f"generation_error: {type(exc).__name__}",
+                    updated_at=datetime.now(timezone.utc),
+                )
+            )
+            await fresh.commit()
+    except Exception:
+        logger.exception("[GEN] Could not mark crashed email row %s as failed", row_id)
 
 
 def _reset_email_row_for_generation(
