@@ -29,7 +29,11 @@ from app.models.lead import Lead
 from app.models.overture_place import OverturePlace
 from app.models.user import User
 from app.services.campaign_draft_service import strip_p_tags_from_content
-from app.services.campaign_guard import get_editable_campaign_or_404, get_owned_campaign_or_404
+from app.services.campaign_guard import (
+    get_editable_campaign_or_404,
+    get_owned_campaign_or_404,
+    is_campaign_editable,
+)
 from app.services.campaign_status_counts import (
     count_campaign_leads,
     fetch_generation_status_summary,
@@ -1045,6 +1049,12 @@ async def _process_chunk_leads(
                     return
                 row = await _fetch_email_row_for_lead(db, campaign_id, cl.lead_id)
                 if row is None:
+                    logger.warning(
+                        "[GEN] No campaign_lead_emails row for campaign=%s lead=%s — "
+                        "skipped (start generation with POST /generate or /resume)",
+                        campaign_id,
+                        cl.lead_id,
+                    )
                     return
                 if await _row_was_cancelled(row):
                     return
@@ -1321,7 +1331,7 @@ async def get_campaign_email_generation_status(
     user_id: str,
     db: AsyncSession,
 ) -> dict[str, Any]:
-    await get_owned_campaign_or_404(campaign_id, user_id, db)
+    campaign = await get_owned_campaign_or_404(campaign_id, user_id, db)
     await _requeue_stale_generating_rows(db, campaign_id)
 
     expected_total = await count_campaign_leads(db, campaign_id)
@@ -1336,8 +1346,16 @@ async def get_campaign_email_generation_status(
     )
     last_dispatch = _campaign_email_last_dispatch.get(str(campaign_id), 0.0)
     recently_dispatched = (time.monotonic() - last_dispatch) < _DISPATCH_COOLDOWN_SECONDS
+    # Same preconditions as POST /generate: auto-resuming a campaign whose draft is
+    # not saved (or that left DRAFT) only queues Celery chunks that find nothing to do.
+    draft_ready = (
+        bool(campaign.email_subject)
+        and bool(campaign.email_content)
+        and is_campaign_editable(campaign)
+    )
     if (
         summary["generation_stalled"]
+        and draft_ready
         and not _in_process_generation_running(campaign_id)
         and not _is_generation_cancelled(campaign_id)
         and not recently_dispatched
@@ -1358,14 +1376,17 @@ async def get_campaign_email_generation_status(
                 )
             )
         ).all()
-        rows_by_lead_id = {
-            str(lead_id): type("Row", (), {"generation_status": gs})()
-            for lead_id, gs in status_rows
-            if lead_id
+        pending_lead_ids = {
+            str(lead_id) for lead_id, gs in status_rows
+            if lead_id and gs == GenerationStatus.PENDING
         }
-        pending_indices = _indices_needing_generation(
-            campaign_leads, rows_by_lead_id, regenerate_all=False
-        )
+        # Only leads that already have a PENDING row: a missing row means generation
+        # never started (POST /generate or /resume create rows), and the worker skips
+        # leads without one, so dispatching for them loops forever.
+        pending_indices = [
+            idx for idx, cl in enumerate(campaign_leads)
+            if cl.lead_id and str(cl.lead_id) in pending_lead_ids
+        ]
         chunk_ranges = _chunk_ranges_for_pending(pending_indices, GENERATION_CHUNK_SIZE)
         if chunk_ranges:
             _schedule_remaining_campaign_email_generation(
@@ -1471,11 +1492,13 @@ async def resume_campaign_email_generation(
     await _requeue_stale_generating_rows(db, campaign_id)
 
     campaign_leads = await _fetch_campaign_leads(campaign_id, db)
-    result = await db.scalars(
-        select(CampaignLeadEmail).where(CampaignLeadEmail.campaign_id == campaign_id)
+    # Create rows for leads that never got one (POST /generate rejected or never
+    # reached); the worker skips leads without a row, so without this a resume can
+    # never make progress. Existing rows are left as they are.
+    rows_by_lead_id = await _upsert_campaign_email_rows(
+        campaign, campaign_leads, db, regenerate_all=False
     )
-    rows = list(result.all())
-    rows_by_lead_id = {str(r.lead_id): r for r in rows if r.lead_id}
+    rows = list(rows_by_lead_id.values())
     summary = _generation_status_summary(rows, expected_total=len(campaign_leads))
 
     if summary["is_complete"]:

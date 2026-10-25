@@ -3469,6 +3469,7 @@ export const CampaignEmailScreen = forwardRef<CampaignEmailScreenHandle, Campaig
                   undefined
                 : undefined
             }
+            draftPending={isGenerating}
             onGenerationStateChange={handleGenerationStateChange}
           />
         </div>

@@ -21,6 +21,13 @@ interface CampaignLeadEmailGenerationProps {
   toneLabel: string;
   planCapabilities: PlanCapabilitiesResponse | null;
   promptDescription?: string;
+  /**
+   * True while the parent is still writing/saving the campaign draft (AI drafting
+   * takes ~15–20 s). Generation must not start before the draft is saved — the API
+   * rejects it ("Campaign email draft is not ready") — so auto-start and auto-resume
+   * wait; the parent starts generation itself once the draft is saved.
+   */
+  draftPending?: boolean;
   onGenerationStateChange?: (state: {
     isComplete: boolean;
     ready: number;
@@ -114,6 +121,7 @@ export function CampaignLeadEmailGeneration({
   toneLabel,
   planCapabilities,
   promptDescription,
+  draftPending = false,
   onGenerationStateChange,
 }: CampaignLeadEmailGenerationProps) {
   const [selectedLeads, setSelectedLeads] = useState<CampaignLeadResponse[]>([]);
@@ -323,6 +331,13 @@ export function CampaignLeadEmailGeneration({
 
     const startKey = `${campaignId}:${leadIdsKey}`;
 
+    // The parent starts generation once its draft is saved; treat this lead set as
+    // started so the draft finishing does not trigger a second POST /generate.
+    if (draftPending) {
+      autoStartKeyRef.current = startKey;
+      return;
+    }
+
     const needsGeneration =
       hasPendingGeneration &&
       readyRowCount < totalRowCount &&
@@ -342,11 +357,14 @@ export function CampaignLeadEmailGeneration({
         const res = await apiService.generateCampaignLeadEmails(campaignId, {
           regenerateAll: false,
         });
+        // On failure keep autoStartKeyRef set: clearing it re-ran this effect on the
+        // next render and retried in a tight loop, which spent the 10/hour limit on
+        // POST /generate within seconds and hid the real error behind 429s. The
+        // stalled-resume effect below and "Regenerate all" remain the ways to retry.
         if (res.error) {
           toast.error(res.error || 'Could not start email generation for new leads.', {
             id: 'cle-gen-auto-start-error',
           });
-          autoStartKeyRef.current = '';
           return;
         }
         await refresh();
@@ -354,7 +372,6 @@ export function CampaignLeadEmailGeneration({
         toast.error('Could not start email generation for new leads.', {
           id: 'cle-gen-auto-start-error',
         });
-        autoStartKeyRef.current = '';
       } finally {
         setIsStartingGeneration(false);
       }
@@ -371,6 +388,7 @@ export function CampaignLeadEmailGeneration({
     pollingPaused,
     partialGenerationAccepted,
     generationCancelled,
+    draftPending,
     refresh,
   ]);
 
@@ -424,7 +442,7 @@ export function CampaignLeadEmailGeneration({
 
   // If leads stay queued with nothing generating, resume background batch (e.g. Celery task failed).
   useEffect(() => {
-    if (pollingPaused || partialGenerationAccepted || generationCancelled) {
+    if (pollingPaused || partialGenerationAccepted || generationCancelled || draftPending) {
       stalledPollsRef.current = 0;
       resumeRequestedRef.current = false;
       return;
@@ -459,6 +477,7 @@ export function CampaignLeadEmailGeneration({
     pollingPaused,
     partialGenerationAccepted,
     generationCancelled,
+    draftPending,
     hasPendingGeneration,
     readyRowCount,
     totalRowCount,
