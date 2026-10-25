@@ -237,3 +237,39 @@ def test_mark_claimed_row_failed_never_raises(caplog):
     with caplog.at_level(logging.ERROR, logger=svc.logger.name):
         asyncio.run(svc._mark_claimed_row_failed(broken_factory, uuid.uuid4(), RuntimeError("x")))
     assert any("Could not mark crashed email row" in r.getMessage() for r in caplog.records)
+
+
+# ── Missing imports that crashed in production (NameError) ────────────────────
+
+def test_generate_lead_email_row_runs_the_tone_check():
+    """Every generation crashed at the plan/tone check with
+    NameError: name 'is_tone_unlocked_for_plan' is not defined."""
+    campaign = _campaign(tone="friendly", ai_email_prompt="Invite them to a demo", description=None)
+    lead = SimpleNamespace(id=uuid.uuid4())
+    campaign_lead = SimpleNamespace(lead=lead, lead_id=lead.id)
+    row = SimpleNamespace(regeneration_count=0, generation_status=GenerationStatus.GENERATING,
+                          lead_index=0, updated_at=None, last_error=None)
+    passed = {"passed": True, "spam_score": 5, "risk_level": "Low", "violations": []}
+    with patch.object(svc, "_safe_reload_email_row", AsyncMock(return_value=row)), \
+            patch.object(svc, "_safe_commit_email_row", AsyncMock(return_value=row)), \
+            patch.object(svc, "_campaign_uses_ai_per_lead_generation", MagicMock(return_value=False)), \
+            patch.object(svc, "replace_placeholders", MagicMock(side_effect=lambda text, _lead: text)), \
+            patch.object(svc, "evaluate_email_compliance", AsyncMock(return_value=passed)):
+        result = asyncio.run(svc.generate_lead_email_row(
+            campaign=campaign, campaign_lead=campaign_lead, lead_index=0, row=row,
+            user=SimpleNamespace(plan="basic"), user_profile=None, company_profile=None,
+            prior_bodies=[], db=MagicMock(), total_leads=1,
+        ))
+    assert result.generation_status == GenerationStatus.READY
+    assert result.subject == "Hello"
+
+
+def test_send_and_lead_lookup_helpers_are_imported():
+    """Same class of bug: process_email_job (every campaign send) and
+    POST /leads/bulk-get raised NameError on these names."""
+    from app.services import lead_service
+    from app.tasks import mail_job
+
+    assert callable(mail_job.duplicate_send_skip_reason)
+    assert callable(lead_service.lead_to_response)
+    assert callable(svc.is_tone_unlocked_for_plan) and callable(svc.default_tone_for_plan)

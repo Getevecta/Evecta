@@ -11,7 +11,7 @@ from app.models.lead_log_lead import LeadLogLead
 from app.models.email_activity import EmailActivity
 from app.models.campaign_lead import CampaignLead
 from app.models.campaign import Campaign, CampaignStatus
-from app.schemas.lead import LeadCreate, LeadUpdate
+from app.schemas.lead import LeadCreate, LeadUpdate, lead_to_response
 from app.schemas.response import BaseResponse
 from app.utils.lead_dedup import (
     normalize_business_name,

@@ -14,6 +14,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 from sqlalchemy.orm.exc import ObjectDeletedError, StaleDataError
 
+from app.core.email_tones import default_tone_for_plan, is_tone_unlocked_for_plan
 from app.core.pagination import normalize_pagination
 from app.core.personalization import normalize_tone
 from app.email_engine.repetition import is_too_similar, most_similar

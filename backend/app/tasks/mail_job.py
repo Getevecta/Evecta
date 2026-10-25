@@ -25,6 +25,7 @@ from app.utils.email_personalization import (
     format_plain_text_as_html,
     replace_placeholders,
 )
+from app.services.email_send_idempotency import duplicate_send_skip_reason
 from app.services.google_gmail_token_service import refresh_google_token
 from app.services.mailbox_selector_service import (
     classify_mailbox_unavailability,
